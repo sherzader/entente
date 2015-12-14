@@ -12,6 +12,9 @@
 ## EventsIndex / EventIndexItem / EventForm
 ![events]
 
+## CommentsIndex / CommentIndexItem / CommentForm
+![comments]
+
 ## GroupForm
 ![group-form]
 
@@ -25,6 +28,7 @@
 [new-session]: ./wireframes/new_session.png
 [groups]: ./wireframes/root_groups.png
 [events]: ./wireframes/root_events.png
+[comments]: ./wireframes/root_comments.png
 [group-form]: ./wireframes/group_form.png
 [event-form]: ./wireframes/event_form.png
 [component-hierarchy]: ./wireframes/component_hierarchy.png

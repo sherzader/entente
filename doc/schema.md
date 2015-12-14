@@ -6,6 +6,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 title       | string    | not null
 body        | text      | not null
+location    | text      | not null
 organizer_id| integer   | not null, foreign key (references organizers), indexed
 event_id    | integer   | not null, foreign key (references events), indexed
 user_id   | integer   | null, foreign key (references users),
@@ -17,6 +18,8 @@ column name | data type | details
 id          | integer   | not null, primary key
 organizer_id| integer   | not null, foreign key (references organizers), indexed
 title       | string    | not null
+location    | text      | not null
+time        | datetime  | not null
 description | string    |
 user_id   | integer   | null, foreign key (references users),
 indexed
