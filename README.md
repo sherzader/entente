@@ -20,7 +20,7 @@ and React.js. Hangout allows users to:
 - [ ] Receive notifications on upcoming events
 
 ## Design Docs
-* [View Wireframes][./docs/views.md]
+* [View Wireframes][view]
 * [DB schema][schema]
 
 [view]: ./docs/views.md
