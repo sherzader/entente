@@ -6,19 +6,18 @@
 
 ## Minimum Viable Product
 
-FresherNote is a web application inspired by Evernote built using Ruby on Rails
-and React.js. FresherNote allows users to:
+Hangout is a web application inspired by Meetup built using Ruby on Rails
+and React.js. Hangout allows users to:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
 - [ ] Create an account
 - [ ] Log in / Log out
-- [ ] Create, read, edit, and delete notes
-- [ ] Organize notes within Notebooks
-- [ ] Tag notes with multiple tags and search notes by tag
-- [ ] Search through notes for blocks of text
-- [ ] Apply complex styling to notes while editing
-- [ ] Set reminders on notes
+- [ ] Create, read, edit, and delete groups
+- [ ] Join groups
+- [ ] Organize events within Groups
+- [ ] Tag groups with multiple tags and search groups by tag
+- [ ] Receive notifications on upcoming events
 
 ## Design Docs
 * [View Wireframes][view]
