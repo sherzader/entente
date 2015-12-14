@@ -8,8 +8,9 @@ title       | string    | not null
 body        | text      | not null
 location    | text      | not null
 organizer_id| integer   | not null, foreign key (references organizers), indexed
-event_id    | integer   | not null, foreign key (references events), indexed
-user_id   | integer   | null, foreign key (references users),
+event_id    | integer   | null, foreign key (references events),
+indexed
+user_id     | integer   | null, foreign key (references users),
 indexed
 
 ## events
