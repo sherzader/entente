@@ -9,13 +9,13 @@
 ## GroupsIndex
 ![groups]
 
-## GroupsIndexItem
+## GroupIndexItem
 ![group-item]
 
 ## GroupForm
 ![group-form]
 
-## EventsIndex / EventIndexItem / EventForm
+## EventsIndex / EventIndexItem / EventForm / CommentsIndex
 ![events]
 <!--
 ## CommentsIndex / CommentIndexItem / CommentForm
