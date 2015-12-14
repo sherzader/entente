@@ -1,4 +1,4 @@
-# Phase 5: Prettify Views and Route Paths (3 days)
+# Phase 5: In-depth styling & Clarify Route Paths (2 days)
 
 ## Rails
 * Root to: "/login"
@@ -18,3 +18,4 @@
 ### ApiUtil
 
 ## Gems/Libraries
+* Google fonts

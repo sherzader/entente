@@ -33,4 +33,3 @@
 * ApiUtil.destroyComment
 
 ## Gems/Libraries
-* react-quill (npm)
