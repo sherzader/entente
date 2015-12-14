@@ -69,6 +69,7 @@ and React.js. Hangout allows users to:
 
 ### Phase 6: Notifications and Seeding (1 day)
 * Notify user on upcoming events.
+* Notify user after joining group/event.
 
 ### Bonus Features (TBD)
 - [ ] WebGL/Three.js for signup/login pages
