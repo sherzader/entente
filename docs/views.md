@@ -31,5 +31,5 @@
 [component-hierarchy]: ./wireframes/component_hierarchy.png
 [groups]: ./wireframes/homepage.png
 [events]: ./wireframes/root_event.png
-[group-item]: ./wireframes/groups_item.png
+[group-item]: ./wireframes/group_item.png
 [group-form]: ./wireframes/group_form.png
