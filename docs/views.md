@@ -1,31 +1,35 @@
 # View Wireframes
 
-## New User
+<!-- ## New User
 ![new-user]
 
 ## New Session
-![new-session]
+![new-session] -->
 
-## GroupsIndex / GroupIndexItem / GroupForm
+## GroupsIndex
 ![groups]
 
-## EventsIndex / EventIndexItem / EventForm
-![events]
-
-## CommentsIndex / CommentIndexItem / CommentForm
-![comments]
+## GroupsIndexItem
+![group-item]
 
 ## GroupForm
 ![group-form]
 
+## EventsIndex / EventIndexItem / EventForm
+![events]
+<!--
+## CommentsIndex / CommentIndexItem / CommentForm
+![comments] -->
+
+<!--
 ## EventForm
-![event-form]
+![event-form] -->
 
 ## Component Hierarchy
 ![component-hierarchy]
 
 [component-hierarchy]: ./wireframes/component_hierarchy.png
-[homepage]: ./wireframes/homepage.png
+[groups]: ./wireframes/homepage.png
 [events]: ./wireframes/root_event.png
-[groups]: ./wireframes/groups_item.png
+[group-item]: ./wireframes/groups_item.png
 [group-form]: ./wireframes/group_form.png
