@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :email, :name, :session_token, uniqueness: true
 
-  belongs_to :group, :event
+  # belongs_to :group, :event
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
