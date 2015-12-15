@@ -1,0 +1,33 @@
+<div class="jumbotron">
+<h1>New User</h1>
+<br>
+<form action="<%= users_url %>" method="post">
+  <%= auth_token %>
+  <div class="form-group">
+    <label for="user_name">Name</label>
+    <br>
+    <input
+      type="text"
+      name="user[name]"
+      value="<%= @user.name %>"
+      id="user_name">
+  </div>
+  <div class="form-group">
+    <label for="user_email">Email</label>
+    <br>
+    <input
+      type="text"
+      name="user[email]"
+      value="<%= @user.email %>"
+      id="user_email">
+  </div>
+  <div class="form-group">
+    <label for="user_password">Password</label>
+    <br>
+    <input type="password" name="user[password]" id="user_password">
+  </div>
+    <input type="submit" class="btn btn-success btn-lg" value="Sign Up">
+</form>
+<br>
+<%= link_to "Already have an account?  Log In!", login_url%>
+</div>
