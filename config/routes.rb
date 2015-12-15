@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     resources :groups
   end
 
-  resources :users
-  resource :session
+  resources :users, only: [:create, :new]
+  resource :session, only: [:create, :new, :destroy]
+
+  # get 'signup' => 'users#new'
+  # get 'login' => 'sessions#new'
+  # post'login' => 'sessions#create'
 end
