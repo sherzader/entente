@@ -8,10 +8,8 @@ title       | string    | not null
 body        | text      | not null
 location    | text      | not null
 organizer_id| integer   | not null, foreign key (references organizers), indexed
-event_id    | integer   | null, foreign key (references events),
-indexed
-user_id     | integer   | null, foreign key (references users),
-indexed
+event_id    | integer   | null, foreign key (references events), indexed
+user_id     | integer   | null, foreign key (references users), indexed
 
 ## events
 column name | data type | details
@@ -22,8 +20,8 @@ title       | string    | not null
 location    | text      | not null
 time        | datetime  | not null
 description | string    |
-user_id   | integer   | null, foreign key (references users),
-indexed
+group_id    | integer   | not null, foreign key (references groups), indexed
+user_id     | integer   | null, foreign key (references users), indexed
 
 ## tags
 column name | data type | details
@@ -51,7 +49,8 @@ type        | string    | not null
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
-name            | string    | not null, indexed, unique
+name            | string    | not null
+email           | string    | not null, indexed, unique
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
 group_id        | integer   | not null, foreign key (references groups), indexed
