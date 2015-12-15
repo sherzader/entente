@@ -1,6 +1,7 @@
 var React = require('react');
 var GroupStore = require('../stores/group');
 var ApiUtil = require('../util/apiUtil');
+var Search = require('./search.jsx');
 
 var IndexGroup = React.createClass({
   getInitialState: function () {
@@ -26,7 +27,7 @@ var IndexGroup = React.createClass({
             );
           });
     return(
-      <div className="index-group">{groups}"Hi"</div>
+      <div className="index-group"><Search /></div>
     );
   }
 });

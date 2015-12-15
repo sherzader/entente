@@ -5,6 +5,7 @@ var Router = require('react-router').Router;
 var Route = require('react-router').Route;
 var IndexRoute = require('react-router').IndexRoute;
 var IndexGroup = require('./components/indexGroup.jsx');
+var Search = require('./components/search.jsx');
 
 var App = React.createClass({
   render: function () {
@@ -21,6 +22,7 @@ var routes = (
   <Router>
     <Route path="/" component={App}>
       <IndexRoute component={IndexGroup}></IndexRoute>
+      <Search />
     </Route>
   </Router>
 );

@@ -51,6 +51,7 @@
 	var Route = __webpack_require__(159).Route;
 	var IndexRoute = __webpack_require__(159).IndexRoute;
 	var IndexGroup = __webpack_require__(206);
+	var Search = __webpack_require__(232);
 
 	var App = React.createClass({
 	  displayName: 'App',
@@ -79,7 +80,8 @@
 	  React.createElement(
 	    Route,
 	    { path: '/', component: App },
-	    React.createElement(IndexRoute, { component: IndexGroup })
+	    React.createElement(IndexRoute, { component: IndexGroup }),
+	    React.createElement(Search, null)
 	  )
 	);
 
@@ -24008,6 +24010,7 @@
 	var React = __webpack_require__(1);
 	var GroupStore = __webpack_require__(207);
 	var ApiUtil = __webpack_require__(230);
+	var Search = __webpack_require__(232);
 
 	var IndexGroup = React.createClass({
 	  displayName: 'IndexGroup',
@@ -24045,8 +24048,7 @@
 	    return React.createElement(
 	      'div',
 	      { className: 'index-group' },
-	      groups,
-	      '"Hi"'
+	      React.createElement(Search, null)
 	    );
 	  }
 	});
@@ -30850,6 +30852,77 @@
 	};
 
 	module.exports = ApiUtil;
+
+/***/ },
+/* 231 */,
+/* 232 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	var GroupStore = __webpack_require__(207);
+
+	var Search = React.createClass({
+	  displayName: 'Search',
+
+	  getInitialState: function () {
+	    return { searchString: "" };
+	  },
+
+	  handleChange: function (event) {
+	    this.setState({ searchString: event.currentTarget.value });
+	  },
+
+	  handleClick: function (event) {
+	    this.setState({ searchString: event.currentTarget.innerText });
+	  },
+
+	  filteredGroups: function () {
+	    var regex = new RegExp(this.state.searchString);
+	    return GroupStore.all().filter(function (group) {
+	      return group.title.search(regex) > -1;
+	    });
+	  },
+
+	  render: function () {
+	    var that = this;
+	    return React.createElement(
+	      'div',
+	      { className: 'search' },
+	      React.createElement(
+	        'form',
+	        { className: 'navbar-form navbar-left', role: 'search' },
+	        React.createElement(
+	          'div',
+	          { className: 'form-group' },
+	          React.createElement('input', { type: 'text',
+	            className: 'form-control',
+	            placeholder: 'Search',
+	            onChange: this.handleChange,
+	            value: this.state.searchString })
+	        ),
+	        React.createElement(
+	          'button',
+	          { type: 'submit', 'class': 'btn btn-default' },
+	          'Submit'
+	        )
+	      ),
+	      React.createElement(
+	        'ul',
+	        null,
+	        this.filteredGroups().map(function (group) {
+	          return React.createElement(
+	            'li',
+	            { key: group.id,
+	              onClick: that.handleClick },
+	            group.title
+	          );
+	        })
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Search;
 
 /***/ }
 /******/ ]);
