@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'static/pages'
+
   root to: "api/groups#index"
 
   namespace :api, defaults: { format: :json } do

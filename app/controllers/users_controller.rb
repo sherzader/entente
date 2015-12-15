@@ -18,10 +18,6 @@ before_filter :require_login!, only: [:index, :show, :edit, :update]
     @user = User.new
   end
 
-  def index
-    @users = User.all
-  end
-
   def edit
     @user = User.find(params[:id])
   end
