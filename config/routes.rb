@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'static/pages'
-
-  root to: "api/groups#index"
+  root to: "static_pages#root"
 
   namespace :api, defaults: { format: :json } do
     resources :groups, except: [:new, :edit]
