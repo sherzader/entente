@@ -4,7 +4,6 @@ var ReactDOM = require('react-dom');
 var Router = require('react-router').Router;
 var Route = require('react-router').Route;
 var IndexRoute = require('react-router').IndexRoute;
-var Group = require('./component/group.jsx');
 
 var App = React.createClass({
   render: function () {
@@ -17,17 +16,21 @@ var App = React.createClass({
   }
 });
 
+// <IndexRoute component={Group}></IndexRoute>
+// <Route path="groups" component={BenchForm} />
+
 var routes = (
   <Router>
     <Route path="/" component={App}>
-      <IndexRoute component={Group}></IndexRoute>
-      // <Route path="groups" component={BenchForm} />
-      // <Route path="benches/:benchId" component={Show} />
     </Route>
   </Router>
 );
 
+// <Router>{routes}</Router>
+
 document.addEventListener("DOMContentLoaded", function () {
   var root = document.getElementById('root');
-  ReactDOM.render(<Router>{routes}</Router>, root);
+  if (root){
+    ReactDOM.render(<App />, root);
+  }
 });

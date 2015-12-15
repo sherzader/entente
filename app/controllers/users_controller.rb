@@ -7,6 +7,7 @@ before_filter :require_login!, only: [:index, :show, :edit, :update]
     if @user.save
       log_in!(@user)
       flash[:notice] = "Log in successful."
+      redirect_to :root
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new
