@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  # root to: "api/groups#index"
-  #
-  # namespace :api do
-  #   resources :groups
-  # end
+  root to: "api/groups#index"
+
+  namespace :api, defaults: { format: :json } do
+    resources :groups, except: [:new, :edit]
+  end
 
   resources :users, only: [:create]
   resource :session, only: [:destroy]
