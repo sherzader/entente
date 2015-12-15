@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   validates :email, :session_token, :password_digest,
       :name, presence: true
+  validates :email, format: { with: /@/ }
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :email, :name, :session_token, uniqueness: true
 
