@@ -1,6 +1,6 @@
-# Hangout
+# Entente
 
-[Heroku link][heroku] 
+[Heroku link][heroku]
 
 [heroku]: entente.herokuapp.com
 
