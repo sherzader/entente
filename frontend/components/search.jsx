@@ -33,10 +33,9 @@ var Search = React.createClass({
   },
   render: function(){
     return(
-      <div className="navbar">
-        <nav className="nav navbar-default">
-          <h1>Entente</h1>
+      <div className="search">
           <form className="navbar-form navbar-right search" role="search">
+            <a href="#groups/new" className="glyphicon glyphicon-plus" />
             <div className="form-group">
               <input type="text"
                      className="form-control"
@@ -46,7 +45,6 @@ var Search = React.createClass({
                    </input>
             </div>
           </form>
-        </nav>
         <div className="filter-groups">{
             <GroupIndex groups={this.filteredGroups()} />
           }

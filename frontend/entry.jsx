@@ -6,11 +6,15 @@ var Route = require('react-router').Route;
 var IndexRoute = require('react-router').IndexRoute;
 var Search = require('./components/search.jsx');
 var GroupIndex = require('./components/groupIndex.jsx');
+var GroupForm = require('./components/groupForm.jsx');
 
 var App = React.createClass({
   render: function () {
     return(
-      <div>
+      <div className="navbar" role="navigation">
+        <nav className="nav navbar-default">
+            <h1>Entente</h1>
+        </nav>
         {this.props.children}
       </div>
     );
@@ -20,6 +24,7 @@ var App = React.createClass({
 var routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Search}></IndexRoute>
+    <Route path="groups/new" component={GroupForm} />
   </Route>
 );
 

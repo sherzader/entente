@@ -16,17 +16,17 @@ var ApiUtil = {
         ApiActions.receiveSingle(group);
       }
     });
-  // },
-  // createBench: function (bench, callback) {
-  //   $.ajax({
-  //     url: "api/benches",
-  //     method: "POST",
-  //     data: {bench: bench},
-  //     success: function (b) {
-  //       ApiActions.receiveSingle(b);
-  //       callback();
-  //     }
-  //   });
+  },
+  createGroup: function (group, callback) {
+    $.ajax({
+      url: "api/groups",
+      method: "POST",
+      data: {group: group},
+      success: function (g) {
+        ApiActions.receiveSingle(g);
+        callback();
+      }
+    });
   }
 };
 
