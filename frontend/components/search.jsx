@@ -35,7 +35,6 @@ var Search = React.createClass({
     return(
       <div className="search">
           <form className="navbar-form navbar-right search" role="search">
-            <a href="#groups/new" className="glyphicon glyphicon-plus" />
             <div className="form-group">
               <input type="text"
                      className="form-control"

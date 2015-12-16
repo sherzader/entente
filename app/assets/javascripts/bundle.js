@@ -72,7 +72,8 @@
 	            null,
 	            'Entente'
 	          )
-	        )
+	        ),
+	        React.createElement('a', { href: '#groups/new', className: 'glyphicon glyphicon-plus' })
 	      ),
 	      this.props.children
 	    );
@@ -30849,7 +30850,6 @@
 	      React.createElement(
 	        'form',
 	        { className: 'navbar-form navbar-right search', role: 'search' },
-	        React.createElement('a', { href: '#groups/new', className: 'glyphicon glyphicon-plus' }),
 	        React.createElement(
 	          'div',
 	          { className: 'form-group' },

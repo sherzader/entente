@@ -14,6 +14,7 @@ var App = React.createClass({
       <div className="navbar" role="navigation">
         <nav className="nav navbar-default">
             <a href="/#"><h1>Entente</h1></a>
+            <a href="#groups/new" className="glyphicon glyphicon-plus" />
         </nav>
         {this.props.children}
       </div>
