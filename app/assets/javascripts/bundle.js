@@ -50,8 +50,7 @@
 	var Router = __webpack_require__(159).Router;
 	var Route = __webpack_require__(159).Route;
 	var IndexRoute = __webpack_require__(159).IndexRoute;
-	var IndexGroup = __webpack_require__(206);
-	var Search = __webpack_require__(232);
+	var Search = __webpack_require__(231);
 
 	var App = React.createClass({
 	  displayName: 'App',
@@ -60,29 +59,16 @@
 	    return React.createElement(
 	      'div',
 	      null,
-	      React.createElement(
-	        'header',
-	        null,
-	        React.createElement(
-	          'h1',
-	          null,
-	          'Meetup'
-	        )
-	      ),
 	      this.props.children
 	    );
 	  }
 	});
 
 	var routes = React.createElement(
-	  Router,
-	  null,
-	  React.createElement(
-	    Route,
-	    { path: '/', component: App },
-	    React.createElement(IndexRoute, { component: IndexGroup }),
-	    React.createElement(Search, null)
-	  )
+	  Route,
+	  { path: '/', component: App },
+	  React.createElement(IndexRoute, { component: Search }),
+	  React.createElement(Search, null)
 	);
 
 	document.addEventListener("DOMContentLoaded", function () {
@@ -24004,65 +23990,14 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 206 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-	var GroupStore = __webpack_require__(207);
-	var ApiUtil = __webpack_require__(230);
-	var Search = __webpack_require__(232);
-
-	var IndexGroup = React.createClass({
-	  displayName: 'IndexGroup',
-
-	  getInitialState: function () {
-	    return { groups: GroupStore.all() };
-	  },
-	  _onChange: function () {
-	    this.setState({ groups: GroupStore.all() });
-	  },
-	  componentDidMount: function () {
-	    this.groupListener = GroupStore.addListener(this._onChange);
-	    ApiUtil.fetchGroups();
-	  },
-	  componentWillUnmount: function () {
-	    this.groupListener.remove();
-	  },
-	  render: function () {
-	    var groups = this.state.groups.map(function (group) {
-	      return React.createElement(
-	        'div',
-	        { className: 'group', key: group.id + 1 },
-	        React.createElement('br', null),
-	        React.createElement('br', null),
-	        React.createElement(
-	          'li',
-	          { key: group.id },
-	          group.title
-	        ),
-	        group.location,
-	        React.createElement('br', null),
-	        group.body
-	      );
-	    });
-	    return React.createElement(
-	      'div',
-	      { className: 'index-group' },
-	      React.createElement(Search, null)
-	    );
-	  }
-	});
-
-	module.exports = IndexGroup;
-
-/***/ },
+/* 206 */,
 /* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Store = __webpack_require__(208).Store;
 	var AppDispatcher = __webpack_require__(225);
 	var GroupStore = new Store(AppDispatcher);
-	var GroupConstants = __webpack_require__(229);
+	var GroupConstants = __webpack_require__(228);
 
 	var _groups = {};
 
@@ -30784,30 +30719,6 @@
 
 /***/ },
 /* 228 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var AppDispatcher = __webpack_require__(225);
-	var GroupConstants = __webpack_require__(229);
-
-	var ApiActions = {
-	  receiveAll: function (groups) {
-	    AppDispatcher.dispatch({
-	      actionType: GroupConstants.GROUPS_RECEIVED,
-	      groups: groups
-	    });
-	  },
-	  receiveSingle: function (group) {
-	    AppDispatcher.dispatch({
-	      actionType: GroupConstants.GROUP_RECEIVED,
-	      group: group
-	    });
-	  }
-	};
-
-	module.exports = ApiActions;
-
-/***/ },
-/* 229 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -30816,10 +30727,10 @@
 	};
 
 /***/ },
-/* 230 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ApiActions = __webpack_require__(228);
+	var ApiActions = __webpack_require__(230);
 
 	var ApiUtil = {
 	  fetchGroups: function () {
@@ -30854,12 +30765,37 @@
 	module.exports = ApiUtil;
 
 /***/ },
-/* 231 */,
-/* 232 */
+/* 230 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var AppDispatcher = __webpack_require__(225);
+	var GroupConstants = __webpack_require__(228);
+
+	var ApiActions = {
+	  receiveAll: function (groups) {
+	    AppDispatcher.dispatch({
+	      actionType: GroupConstants.GROUPS_RECEIVED,
+	      groups: groups
+	    });
+	  },
+	  receiveSingle: function (group) {
+	    AppDispatcher.dispatch({
+	      actionType: GroupConstants.GROUP_RECEIVED,
+	      group: group
+	    });
+	  }
+	};
+
+	module.exports = ApiActions;
+
+/***/ },
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var GroupStore = __webpack_require__(207);
+	var ApiUtil = __webpack_require__(229);
+	var GroupItem = __webpack_require__(232);
 
 	var Search = React.createClass({
 	  displayName: 'Search',
@@ -30867,55 +30803,53 @@
 	  getInitialState: function () {
 	    return { searchString: "" };
 	  },
-
-	  handleChange: function (event) {
+	  _onChange: function (event) {
 	    this.setState({ searchString: event.currentTarget.value });
 	  },
-
-	  handleClick: function (event) {
-	    this.setState({ searchString: event.currentTarget.innerText });
+	  componentDidMount: function () {
+	    this.groupListener = GroupStore.addListener(this._onChange);
+	    ApiUtil.fetchGroups();
 	  },
-
+	  componentWillUnmount: function () {
+	    this.groupListener.remove();
+	  },
 	  filteredGroups: function () {
 	    var regex = new RegExp(this.state.searchString);
 	    return GroupStore.all().filter(function (group) {
 	      return group.title.search(regex) > -1;
 	    });
 	  },
-
 	  render: function () {
-	    var that = this;
 	    return React.createElement(
 	      'div',
-	      { className: 'search' },
+	      { className: 'navbar' },
 	      React.createElement(
-	        'form',
-	        { className: 'navbar-form navbar-left', role: 'search' },
+	        'nav',
+	        { className: 'nav navbar-default' },
 	        React.createElement(
-	          'div',
-	          { className: 'form-group' },
-	          React.createElement('input', { type: 'text',
-	            className: 'form-control',
-	            placeholder: 'Search',
-	            onChange: this.handleChange,
-	            value: this.state.searchString })
+	          'h1',
+	          null,
+	          'Entente'
 	        ),
 	        React.createElement(
-	          'button',
-	          { type: 'submit', 'class': 'btn btn-default' },
-	          'Submit'
+	          'form',
+	          { className: 'navbar-form navbar-right', role: 'search' },
+	          React.createElement(
+	            'div',
+	            { className: 'form-group' },
+	            React.createElement('input', { type: 'text',
+	              className: 'form-control',
+	              placeholder: 'Search',
+	              onChange: this._onChange,
+	              value: this.state.searchString })
+	          )
 	        )
 	      ),
 	      React.createElement(
-	        'ul',
-	        null,
+	        'div',
+	        { className: 'filter-groups' },
 	        this.filteredGroups().map(function (group) {
-	          return React.createElement(
-	            'li',
-	            { key: group.id,
-	              onClick: that.handleClick },
-	            group.title
-	          );
+	          return React.createElement(GroupItem, { group: group });
 	        })
 	      )
 	    );
@@ -30923,6 +30857,42 @@
 	});
 
 	module.exports = Search;
+
+/***/ },
+/* 232 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	var GroupStore = __webpack_require__(207);
+	var ApiUtil = __webpack_require__(229);
+	var Search = __webpack_require__(231);
+
+	var GroupItem = React.createClass({
+	  displayName: 'GroupItem',
+
+	  getInitialState: function () {
+	    return { groups: GroupStore.all() };
+	  },
+	  handleClick: function (event) {
+	    this.setState({ searchString: event.currentTarget.innerText });
+	  },
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      { className: 'group-item',
+	        key: this.props.group.id,
+	        onClick: this.handleClick },
+	      React.createElement('br', null),
+	      React.createElement('br', null),
+	      this.props.group.title,
+	      this.props.group.location,
+	      React.createElement('br', null),
+	      this.props.group.body
+	    );
+	  }
+	});
+
+	module.exports = GroupItem;
 
 /***/ }
 /******/ ]);

@@ -1,48 +1,50 @@
 var React = require('react');
 var GroupStore = require('../stores/group');
+var ApiUtil = require('../util/apiUtil');
+var GroupItem = require('./groupItem.jsx');
 
 var Search = React.createClass({
   getInitialState: function(){
     return { searchString: "" };
   },
-
-  handleChange: function(event){
+  _onChange: function(event){
     this.setState({searchString: event.currentTarget.value});
   },
-
-  handleClick: function(event){
-    this.setState({searchString: event.currentTarget.innerText});
+  componentDidMount: function () {
+    this.groupListener = GroupStore.addListener(this._onChange);
+    ApiUtil.fetchGroups();
   },
-
+  componentWillUnmount: function () {
+    this.groupListener.remove();
+  },
   filteredGroups: function(){
     var regex = new RegExp(this.state.searchString);
     return GroupStore.all().filter(function(group){
       return (group.title.search(regex) > -1);
     });
   },
-
   render: function(){
-    var that = this;
     return(
-      <div className="search">
-        <form className="navbar-form navbar-left" role="search">
-          <div className="form-group">
-            <input type="text"
-                   className="form-control"
-                   placeholder="Search"
-                   onChange={this.handleChange}
-                   value={this.state.searchString}>
-                 </input>
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-        <ul>{
+      <div className="navbar">
+        <nav className="nav navbar-default">
+          <h1>Entente</h1>
+          <form className="navbar-form navbar-right" role="search">
+            <div className="form-group">
+              <input type="text"
+                     className="form-control"
+                     placeholder="Search"
+                     onChange={this._onChange}
+                     value={this.state.searchString}>
+                   </input>
+            </div>
+          </form>
+        </nav>
+        <div className="filter-groups">{
             this.filteredGroups().map(function(group){
-              return <li key={group.id}
-                         onClick={that.handleClick}>{group.title}</li>;
+              return (<GroupItem group={group} />);
             })
           }
-        </ul>
+        </div>
       </div>
     );
   }
