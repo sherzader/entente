@@ -65,9 +65,13 @@
 	        'nav',
 	        { className: 'nav navbar-default' },
 	        React.createElement(
-	          'h1',
-	          null,
-	          'Entente'
+	          'a',
+	          { href: '/#' },
+	          React.createElement(
+	            'h1',
+	            null,
+	            'Entente'
+	          )
 	        )
 	      ),
 	      this.props.children

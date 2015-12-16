@@ -13,7 +13,7 @@ var App = React.createClass({
     return(
       <div className="navbar" role="navigation">
         <nav className="nav navbar-default">
-            <h1>Entente</h1>
+            <a href="/#"><h1>Entente</h1></a>
         </nav>
         {this.props.children}
       </div>
