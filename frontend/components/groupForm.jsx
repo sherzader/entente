@@ -9,6 +9,7 @@ var GroupForm = React.createClass({
     title: '',
     location: '',
     body: '',
+    organizer_id: ''
   },
 
   getInitialState: function () {
@@ -16,6 +17,7 @@ var GroupForm = React.createClass({
   },
 
   componentDidMount: function () {
+    this.setState({ organizer_id: 2 });
   },
 
   handleChange: function (e) {
@@ -33,39 +35,56 @@ var GroupForm = React.createClass({
   },
 
   render: function () {
-    var options = [];
-    for (var i = 1; i <= 10; i++){
-      options.push(<option key={i} value={i}>{i}</option>);
-    }
     return(
-      <form className='new-group' onSubmit={this.createGroup}>
-        <div>
-          <label htmlFor='group_title'>Name:</label>
-          <input
-            type='text'
-            id='group_title'
-            valueLink={this.linkState("title")}
-          />
-        </div>
-        <div>
-          <label htmlFor='group_body'>About Group:</label>
-          <input
-            type='text'
-            id='group_body'
-            valueLink={this.linkState("body")}
-          />
-        </div>
-
-        <div>
-          <label htmlFor='group_location'>Location: </label>
-          <select name='group_seating' onChange={this.handleChange}>
-            {options}
-          </select>
-        </div>
-
-        <button>Create Group</button>
-        <br />
-      </form>
+        <form className='new-group' onSubmit={this.createGroup}>
+          <table>
+            <tr>
+              <td>
+              <label htmlFor='group_title'>Name:</label>
+              </td>
+              <td></td>
+              <td>
+              <input
+                type='text'
+                id='group_title'
+                valueLink={this.linkState("title")} />
+              </td>
+            </tr>
+            <tr>
+              <td>
+              <label htmlFor='group_body'>About Group:</label>
+              </td>
+              <td></td>
+              <td>
+              <input
+                type='text'
+                id='group_body'
+                valueLink={this.linkState("body")}
+              />
+            </td>
+            </tr>
+            <tr>
+              <td>
+              <label htmlFor='group_location'>Location: </label>
+              </td>
+              <td></td>
+              <td>
+                <input
+                  type='text'
+                  id='group_location'
+                  valueLink={this.linkState("location")}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <button className="btn btn-primary">Create Group</button>
+              </td>
+            </tr>
+          </table>
+          <br />
+        </form>
     );
   }
 });

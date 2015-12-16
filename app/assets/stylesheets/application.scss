@@ -21,7 +21,8 @@ h1 {
 }
 
 .search {
-  margin-right: 10px;
+  margin-right: 100px;
+  margin-top: 0px;
 }
 
 .group-item {
@@ -46,4 +47,9 @@ a {
 
 a:hover {
   text-decoration: none;
+}
+
+.new-group {
+  margin-left: 20%;
+  margin: 0 auto;
 }

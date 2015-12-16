@@ -7,6 +7,7 @@ var IndexRoute = require('react-router').IndexRoute;
 var Search = require('./components/search.jsx');
 var GroupIndex = require('./components/groupIndex.jsx');
 var GroupForm = require('./components/groupForm.jsx');
+var ShowGroup = require('./components/showGroup.jsx');
 
 var App = React.createClass({
   render: function () {
@@ -26,6 +27,7 @@ var routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Search}></IndexRoute>
     <Route path="groups/new" component={GroupForm} />
+    <Route path="groups/:id" component={ShowGroup} />
   </Route>
 );
 

@@ -53,6 +53,7 @@
 	var Search = __webpack_require__(231);
 	var GroupIndex = __webpack_require__(233);
 	var GroupForm = __webpack_require__(234);
+	var ShowGroup = __webpack_require__(289);
 
 	var App = React.createClass({
 	  displayName: 'App',
@@ -84,7 +85,8 @@
 	  Route,
 	  { path: '/', component: App },
 	  React.createElement(IndexRoute, { component: Search }),
-	  React.createElement(Route, { path: 'groups/new', component: GroupForm })
+	  React.createElement(Route, { path: 'groups/new', component: GroupForm }),
+	  React.createElement(Route, { path: 'groups/:id', component: ShowGroup })
 	);
 
 	document.addEventListener("DOMContentLoaded", function () {
@@ -30811,7 +30813,6 @@
 	var React = __webpack_require__(1);
 	var GroupStore = __webpack_require__(207);
 	var ApiUtil = __webpack_require__(229);
-	var GroupItem = __webpack_require__(232);
 	var GroupIndex = __webpack_require__(233);
 
 	var Search = React.createClass({
@@ -30965,14 +30966,17 @@
 	  blankAttrs: {
 	    title: '',
 	    location: '',
-	    body: ''
+	    body: '',
+	    organizer_id: ''
 	  },
 
 	  getInitialState: function () {
 	    return this.blankAttrs;
 	  },
 
-	  componentDidMount: function () {},
+	  componentDidMount: function () {
+	    this.setState({ organizer_id: 2 });
+	  },
 
 	  handleChange: function (e) {
 	    this.setState({ location: e.target.value });
@@ -30989,63 +30993,94 @@
 	  },
 
 	  render: function () {
-	    var options = [];
-	    for (var i = 1; i <= 10; i++) {
-	      options.push(React.createElement(
-	        'option',
-	        { key: i, value: i },
-	        i
-	      ));
-	    }
 	    return React.createElement(
 	      'form',
 	      { className: 'new-group', onSubmit: this.createGroup },
 	      React.createElement(
-	        'div',
+	        'table',
 	        null,
 	        React.createElement(
-	          'label',
-	          { htmlFor: 'group_title' },
-	          'Name:'
-	        ),
-	        React.createElement('input', {
-	          type: 'text',
-	          id: 'group_title',
-	          valueLink: this.linkState("title")
-	        })
-	      ),
-	      React.createElement(
-	        'div',
-	        null,
-	        React.createElement(
-	          'label',
-	          { htmlFor: 'group_body' },
-	          'About Group:'
-	        ),
-	        React.createElement('input', {
-	          type: 'text',
-	          id: 'group_body',
-	          valueLink: this.linkState("body")
-	        })
-	      ),
-	      React.createElement(
-	        'div',
-	        null,
-	        React.createElement(
-	          'label',
-	          { htmlFor: 'group_location' },
-	          'Location: '
+	          'tr',
+	          null,
+	          React.createElement(
+	            'td',
+	            null,
+	            React.createElement(
+	              'label',
+	              { htmlFor: 'group_title' },
+	              'Name:'
+	            )
+	          ),
+	          React.createElement('td', null),
+	          React.createElement(
+	            'td',
+	            null,
+	            React.createElement('input', {
+	              type: 'text',
+	              id: 'group_title',
+	              valueLink: this.linkState("title") })
+	          )
 	        ),
 	        React.createElement(
-	          'select',
-	          { name: 'group_seating', onChange: this.handleChange },
-	          options
+	          'tr',
+	          null,
+	          React.createElement(
+	            'td',
+	            null,
+	            React.createElement(
+	              'label',
+	              { htmlFor: 'group_body' },
+	              'About Group:'
+	            )
+	          ),
+	          React.createElement('td', null),
+	          React.createElement(
+	            'td',
+	            null,
+	            React.createElement('input', {
+	              type: 'text',
+	              id: 'group_body',
+	              valueLink: this.linkState("body")
+	            })
+	          )
+	        ),
+	        React.createElement(
+	          'tr',
+	          null,
+	          React.createElement(
+	            'td',
+	            null,
+	            React.createElement(
+	              'label',
+	              { htmlFor: 'group_location' },
+	              'Location: '
+	            )
+	          ),
+	          React.createElement('td', null),
+	          React.createElement(
+	            'td',
+	            null,
+	            React.createElement('input', {
+	              type: 'text',
+	              id: 'group_location',
+	              valueLink: this.linkState("location")
+	            })
+	          )
+	        ),
+	        React.createElement(
+	          'tr',
+	          null,
+	          React.createElement('td', null),
+	          React.createElement(
+	            'td',
+	            null,
+	            React.createElement(
+	              'button',
+	              { className: 'btn btn-primary' },
+	              'Create Group'
+	            )
+	          )
 	        )
-	      ),
-	      React.createElement(
-	        'button',
-	        null,
-	        'Create Group'
 	      ),
 	      React.createElement('br', null)
 	    );
@@ -31283,6 +31318,89 @@
 	};
 
 	module.exports = ReactStateSetters;
+
+/***/ },
+/* 239 */,
+/* 240 */,
+/* 241 */,
+/* 242 */,
+/* 243 */,
+/* 244 */,
+/* 245 */,
+/* 246 */,
+/* 247 */,
+/* 248 */,
+/* 249 */,
+/* 250 */,
+/* 251 */,
+/* 252 */,
+/* 253 */,
+/* 254 */,
+/* 255 */,
+/* 256 */,
+/* 257 */,
+/* 258 */,
+/* 259 */,
+/* 260 */,
+/* 261 */,
+/* 262 */,
+/* 263 */,
+/* 264 */,
+/* 265 */,
+/* 266 */,
+/* 267 */,
+/* 268 */,
+/* 269 */,
+/* 270 */,
+/* 271 */,
+/* 272 */,
+/* 273 */,
+/* 274 */,
+/* 275 */,
+/* 276 */,
+/* 277 */,
+/* 278 */,
+/* 279 */,
+/* 280 */,
+/* 281 */,
+/* 282 */,
+/* 283 */,
+/* 284 */,
+/* 285 */,
+/* 286 */,
+/* 287 */,
+/* 288 */,
+/* 289 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	var GroupStore = __webpack_require__(207);
+	var ApiUtil = __webpack_require__(229);
+	var GroupItem = __webpack_require__(232);
+
+	var Show = React.createClass({
+	  displayName: 'Show',
+
+	  getInitialState: function () {
+	    return { group: GroupStore.fetchGroup(this.props.params) };
+	  },
+	  componentDidMount: function () {
+	    this.groupListener = GroupStore.addListener(this._onChange);
+	    ApiUtil.fetchGroup();
+	  },
+	  componentWillUnmount: function () {
+	    this.groupListener.remove();
+	  },
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(GroupItem, { group: this.state.group })
+	    );
+	  }
+	});
+
+	module.exports = Show;
 
 /***/ }
 /******/ ]);
