@@ -12,14 +12,16 @@ var GroupItem = React.createClass({
   },
   render: function () {
     return(
-      <div className="group-item"
+      <div className="group-item container-fluid"
         key={this.props.group.id}
         onClick={this.handleClick}>
           <br /><br />
-          {this.props.group.title}
-          {this.props.group.location}
+          Name: {this.props.group.title}
           <br />
-          {this.props.group.body}
+          Where: {this.props.group.location}
+          <br />
+          About Us: {this.props.group.body}
+          <br /><br />
       </div>
     );
   }

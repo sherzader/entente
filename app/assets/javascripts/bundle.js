@@ -30833,7 +30833,7 @@
 	        ),
 	        React.createElement(
 	          'form',
-	          { className: 'navbar-form navbar-right', role: 'search' },
+	          { className: 'navbar-form navbar-right search', role: 'search' },
 	          React.createElement(
 	            'div',
 	            { className: 'form-group' },
@@ -30879,15 +30879,21 @@
 	  render: function () {
 	    return React.createElement(
 	      'div',
-	      { className: 'group-item',
+	      { className: 'group-item container-fluid',
 	        key: this.props.group.id,
 	        onClick: this.handleClick },
 	      React.createElement('br', null),
 	      React.createElement('br', null),
+	      'Name: ',
 	      this.props.group.title,
+	      React.createElement('br', null),
+	      'Where: ',
 	      this.props.group.location,
 	      React.createElement('br', null),
-	      this.props.group.body
+	      'About Us: ',
+	      this.props.group.body,
+	      React.createElement('br', null),
+	      React.createElement('br', null)
 	    );
 	  }
 	});

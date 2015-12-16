@@ -28,7 +28,7 @@ var Search = React.createClass({
       <div className="navbar">
         <nav className="nav navbar-default">
           <h1>Entente</h1>
-          <form className="navbar-form navbar-right" role="search">
+          <form className="navbar-form navbar-right search" role="search">
             <div className="form-group">
               <input type="text"
                      className="form-control"
