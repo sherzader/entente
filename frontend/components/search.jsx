@@ -2,13 +2,17 @@ var React = require('react');
 var GroupStore = require('../stores/group');
 var ApiUtil = require('../util/apiUtil');
 var GroupItem = require('./groupItem.jsx');
+var GroupIndex = require('./groupIndex.jsx');
 
 var Search = React.createClass({
   getInitialState: function(){
-    return { searchString: "" };
+    return { searchString: "", groups: GroupStore.all() };
   },
-  _onChange: function(event){
-    this.setState({searchString: event.currentTarget.value});
+  handleChange: function(e){
+    this.setState({searchString: e.currentTarget.value});
+  },
+  _onChange: function () {
+    this.setState( {groups: GroupStore.all()});
   },
   componentDidMount: function () {
     this.groupListener = GroupStore.addListener(this._onChange);
@@ -18,10 +22,14 @@ var Search = React.createClass({
     this.groupListener.remove();
   },
   filteredGroups: function(){
-    var regex = new RegExp(this.state.searchString);
-    return GroupStore.all().filter(function(group){
-      return (group.title.search(regex) > -1);
-    });
+    if (this.state.searchString === ""){
+      return this.state.groups;
+    }else {
+      var regex = new RegExp(this.state.searchString);
+      return this.state.groups.filter(function(group){
+        return (group.title.search(regex) > -1);
+      });
+    }
   },
   render: function(){
     return(
@@ -33,16 +41,14 @@ var Search = React.createClass({
               <input type="text"
                      className="form-control"
                      placeholder="Search"
-                     onChange={this._onChange}
+                     onChange={this.handleChange}
                      value={this.state.searchString}>
                    </input>
             </div>
           </form>
         </nav>
         <div className="filter-groups">{
-            this.filteredGroups().map(function(group){
-              return (<GroupItem group={group} />);
-            })
+            <GroupIndex groups={this.filteredGroups()} />
           }
         </div>
       </div>

@@ -4,11 +4,8 @@ var ApiUtil = require('../util/apiUtil');
 var Search = require('./search.jsx');
 
 var GroupItem = React.createClass({
-  getInitialState: function () {
-    return ({ groups: GroupStore.all() });
-  },
-  handleClick: function(event){
-    this.setState({searchString: event.currentTarget.innerText});
+  handleClick: function(e){
+    ApiUtil.fetchGroup(e.id);
   },
   render: function () {
     return(

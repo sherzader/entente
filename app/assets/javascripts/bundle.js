@@ -51,6 +51,7 @@
 	var Route = __webpack_require__(159).Route;
 	var IndexRoute = __webpack_require__(159).IndexRoute;
 	var Search = __webpack_require__(231);
+	var GroupIndex = __webpack_require__(233);
 
 	var App = React.createClass({
 	  displayName: 'App',
@@ -67,8 +68,7 @@
 	var routes = React.createElement(
 	  Route,
 	  { path: '/', component: App },
-	  React.createElement(IndexRoute, { component: Search }),
-	  React.createElement(Search, null)
+	  React.createElement(IndexRoute, { component: Search })
 	);
 
 	document.addEventListener("DOMContentLoaded", function () {
@@ -30796,15 +30796,19 @@
 	var GroupStore = __webpack_require__(207);
 	var ApiUtil = __webpack_require__(229);
 	var GroupItem = __webpack_require__(232);
+	var GroupIndex = __webpack_require__(233);
 
 	var Search = React.createClass({
 	  displayName: 'Search',
 
 	  getInitialState: function () {
-	    return { searchString: "" };
+	    return { searchString: "", groups: GroupStore.all() };
 	  },
-	  _onChange: function (event) {
-	    this.setState({ searchString: event.currentTarget.value });
+	  handleChange: function (e) {
+	    this.setState({ searchString: e.currentTarget.value });
+	  },
+	  _onChange: function () {
+	    this.setState({ groups: GroupStore.all() });
 	  },
 	  componentDidMount: function () {
 	    this.groupListener = GroupStore.addListener(this._onChange);
@@ -30814,10 +30818,14 @@
 	    this.groupListener.remove();
 	  },
 	  filteredGroups: function () {
-	    var regex = new RegExp(this.state.searchString);
-	    return GroupStore.all().filter(function (group) {
-	      return group.title.search(regex) > -1;
-	    });
+	    if (this.state.searchString === "") {
+	      return this.state.groups;
+	    } else {
+	      var regex = new RegExp(this.state.searchString);
+	      return this.state.groups.filter(function (group) {
+	        return group.title.search(regex) > -1;
+	      });
+	    }
 	  },
 	  render: function () {
 	    return React.createElement(
@@ -30840,7 +30848,7 @@
 	            React.createElement('input', { type: 'text',
 	              className: 'form-control',
 	              placeholder: 'Search',
-	              onChange: this._onChange,
+	              onChange: this.handleChange,
 	              value: this.state.searchString })
 	          )
 	        )
@@ -30848,9 +30856,7 @@
 	      React.createElement(
 	        'div',
 	        { className: 'filter-groups' },
-	        this.filteredGroups().map(function (group) {
-	          return React.createElement(GroupItem, { group: group });
-	        })
+	        React.createElement(GroupIndex, { groups: this.filteredGroups() })
 	      )
 	    );
 	  }
@@ -30870,11 +30876,8 @@
 	var GroupItem = React.createClass({
 	  displayName: 'GroupItem',
 
-	  getInitialState: function () {
-	    return { groups: GroupStore.all() };
-	  },
-	  handleClick: function (event) {
-	    this.setState({ searchString: event.currentTarget.innerText });
+	  handleClick: function (e) {
+	    ApiUtil.fetchGroup(e.id);
 	  },
 	  render: function () {
 	    return React.createElement(
@@ -30899,6 +30902,45 @@
 	});
 
 	module.exports = GroupItem;
+
+/***/ },
+/* 233 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	var GroupStore = __webpack_require__(207);
+	var ApiUtil = __webpack_require__(229);
+	var GroupItem = __webpack_require__(232);
+
+	var GroupIndex = React.createClass({
+	  displayName: 'GroupIndex',
+
+	  getInitialState: function () {
+	    return { groups: GroupStore.all() };
+	  },
+	  _onChange: function (event) {
+	    this.setState({ groups: GroupStore.all() });
+	  },
+	  componentDidMount: function () {
+	    this.groupListener = GroupStore.addListener(this._onChange);
+	    ApiUtil.fetchGroups();
+	  },
+	  componentWillUnmount: function () {
+	    this.groupListener.remove();
+	  },
+	  render: function () {
+	    var groupElements = this.props.groups.map(function (group) {
+	      return React.createElement(GroupItem, { key: group.id, group: group });
+	    });
+	    return React.createElement(
+	      'div',
+	      { className: 'group-index' },
+	      groupElements
+	    );
+	  }
+	});
+
+	module.exports = GroupIndex;
 
 /***/ }
 /******/ ]);
