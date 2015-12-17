@@ -5,7 +5,15 @@ var ApiUtil = {
     $.ajax({
       url: "api/groups",
       success: function (groups) {
-        ApiActions.receiveAll(groups);
+        ApiActions.receiveAllGroups(groups);
+      }
+    });
+  },
+  fetchEvents: function (groupId) {
+    $.ajax({
+      url: "api/groups/" + groupId + "/events",
+      success: function (events) {
+        ApiActions.receiveAllEvents(events);
       }
     });
   },
@@ -13,7 +21,15 @@ var ApiUtil = {
     $.ajax({
       url: "api/groups/" + id,
       success: function (group) {
-        ApiActions.receiveSingle(group);
+        ApiActions.receiveGroup(group);
+      }
+    });
+  },
+  fetchEvent: function (id) {
+    $.ajax({
+      url: "api/events/" + id,
+      success: function (group_event) {
+        ApiActions.receiveEvent(group_event);
       }
     });
   },
@@ -23,7 +39,18 @@ var ApiUtil = {
       method: "POST",
       data: {group: group},
       success: function (g) {
-        ApiActions.receiveSingle(g);
+        ApiActions.receiveGroup(g);
+        callback();
+      }
+    });
+  },
+  createEvent: function (groupId, group_event, callback) {
+    $.ajax({
+      url: "api/groups/" + groupId + "/events/new",
+      method: "POST",
+      data: {group_event: group_event},
+      success: function (e) {
+        ApiActions.receiveEvent(e);
         callback();
       }
     });
@@ -34,7 +61,7 @@ var ApiUtil = {
       method: "PATCH",
       data: {group: group},
       success: function (g) {
-        ApiActions.receiveSingle(g);
+        ApiActions.receiveGroup(g);
         callback();
       }
     });
@@ -45,7 +72,7 @@ var ApiUtil = {
       method: "DELETE",
       data: {group: group},
       success: function (g) {
-        ApiActions.removeSingle(g);
+        ApiActions.removeGroup(g);
         callback();
       }
     });

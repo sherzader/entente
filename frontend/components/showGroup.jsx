@@ -47,6 +47,7 @@ var Show = React.createClass({
     this.groupListener.remove();
   },
   render: function () {
+    var path = "/groups/" + this.state.group.id + "/events/new"
     return(
       <div className="group-item container-fluid"
         onClick={this.props.onClick}>
@@ -61,6 +62,7 @@ var Show = React.createClass({
                 onClick={this._deleteGroup}></button>
         <button className="glyphicon glyphicon-pencil"
                 onClick={this._editGroup}></button>
+        <a href={this.history.push(path)} className="link-events">Events</a>
       </div>
     );
   }

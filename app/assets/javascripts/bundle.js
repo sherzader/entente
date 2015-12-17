@@ -51,9 +51,12 @@
 	var Route = __webpack_require__(159).Route;
 	var IndexRoute = __webpack_require__(159).IndexRoute;
 	var Search = __webpack_require__(206);
-	var GroupIndex = __webpack_require__(231);
-	var GroupForm = __webpack_require__(233);
-	var ShowGroup = __webpack_require__(238);
+	var GroupIndex = __webpack_require__(232);
+	var GroupForm = __webpack_require__(234);
+	var ShowGroup = __webpack_require__(239);
+	var EventIndex = __webpack_require__(240);
+	var EventForm = __webpack_require__(241);
+	var EventItem = __webpack_require__(242);
 
 	var App = React.createClass({
 	  displayName: 'App',
@@ -86,7 +89,13 @@
 	  { path: '/', component: App },
 	  React.createElement(IndexRoute, { component: Search }),
 	  React.createElement(Route, { path: 'groups/new', component: GroupForm }),
-	  React.createElement(Route, { path: 'groups/:id', component: ShowGroup })
+	  React.createElement(
+	    Route,
+	    { path: 'groups/:id', component: ShowGroup },
+	    React.createElement(Route, { path: 'events/new', component: EventForm }),
+	    React.createElement(Route, { path: 'events/', component: EventIndex })
+	  ),
+	  React.createElement(Route, { path: 'events/:id', component: EventItem })
 	);
 
 	document.addEventListener("DOMContentLoaded", function () {
@@ -24014,7 +24023,7 @@
 	var React = __webpack_require__(1);
 	var GroupStore = __webpack_require__(207);
 	var ApiUtil = __webpack_require__(229);
-	var GroupIndex = __webpack_require__(231);
+	var GroupIndex = __webpack_require__(232);
 
 	var Search = React.createClass({
 	  displayName: 'Search',
@@ -30833,7 +30842,15 @@
 	    $.ajax({
 	      url: "api/groups",
 	      success: function (groups) {
-	        ApiActions.receiveAll(groups);
+	        ApiActions.receiveAllGroups(groups);
+	      }
+	    });
+	  },
+	  fetchEvents: function (groupId) {
+	    $.ajax({
+	      url: "api/groups/" + groupId + "/events",
+	      success: function (events) {
+	        ApiActions.receiveAllEvents(events);
 	      }
 	    });
 	  },
@@ -30841,7 +30858,15 @@
 	    $.ajax({
 	      url: "api/groups/" + id,
 	      success: function (group) {
-	        ApiActions.receiveSingle(group);
+	        ApiActions.receiveGroup(group);
+	      }
+	    });
+	  },
+	  fetchEvent: function (id) {
+	    $.ajax({
+	      url: "api/events/" + id,
+	      success: function (group_event) {
+	        ApiActions.receiveEvent(group_event);
 	      }
 	    });
 	  },
@@ -30851,7 +30876,18 @@
 	      method: "POST",
 	      data: { group: group },
 	      success: function (g) {
-	        ApiActions.receiveSingle(g);
+	        ApiActions.receiveGroup(g);
+	        callback();
+	      }
+	    });
+	  },
+	  createEvent: function (groupId, group_event, callback) {
+	    $.ajax({
+	      url: "api/groups/" + groupId + "/events/new",
+	      method: "POST",
+	      data: { group_event: group_event },
+	      success: function (e) {
+	        ApiActions.receiveEvent(e);
 	        callback();
 	      }
 	    });
@@ -30862,7 +30898,7 @@
 	      method: "PATCH",
 	      data: { group: group },
 	      success: function (g) {
-	        ApiActions.receiveSingle(g);
+	        ApiActions.receiveGroup(g);
 	        callback();
 	      }
 	    });
@@ -30873,7 +30909,7 @@
 	      method: "DELETE",
 	      data: { group: group },
 	      success: function (g) {
-	        ApiActions.removeSingle(g);
+	        ApiActions.removeGroup(g);
 	        callback();
 	      }
 	    });
@@ -30888,21 +30924,34 @@
 
 	var AppDispatcher = __webpack_require__(225);
 	var GroupConstants = __webpack_require__(228);
+	var EventConstants = __webpack_require__(231);
 
 	var ApiActions = {
-	  receiveAll: function (groups) {
+	  receiveAllGroups: function (groups) {
 	    AppDispatcher.dispatch({
 	      actionType: GroupConstants.GROUPS_RECEIVED,
 	      groups: groups
 	    });
 	  },
-	  receiveSingle: function (group) {
+	  receiveAllEvents: function (events) {
+	    AppDispatcher.dispatch({
+	      actionType: EventConstants.EVENTS_RECEIVED,
+	      events: events
+	    });
+	  },
+	  receiveGroup: function (group) {
 	    AppDispatcher.dispatch({
 	      actionType: GroupConstants.GROUP_RECEIVED,
 	      group: group
 	    });
 	  },
-	  removeSingle: function (group) {
+	  receiveEvent: function (group_event) {
+	    AppDispatcher.dispatch({
+	      actionType: EventConstants.EVENT_RECEIVED,
+	      group_event: group_event
+	    });
+	  },
+	  removeGroup: function (group) {
 	    AppDispatcher.dispatch({
 	      actionType: GroupConstants.GROUP_REMOVE,
 	      group: group
@@ -30914,12 +30963,22 @@
 
 /***/ },
 /* 231 */
+/***/ function(module, exports) {
+
+	module.exports = {
+	  EVENTS_RECEIVED: "EVENTS_RECEIVED",
+	  EVENT_RECEIVED: "EVENT_RECEIVED",
+	  EVENT_REMOVE: "EVENT_REMOVE"
+	};
+
+/***/ },
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var GroupStore = __webpack_require__(207);
 	var ApiUtil = __webpack_require__(229);
-	var GroupItem = __webpack_require__(232);
+	var GroupItem = __webpack_require__(233);
 	var History = __webpack_require__(159).History;
 
 	var GroupIndex = React.createClass({
@@ -30959,7 +31018,7 @@
 	module.exports = GroupIndex;
 
 /***/ },
-/* 232 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -30995,12 +31054,12 @@
 	module.exports = GroupItem;
 
 /***/ },
-/* 233 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var ApiUtil = __webpack_require__(229);
-	var LinkedStateMixin = __webpack_require__(234);
+	var LinkedStateMixin = __webpack_require__(235);
 
 	var GroupForm = React.createClass({
 	  displayName: 'GroupForm',
@@ -31018,9 +31077,7 @@
 	    return this.blankAttrs;
 	  },
 
-	  componentDidMount: function () {
-	    this.setState({ organizer_id: 2 });
-	  },
+	  componentDidMount: function () {},
 
 	  handleChange: function (e) {
 	    this.setState({ location: e.target.value });
@@ -31134,13 +31191,13 @@
 	module.exports = GroupForm;
 
 /***/ },
-/* 234 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(235);
+	module.exports = __webpack_require__(236);
 
 /***/ },
-/* 235 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31157,8 +31214,8 @@
 
 	'use strict';
 
-	var ReactLink = __webpack_require__(236);
-	var ReactStateSetters = __webpack_require__(237);
+	var ReactLink = __webpack_require__(237);
+	var ReactStateSetters = __webpack_require__(238);
 
 	/**
 	 * A simple mixin around ReactLink.forState().
@@ -31181,7 +31238,7 @@
 	module.exports = LinkedStateMixin;
 
 /***/ },
-/* 236 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31255,7 +31312,7 @@
 	module.exports = ReactLink;
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports) {
 
 	/**
@@ -31364,13 +31421,13 @@
 	module.exports = ReactStateSetters;
 
 /***/ },
-/* 238 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var GroupStore = __webpack_require__(207);
 	var ApiUtil = __webpack_require__(229);
-	var GroupItem = __webpack_require__(232);
+	var GroupItem = __webpack_require__(233);
 	var History = __webpack_require__(159).History;
 
 	var Show = React.createClass({
@@ -31417,6 +31474,7 @@
 	    this.groupListener.remove();
 	  },
 	  render: function () {
+	    var path = "/groups/" + this.state.group.id + "/events/new";
 	    return React.createElement(
 	      'div',
 	      { className: 'group-item container-fluid',
@@ -31436,12 +31494,167 @@
 	      React.createElement('button', { className: 'glyphicon glyphicon-remove',
 	        onClick: this._deleteGroup }),
 	      React.createElement('button', { className: 'glyphicon glyphicon-pencil',
-	        onClick: this._editGroup })
+	        onClick: this._editGroup }),
+	      React.createElement(
+	        'a',
+	        { href: this.history.push(path), className: 'link-events' },
+	        'Events'
+	      )
 	    );
 	  }
 	});
 
 	module.exports = Show;
+
+/***/ },
+/* 240 */
+/***/ function(module, exports) {
+
+	
+
+/***/ },
+/* 241 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	var ApiUtil = __webpack_require__(229);
+	var LinkedStateMixin = __webpack_require__(235);
+
+	var EventForm = React.createClass({
+	  displayName: 'EventForm',
+
+	  mixins: [LinkedStateMixin],
+
+	  blankAttrs: {
+	    title: '',
+	    location: '',
+	    body: '',
+	    date: ''
+	  },
+
+	  getInitialState: function () {
+	    return this.blankAttrs;
+	  },
+
+	  componentDidMount: function () {},
+
+	  handleChange: function (e) {
+	    this.setState({ location: e.target.value });
+	  },
+
+	  createEvent: function (e) {
+	    e.preventDefault();
+	    var group_event = this.state;
+
+	    ApiUtil.createEvent(this.props.params.id, group_event, (function () {
+	      this.props.history.push("/");
+	    }).bind(this));
+
+	    this.setState(this.blankAttrs);
+	  },
+
+	  render: function () {
+	    return React.createElement(
+	      'form',
+	      { className: 'new-event', onSubmit: this.createEvent },
+	      React.createElement(
+	        'table',
+	        null,
+	        React.createElement(
+	          'tr',
+	          null,
+	          React.createElement(
+	            'td',
+	            null,
+	            React.createElement(
+	              'label',
+	              { htmlFor: 'event_title' },
+	              'Name:'
+	            )
+	          ),
+	          React.createElement('td', null),
+	          React.createElement(
+	            'td',
+	            null,
+	            React.createElement('input', {
+	              type: 'text',
+	              id: 'event_title',
+	              valueLink: this.linkState("title") })
+	          )
+	        ),
+	        React.createElement(
+	          'tr',
+	          null,
+	          React.createElement(
+	            'td',
+	            null,
+	            React.createElement(
+	              'label',
+	              { htmlFor: 'event_body' },
+	              'About Event:'
+	            )
+	          ),
+	          React.createElement('td', null),
+	          React.createElement(
+	            'td',
+	            null,
+	            React.createElement('input', {
+	              type: 'text',
+	              id: 'event_body',
+	              valueLink: this.linkState("body")
+	            })
+	          )
+	        ),
+	        React.createElement(
+	          'tr',
+	          null,
+	          React.createElement(
+	            'td',
+	            null,
+	            React.createElement(
+	              'label',
+	              { htmlFor: 'event_location' },
+	              'Location: '
+	            )
+	          ),
+	          React.createElement('td', null),
+	          React.createElement(
+	            'td',
+	            null,
+	            React.createElement('input', {
+	              type: 'text',
+	              id: 'event_location',
+	              valueLink: this.linkState("location")
+	            })
+	          )
+	        ),
+	        React.createElement(
+	          'tr',
+	          null,
+	          React.createElement('td', null),
+	          React.createElement(
+	            'td',
+	            null,
+	            React.createElement(
+	              'button',
+	              { className: 'btn btn-primary' },
+	              'Create Event'
+	            )
+	          )
+	        )
+	      ),
+	      React.createElement('br', null)
+	    );
+	  }
+	});
+
+	module.exports = EventForm;
+
+/***/ },
+/* 242 */
+/***/ function(module, exports) {
+
+	
 
 /***/ }
 /******/ ]);

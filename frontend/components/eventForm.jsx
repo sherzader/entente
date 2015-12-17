@@ -2,14 +2,14 @@ var React = require('react');
 var ApiUtil = require('../util/apiUtil');
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
 
-var GroupForm = React.createClass({
+var EventForm = React.createClass({
   mixins: [LinkedStateMixin],
 
   blankAttrs: {
     title: '',
     location: '',
     body: '',
-    organizer_id: ''
+    date: ''
   },
 
   getInitialState: function () {
@@ -17,60 +17,62 @@ var GroupForm = React.createClass({
   },
 
   componentDidMount: function () {
+
   },
 
   handleChange: function (e) {
     this.setState({location: e.target.value});
   },
 
-  createGroup: function (e) {
+  createEvent: function (e) {
     e.preventDefault();
-    var group = this.state;
+    var group_event = this.state;
 
-    ApiUtil.createGroup(group, function () {
+    ApiUtil.createEvent(this.props.params.id, group_event, function () {
       this.props.history.push("/");
     }.bind(this));
+
     this.setState(this.blankAttrs);
   },
 
   render: function () {
     return(
-        <form className='new-group' onSubmit={this.createGroup}>
+        <form className='new-event' onSubmit={this.createEvent}>
           <table>
             <tr>
               <td>
-              <label htmlFor='group_title'>Name:</label>
+              <label htmlFor='event_title'>Name:</label>
               </td>
               <td></td>
               <td>
               <input
                 type='text'
-                id='group_title'
+                id='event_title'
                 valueLink={this.linkState("title")} />
               </td>
             </tr>
             <tr>
               <td>
-              <label htmlFor='group_body'>About Group:</label>
+              <label htmlFor='event_body'>About Event:</label>
               </td>
               <td></td>
               <td>
               <input
                 type='text'
-                id='group_body'
+                id='event_body'
                 valueLink={this.linkState("body")}
               />
             </td>
             </tr>
             <tr>
               <td>
-              <label htmlFor='group_location'>Location: </label>
+              <label htmlFor='event_location'>Location: </label>
               </td>
               <td></td>
               <td>
                 <input
                   type='text'
-                  id='group_location'
+                  id='event_location'
                   valueLink={this.linkState("location")}
                 />
               </td>
@@ -78,7 +80,7 @@ var GroupForm = React.createClass({
             <tr>
               <td></td>
               <td>
-                <button className="btn btn-primary">Create Group</button>
+                <button className="btn btn-primary">Create Event</button>
               </td>
             </tr>
           </table>
@@ -88,4 +90,4 @@ var GroupForm = React.createClass({
   }
 });
 
-module.exports = GroupForm;
+module.exports = EventForm;

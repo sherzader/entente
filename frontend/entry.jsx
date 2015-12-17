@@ -8,6 +8,9 @@ var Search = require('./components/search.jsx');
 var GroupIndex = require('./components/groupIndex.jsx');
 var GroupForm = require('./components/groupForm.jsx');
 var ShowGroup = require('./components/showGroup.jsx');
+var EventIndex = require('./components/eventIndex.jsx');
+var EventForm = require('./components/eventForm.jsx');
+var EventItem = require('./components/eventItem.jsx');
 
 var App = React.createClass({
   render: function () {
@@ -27,7 +30,11 @@ var routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Search}></IndexRoute>
     <Route path="groups/new" component={GroupForm} />
-    <Route path="groups/:id" component={ShowGroup} />
+    <Route path="groups/:id" component={ShowGroup}>
+      <Route path="events/new" component={EventForm} />
+      <Route path="events/" component={EventIndex} />
+    </Route>
+    <Route path="events/:id" component={EventItem} />
   </Route>
 );
 
