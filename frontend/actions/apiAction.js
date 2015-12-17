@@ -13,6 +13,12 @@ var ApiActions = {
       actionType: GroupConstants.GROUP_RECEIVED,
       group: group
     });
+  },
+  removeSingle: function (group) {
+    AppDispatcher.dispatch({
+      actionType: GroupConstants.GROUP_REMOVE,
+      group: group
+    });
   }
 };
 

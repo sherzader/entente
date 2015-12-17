@@ -24030,6 +24030,10 @@
 	  _groups[group.id] = group;
 	};
 
+	var removeGroup = function (group) {
+	  delete _groups[group.id];
+	};
+
 	GroupStore.all = function () {
 	  var groups = [];
 	  for (var id in _groups) {
@@ -24046,6 +24050,10 @@
 	      break;
 	    case GroupConstants.GROUP_RECEIVED:
 	      addGroup(payload.group);
+	      this.__emitChange();
+	      break;
+	    case GroupConstants.GROUP_REMOVE:
+	      removeGroup(payload.group);
 	      this.__emitChange();
 	      break;
 	  }
@@ -30741,7 +30749,8 @@
 
 	module.exports = {
 	  GROUPS_RECEIVED: "GROUPS_RECEIVED",
-	  GROUP_RECEIVED: "GROUP_RECEIVED"
+	  GROUP_RECEIVED: "GROUP_RECEIVED",
+	  GROUP_REMOVE: "GROUP_REMOVE"
 	};
 
 /***/ },
@@ -30761,7 +30770,7 @@
 	  },
 	  fetchGroup: function (id) {
 	    $.ajax({
-	      url: "api/groups" + id,
+	      url: "api/groups/" + id,
 	      success: function (group) {
 	        ApiActions.receiveSingle(group);
 	      }
@@ -30774,6 +30783,17 @@
 	      data: { group: group },
 	      success: function (g) {
 	        ApiActions.receiveSingle(g);
+	        callback();
+	      }
+	    });
+	  },
+	  destroyGroup: function (group, callback) {
+	    $.ajax({
+	      url: "api/groups/" + group.id,
+	      method: "DELETE",
+	      data: { group: group },
+	      success: function (g) {
+	        ApiActions.removeSingle(g);
 	        callback();
 	      }
 	    });
@@ -30799,6 +30819,12 @@
 	  receiveSingle: function (group) {
 	    AppDispatcher.dispatch({
 	      actionType: GroupConstants.GROUP_RECEIVED,
+	      group: group
+	    });
+	  },
+	  removeSingle: function (group) {
+	    AppDispatcher.dispatch({
+	      actionType: GroupConstants.GROUP_REMOVE,
 	      group: group
 	    });
 	  }
@@ -31381,13 +31407,15 @@
 	var GroupStore = __webpack_require__(207);
 	var ApiUtil = __webpack_require__(229);
 	var GroupItem = __webpack_require__(232);
+	var History = __webpack_require__(159).History;
 
 	var Show = React.createClass({
 	  displayName: 'Show',
 
+	  mixins: [History],
 	  getInitialState: function () {
 	    var groupId = this.props.params.id;
-	    var group = this._findGroupById(groupId) || {};
+	    var group = this._findGroupById(groupId) || ApiUtil.fetchGroup(groupId) || {};
 	    return { group: group };
 	  },
 	  _findGroupById: function (id) {
@@ -31399,6 +31427,13 @@
 	    }).bind(this));
 	    return res;
 	  },
+	  deleteGroup: function () {
+	    var group = this.state.group;
+
+	    ApiUtil.destroyGroup(group, (function () {
+	      this.history.push("/");
+	    }).bind(this));
+	  },
 	  _onChange: function () {
 	    var groupId = this.props.params.id;
 	    var group = this._findGroupById(groupId);
@@ -31406,7 +31441,6 @@
 	  },
 	  componentDidMount: function () {
 	    this.groupListener = GroupStore.addListener(this._onChange);
-	    ApiUtil.fetchGroup();
 	  },
 	  componentWillUnmount: function () {
 	    this.groupListener.remove();
@@ -31414,8 +31448,23 @@
 	  render: function () {
 	    return React.createElement(
 	      'div',
-	      null,
-	      React.createElement(GroupItem, { group: this.state.group })
+	      { className: 'group-item container-fluid',
+	        onClick: this.props.onClick },
+	      React.createElement('br', null),
+	      React.createElement('br', null),
+	      'Name: ',
+	      this.state.group.title,
+	      React.createElement('br', null),
+	      'Where: ',
+	      this.state.group.location,
+	      React.createElement('br', null),
+	      'About Us: ',
+	      this.state.group.body,
+	      React.createElement('br', null),
+	      React.createElement('br', null),
+	      React.createElement('button', { className: 'glyphicon glyphicon-remove',
+	        onClick: this.deleteGroup }),
+	      React.createElement('button', { className: 'glyphicon glyphicon-pencil' })
 	    );
 	  }
 	});

@@ -11,7 +11,7 @@ var ApiUtil = {
   },
   fetchGroup: function (id) {
     $.ajax({
-      url: "api/groups" + id,
+      url: "api/groups/" + id,
       success: function (group) {
         ApiActions.receiveSingle(group);
       }
@@ -24,6 +24,17 @@ var ApiUtil = {
       data: {group: group},
       success: function (g) {
         ApiActions.receiveSingle(g);
+        callback();
+      }
+    });
+  },
+  destroyGroup: function (group, callback) {
+    $.ajax({
+      url: "api/groups/" + group.id,
+      method: "DELETE",
+      data: {group: group},
+      success: function (g) {
+        ApiActions.removeSingle(g);
         callback();
       }
     });

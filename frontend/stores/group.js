@@ -16,6 +16,10 @@ var addGroup = function (group) {
   _groups[group.id] = group;
 };
 
+var removeGroup = function (group) {
+  delete _groups[group.id];
+};
+
 GroupStore.all = function () {
   var groups = [];
   for (var id in _groups){
@@ -32,6 +36,10 @@ GroupStore.__onDispatch = function (payload) {
       break;
     case GroupConstants.GROUP_RECEIVED:
       addGroup(payload.group);
+      this.__emitChange();
+      break;
+    case GroupConstants.GROUP_REMOVE:
+      removeGroup(payload.group);
       this.__emitChange();
       break;
   }

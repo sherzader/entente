@@ -17,7 +17,7 @@ class Api::GroupsController < ApplicationController
     @group = Group.find(params[:id])
 
     if @group.destroy
-      render :show
+      render :index
     else
       render json: @group.errors.full_messages, status: 422
     end
