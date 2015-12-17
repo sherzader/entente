@@ -12,3 +12,18 @@ groups = Group.create([{ title: 'Hobbit Gathering',
     organizer_id: 2}, {title: 'Top Secret Snowman',
     location: 'North Pole', body: '3 spheres', organizer_id: 2},
   {title: 'Coders', body: 'Hard Coders', location: 'SOMA', organizer_id: 2}])
+
+
+150.times do
+  person = User.create({
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: "password"
+  })
+end
+
+50.times do
+  Group.create({
+    title: 
+    })
+end
