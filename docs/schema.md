@@ -50,5 +50,3 @@ name            | string    | not null
 email           | string    | not null, indexed, unique
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
-group_id        | integer   | null, foreign key (references groups), indexed
-event_id        | integer   | null, foreign key (references events), indexed
