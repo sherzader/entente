@@ -13,13 +13,12 @@ organizer_id| integer   | not null, foreign key (references organizers), indexed
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-group_id    | integer   | not null, foreign key (references groups),
-indexed
+group_id    | integer   | not null, foreign key (references groups), indexed
 organizer_id| integer   | not null, foreign key (references organizers), indexed
 title       | string    | not null
 location    | text      | not null
 date        | datetime  | not null
-description | string    |
+body        | string    | not null
 
 ## tags
 column name | data type | details
