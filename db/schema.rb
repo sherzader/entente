@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151217174045) do
+ActiveRecord::Schema.define(version: 20151217175356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,25 +22,23 @@ ActiveRecord::Schema.define(version: 20151217174045) do
     t.string   "location",     null: false
     t.datetime "date",         null: false
     t.integer  "organizer_id", null: false
-    t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "group_id"
   end
 
+  add_index "events", ["group_id"], name: "index_events_on_group_id", using: :btree
   add_index "events", ["organizer_id"], name: "index_events_on_organizer_id", using: :btree
-  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "groups", force: :cascade do |t|
     t.string   "title",        null: false
     t.text     "body",         null: false
     t.string   "location",     null: false
     t.integer  "organizer_id", null: false
-    t.integer  "event_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
 
-  add_index "groups", ["event_id"], name: "index_groups_on_event_id", using: :btree
   add_index "groups", ["organizer_id"], name: "index_groups_on_organizer_id", using: :btree
 
   create_table "organizers", force: :cascade do |t|
@@ -63,6 +61,7 @@ ActiveRecord::Schema.define(version: 20151217174045) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["event_id"], name: "index_users_on_event_id", using: :btree
   add_index "users", ["group_id"], name: "index_users_on_group_id", using: :btree
   add_index "users", ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree
 
