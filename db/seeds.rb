@@ -5,25 +5,38 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-groups = Group.create([{ title: 'Hobbit Gathering',
-  location: 'Golden Gate Park', organizer_id: 2,
-  body: 'We indulge in Second Breakfast!'},
-  {title: 'Surfer Brahs', location: 'Ocean Beach', body: 'Waves, man',
-    organizer_id: 2}, {title: 'Top Secret Snowman',
-    location: 'North Pole', body: '3 spheres', organizer_id: 2},
-  {title: 'Coders', body: 'Hard Coders', location: 'SOMA', organizer_id: 2}])
-
 
 150.times do
-  person = User.create({
+  user = User.create({
     name: Faker::Name.name,
     email: Faker::Internet.email,
-    password: "password"
+    password: "password",
+    group_id: Faker::Number.between(1, 50)
   })
 end
 
 50.times do
-  Group.create({
-    title: 
+  organizer = Organizer.create({
+    user_id: Faker::Number.between(1, 150)
+    })
+end
+
+50.times do
+  group = Group.create({
+    title: Faker::Company.buzzword,
+    body: Faker::Company.catch_phrase,
+    location: "San Francisco",
+    organizer_id: Faker::Number.between(1, 150)
+    })
+end
+
+50.times do
+  event = Event.create({
+    title: Faker::Company.buzzword,
+    body: Faker::Company.bs,
+    location: Faker::Address.street_name,
+    date: Faker::Date.forward(10),
+    organizer_id: Faker::Number.between(1, 150),
+    group_id: Faker::Number.between(1, 50)
     })
 end

@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates :email, :name, :session_token, uniqueness: true
 
   belongs_to :group
+  belongs_to :event
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
