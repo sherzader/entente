@@ -92,8 +92,8 @@
 	  React.createElement(
 	    Route,
 	    { path: 'groups/:id', component: ShowGroup },
-	    React.createElement(Route, { path: 'events/new', component: EventForm }),
-	    React.createElement(Route, { path: 'events/', component: EventIndex })
+	    React.createElement(Route, { path: '/events/new', component: EventForm }),
+	    React.createElement(Route, { path: '/events', component: EventIndex })
 	  ),
 	  React.createElement(Route, { path: 'events/:id', component: EventItem })
 	);
@@ -30862,9 +30862,9 @@
 	      }
 	    });
 	  },
-	  fetchEvent: function (id) {
+	  fetchEvent: function (groupId, id) {
 	    $.ajax({
-	      url: "api/events/" + id,
+	      url: "api/groups/" + groupId + "/events/" + id,
 	      success: function (group_event) {
 	        ApiActions.receiveEvent(group_event);
 	      }
@@ -31428,6 +31428,7 @@
 	var GroupStore = __webpack_require__(207);
 	var ApiUtil = __webpack_require__(229);
 	var GroupItem = __webpack_require__(233);
+	var EventIndex = __webpack_require__(240);
 	var History = __webpack_require__(159).History;
 
 	var Show = React.createClass({
@@ -31467,6 +31468,9 @@
 	    var group = this._findGroupById(groupId);
 	    this.setState({ group: group });
 	  },
+	  _eventForm: function () {
+	    this.history.pushState(null, "/events/new", {});
+	  },
 	  componentDidMount: function () {
 	    this.groupListener = GroupStore.addListener(this._onChange);
 	  },
@@ -31474,32 +31478,37 @@
 	    this.groupListener.remove();
 	  },
 	  render: function () {
-	    var path = "/groups/" + this.state.group.id + "/events/new";
 	    return React.createElement(
 	      'div',
-	      { className: 'group-item container-fluid',
-	        onClick: this.props.onClick },
-	      React.createElement('br', null),
-	      React.createElement('br', null),
-	      'Name: ',
-	      this.state.group.title,
-	      React.createElement('br', null),
-	      'Where: ',
-	      this.state.group.location,
-	      React.createElement('br', null),
-	      'About Us: ',
-	      this.state.group.body,
-	      React.createElement('br', null),
-	      React.createElement('br', null),
-	      React.createElement('button', { className: 'glyphicon glyphicon-remove',
-	        onClick: this._deleteGroup }),
-	      React.createElement('button', { className: 'glyphicon glyphicon-pencil',
-	        onClick: this._editGroup }),
+	      { className: 'show-group container-fluid' },
 	      React.createElement(
-	        'a',
-	        { href: this.history.push(path), className: 'link-events' },
-	        'Events'
-	      )
+	        'div',
+	        { className: 'group-item container-fluid',
+	          onClick: this.props.onClick },
+	        React.createElement('br', null),
+	        React.createElement('br', null),
+	        'Name: ',
+	        this.state.group.title,
+	        React.createElement('br', null),
+	        'Where: ',
+	        this.state.group.location,
+	        React.createElement('br', null),
+	        'About Us: ',
+	        this.state.group.body,
+	        React.createElement('br', null),
+	        React.createElement('br', null),
+	        React.createElement('button', { className: 'glyphicon glyphicon-remove',
+	          onClick: this._deleteGroup }),
+	        React.createElement('button', { className: 'glyphicon glyphicon-pencil',
+	          onClick: this._editGroup }),
+	        React.createElement(
+	          'span',
+	          { onClick: this._eventForm,
+	            groupId: this.props.params.id },
+	          'Add Event'
+	        )
+	      ),
+	      React.createElement(EventIndex, null)
 	    );
 	  }
 	});
@@ -31508,9 +31517,49 @@
 
 /***/ },
 /* 240 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	
+	var React = __webpack_require__(1);
+	var EventStore = __webpack_require__(243);
+	var ApiUtil = __webpack_require__(229);
+	var EventItem = __webpack_require__(242);
+
+	var EventIndex = React.createClass({
+	  displayName: 'EventIndex',
+
+	  getInitialState: function () {
+	    return { events: EventStore.all() };
+	  },
+	  _onChange: function (event) {
+	    this.setState({ events: EventStore.all() });
+	  },
+	  componentDidMount: function () {
+	    this.eventListener = EventStore.addListener(this._onChange);
+	    ApiUtil.fetchEvents(this.props.groupId);
+	  },
+	  componentWillUnmount: function () {
+	    this.eventListener.remove();
+	  },
+	  handleItemClick: function () {
+	    this.props.history.pushState(null, "/events", {});
+	  },
+	  render: function () {
+	    var handleItemClick = this.handleItemClick;
+	    var eventElements = this.state.events.map(function (groupEvent) {
+	      var boundClick = handleItemClick.bind(null, groupEvent);
+	      return React.createElement(EventItem, { key: groupEvent.id,
+	        onClick: boundClick,
+	        groupEvent: groupEvent });
+	    });
+	    return React.createElement(
+	      'div',
+	      { className: 'event-index' },
+	      eventElements
+	    );
+	  }
+	});
+
+	module.exports = EventIndex;
 
 /***/ },
 /* 241 */
@@ -31542,7 +31591,7 @@
 	    this.setState({ location: e.target.value });
 	  },
 
-	  createEvent: function (e) {
+	  _createEvent: function (e) {
 	    e.preventDefault();
 	    var group_event = this.state;
 
@@ -31556,7 +31605,7 @@
 	  render: function () {
 	    return React.createElement(
 	      'form',
-	      { className: 'new-event', onSubmit: this.createEvent },
+	      { className: 'new-event', onSubmit: this._createEvent },
 	      React.createElement(
 	        'table',
 	        null,
@@ -31652,9 +31701,94 @@
 
 /***/ },
 /* 242 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	
+	var React = __webpack_require__(1);
+	var EventStore = __webpack_require__(243);
+	var ApiUtil = __webpack_require__(229);
+
+	var EventItem = React.createClass({
+	  displayName: 'EventItem',
+
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      { className: 'event-item container-fluid',
+	        key: this.props.groupEvent.id,
+	        onClick: this.props.onClick },
+	      React.createElement('br', null),
+	      React.createElement('br', null),
+	      'Name: ',
+	      this.props.groupEvent.title,
+	      React.createElement('br', null),
+	      'Where: ',
+	      this.props.groupEvent.location,
+	      React.createElement('br', null),
+	      'When: ',
+	      this.props.groupEvent.date,
+	      React.createElement('br', null),
+	      'About Event: ',
+	      this.props.groupEvent.body,
+	      React.createElement('br', null),
+	      React.createElement('br', null)
+	    );
+	  }
+	});
+
+	module.exports = EventItem;
+
+/***/ },
+/* 243 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Store = __webpack_require__(208).Store;
+	var AppDispatcher = __webpack_require__(225);
+	var EventStore = new Store(AppDispatcher);
+	var EventConstants = __webpack_require__(231);
+
+	var _events = {};
+
+	var resetEvents = function (events) {
+	  _events = {};
+	  events.forEach(function (event) {
+	    _events[event.id] = event;
+	  });
+	};
+
+	var addEvent = function (event) {
+	  _events[event.id] = event;
+	};
+
+	var removeEvent = function (event) {
+	  delete _events[event.id];
+	};
+
+	EventStore.all = function () {
+	  var events = [];
+	  for (var id in _events) {
+	    events.push(_events[id]);
+	  }
+	  return events;
+	};
+
+	EventStore.__onDispatch = function (payload) {
+	  switch (payload.actionType) {
+	    case EventConstants.EVENTS_RECEIVED:
+	      resetEvents(payload.events);
+	      this.__emitChange();
+	      break;
+	    case EventConstants.EVENT_RECEIVED:
+	      addEvent(payload.group_event);
+	      this.__emitChange();
+	      break;
+	    case EventConstants.EVENT_REMOVE:
+	      removeEvent(payload.group_event);
+	      this.__emitChange();
+	      break;
+	  }
+	};
+
+	module.exports = EventStore;
 
 /***/ }
 /******/ ]);

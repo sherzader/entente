@@ -25,9 +25,9 @@ var ApiUtil = {
       }
     });
   },
-  fetchEvent: function (id) {
+  fetchEvent: function (groupId, id) {
     $.ajax({
-      url: "api/events/" + id,
+      url: "api/groups/" + groupId + "/events/" + id,
       success: function (group_event) {
         ApiActions.receiveEvent(group_event);
       }

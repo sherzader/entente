@@ -24,7 +24,7 @@ var EventForm = React.createClass({
     this.setState({location: e.target.value});
   },
 
-  createEvent: function (e) {
+  _createEvent: function (e) {
     e.preventDefault();
     var group_event = this.state;
 
@@ -37,7 +37,7 @@ var EventForm = React.createClass({
 
   render: function () {
     return(
-        <form className='new-event' onSubmit={this.createEvent}>
+        <form className='new-event' onSubmit={this._createEvent}>
           <table>
             <tr>
               <td>
