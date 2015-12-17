@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215182942) do
+ActiveRecord::Schema.define(version: 20151217171438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", force: :cascade do |t|
+    t.string   "title",        null: false
+    t.text     "body",         null: false
+    t.string   "location",     null: false
+    t.datetime "date",         null: false
+    t.integer  "organizer_id", null: false
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "events", ["organizer_id"], name: "index_events_on_organizer_id", using: :btree
+  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "groups", force: :cascade do |t|
     t.string   "title",        null: false
@@ -30,6 +44,14 @@ ActiveRecord::Schema.define(version: 20151215182942) do
   add_index "groups", ["event_id"], name: "index_groups_on_event_id", using: :btree
   add_index "groups", ["organizer_id"], name: "index_groups_on_organizer_id", using: :btree
   add_index "groups", ["user_id"], name: "index_groups_on_user_id", using: :btree
+
+  create_table "organizers", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "organizers", ["user_id"], name: "index_organizers_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",            null: false

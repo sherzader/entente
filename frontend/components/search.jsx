@@ -32,8 +32,9 @@ var Search = React.createClass({
   },
   render: function(){
     return(
-      <div className="search">
-          <form className="navbar-form navbar-right search" role="search">
+      <div>
+        <div className="search">
+          <form className="navbar-form navbar-right" role="search">
             <div className="form-group">
               <input type="text"
                      className="form-control"
@@ -43,6 +44,7 @@ var Search = React.createClass({
                    </input>
             </div>
           </form>
+          </div>
         <div className="filter-groups">{
             <GroupIndex groups={this.filteredGroups()} />
           }

@@ -16,13 +16,17 @@ h1 {
 
 .navbar-default {
   margin: 0 auto;
-  width: 75%;
+  width: 50%;
   border-radius: 0px 0px 10px 10px;
 }
 
 .search {
+  position: fixed;
   margin-right: 100px;
   margin-top: 0px;
+  position: relative;
+  top: -50px;
+  left: -300px;
 }
 
 .group-item {

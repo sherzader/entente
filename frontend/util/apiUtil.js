@@ -28,6 +28,17 @@ var ApiUtil = {
       }
     });
   },
+  editGroup: function (group, callback) {
+    $.ajax({
+      url: "api/groups/" + group.id,
+      method: "PATCH",
+      data: {group: group},
+      success: function (g) {
+        ApiActions.receiveSingle(g);
+        callback();
+      }
+    });
+  },
   destroyGroup: function (group, callback) {
     $.ajax({
       url: "api/groups/" + group.id,

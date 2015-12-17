@@ -9,7 +9,7 @@ var Show = React.createClass({
   getInitialState: function () {
     var groupId = this.props.params.id;
     var group = this._findGroupById(groupId) ||
-                    ApiUtil.fetchGroup(groupId) || {};
+                 ApiUtil.fetchGroup(groupId) || {};
     return { group: group };
   },
   _findGroupById: function (id) {
@@ -21,10 +21,17 @@ var Show = React.createClass({
     }.bind(this));
     return res;
   },
-  deleteGroup: function () {
+  _deleteGroup: function () {
     var group = this.state.group;
 
     ApiUtil.destroyGroup(group, function () {
+      this.history.push("/");
+    }.bind(this));
+  },
+  _editGroup: function () {
+    var group = this.state.group;
+
+    ApiUtil.editGroup(group, function () {
       this.history.push("/");
     }.bind(this));
   },
@@ -51,8 +58,9 @@ var Show = React.createClass({
           About Us: {this.state.group.body}
           <br /><br />
         <button className="glyphicon glyphicon-remove"
-                onClick={this.deleteGroup}></button>
-        <button className="glyphicon glyphicon-pencil"></button>
+                onClick={this._deleteGroup}></button>
+        <button className="glyphicon glyphicon-pencil"
+                onClick={this._editGroup}></button>
       </div>
     );
   }

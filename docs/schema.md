@@ -18,9 +18,8 @@ id          | integer   | not null, primary key
 organizer_id| integer   | not null, foreign key (references organizers), indexed
 title       | string    | not null
 location    | text      | not null
-time        | datetime  | not null
+date        | datetime  | not null
 description | string    |
-group_id    | integer   | not null, foreign key (references groups), indexed
 user_id     | integer   | null, foreign key (references users), indexed
 
 ## tags
@@ -42,8 +41,6 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references users), indexed
-group_id    | integer   | not null, foreign key (references groups), indexed
-type        | string    | not null
 
 ## users
 column name     | data type | details

@@ -50,10 +50,10 @@
 	var Router = __webpack_require__(159).Router;
 	var Route = __webpack_require__(159).Route;
 	var IndexRoute = __webpack_require__(159).IndexRoute;
-	var Search = __webpack_require__(231);
-	var GroupIndex = __webpack_require__(233);
-	var GroupForm = __webpack_require__(234);
-	var ShowGroup = __webpack_require__(289);
+	var Search = __webpack_require__(206);
+	var GroupIndex = __webpack_require__(231);
+	var GroupForm = __webpack_require__(233);
+	var ShowGroup = __webpack_require__(238);
 
 	var App = React.createClass({
 	  displayName: 'App',
@@ -24008,7 +24008,76 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 206 */,
+/* 206 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	var GroupStore = __webpack_require__(207);
+	var ApiUtil = __webpack_require__(229);
+	var GroupIndex = __webpack_require__(231);
+
+	var Search = React.createClass({
+	  displayName: 'Search',
+
+	  getInitialState: function () {
+	    return { searchString: "", groups: GroupStore.all() };
+	  },
+	  handleChange: function (e) {
+	    this.setState({ searchString: e.currentTarget.value });
+	  },
+	  _onChange: function () {
+	    this.setState({ groups: GroupStore.all() });
+	  },
+	  componentDidMount: function () {
+	    this.groupListener = GroupStore.addListener(this._onChange);
+	    ApiUtil.fetchGroups();
+	  },
+	  componentWillUnmount: function () {
+	    this.groupListener.remove();
+	  },
+	  filteredGroups: function () {
+	    if (this.state.searchString === "") {
+	      return this.state.groups;
+	    } else {
+	      var regex = new RegExp(this.state.searchString);
+	      return this.state.groups.filter(function (group) {
+	        return group.title.search(regex) > -1;
+	      });
+	    }
+	  },
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'div',
+	        { className: 'search' },
+	        React.createElement(
+	          'form',
+	          { className: 'navbar-form navbar-right', role: 'search' },
+	          React.createElement(
+	            'div',
+	            { className: 'form-group' },
+	            React.createElement('input', { type: 'text',
+	              className: 'form-control',
+	              placeholder: 'Search',
+	              onChange: this.handleChange,
+	              value: this.state.searchString })
+	          )
+	        )
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'filter-groups' },
+	        React.createElement(GroupIndex, { groups: this.filteredGroups() })
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Search;
+
+/***/ },
 /* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -30787,6 +30856,17 @@
 	      }
 	    });
 	  },
+	  editGroup: function (group, callback) {
+	    $.ajax({
+	      url: "api/groups/" + group.id,
+	      method: "PATCH",
+	      data: { group: group },
+	      success: function (g) {
+	        ApiActions.receiveSingle(g);
+	        callback();
+	      }
+	    });
+	  },
 	  destroyGroup: function (group, callback) {
 	    $.ajax({
 	      url: "api/groups/" + group.id,
@@ -30839,108 +30919,6 @@
 	var React = __webpack_require__(1);
 	var GroupStore = __webpack_require__(207);
 	var ApiUtil = __webpack_require__(229);
-	var GroupIndex = __webpack_require__(233);
-
-	var Search = React.createClass({
-	  displayName: 'Search',
-
-	  getInitialState: function () {
-	    return { searchString: "", groups: GroupStore.all() };
-	  },
-	  handleChange: function (e) {
-	    this.setState({ searchString: e.currentTarget.value });
-	  },
-	  _onChange: function () {
-	    this.setState({ groups: GroupStore.all() });
-	  },
-	  componentDidMount: function () {
-	    this.groupListener = GroupStore.addListener(this._onChange);
-	    ApiUtil.fetchGroups();
-	  },
-	  componentWillUnmount: function () {
-	    this.groupListener.remove();
-	  },
-	  filteredGroups: function () {
-	    if (this.state.searchString === "") {
-	      return this.state.groups;
-	    } else {
-	      var regex = new RegExp(this.state.searchString);
-	      return this.state.groups.filter(function (group) {
-	        return group.title.search(regex) > -1;
-	      });
-	    }
-	  },
-	  render: function () {
-	    return React.createElement(
-	      'div',
-	      { className: 'search' },
-	      React.createElement(
-	        'form',
-	        { className: 'navbar-form navbar-right search', role: 'search' },
-	        React.createElement(
-	          'div',
-	          { className: 'form-group' },
-	          React.createElement('input', { type: 'text',
-	            className: 'form-control',
-	            placeholder: 'Search',
-	            onChange: this.handleChange,
-	            value: this.state.searchString })
-	        )
-	      ),
-	      React.createElement(
-	        'div',
-	        { className: 'filter-groups' },
-	        React.createElement(GroupIndex, { groups: this.filteredGroups() })
-	      )
-	    );
-	  }
-	});
-
-	module.exports = Search;
-
-/***/ },
-/* 232 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-	var GroupStore = __webpack_require__(207);
-	var ApiUtil = __webpack_require__(229);
-	var Search = __webpack_require__(231);
-
-	var GroupItem = React.createClass({
-	  displayName: 'GroupItem',
-
-	  render: function () {
-	    return React.createElement(
-	      'div',
-	      { className: 'group-item container-fluid',
-	        key: this.props.group.id,
-	        onClick: this.props.onClick },
-	      React.createElement('br', null),
-	      React.createElement('br', null),
-	      'Name: ',
-	      this.props.group.title,
-	      React.createElement('br', null),
-	      'Where: ',
-	      this.props.group.location,
-	      React.createElement('br', null),
-	      'About Us: ',
-	      this.props.group.body,
-	      React.createElement('br', null),
-	      React.createElement('br', null)
-	    );
-	  }
-	});
-
-	module.exports = GroupItem;
-
-/***/ },
-/* 233 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-	var GroupStore = __webpack_require__(207);
-	var ApiUtil = __webpack_require__(229);
 	var GroupItem = __webpack_require__(232);
 	var History = __webpack_require__(159).History;
 
@@ -30981,12 +30959,48 @@
 	module.exports = GroupIndex;
 
 /***/ },
-/* 234 */
+/* 232 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	var GroupStore = __webpack_require__(207);
+	var ApiUtil = __webpack_require__(229);
+	var Search = __webpack_require__(206);
+
+	var GroupItem = React.createClass({
+	  displayName: 'GroupItem',
+
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      { className: 'group-item container-fluid',
+	        key: this.props.group.id,
+	        onClick: this.props.onClick },
+	      React.createElement('br', null),
+	      React.createElement('br', null),
+	      'Name: ',
+	      this.props.group.title,
+	      React.createElement('br', null),
+	      'Where: ',
+	      this.props.group.location,
+	      React.createElement('br', null),
+	      'About Us: ',
+	      this.props.group.body,
+	      React.createElement('br', null),
+	      React.createElement('br', null)
+	    );
+	  }
+	});
+
+	module.exports = GroupItem;
+
+/***/ },
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var ApiUtil = __webpack_require__(229);
-	var LinkedStateMixin = __webpack_require__(235);
+	var LinkedStateMixin = __webpack_require__(234);
 
 	var GroupForm = React.createClass({
 	  displayName: 'GroupForm',
@@ -31120,13 +31134,13 @@
 	module.exports = GroupForm;
 
 /***/ },
-/* 235 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(236);
+	module.exports = __webpack_require__(235);
 
 /***/ },
-/* 236 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31143,8 +31157,8 @@
 
 	'use strict';
 
-	var ReactLink = __webpack_require__(237);
-	var ReactStateSetters = __webpack_require__(238);
+	var ReactLink = __webpack_require__(236);
+	var ReactStateSetters = __webpack_require__(237);
 
 	/**
 	 * A simple mixin around ReactLink.forState().
@@ -31167,7 +31181,7 @@
 	module.exports = LinkedStateMixin;
 
 /***/ },
-/* 237 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31241,7 +31255,7 @@
 	module.exports = ReactLink;
 
 /***/ },
-/* 238 */
+/* 237 */
 /***/ function(module, exports) {
 
 	/**
@@ -31350,57 +31364,7 @@
 	module.exports = ReactStateSetters;
 
 /***/ },
-/* 239 */,
-/* 240 */,
-/* 241 */,
-/* 242 */,
-/* 243 */,
-/* 244 */,
-/* 245 */,
-/* 246 */,
-/* 247 */,
-/* 248 */,
-/* 249 */,
-/* 250 */,
-/* 251 */,
-/* 252 */,
-/* 253 */,
-/* 254 */,
-/* 255 */,
-/* 256 */,
-/* 257 */,
-/* 258 */,
-/* 259 */,
-/* 260 */,
-/* 261 */,
-/* 262 */,
-/* 263 */,
-/* 264 */,
-/* 265 */,
-/* 266 */,
-/* 267 */,
-/* 268 */,
-/* 269 */,
-/* 270 */,
-/* 271 */,
-/* 272 */,
-/* 273 */,
-/* 274 */,
-/* 275 */,
-/* 276 */,
-/* 277 */,
-/* 278 */,
-/* 279 */,
-/* 280 */,
-/* 281 */,
-/* 282 */,
-/* 283 */,
-/* 284 */,
-/* 285 */,
-/* 286 */,
-/* 287 */,
-/* 288 */,
-/* 289 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -31427,10 +31391,17 @@
 	    }).bind(this));
 	    return res;
 	  },
-	  deleteGroup: function () {
+	  _deleteGroup: function () {
 	    var group = this.state.group;
 
 	    ApiUtil.destroyGroup(group, (function () {
+	      this.history.push("/");
+	    }).bind(this));
+	  },
+	  _editGroup: function () {
+	    var group = this.state.group;
+
+	    ApiUtil.editGroup(group, (function () {
 	      this.history.push("/");
 	    }).bind(this));
 	  },
@@ -31463,8 +31434,9 @@
 	      React.createElement('br', null),
 	      React.createElement('br', null),
 	      React.createElement('button', { className: 'glyphicon glyphicon-remove',
-	        onClick: this.deleteGroup }),
-	      React.createElement('button', { className: 'glyphicon glyphicon-pencil' })
+	        onClick: this._deleteGroup }),
+	      React.createElement('button', { className: 'glyphicon glyphicon-pencil',
+	        onClick: this._editGroup })
 	    );
 	  }
 	});
