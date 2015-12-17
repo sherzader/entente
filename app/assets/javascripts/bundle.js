@@ -30884,15 +30884,12 @@
 	var GroupItem = React.createClass({
 	  displayName: 'GroupItem',
 
-	  handleClick: function (e) {
-	    ApiUtil.fetchGroup(e.id);
-	  },
 	  render: function () {
 	    return React.createElement(
 	      'div',
 	      { className: 'group-item container-fluid',
 	        key: this.props.group.id,
-	        onClick: this.handleClick },
+	        onClick: this.props.onClick },
 	      React.createElement('br', null),
 	      React.createElement('br', null),
 	      'Name: ',
@@ -30919,10 +30916,12 @@
 	var GroupStore = __webpack_require__(207);
 	var ApiUtil = __webpack_require__(229);
 	var GroupItem = __webpack_require__(232);
+	var History = __webpack_require__(159).History;
 
 	var GroupIndex = React.createClass({
 	  displayName: 'GroupIndex',
 
+	  mixins: [History],
 	  getInitialState: function () {
 	    return { groups: GroupStore.all() };
 	  },
@@ -30936,9 +30935,14 @@
 	  componentWillUnmount: function () {
 	    this.groupListener.remove();
 	  },
+	  handleItemClick: function (group) {
+	    this.history.pushState(null, "groups/" + group.id);
+	  },
 	  render: function () {
+	    var handleItemClick = this.handleItemClick;
 	    var groupElements = this.props.groups.map(function (group) {
-	      return React.createElement(GroupItem, { key: group.id, group: group });
+	      var boundClick = handleItemClick.bind(null, group);
+	      return React.createElement(GroupItem, { key: group.id, onClick: boundClick, group: group });
 	    });
 	    return React.createElement(
 	      'div',
@@ -31382,7 +31386,23 @@
 	  displayName: 'Show',
 
 	  getInitialState: function () {
-	    return { group: GroupStore.fetchGroup(this.props.params) };
+	    var groupId = this.props.params.id;
+	    var group = this._findGroupById(groupId) || {};
+	    return { group: group };
+	  },
+	  _findGroupById: function (id) {
+	    var res;
+	    GroupStore.all().forEach((function (group) {
+	      if (id == group.id) {
+	        res = group;
+	      }
+	    }).bind(this));
+	    return res;
+	  },
+	  _onChange: function () {
+	    var groupId = this.props.params.id;
+	    var group = this._findGroupById(groupId);
+	    this.setState({ group: group });
 	  },
 	  componentDidMount: function () {
 	    this.groupListener = GroupStore.addListener(this._onChange);

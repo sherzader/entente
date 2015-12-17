@@ -4,14 +4,11 @@ var ApiUtil = require('../util/apiUtil');
 var Search = require('./search.jsx');
 
 var GroupItem = React.createClass({
-  handleClick: function(e){
-    ApiUtil.fetchGroup(e.id);
-  },
   render: function () {
     return(
       <div className="group-item container-fluid"
         key={this.props.group.id}
-        onClick={this.handleClick}>
+        onClick={this.props.onClick}>
           <br /><br />
           Name: {this.props.group.title}
           <br />
