@@ -2,7 +2,7 @@ class Api::EventsController < ApplicationController
   before_filter :require_login!
 
   def index
-    @events = Event.all
+    @events = Event.where(group_id: params[:group_id])
   end
 
   def create
@@ -20,7 +20,7 @@ class Api::EventsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
-    
+
     if @event.destroy
       render :show
     else

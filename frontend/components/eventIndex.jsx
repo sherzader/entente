@@ -15,7 +15,7 @@ var EventIndex = React.createClass({
   },
   componentDidMount: function () {
     this.eventListener = EventStore.addListener(this._onChange);
-    ApiUtil.fetchEvents();
+    ApiUtil.fetchEvents(this.props.group.id);
   },
   componentWillUnmount: function () {
     this.eventListener.remove();

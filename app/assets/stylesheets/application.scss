@@ -32,15 +32,17 @@ h1 {
 }
 
 .search-groups {
-  position: fixed;
-  margin-right: 100px;
+  position: relative;
   margin-top: 0px;
+  left: -450px;
   top: -50px;
-  left: -250px;
+  background-color: red;
 }
 
 .search-events {
-  right: 250px;
+  position: relative;
+  margin-top: 0px;
+  top: -330px;
 }
 
 .group-item {
