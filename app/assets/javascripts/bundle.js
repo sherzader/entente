@@ -89,12 +89,9 @@
 	  { path: '/', component: App },
 	  React.createElement(IndexRoute, { component: Search }),
 	  React.createElement(Route, { path: 'groups/new', component: GroupForm }),
-	  React.createElement(
-	    Route,
-	    { path: 'groups/:id', component: ShowGroup },
-	    React.createElement(Route, { path: '/events/new', component: EventForm }),
-	    React.createElement(Route, { path: '/events', component: EventIndex })
-	  ),
+	  React.createElement(Route, { path: 'groups/:id', component: ShowGroup }),
+	  React.createElement(Route, { path: 'groups/:id/events/new', component: EventForm }),
+	  React.createElement(Route, { path: '/events', component: EventIndex }),
 	  React.createElement(Route, { path: 'events/:id', component: EventItem })
 	);
 
@@ -30862,9 +30859,9 @@
 	      }
 	    });
 	  },
-	  fetchEvent: function (groupId, id) {
+	  fetchEvent: function (id) {
 	    $.ajax({
-	      url: "api/groups/" + groupId + "/events/" + id,
+	      url: "api/events/" + id,
 	      success: function (group_event) {
 	        ApiActions.receiveEvent(group_event);
 	      }
@@ -30883,9 +30880,9 @@
 	  },
 	  createEvent: function (groupId, group_event, callback) {
 	    $.ajax({
-	      url: "api/groups/" + groupId + "/events/new",
+	      url: "api/groups/" + groupId + "/events",
 	      method: "POST",
-	      data: { group_event: group_event },
+	      data: { event: group_event },
 	      success: function (e) {
 	        ApiActions.receiveEvent(e);
 	        callback();
@@ -31429,6 +31426,7 @@
 	var ApiUtil = __webpack_require__(229);
 	var GroupItem = __webpack_require__(233);
 	var EventIndex = __webpack_require__(240);
+	var EventForm = __webpack_require__(241);
 	var History = __webpack_require__(159).History;
 
 	var Show = React.createClass({
@@ -31438,7 +31436,7 @@
 	  getInitialState: function () {
 	    var groupId = this.props.params.id;
 	    var group = this._findGroupById(groupId) || ApiUtil.fetchGroup(groupId) || {};
-	    return { group: group };
+	    return { group: group, selectedForm: false };
 	  },
 	  _findGroupById: function (id) {
 	    var res;
@@ -31469,7 +31467,10 @@
 	    this.setState({ group: group });
 	  },
 	  _eventForm: function () {
-	    this.history.pushState(null, "/events/new", {});
+	    this.setState({ selectedForm: true });
+	  },
+	  handleItemClick: function () {
+	    this.history.pushState(null, "/groups/" + this.state.group.id + "/events/new");
 	  },
 	  componentDidMount: function () {
 	    this.groupListener = GroupStore.addListener(this._onChange);
@@ -31478,6 +31479,9 @@
 	    this.groupListener.remove();
 	  },
 	  render: function () {
+	    if (this.state.selectedForm) {
+	      var selected = React.createElement(EventForm, null);
+	    }
 	    return React.createElement(
 	      'div',
 	      { className: 'show-group container-fluid' },
@@ -31502,12 +31506,12 @@
 	        React.createElement('button', { className: 'glyphicon glyphicon-pencil',
 	          onClick: this._editGroup }),
 	        React.createElement(
-	          'span',
-	          { onClick: this._eventForm,
-	            groupId: this.props.params.id },
+	          'button',
+	          { onClick: this.handleItemClick, groupId: this.props.params.id },
 	          'Add Event'
 	        )
 	      ),
+	      selected,
 	      React.createElement(EventIndex, null)
 	    );
 	  }
@@ -31540,15 +31544,16 @@
 	  componentWillUnmount: function () {
 	    this.eventListener.remove();
 	  },
-	  handleItemClick: function () {
-	    this.props.history.pushState(null, "/events", {});
+	  _showEvent: function (id) {
+	    ApiUtil.fetchEvent(id, (function () {
+	      this.props.history.push("/events/" + id);
+	    }).bind(this));
 	  },
 	  render: function () {
-	    var handleItemClick = this.handleItemClick;
+	    var showEvent = this._showEvent;
 	    var eventElements = this.state.events.map(function (groupEvent) {
-	      var boundClick = handleItemClick.bind(null, groupEvent);
 	      return React.createElement(EventItem, { key: groupEvent.id,
-	        onClick: boundClick,
+	        onClick: showEvent(groupEvent.id),
 	        groupEvent: groupEvent });
 	    });
 	    return React.createElement(
@@ -31585,8 +31590,6 @@
 	    return this.blankAttrs;
 	  },
 
-	  componentDidMount: function () {},
-
 	  handleChange: function (e) {
 	    this.setState({ location: e.target.value });
 	  },
@@ -31594,9 +31597,8 @@
 	  _createEvent: function (e) {
 	    e.preventDefault();
 	    var group_event = this.state;
-
 	    ApiUtil.createEvent(this.props.params.id, group_event, (function () {
-	      this.props.history.push("/");
+	      this.props.history.push("/groups/" + this.props.params.id);
 	    }).bind(this));
 
 	    this.setState(this.blankAttrs);
@@ -31674,6 +31676,29 @@
 	              type: 'text',
 	              id: 'event_location',
 	              valueLink: this.linkState("location")
+	            })
+	          )
+	        ),
+	        React.createElement(
+	          'tr',
+	          null,
+	          React.createElement(
+	            'td',
+	            null,
+	            React.createElement(
+	              'label',
+	              { htmlFor: 'event_date' },
+	              'Date: '
+	            )
+	          ),
+	          React.createElement('td', null),
+	          React.createElement(
+	            'td',
+	            null,
+	            React.createElement('input', {
+	              type: 'date',
+	              id: 'event_date',
+	              valueLink: this.linkState("date")
 	            })
 	          )
 	        ),

@@ -17,15 +17,16 @@ var EventIndex = React.createClass({
   componentWillUnmount: function () {
     this.eventListener.remove();
   },
-  handleItemClick: function () {
-    this.props.history.pushState(null, "/events", {} );
+  _showEvent: function (id) {
+    ApiUtil.fetchEvent(id, function() {
+      this.props.history.push("/events/" + id);
+    }.bind(this));
   },
   render: function () {
-    var handleItemClick = this.handleItemClick;
+    var showEvent = this._showEvent;
     var eventElements = this.state.events.map(function (groupEvent) {
-      var boundClick = handleItemClick.bind(null, groupEvent);
       return (<EventItem key={groupEvent.id}
-              onClick={boundClick}
+              onClick={showEvent(groupEvent.id)}
               groupEvent={groupEvent} />)
     });
     return(

@@ -3,6 +3,7 @@ var GroupStore = require('../stores/group');
 var ApiUtil = require('../util/apiUtil');
 var GroupItem = require('./groupItem.jsx');
 var EventIndex = require('./eventIndex.jsx');
+var EventForm = require('./eventForm.jsx');
 var History = require('react-router').History;
 
 var Show = React.createClass({
@@ -11,7 +12,7 @@ var Show = React.createClass({
     var groupId = this.props.params.id;
     var group = this._findGroupById(groupId) ||
                  ApiUtil.fetchGroup(groupId) || {};
-    return { group: group };
+    return { group: group, selectedForm: false };
   },
   _findGroupById: function (id) {
     var res;
@@ -42,7 +43,10 @@ var Show = React.createClass({
     this.setState({ group: group });
   },
   _eventForm: function () {
-    this.history.pushState(null, "/events/new", {});
+    this.setState({selectedForm: true});
+  },
+  handleItemClick: function () {
+    this.history.pushState(null, "/groups/" + this.state.group.id + "/events/new" );
   },
   componentDidMount: function () {
     this.groupListener = GroupStore.addListener(this._onChange);
@@ -51,6 +55,9 @@ var Show = React.createClass({
     this.groupListener.remove();
   },
   render: function () {
+    if (this.state.selectedForm) {
+      var selected = <EventForm />
+    }
     return(
       <div className="show-group container-fluid">
         <div className="group-item container-fluid"
@@ -66,11 +73,11 @@ var Show = React.createClass({
                   onClick={this._deleteGroup}></button>
           <button className="glyphicon glyphicon-pencil"
                   onClick={this._editGroup}></button>
-          <span onClick={this._eventForm}
-            groupId={this.props.params.id}>
+          <button onClick={this.handleItemClick} groupId={this.props.params.id}>
             Add Event
-          </span>
+          </button>
         </div>
+        {selected}
       <EventIndex />
       </div>
     );

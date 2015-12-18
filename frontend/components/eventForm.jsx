@@ -16,10 +16,6 @@ var EventForm = React.createClass({
     return this.blankAttrs;
   },
 
-  componentDidMount: function () {
-
-  },
-
   handleChange: function (e) {
     this.setState({location: e.target.value});
   },
@@ -27,9 +23,8 @@ var EventForm = React.createClass({
   _createEvent: function (e) {
     e.preventDefault();
     var group_event = this.state;
-
     ApiUtil.createEvent(this.props.params.id, group_event, function () {
-      this.props.history.push("/");
+      this.props.history.push("/groups/" + this.props.params.id);
     }.bind(this));
 
     this.setState(this.blankAttrs);
@@ -74,6 +69,19 @@ var EventForm = React.createClass({
                   type='text'
                   id='event_location'
                   valueLink={this.linkState("location")}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+              <label htmlFor='event_date'>Date: </label>
+              </td>
+              <td></td>
+              <td>
+                <input
+                  type='date'
+                  id='event_date'
+                  valueLink={this.linkState("date")}
                 />
               </td>
             </tr>

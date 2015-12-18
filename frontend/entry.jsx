@@ -30,10 +30,9 @@ var routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Search}></IndexRoute>
     <Route path="groups/new" component={GroupForm} />
-    <Route path="groups/:id" component={ShowGroup}>
-      <Route path="/events/new" component={EventForm} />
+    <Route path="groups/:id" component={ShowGroup}></Route>
+    <Route path="groups/:id/events/new" component={EventForm} />
       <Route path="/events" component={EventIndex} />
-    </Route>
     <Route path="events/:id" component={EventItem} />
   </Route>
 );
