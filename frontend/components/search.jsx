@@ -33,7 +33,7 @@ var Search = React.createClass({
   render: function(){
     return(
       <div>
-        <div className="search">
+        <div className="search-groups">
           <form className="navbar-form navbar-right" role="search">
             <div className="form-group">
               <input type="text"

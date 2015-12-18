@@ -31,7 +31,10 @@ var Show = React.createClass({
           <br />
           About Event: {this.state.group_event.body}
           <br /><br />
+          <button className="glyphicon glyphicon-pencil"
+                  onClick={this._deleteEvent}></button>
           <button className="fa fa-bomb"></button>
+          <button className="fa fa-arrow-circle-left"></button>
       </div>
     );
   }

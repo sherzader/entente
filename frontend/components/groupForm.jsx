@@ -41,7 +41,6 @@ var GroupForm = React.createClass({
               <td>
               <label htmlFor='group_title'>Name:</label>
               </td>
-              <td></td>
               <td>
               <input
                 type='text'
@@ -53,7 +52,6 @@ var GroupForm = React.createClass({
               <td>
               <label htmlFor='group_body'>About Group:</label>
               </td>
-              <td></td>
               <td>
               <input
                 type='text'
@@ -66,7 +64,6 @@ var GroupForm = React.createClass({
               <td>
               <label htmlFor='group_location'>Location: </label>
               </td>
-              <td></td>
               <td>
                 <input
                   type='text'

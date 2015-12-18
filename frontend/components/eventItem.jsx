@@ -29,7 +29,7 @@ var EventItem = React.createClass({
           About Event: {this.props.groupEvent.body}
           <br /><br />
           <button className="fa fa-bomb"
-                    onClick={this._deleteEvent}></button>
+                  onClick={this._deleteEvent}></button>
       </div>
     );
   }

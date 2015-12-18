@@ -5,7 +5,10 @@ var EventItem = require('./eventItem.jsx');
 
 var EventIndex = React.createClass({
   getInitialState: function(){
-    return { events: EventStore.all() };
+    return { searchString: "", events: EventStore.all() };
+  },
+  handleChange: function(e){
+    this.setState({searchString: e.currentTarget.value});
   },
   _onChange: function(event){
     this.setState({ events: EventStore.all() });
@@ -17,9 +20,18 @@ var EventIndex = React.createClass({
   componentWillUnmount: function () {
     this.eventListener.remove();
   },
-
+  filteredEvents: function(){
+    if (this.state.searchString === ""){
+      return this.state.events;
+    }else {
+      var regex = new RegExp(this.state.searchString);
+      return this.state.events.filter(function(groupEvent){
+        return (groupEvent.title.search(regex) > -1);
+      });
+    }
+  },
   render: function () {
-    var eventElements = this.state.events.map(function (groupEvent) {
+    var eventElements = this.filteredEvents().map(function (groupEvent) {
       return (<EventItem
               key={groupEvent.id}
               group={this.props.group}
@@ -27,9 +39,23 @@ var EventIndex = React.createClass({
               groupEvent={groupEvent} />)
     }, this);
     return(
-      <div className="event-index">
-        {eventElements}
-      </div>
+      <div>
+        <div className="search-events">
+          <form className="navbar-form navbar-right" role="search">
+            <div className="form-group">
+              <input type="text"
+                     className="form-control"
+                     placeholder="Search"
+                     onChange={this.handleChange}
+                     value={this.state.searchString}>
+                   </input>
+            </div>
+          </form>
+        </div>
+        <div className="filter-events event-index">
+          {eventElements}
+        </div>
+    </div>
     );
   }
 });

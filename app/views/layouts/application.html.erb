@@ -8,8 +8,18 @@
 </head>
 <body>
 <%= render "layouts/errors" %>
-<%= yield %>
-<%= javascript_include_tag 'application' %>
-
+  <!-- <script type="text/javascript">
+    var randNum = Math.floor(Math.random() * 10) + 1;
+    var images = [];
+    images[1] = 'franklin_trees_01.jpg';
+    image = '/assets/images/' + images[1];
+    var setBackground = window.setInterval( function () {
+      document.body.style.backgroundImage = "url(" + image + ")";
+    }, 10000);
+    setBackground();
+    document.write('<div class="bgImage" style="background-image: url(' + image + ');">')
+  </script> -->
+  <%= yield %>
+  <%= javascript_include_tag 'application' %>
 </body>
 </html>

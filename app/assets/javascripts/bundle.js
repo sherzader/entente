@@ -24058,7 +24058,7 @@
 	      null,
 	      React.createElement(
 	        'div',
-	        { className: 'search' },
+	        { className: 'search-groups' },
 	        React.createElement(
 	          'form',
 	          { className: 'navbar-form navbar-right', role: 'search' },
@@ -31131,7 +31131,6 @@
 	              'Name:'
 	            )
 	          ),
-	          React.createElement('td', null),
 	          React.createElement(
 	            'td',
 	            null,
@@ -31153,7 +31152,6 @@
 	              'About Group:'
 	            )
 	          ),
-	          React.createElement('td', null),
 	          React.createElement(
 	            'td',
 	            null,
@@ -31176,7 +31174,6 @@
 	              'Location: '
 	            )
 	          ),
-	          React.createElement('td', null),
 	          React.createElement(
 	            'td',
 	            null,
@@ -31554,7 +31551,10 @@
 	  displayName: 'EventIndex',
 
 	  getInitialState: function () {
-	    return { events: EventStore.all() };
+	    return { searchString: "", events: EventStore.all() };
+	  },
+	  handleChange: function (e) {
+	    this.setState({ searchString: e.currentTarget.value });
 	  },
 	  _onChange: function (event) {
 	    this.setState({ events: EventStore.all() });
@@ -31566,9 +31566,18 @@
 	  componentWillUnmount: function () {
 	    this.eventListener.remove();
 	  },
-
+	  filteredEvents: function () {
+	    if (this.state.searchString === "") {
+	      return this.state.events;
+	    } else {
+	      var regex = new RegExp(this.state.searchString);
+	      return this.state.events.filter(function (groupEvent) {
+	        return groupEvent.title.search(regex) > -1;
+	      });
+	    }
+	  },
 	  render: function () {
-	    var eventElements = this.state.events.map(function (groupEvent) {
+	    var eventElements = this.filteredEvents().map(function (groupEvent) {
 	      return React.createElement(EventItem, {
 	        key: groupEvent.id,
 	        group: this.props.group,
@@ -31577,8 +31586,29 @@
 	    }, this);
 	    return React.createElement(
 	      'div',
-	      { className: 'event-index' },
-	      eventElements
+	      null,
+	      React.createElement(
+	        'div',
+	        { className: 'search-events' },
+	        React.createElement(
+	          'form',
+	          { className: 'navbar-form navbar-right', role: 'search' },
+	          React.createElement(
+	            'div',
+	            { className: 'form-group' },
+	            React.createElement('input', { type: 'text',
+	              className: 'form-control',
+	              placeholder: 'Search',
+	              onChange: this.handleChange,
+	              value: this.state.searchString })
+	          )
+	        )
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'filter-events event-index' },
+	        eventElements
+	      )
 	    );
 	  }
 	});
@@ -31893,7 +31923,10 @@
 	      this.state.group_event.body,
 	      React.createElement('br', null),
 	      React.createElement('br', null),
-	      React.createElement('button', { className: 'fa fa-bomb' })
+	      React.createElement('button', { className: 'glyphicon glyphicon-pencil',
+	        onClick: this._deleteEvent }),
+	      React.createElement('button', { className: 'fa fa-bomb' }),
+	      React.createElement('button', { className: 'fa fa-arrow-circle-left' })
 	    );
 	  }
 	});
