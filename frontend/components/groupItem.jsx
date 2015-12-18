@@ -10,7 +10,7 @@ var GroupItem = React.createClass({
         key={this.props.group.id}
         onClick={this.props.onClick}>
           <br /><br />
-          Name: {this.props.group.title}
+          <p className="title">Name: {this.props.group.title}</p>
           <br />
           Where: {this.props.group.location}
           <br />

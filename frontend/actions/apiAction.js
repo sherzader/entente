@@ -33,6 +33,12 @@ var ApiActions = {
       actionType: GroupConstants.GROUP_REMOVE,
       group: group
     });
+  },
+  removeEvent: function (group_event) {
+    AppDispatcher.dispatch({
+      actionType: EventConstants.EVENT_REMOVE,
+      group_event: group_event
+    });
   }
 };
 

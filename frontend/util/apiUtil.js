@@ -76,6 +76,17 @@ var ApiUtil = {
         callback();
       }
     });
+  },
+  destroyEvent: function (group_event, callback) {
+    $.ajax({
+      url: "api/events/" + group_event.id,
+      method: "DELETE",
+      data: {event: group_event},
+      success: function (e) {
+        ApiActions.removeEvent(e);
+        callback();
+      }
+    });
   }
 };
 

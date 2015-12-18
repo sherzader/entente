@@ -22,6 +22,7 @@ var EventForm = React.createClass({
 
   _createEvent: function (e) {
     e.preventDefault();
+
     var group_event = this.state;
     ApiUtil.createEvent(this.props.params.id, group_event, function () {
       this.props.history.push("/groups/" + this.props.params.id);
@@ -38,7 +39,6 @@ var EventForm = React.createClass({
               <td>
               <label htmlFor='event_title'>Name:</label>
               </td>
-              <td></td>
               <td>
               <input
                 type='text'
@@ -50,7 +50,6 @@ var EventForm = React.createClass({
               <td>
               <label htmlFor='event_body'>About Event:</label>
               </td>
-              <td></td>
               <td>
               <input
                 type='text'
@@ -63,7 +62,6 @@ var EventForm = React.createClass({
               <td>
               <label htmlFor='event_location'>Location: </label>
               </td>
-              <td></td>
               <td>
                 <input
                   type='text'
@@ -74,9 +72,8 @@ var EventForm = React.createClass({
             </tr>
             <tr>
               <td>
-              <label htmlFor='event_date'>Date: </label>
+              <label className="fa fa-calendar" htmlFor='event_date'></label>
               </td>
-              <td></td>
               <td>
                 <input
                   type='date'

@@ -11,6 +11,7 @@ var ShowGroup = require('./components/showGroup.jsx');
 var EventIndex = require('./components/eventIndex.jsx');
 var EventForm = require('./components/eventForm.jsx');
 var EventItem = require('./components/eventItem.jsx');
+var ShowEvent = require('./components/showEvent.jsx');
 
 var App = React.createClass({
   render: function () {
@@ -18,7 +19,8 @@ var App = React.createClass({
       <div className="navbar" role="navigation">
         <nav className="nav navbar-default">
             <a href="/#"><h1>Entente</h1></a>
-            <a href="#groups/new" className="glyphicon glyphicon-plus" />
+            <a href="#groups/new"
+              className="glyphicon glyphicon-plus" />
         </nav>
         {this.props.children}
       </div>
@@ -32,8 +34,7 @@ var routes = (
     <Route path="groups/new" component={GroupForm} />
     <Route path="groups/:id" component={ShowGroup}></Route>
     <Route path="groups/:id/events/new" component={EventForm} />
-      <Route path="/events" component={EventIndex} />
-    <Route path="events/:id" component={EventItem} />
+    <Route path="events/:id" component={ShowEvent} />
   </Route>
 );
 

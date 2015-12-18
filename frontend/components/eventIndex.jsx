@@ -12,23 +12,20 @@ var EventIndex = React.createClass({
   },
   componentDidMount: function () {
     this.eventListener = EventStore.addListener(this._onChange);
-    ApiUtil.fetchEvents(this.props.groupId);
+    ApiUtil.fetchEvents();
   },
   componentWillUnmount: function () {
     this.eventListener.remove();
   },
-  _showEvent: function (id) {
-    ApiUtil.fetchEvent(id, function() {
-      this.props.history.push("/events/" + id);
-    }.bind(this));
-  },
+
   render: function () {
-    var showEvent = this._showEvent;
     var eventElements = this.state.events.map(function (groupEvent) {
-      return (<EventItem key={groupEvent.id}
-              onClick={showEvent(groupEvent.id)}
+      return (<EventItem
+              key={groupEvent.id}
+              group={this.props.group}
+              history={this.props.history}
               groupEvent={groupEvent} />)
-    });
+    }, this);
     return(
       <div className="event-index">
         {eventElements}

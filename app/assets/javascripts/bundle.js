@@ -55,8 +55,9 @@
 	var GroupForm = __webpack_require__(234);
 	var ShowGroup = __webpack_require__(239);
 	var EventIndex = __webpack_require__(240);
-	var EventForm = __webpack_require__(241);
+	var EventForm = __webpack_require__(243);
 	var EventItem = __webpack_require__(242);
+	var ShowEvent = __webpack_require__(244);
 
 	var App = React.createClass({
 	  displayName: 'App',
@@ -77,7 +78,8 @@
 	            'Entente'
 	          )
 	        ),
-	        React.createElement('a', { href: '#groups/new', className: 'glyphicon glyphicon-plus' })
+	        React.createElement('a', { href: '#groups/new',
+	          className: 'glyphicon glyphicon-plus' })
 	      ),
 	      this.props.children
 	    );
@@ -91,8 +93,7 @@
 	  React.createElement(Route, { path: 'groups/new', component: GroupForm }),
 	  React.createElement(Route, { path: 'groups/:id', component: ShowGroup }),
 	  React.createElement(Route, { path: 'groups/:id/events/new', component: EventForm }),
-	  React.createElement(Route, { path: '/events', component: EventIndex }),
-	  React.createElement(Route, { path: 'events/:id', component: EventItem })
+	  React.createElement(Route, { path: 'events/:id', component: ShowEvent })
 	);
 
 	document.addEventListener("DOMContentLoaded", function () {
@@ -30910,6 +30911,17 @@
 	        callback();
 	      }
 	    });
+	  },
+	  destroyEvent: function (group_event, callback) {
+	    $.ajax({
+	      url: "api/events/" + group_event.id,
+	      method: "DELETE",
+	      data: { event: group_event },
+	      success: function (e) {
+	        ApiActions.removeEvent(e);
+	        callback();
+	      }
+	    });
 	  }
 	};
 
@@ -30952,6 +30964,12 @@
 	    AppDispatcher.dispatch({
 	      actionType: GroupConstants.GROUP_REMOVE,
 	      group: group
+	    });
+	  },
+	  removeEvent: function (group_event) {
+	    AppDispatcher.dispatch({
+	      actionType: EventConstants.EVENT_REMOVE,
+	      group_event: group_event
 	    });
 	  }
 	};
@@ -30996,7 +31014,7 @@
 	    this.groupListener.remove();
 	  },
 	  handleItemClick: function (group) {
-	    this.history.pushState(null, "groups/" + group.id);
+	    this.history.pushState(null, "groups/" + group.id, {});
 	  },
 	  render: function () {
 	    var handleItemClick = this.handleItemClick;
@@ -31034,8 +31052,12 @@
 	        onClick: this.props.onClick },
 	      React.createElement('br', null),
 	      React.createElement('br', null),
-	      'Name: ',
-	      this.props.group.title,
+	      React.createElement(
+	        'p',
+	        { className: 'title' },
+	        'Name: ',
+	        this.props.group.title
+	      ),
 	      React.createElement('br', null),
 	      'Where: ',
 	      this.props.group.location,
@@ -31426,7 +31448,7 @@
 	var ApiUtil = __webpack_require__(229);
 	var GroupItem = __webpack_require__(233);
 	var EventIndex = __webpack_require__(240);
-	var EventForm = __webpack_require__(241);
+	var EventForm = __webpack_require__(243);
 	var History = __webpack_require__(159).History;
 
 	var Show = React.createClass({
@@ -31458,7 +31480,7 @@
 	    var group = this.state.group;
 
 	    ApiUtil.editGroup(group, (function () {
-	      this.history.push("/");
+	      this.history.push("/groups/" + group.id);
 	    }).bind(this));
 	  },
 	  _onChange: function () {
@@ -31484,10 +31506,10 @@
 	    }
 	    return React.createElement(
 	      'div',
-	      { className: 'show-group container-fluid' },
+	      { className: 'group-item container-fluid' },
 	      React.createElement(
 	        'div',
-	        { className: 'group-item container-fluid',
+	        { className: 'group-show container-fluid',
 	          onClick: this.props.onClick },
 	        React.createElement('br', null),
 	        React.createElement('br', null),
@@ -31512,7 +31534,7 @@
 	        )
 	      ),
 	      selected,
-	      React.createElement(EventIndex, null)
+	      React.createElement(EventIndex, { group: this.state.group, history: this.history })
 	    );
 	  }
 	});
@@ -31524,7 +31546,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var EventStore = __webpack_require__(243);
+	var EventStore = __webpack_require__(241);
 	var ApiUtil = __webpack_require__(229);
 	var EventItem = __webpack_require__(242);
 
@@ -31539,23 +31561,20 @@
 	  },
 	  componentDidMount: function () {
 	    this.eventListener = EventStore.addListener(this._onChange);
-	    ApiUtil.fetchEvents(this.props.groupId);
+	    ApiUtil.fetchEvents();
 	  },
 	  componentWillUnmount: function () {
 	    this.eventListener.remove();
 	  },
-	  _showEvent: function (id) {
-	    ApiUtil.fetchEvent(id, (function () {
-	      this.props.history.push("/events/" + id);
-	    }).bind(this));
-	  },
+
 	  render: function () {
-	    var showEvent = this._showEvent;
 	    var eventElements = this.state.events.map(function (groupEvent) {
-	      return React.createElement(EventItem, { key: groupEvent.id,
-	        onClick: showEvent(groupEvent.id),
+	      return React.createElement(EventItem, {
+	        key: groupEvent.id,
+	        group: this.props.group,
+	        history: this.props.history,
 	        groupEvent: groupEvent });
-	    });
+	    }, this);
 	    return React.createElement(
 	      'div',
 	      { className: 'event-index' },
@@ -31568,202 +31587,6 @@
 
 /***/ },
 /* 241 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-	var ApiUtil = __webpack_require__(229);
-	var LinkedStateMixin = __webpack_require__(235);
-
-	var EventForm = React.createClass({
-	  displayName: 'EventForm',
-
-	  mixins: [LinkedStateMixin],
-
-	  blankAttrs: {
-	    title: '',
-	    location: '',
-	    body: '',
-	    date: ''
-	  },
-
-	  getInitialState: function () {
-	    return this.blankAttrs;
-	  },
-
-	  handleChange: function (e) {
-	    this.setState({ location: e.target.value });
-	  },
-
-	  _createEvent: function (e) {
-	    e.preventDefault();
-	    var group_event = this.state;
-	    ApiUtil.createEvent(this.props.params.id, group_event, (function () {
-	      this.props.history.push("/groups/" + this.props.params.id);
-	    }).bind(this));
-
-	    this.setState(this.blankAttrs);
-	  },
-
-	  render: function () {
-	    return React.createElement(
-	      'form',
-	      { className: 'new-event', onSubmit: this._createEvent },
-	      React.createElement(
-	        'table',
-	        null,
-	        React.createElement(
-	          'tr',
-	          null,
-	          React.createElement(
-	            'td',
-	            null,
-	            React.createElement(
-	              'label',
-	              { htmlFor: 'event_title' },
-	              'Name:'
-	            )
-	          ),
-	          React.createElement('td', null),
-	          React.createElement(
-	            'td',
-	            null,
-	            React.createElement('input', {
-	              type: 'text',
-	              id: 'event_title',
-	              valueLink: this.linkState("title") })
-	          )
-	        ),
-	        React.createElement(
-	          'tr',
-	          null,
-	          React.createElement(
-	            'td',
-	            null,
-	            React.createElement(
-	              'label',
-	              { htmlFor: 'event_body' },
-	              'About Event:'
-	            )
-	          ),
-	          React.createElement('td', null),
-	          React.createElement(
-	            'td',
-	            null,
-	            React.createElement('input', {
-	              type: 'text',
-	              id: 'event_body',
-	              valueLink: this.linkState("body")
-	            })
-	          )
-	        ),
-	        React.createElement(
-	          'tr',
-	          null,
-	          React.createElement(
-	            'td',
-	            null,
-	            React.createElement(
-	              'label',
-	              { htmlFor: 'event_location' },
-	              'Location: '
-	            )
-	          ),
-	          React.createElement('td', null),
-	          React.createElement(
-	            'td',
-	            null,
-	            React.createElement('input', {
-	              type: 'text',
-	              id: 'event_location',
-	              valueLink: this.linkState("location")
-	            })
-	          )
-	        ),
-	        React.createElement(
-	          'tr',
-	          null,
-	          React.createElement(
-	            'td',
-	            null,
-	            React.createElement(
-	              'label',
-	              { htmlFor: 'event_date' },
-	              'Date: '
-	            )
-	          ),
-	          React.createElement('td', null),
-	          React.createElement(
-	            'td',
-	            null,
-	            React.createElement('input', {
-	              type: 'date',
-	              id: 'event_date',
-	              valueLink: this.linkState("date")
-	            })
-	          )
-	        ),
-	        React.createElement(
-	          'tr',
-	          null,
-	          React.createElement('td', null),
-	          React.createElement(
-	            'td',
-	            null,
-	            React.createElement(
-	              'button',
-	              { className: 'btn btn-primary' },
-	              'Create Event'
-	            )
-	          )
-	        )
-	      ),
-	      React.createElement('br', null)
-	    );
-	  }
-	});
-
-	module.exports = EventForm;
-
-/***/ },
-/* 242 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-	var EventStore = __webpack_require__(243);
-	var ApiUtil = __webpack_require__(229);
-
-	var EventItem = React.createClass({
-	  displayName: 'EventItem',
-
-	  render: function () {
-	    return React.createElement(
-	      'div',
-	      { className: 'event-item container-fluid',
-	        key: this.props.groupEvent.id,
-	        onClick: this.props.onClick },
-	      React.createElement('br', null),
-	      React.createElement('br', null),
-	      'Name: ',
-	      this.props.groupEvent.title,
-	      React.createElement('br', null),
-	      'Where: ',
-	      this.props.groupEvent.location,
-	      React.createElement('br', null),
-	      'When: ',
-	      this.props.groupEvent.date,
-	      React.createElement('br', null),
-	      'About Event: ',
-	      this.props.groupEvent.body,
-	      React.createElement('br', null),
-	      React.createElement('br', null)
-	    );
-	  }
-	});
-
-	module.exports = EventItem;
-
-/***/ },
-/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Store = __webpack_require__(208).Store;
@@ -31814,6 +31637,268 @@
 	};
 
 	module.exports = EventStore;
+
+/***/ },
+/* 242 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	var EventStore = __webpack_require__(241);
+	var ApiUtil = __webpack_require__(229);
+
+	var EventItem = React.createClass({
+	  displayName: 'EventItem',
+
+	  _showEvent: function (e) {
+	    e.preventDefault();
+	    this.props.history.push("/events/" + this.props.groupEvent.id);
+	  },
+	  _deleteEvent: function (e) {
+	    e.preventDefault();
+	    e.stopPropagation();
+
+	    ApiUtil.destroyEvent(this.props.groupEvent, (function () {
+	      this.props.history.push("/groups/" + this.props.group.id);
+	    }).bind(this));
+	  },
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      { className: 'event-item container-fluid',
+	        key: this.props.groupEvent.id, onClick: this._showEvent },
+	      React.createElement('br', null),
+	      React.createElement('br', null),
+	      React.createElement(
+	        'p',
+	        { className: 'title' },
+	        'Name: ',
+	        this.props.groupEvent.title
+	      ),
+	      React.createElement('br', null),
+	      'Where: ',
+	      this.props.groupEvent.location,
+	      React.createElement('br', null),
+	      'When: ',
+	      this.props.groupEvent.date,
+	      React.createElement('br', null),
+	      'About Event: ',
+	      this.props.groupEvent.body,
+	      React.createElement('br', null),
+	      React.createElement('br', null),
+	      React.createElement('button', { className: 'fa fa-bomb',
+	        onClick: this._deleteEvent })
+	    );
+	  }
+	});
+
+	module.exports = EventItem;
+
+/***/ },
+/* 243 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	var ApiUtil = __webpack_require__(229);
+	var LinkedStateMixin = __webpack_require__(235);
+
+	var EventForm = React.createClass({
+	  displayName: 'EventForm',
+
+	  mixins: [LinkedStateMixin],
+
+	  blankAttrs: {
+	    title: '',
+	    location: '',
+	    body: '',
+	    date: ''
+	  },
+
+	  getInitialState: function () {
+	    return this.blankAttrs;
+	  },
+
+	  handleChange: function (e) {
+	    this.setState({ location: e.target.value });
+	  },
+
+	  _createEvent: function (e) {
+	    e.preventDefault();
+
+	    var group_event = this.state;
+	    ApiUtil.createEvent(this.props.params.id, group_event, (function () {
+	      this.props.history.push("/groups/" + this.props.params.id);
+	    }).bind(this));
+
+	    this.setState(this.blankAttrs);
+	  },
+
+	  render: function () {
+	    return React.createElement(
+	      'form',
+	      { className: 'new-event', onSubmit: this._createEvent },
+	      React.createElement(
+	        'table',
+	        null,
+	        React.createElement(
+	          'tr',
+	          null,
+	          React.createElement(
+	            'td',
+	            null,
+	            React.createElement(
+	              'label',
+	              { htmlFor: 'event_title' },
+	              'Name:'
+	            )
+	          ),
+	          React.createElement(
+	            'td',
+	            null,
+	            React.createElement('input', {
+	              type: 'text',
+	              id: 'event_title',
+	              valueLink: this.linkState("title") })
+	          )
+	        ),
+	        React.createElement(
+	          'tr',
+	          null,
+	          React.createElement(
+	            'td',
+	            null,
+	            React.createElement(
+	              'label',
+	              { htmlFor: 'event_body' },
+	              'About Event:'
+	            )
+	          ),
+	          React.createElement(
+	            'td',
+	            null,
+	            React.createElement('input', {
+	              type: 'text',
+	              id: 'event_body',
+	              valueLink: this.linkState("body")
+	            })
+	          )
+	        ),
+	        React.createElement(
+	          'tr',
+	          null,
+	          React.createElement(
+	            'td',
+	            null,
+	            React.createElement(
+	              'label',
+	              { htmlFor: 'event_location' },
+	              'Location: '
+	            )
+	          ),
+	          React.createElement(
+	            'td',
+	            null,
+	            React.createElement('input', {
+	              type: 'text',
+	              id: 'event_location',
+	              valueLink: this.linkState("location")
+	            })
+	          )
+	        ),
+	        React.createElement(
+	          'tr',
+	          null,
+	          React.createElement(
+	            'td',
+	            null,
+	            React.createElement('label', { className: 'fa fa-calendar', htmlFor: 'event_date' })
+	          ),
+	          React.createElement(
+	            'td',
+	            null,
+	            React.createElement('input', {
+	              type: 'date',
+	              id: 'event_date',
+	              valueLink: this.linkState("date")
+	            })
+	          )
+	        ),
+	        React.createElement(
+	          'tr',
+	          null,
+	          React.createElement('td', null),
+	          React.createElement(
+	            'td',
+	            null,
+	            React.createElement(
+	              'button',
+	              { className: 'btn btn-primary' },
+	              'Create Event'
+	            )
+	          )
+	        )
+	      ),
+	      React.createElement('br', null)
+	    );
+	  }
+	});
+
+	module.exports = EventForm;
+
+/***/ },
+/* 244 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	var EventStore = __webpack_require__(241);
+	var ApiUtil = __webpack_require__(229);
+
+	var Show = React.createClass({
+	  displayName: 'Show',
+
+	  getInitialState: function () {
+	    var eventId = this.props.params.id;
+	    var group_event = this._findEventById(eventId) || ApiUtil.fetchEvent(eventId) || {};
+	    return { group_event: group_event, selectedForm: false };
+	  },
+	  _findEventById: function (id) {
+	    var res;
+	    EventStore.all().forEach((function (group_event) {
+	      if (id == group_event.id) {
+	        res = group_event;
+	      }
+	    }).bind(this));
+	    return res;
+	  },
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      { className: 'event-show container-fluid',
+	        key: this.state.group_event.id },
+	      React.createElement('br', null),
+	      React.createElement('br', null),
+	      React.createElement(
+	        'p',
+	        { className: 'title' },
+	        'Name: ',
+	        this.state.group_event.title
+	      ),
+	      React.createElement('br', null),
+	      'Where: ',
+	      this.state.group_event.location,
+	      React.createElement('br', null),
+	      'When: ',
+	      this.state.group_event.date,
+	      React.createElement('br', null),
+	      'About Event: ',
+	      this.state.group_event.body,
+	      React.createElement('br', null),
+	      React.createElement('br', null),
+	      React.createElement('button', { className: 'fa fa-bomb' })
+	    );
+	  }
+	});
+
+	module.exports = Show;
 
 /***/ }
 /******/ ]);

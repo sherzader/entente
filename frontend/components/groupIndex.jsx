@@ -20,7 +20,7 @@ var GroupIndex = React.createClass({
     this.groupListener.remove();
   },
   handleItemClick: function (group) {
-    this.history.pushState(null, "groups/" + group.id );
+    this.history.pushState(null, "groups/" + group.id, {} );
   },
   render: function () {
     var handleItemClick = this.handleItemClick;

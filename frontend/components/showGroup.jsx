@@ -34,7 +34,7 @@ var Show = React.createClass({
     var group = this.state.group;
 
     ApiUtil.editGroup(group, function () {
-      this.history.push("/");
+      this.history.push("/groups/" + group.id);
     }.bind(this));
   },
   _onChange: function () {
@@ -59,8 +59,8 @@ var Show = React.createClass({
       var selected = <EventForm />
     }
     return(
-      <div className="show-group container-fluid">
-        <div className="group-item container-fluid"
+      <div className="group-item container-fluid">
+        <div className="group-show container-fluid"
           onClick={this.props.onClick}>
             <br /><br />
             Name: {this.state.group.title}
@@ -78,7 +78,7 @@ var Show = React.createClass({
           </button>
         </div>
         {selected}
-      <EventIndex />
+      <EventIndex group={this.state.group} history={this.history} />
       </div>
     );
   }
