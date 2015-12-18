@@ -17,7 +17,7 @@ var EventItem = React.createClass({
           <br />
           Where: {this.props.groupEvent.location}
           <br />
-          When: {this.props.groupEvent.date}
+          When: {new Date(this.props.groupEvent.date).toDateString()}
           <br />
           About Event: {this.props.groupEvent.body}
           <br /><br />
