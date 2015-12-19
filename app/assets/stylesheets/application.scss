@@ -27,14 +27,17 @@ h1 {
 
 .navbar .navbar-default {
   margin: 0 auto;
-  width: 50%;
   border-radius: 0px 0px 10px 10px;
+  width: 100%;
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
 }
 
 .search-groups {
   position: relative;
   margin-top: 0px;
-  left: -450px;
+  left: -20px;
   top: -50px;
   background-color: red;
 }
@@ -42,7 +45,14 @@ h1 {
 .search-events {
   position: relative;
   margin-top: 0px;
+  right: -420px;
   top: -330px;
+}
+
+.group-btns {
+  float: left;
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 
 .group-item {
@@ -52,11 +62,15 @@ h1 {
   border-radius: 1px;
   border-color: black;
   width: 550px;
-  background: rgba(54, 25, 25, .05);
+  background-color: white;
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
 }
 
 .title {
   font-size: 14px;
+  text-align: center;
 }
 
 .glyphicon-plus {
@@ -81,7 +95,6 @@ a:hover {
 
 .new-event {
   margin-left: 35%;
-  margin-top: 50px;
   padding: 20px;
   text-align: center;
   border-width: thin;
@@ -89,6 +102,7 @@ a:hover {
   border-color: black;
   font-size: 14px;
   width: 400px;
+  background-color: white;
 }
 
 .new-group {
@@ -101,6 +115,7 @@ a:hover {
   border-color: black;
   font-size: 14px;
   width: 400px;
+  background-color: white;
 }
 
 .btn-primary {
@@ -117,4 +132,23 @@ a:hover {
   border-radius: 1px;
   border-color: black;
   width: 500px;
+  background-color: white;
+}
+
+.event-show {
+  background-color: white;
+  text-align: center;
+  border-style: ridge;
+  border-radius: 1px;
+  border-color: black;
+  width: 500px;
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
+}
+
+button {
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
 }

@@ -7,18 +7,20 @@ var Show = React.createClass({
   mixins: [History],
   getInitialState: function () {
     var eventId = this.props.params.id;
-    var group_event = this._findEventById(eventId) ||
+    var group_event = EventStore.findEventById(eventId) ||
                  ApiUtil.fetchEvent(eventId) || {};
     return { group_event: group_event };
   },
-  _findEventById: function (id) {
-    var res;
-    EventStore.all().forEach(function (group_event) {
-      if (id == group_event.id) {
-        res = group_event;
-      }
-    }.bind(this));
-    return res;
+  _onChange: function () {
+    var eventId = this.props.params.id;
+    var group_event = EventStore.findEventById(eventId);
+    this.setState({ group_event: group_event });
+  },
+  componentDidMount: function () {
+    this.eventListener = EventStore.addListener(this._onChange);
+  },
+  componentWillUnmount: function () {
+    this.eventListener.remove();
   },
   _deleteEvent: function (e) {
     e.preventDefault();
@@ -47,9 +49,9 @@ var Show = React.createClass({
           <br /><br />
           <button className="glyphicon glyphicon-pencil"
                   onClick={this._editEvent}></button>
-          <button className="fa fa-bomb"
+                <button className="fa fa-bomb"
                   onClick={this._deleteEvent}></button>
-          <button className="fa fa-arrow-circle-left"
+                <button className="fa fa-arrow-circle-left"
                   onClick={this._goBack}></button>
       </div>
     );

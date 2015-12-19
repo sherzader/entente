@@ -10,18 +10,9 @@ var Show = React.createClass({
   mixins: [History],
   getInitialState: function () {
     var groupId = this.props.params.id;
-    var group = this._findGroupById(groupId) ||
+    var group = GroupStore.findGroupById(groupId) ||
                  ApiUtil.fetchGroup(groupId) || {};
     return { group: group, selectedForm: false };
-  },
-  _findGroupById: function (id) {
-    var res;
-    GroupStore.all().forEach(function (group) {
-      if (id == group.id) {
-        res = group;
-      }
-    }.bind(this));
-    return res;
   },
   _deleteGroup: function () {
     var group = this.state.group;
@@ -39,7 +30,7 @@ var Show = React.createClass({
   },
   _onChange: function () {
     var groupId = this.props.params.id;
-    var group = this._findGroupById(groupId);
+    var group = GroupStore.findGroupById(groupId);
     this.setState({ group: group });
   },
   _eventForm: function () {
@@ -69,13 +60,16 @@ var Show = React.createClass({
             <br />
             About Us: {this.state.group.body}
             <br /><br />
-          <button className="glyphicon glyphicon-remove"
-                  onClick={this._deleteGroup}></button>
-          <button className="glyphicon glyphicon-pencil"
-                  onClick={this._editGroup}></button>
-          <button onClick={this.handleItemClick} groupId={this.props.params.id}>
-            Add Event
-          </button>
+          <div className="group-btns">
+            <button className="glyphicon glyphicon-remove"
+                    onClick={this._deleteGroup}></button>
+            <button className="glyphicon glyphicon-pencil"
+                    onClick={this._editGroup}></button>
+            <br></br>
+            <button onClick={this.handleItemClick} groupId={this.props.params.id}>
+              Add Event
+            </button>
+          </div>
         </div>
         {selected}
       <EventIndex group={this.state.group} history={this.history} />

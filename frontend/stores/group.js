@@ -28,6 +28,16 @@ GroupStore.all = function () {
   return groups;
 };
 
+GroupStore.findGroupById = function (id) {
+    var res;
+    this.all().forEach(function (group) {
+      if (id == group.id) {
+        res = group;
+      }
+    }.bind(this));
+    return res;
+};
+
 GroupStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case GroupConstants.GROUPS_RECEIVED:
