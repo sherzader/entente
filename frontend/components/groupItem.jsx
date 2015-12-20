@@ -6,16 +6,15 @@ var Search = require('./search.jsx');
 var GroupItem = React.createClass({
   render: function () {
     return(
-      <div className="group-item container-fluid"
+      <div className="group-item container-fluid resizable" draggable="true" 
         key={this.props.group.id}
         onClick={this.props.onClick}>
-          <br /><br />
+        <div className="group-item-text">
           <p className="title">Name: {this.props.group.title}</p>
-          <br />
           Where: {this.props.group.location}
           <br />
           About Us: {this.props.group.body}
-          <br /><br />
+        </div>
       </div>
     );
   }
