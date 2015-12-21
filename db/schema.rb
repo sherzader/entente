@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151221230425) do
+ActiveRecord::Schema.define(version: 20151221234555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20151221230425) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "group_id"
+    t.string   "img_url"
   end
 
   add_index "events", ["group_id"], name: "index_events_on_group_id", using: :btree
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 20151221230425) do
     t.integer  "organizer_id", null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "img_url"
   end
 
   add_index "groups", ["organizer_id"], name: "index_groups_on_organizer_id", using: :btree
@@ -58,6 +60,7 @@ ActiveRecord::Schema.define(version: 20151221230425) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "group_id"
+    t.string   "img_url"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
