@@ -14,7 +14,7 @@ var ApiUtil = {
  },
  fetchCurrentUser: function () {
   $.ajax({
-    url: "/users/" + window.current_user.id,
+    url: "/users/" + window.CURRENT_USER.id,
     type: "GET",
     dataType: "json",
     success: function (user) {

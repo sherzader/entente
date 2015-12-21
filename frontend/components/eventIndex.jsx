@@ -53,7 +53,7 @@ var EventIndex = React.createClass({
             </div>
           </form>
         </div>
-        <div className="filter-events event-index">
+        <div className="container event-index">
           {eventElements}
         </div>
     </div>

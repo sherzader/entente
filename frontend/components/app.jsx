@@ -1,10 +1,25 @@
 var React = require('react');
 var GroupForm = require('./groupForm.jsx');
+var Link = require('react-router').Link;
+var Modal = require('boron/OutlineModal');
 
 var App = React.createClass({
+  componentDidMount: function () {
+    this.showModal();
+  },
+  showModal: function(){
+    this.refs.modal.show();
+   },
+   hideModal: function(){
+    this.refs.modal.hide();
+   },
   render: function () {
     return(
       <div className="app">
+        <Modal ref="modal">
+          <h2>Welcome, {window.CURRENT_USER.name}</h2>
+          <button onClick={this.hideModal}>Close</button>
+        </Modal>
         <nav className="nav navbar-default">
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav">
@@ -18,7 +33,7 @@ var App = React.createClass({
                 aria-haspopup="true"
                 aria-expanded="false">Profile<span class="caret"></span></a>
                 <ul className="dropdown-menu">
-                  <li><a href="#">Update Profile</a></li>
+                  <li><Link to={'/profile'}>Profile</Link></li>
                   <li><a href="#">Log Out</a></li>
                 </ul>
             </li>
