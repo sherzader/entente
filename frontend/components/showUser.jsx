@@ -12,17 +12,22 @@ var ShowUser = React.createClass({
     this.userListener = UserStore.addListener(this._onChange);
   },
   _onChange: function () {
-    this.setState({user: UserStore.findUserById()});
+    this.setState({user: UserStore.findUserById(window.CURRENT_USER.id)});
   },
   componentWillUnmount: function () {
     this.userListener.remove();
   },
   render: function () {
+    var groups = window.CURRENT_USER.groups.map(function (group) {
+      return (<li key={group.id}>{group.title}</li>)
+    });
     return(
       <div className="container user-show">
         <h2>My Profile</h2><br /><br />
-        {window.CURRENT_USER.name}<br />
-        {window.CURRENT_USER.email}<br />
+          {window.CURRENT_USER.name}<br />
+          {window.CURRENT_USER.email}<br />
+        <h3>My Groups</h3><br /><br />
+          {groups}
       </div>
     );
   }

@@ -33,8 +33,8 @@ var Show = React.createClass({
     var group = GroupStore.findGroupById(groupId);
     this.setState({ group: group });
   },
-  _eventForm: function () {
-    this.setState({selectedForm: true});
+  _joinGroup: function () {
+    ApiUtil.joinGroup();
   },
   handleItemClick: function () {
     this.history.pushState(null, "/groups/" + this.state.group.id + "/events/new" );
@@ -65,11 +65,10 @@ var Show = React.createClass({
                     onClick={this._deleteGroup}></button>
             <button className="glyphicon glyphicon-pencil"
                     onClick={this._editGroup}></button>
-            <br></br>
+                  <br />
             <button data-toggle="modal" data-target="#new-event-modal">Create Event</button>
           </div>
         </div>
-        {selected}
       <EventIndex group={this.state.group} history={this.history} />
         <div className="modal fade" id="new-event-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div className="modal-dialog" role="document">

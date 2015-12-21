@@ -8,20 +8,19 @@ var EditEvent = React.createClass({
   mixins: [LinkedStateMixin, History],
 
   getInitialState: function () {
-    var group_event = EventStore.findEventById(this.props.params.id) ||
-                      ApiUtil.fetchEvent(this.props.params.id) || {};
-    return ({group_event: group_event});
+    return ({id: 0 , title: '', body: '', location: '', date: ''});
   },
   _updateEvent: function (e) {
     e.preventDefault();
 
-    ApiUtil.editEvent(this.state.group_event, function () {
-      this.history.push("/events/" + this.state.group_event.id);
+    ApiUtil.editEvent(this.state, function () {
+      this.history.push("/events/" + this.state.id);
     }.bind(this));
   },
-  _onChange: function(event){
-    var group_event = EventStore.findEventById(this.props.params.id);
-    this.setState({ group_event: group_event});
+  _onChange: function () {
+    var group_event = EventStore.findEventById(this.props.params.id) ||
+                      ApiUtil.fetchEvent(this.props.params.id) || {};
+    this.setState(group_event);
   },
   componentDidMount: function () {
     this.eventListener = EventStore.addListener(this._onChange);
@@ -43,7 +42,7 @@ var EditEvent = React.createClass({
               <input
                 type='text'
                 id='event_title'
-                valueLink={this.linkState("title")}
+                valueLink={this.linkState('title')}
                 />
               </td>
             </tr>
