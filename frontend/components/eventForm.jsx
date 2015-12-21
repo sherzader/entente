@@ -16,10 +16,6 @@ var EventForm = React.createClass({
     return (this.blankAttrs) ;
   },
 
-  handleChange: function (e) {
-    this.setState({location: e.target.value});
-  },
-
   createEvent: function (e) {
     e.preventDefault();
 
@@ -34,64 +30,36 @@ var EventForm = React.createClass({
   render: function () {
     return(
       <div>
-            <form className='new-event' onSubmit={this.createEvent}>
-              <table>
-                <tr>
-                  <td>
-                  <label htmlFor='event_title'>Name:</label>
-                  </td>
-                  <td>
-                  <input
-                    type='text'
-                    id='event_title'
-                    valueLink={this.linkState("title")} />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                  <label htmlFor='event_body'>About Event:</label>
-                  </td>
-                  <td>
-                  <input
-                    type='text'
-                    id='event_body'
-                    valueLink={this.linkState("body")}
-                  />
-                </td>
-                </tr>
-                <tr>
-                  <td>
-                  <label htmlFor='event_location'>Location: </label>
-                  </td>
-                  <td>
-                    <input
-                      type='text'
-                      id='event_location'
-                      valueLink={this.linkState("location")}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                  <label className="fa fa-calendar" htmlFor='event_date'></label>
-                  </td>
-                  <td>
-                    <input
-                      type='date'
-                      id='event_date'
-                      valueLink={this.linkState("date")}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td>
-                    <button className="btn btn-primary">Create Event</button>
-                  </td>
-                </tr>
-              </table>
-              <br />
-            </form>
+        <form className='new-event' onSubmit={this.createEvent}>
+            <div className='col-md-offset-3 col-md-6'>
+              <label htmlFor='event_title'>Event Name</label>
+              <input
+                type='text'
+                id='event_title'
+                valueLink={this.linkState("title")}
+              />
+            </div>
+            <label htmlFor='event_body'>About Event</label>
+              <textarea
+                className='form-control'
+                id='event_body'
+                valueLink={this.linkState("body")}
+              />
+            <label htmlFor='event_location'>Location</label>
+              <input
+                type='text'
+                id='event_location'
+                valueLink={this.linkState("location")}
+              />
+            <br />
+            <label className="fa fa-calendar" htmlFor='event_date'></label>
+              <input
+                type='date'
+                id='event_date'
+                valueLink={this.linkState("date")}
+              />
+          <button className="btn btn-primary">Create Event</button>
+        </form>
       </div>
     );
   }

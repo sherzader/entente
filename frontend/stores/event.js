@@ -7,13 +7,13 @@ var _events = {};
 
 var resetEvents = function (events) {
   _events = {};
-  events.forEach(function (event) {
-    _events[event.id] = event;
+  events.forEach(function (group_event) {
+    _events[group_event.id] = group_event;
   });
 };
 
-var addEvent = function (event) {
-  _events[event.id] = event;
+var addEvent = function (group_event) {
+  _events[group_event.id] = group_event;
 };
 
 var removeEvent = function (event) {

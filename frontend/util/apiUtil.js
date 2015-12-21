@@ -58,7 +58,7 @@ var ApiUtil = {
     $.ajax({
       url: "api/events/" + group_event.id,
       method: "PATCH",
-      data: {event: group_event},
+      data: { event: group_event},
       success: function (e) {
         ApiActions.receiveEvent(e);
       }
@@ -118,7 +118,16 @@ var ApiUtil = {
         callback();
       }
     });
-  }
+  },
+  logout: function () {
+      $.ajax({
+        url: "/logout",
+        method: "DELETE",
+        success: function () {
+          window.location("/");
+        }
+      });
+    }
 };
 
 module.exports = ApiUtil;

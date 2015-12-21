@@ -3,6 +3,7 @@ var GroupForm = require('./groupForm.jsx');
 var Link = require('react-router').Link;
 var Modal = require('boron/OutlineModal');
 var History = require('react-router').History;
+var ApiUtil = require('../util/apiUtil');
 
 var App = React.createClass({
   mixins: [History],
@@ -13,9 +14,12 @@ var App = React.createClass({
   showModal: function(){
     this.refs.modal.show();
    },
-   hideModal: function(){
+  hideModal: function(){
     this.refs.modal.hide();
-   },
+  },
+  _logout: function () {
+    ApiUtil.logout();
+  },
   render: function () {
     return(
       <div className="app">
@@ -37,7 +41,7 @@ var App = React.createClass({
                 aria-expanded="false">Profile<span class="caret"></span></a>
                 <ul className="dropdown-menu">
                   <li><Link to={'/profile'}>Profile</Link></li>
-                  <li><a href="#">Log Out</a></li>
+                  <li onClick={this._logout}><a href="#">Log Out</a></li>
                 </ul>
             </li>
           </ul>

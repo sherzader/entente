@@ -16,10 +16,6 @@ var GroupForm = React.createClass({
     return this.blankAttrs;
   },
 
-  handleChange: function (e) {
-    this.setState({location: e.target.value});
-  },
-
   createGroup: function (e) {
     e.preventDefault();
     var group = this.state;

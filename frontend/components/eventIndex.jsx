@@ -10,7 +10,7 @@ var EventIndex = React.createClass({
   handleChange: function(e){
     this.setState({searchString: e.currentTarget.value});
   },
-  _onChange: function(event){
+  _onChange: function(){
     this.setState({ events: EventStore.all() });
   },
   componentDidMount: function () {

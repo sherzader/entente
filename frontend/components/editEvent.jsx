@@ -2,37 +2,38 @@ var React = require('react');
 var ApiUtil = require('../util/apiUtil');
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var EventStore = require('../stores/event');
+var History = require('react-router').History;
 
 var EditEvent = React.createClass({
-  mixins: [LinkedStateMixin],
-
-  blankAttrs: {
-    title: '',
-    location: '',
-    body: '',
-    date: ''
-  },
+  mixins: [LinkedStateMixin, History],
 
   getInitialState: function () {
-    var group_event = EventStore.findEventById(this.props.params.id);
-    return (this.blankAttrs, {group_event: group_event}) ;
+    var group_event = EventStore.findEventById(this.props.params.id) ||
+                      ApiUtil.fetchEvent(this.props.params.id) || {};
+    return ({group_event: group_event});
   },
-
-  handleChange: function (e) {
-    this.setState({location: e.target.value});
-  },
-  _editEvent: function (e) {
+  _updateEvent: function (e) {
     e.preventDefault();
 
     ApiUtil.editEvent(this.state.group_event, function () {
-      this.props.history.push("/events/" + this.state.group_event.id);
+      this.history.push("/events/" + this.state.group_event.id);
     }.bind(this));
   },
-
+  _onChange: function(event){
+    var group_event = EventStore.findEventById(this.props.params.id);
+    this.setState({ group_event: group_event});
+  },
+  componentDidMount: function () {
+    this.eventListener = EventStore.addListener(this._onChange);
+    ApiUtil.fetchEvent(this.props.params.id);
+  },
+  componentWillUnmount: function () {
+    this.eventListener.remove();
+  },
   render: function () {
     return(
       <div>
-        <form className='edit-event' onSubmit={this._editEvent}>
+        <form className='edit-event' onSubmit={this._updateEvent}>
           <table>
             <tr>
               <td>
@@ -42,7 +43,8 @@ var EditEvent = React.createClass({
               <input
                 type='text'
                 id='event_title'
-                valueLink={this.linkState("title")} />
+                valueLink={this.linkState("title")}
+                />
               </td>
             </tr>
             <tr>
@@ -54,7 +56,7 @@ var EditEvent = React.createClass({
                 type='text'
                 id='event_body'
                 valueLink={this.linkState("body")}
-              />
+                />
             </td>
             </tr>
             <tr>
@@ -66,7 +68,7 @@ var EditEvent = React.createClass({
                   type='text'
                   id='event_location'
                   valueLink={this.linkState("location")}
-                />
+                  />
               </td>
             </tr>
             <tr>
@@ -78,7 +80,7 @@ var EditEvent = React.createClass({
                   type='date'
                   id='event_date'
                   valueLink={this.linkState("date")}
-                />
+                  />
               </td>
             </tr>
             <tr>
