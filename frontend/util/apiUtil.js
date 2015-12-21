@@ -1,6 +1,27 @@
 var ApiActions = require('../actions/apiAction');
 
 var ApiUtil = {
+  fetchUsers: function (users) {
+    $.ajax({
+      url: "/users",
+      type: "GET",
+      dataType: "json",
+      data: {users: users},
+      success: function (u) {
+        ApiActions.receiveUsers(u);
+       }
+     });
+ },
+ fetchCurrentUser: function () {
+  $.ajax({
+    url: "/users/" + window.current_user.id,
+    type: "GET",
+    dataType: "json",
+    success: function (user) {
+      ApiActions.receiveUser(user);
+    }
+  });
+  },
   fetchGroups: function (){
     $.ajax({
       url: "api/groups",
