@@ -2,8 +2,11 @@ var React = require('react');
 var GroupForm = require('./groupForm.jsx');
 var Link = require('react-router').Link;
 var Modal = require('boron/OutlineModal');
+var History = require('react-router').History;
 
 var App = React.createClass({
+  mixins: [History],
+
   componentDidMount: function () {
     this.showModal();
   },
@@ -44,7 +47,7 @@ var App = React.createClass({
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">
-                <GroupForm />
+                <GroupForm history={this.history} />
               <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>

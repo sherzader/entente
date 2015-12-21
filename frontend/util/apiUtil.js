@@ -13,14 +13,14 @@ var ApiUtil = {
      });
  },
  fetchCurrentUser: function () {
-  $.ajax({
-    url: "users/" + window.CURRENT_USER.id,
-    type: "GET",
-    dataType: "json",
-    success: function (user) {
-      ApiActions.receiveCurrentUser(user);
-    }
-  });
+   $.ajax({
+     url: "users/" + window.CURRENT_USER.id,
+     type: "GET",
+     dataType: "json",
+     success: function (user) {
+       ApiActions.receiveCurrentUser(user);
+     }
+   });
   },
   fetchGroups: function (){
     $.ajax({
@@ -49,6 +49,16 @@ var ApiUtil = {
   fetchEvent: function (id) {
     $.ajax({
       url: "api/events/" + id,
+      success: function (group_event) {
+        ApiActions.receiveEvent(group_event);
+      }
+    });
+  },
+  updateEvent: function (id) {
+    $.ajax({
+      url: "api/events/" + id,
+      method: "PATCH",
+      data: {event: group_event},
       success: function (group_event) {
         ApiActions.receiveEvent(group_event);
       }

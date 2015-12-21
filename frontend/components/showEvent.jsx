@@ -22,6 +22,16 @@ var Show = React.createClass({
   componentWillUnmount: function () {
     this.eventListener.remove();
   },
+  _updateEvent: function (e) {
+    e.preventDefault();
+
+    var group_event = this.state;
+    ApiUtil.updateEvent(this.props.params.id, group_event, function () {
+      this.props.history.push("/events/" + this.group_event.id);
+    }.bind(this));
+
+    this.setState(this.blankAttrs);
+  },
   _deleteEvent: function (e) {
     e.preventDefault();
 
