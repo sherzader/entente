@@ -8,7 +8,7 @@ var ApiUtil = {
       dataType: "json",
       data: {users: users},
       success: function (u) {
-        ApiActions.receiveUsers(u);
+        ApiActions.receiveAllUsers(u);
        }
      });
  },
