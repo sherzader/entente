@@ -13,19 +13,19 @@ var EventForm = React.createClass({
   },
 
   getInitialState: function () {
-    return (this.blankAttrs, {modalIsOpen: false}) ;
+    return (this.blankAttrs) ;
   },
 
   handleChange: function (e) {
     this.setState({location: e.target.value});
   },
 
-  _createEvent: function (e) {
+  createEvent: function (e) {
     e.preventDefault();
 
     var group_event = this.state;
-    ApiUtil.createEvent(this.props.params.id, group_event, function () {
-      this.props.history.push("/groups/" + this.props.params.id);
+    ApiUtil.createEvent(this.props.group.id, group_event, function () {
+      this.props.history.push("/groups/" + this.props.group.id);
     }.bind(this));
 
     this.setState(this.blankAttrs);
@@ -34,7 +34,7 @@ var EventForm = React.createClass({
   render: function () {
     return(
       <div>
-            <form className='new-event' onSubmit={this._createEvent}>
+            <form className='new-event' onSubmit={this.createEvent}>
               <table>
                 <tr>
                   <td>

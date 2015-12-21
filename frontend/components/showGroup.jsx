@@ -75,7 +75,7 @@ var Show = React.createClass({
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">
-                <EventForm />
+                <EventForm history={this.history} group={this.state.group} />
               <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>

@@ -72,7 +72,7 @@ var GroupForm = React.createClass({
             <tr>
               <td></td>
               <td>
-                <button className="btn btn-primary" data-dismiss="modal">Create Group</button>
+                <button className="btn btn-primary">Create Group</button>
               </td>
             </tr>
           </table>
