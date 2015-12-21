@@ -25,7 +25,7 @@ var Show = React.createClass({
     var group = this.state.group;
 
     ApiUtil.editGroup(group, function () {
-      this.history.push("/groups/" + group.id);
+      this.history.push("/groups/" + group.id + "/edit");
     }.bind(this));
   },
   _onChange: function () {

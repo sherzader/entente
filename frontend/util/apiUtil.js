@@ -54,13 +54,13 @@ var ApiUtil = {
       }
     });
   },
-  updateEvent: function (id) {
+  editEvent: function (group_event) {
     $.ajax({
-      url: "api/events/" + id,
+      url: "api/events/" + group_event.id,
       method: "PATCH",
       data: {event: group_event},
-      success: function (group_event) {
-        ApiActions.receiveEvent(group_event);
+      success: function (e) {
+        ApiActions.receiveEvent(e);
       }
     });
   },
