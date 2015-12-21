@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :events, only: [:show, :destroy]
   end
 
-  resources :users, only: [:create]
+  resources :users, only: [:create, :show]
 
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'

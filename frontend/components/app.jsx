@@ -1,5 +1,4 @@
 var React = require('react');
-var Modal = require('boron/DropModal');
 var GroupForm = require('./groupForm.jsx');
 
 var App = React.createClass({

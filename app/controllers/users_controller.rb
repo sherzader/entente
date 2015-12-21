@@ -36,6 +36,10 @@ before_filter :require_login!, only: [:index, :show, :edit, :update]
     @user = User.find(params[:id])
   end
 
+  def index
+    @users = Users.all
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :group_id, :event_id)
