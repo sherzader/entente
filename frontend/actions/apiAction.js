@@ -10,7 +10,7 @@ var ApiActions = {
       users: users
     });
   },
-  receiveUser: function (user) {
+  receiveCurrentUser: function (user) {
     AppDispatcher.dispatch({
       actionType: UserConstants.USER_RECEIVED,
       user: user

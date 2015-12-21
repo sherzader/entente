@@ -7,6 +7,10 @@ var _users = {};
 
 var resetUsers = function (users) {
   _users = {};
+  if (users.length === 1){
+    _users[user.id] = user;
+    return;
+  }
   users.forEach(function (user) {
     _users[user.id] = user;
   });
@@ -37,7 +41,7 @@ UserStore.__onDispatch = function (payload) {
       this.__emitChange();
       break;
     case UserConstants.USER_RECEIVED:
-      addUser(payload.user);
+      this.findUserById(payload.user.id);
       this.__emitChange();
       break;
   }

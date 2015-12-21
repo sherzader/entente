@@ -5,14 +5,15 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= csrf_meta_tags %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <script src="//js.pusher.com/2.2/pusher.min.js"></script>
 </head>
 <body>
+  <%= render "layouts/errors" %>
   <% if current_user %>
     <script type="text/javascript">
       window.CURRENT_USER = <%= "{id: #{current_user.id}, name: '#{current_user.name}', email: '#{current_user.email}'}".html_safe %>;
     </script>
   <% end %>
-<%= render "layouts/errors" %>
   <!-- // <script type="text/javascript"> -->
   <!-- //   var randNum = Math.floor(Math.random() * 10) + 1;
   //   var images = [];

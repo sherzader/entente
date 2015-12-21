@@ -3,7 +3,7 @@ var ApiActions = require('../actions/apiAction');
 var ApiUtil = {
   fetchUsers: function (users) {
     $.ajax({
-      url: "/users",
+      url: "users",
       type: "GET",
       dataType: "json",
       data: {users: users},
@@ -14,11 +14,11 @@ var ApiUtil = {
  },
  fetchCurrentUser: function () {
   $.ajax({
-    url: "/users/" + window.CURRENT_USER.id,
+    url: "users/" + window.CURRENT_USER.id,
     type: "GET",
     dataType: "json",
     success: function (user) {
-      ApiActions.receiveUser(user);
+      ApiActions.receiveCurrentUser(user);
     }
   });
   },
