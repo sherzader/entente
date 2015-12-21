@@ -3,7 +3,6 @@ var GroupConstants = require('../constants/groupConstants');
 var EventConstants = require('../constants/eventConstants');
 var UserConstants = require('../constants/userConstants');
 
-
 var ApiActions = {
   receiveAllUsers: function (users) {
     AppDispatcher.dispatch({
