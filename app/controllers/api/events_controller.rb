@@ -22,7 +22,7 @@ class Api::EventsController < ApplicationController
     @event = Event.find(params[:id])
 
     if @event.destroy
-      render :show
+      render :index
     else
       render json: @event.errors.full_messages, status: 422
     end

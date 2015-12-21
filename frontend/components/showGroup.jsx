@@ -50,7 +50,7 @@ var Show = React.createClass({
       var selected = <EventForm />
     }
     return(
-      <div className="group-item container-fluid">
+      <div className="container-fluid">
         <div className="group-show container-fluid"
           onClick={this.props.onClick}>
             <br /><br />
@@ -66,13 +66,23 @@ var Show = React.createClass({
             <button className="glyphicon glyphicon-pencil"
                     onClick={this._editGroup}></button>
             <br></br>
-            <button onClick={this.handleItemClick} groupId={this.props.params.id}>
-              Add Event
-            </button>
+            <button data-toggle="modal" data-target="#new-event-modal">Create Event</button>
           </div>
         </div>
         {selected}
       <EventIndex group={this.state.group} history={this.history} />
+        <div className="modal fade" id="new-event-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <EventForm />
+              <div className="modal-footer">
+                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

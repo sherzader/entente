@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:create]
-  resource :session, only: [:destroy]
 
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
   post'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
 end

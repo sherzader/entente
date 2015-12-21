@@ -16,9 +16,6 @@ var GroupForm = React.createClass({
     return this.blankAttrs;
   },
 
-  componentDidMount: function () {
-  },
-
   handleChange: function (e) {
     this.setState({location: e.target.value});
   },
@@ -26,7 +23,7 @@ var GroupForm = React.createClass({
   createGroup: function (e) {
     e.preventDefault();
     var group = this.state;
-
+    
     ApiUtil.createGroup(group, function () {
       this.props.history.push("/");
     }.bind(this));

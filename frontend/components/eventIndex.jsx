@@ -40,12 +40,13 @@ var EventIndex = React.createClass({
     }, this);
     return(
       <div>
+        <h3>Events</h3>
         <div className="search-events">
           <form className="navbar-form navbar-right" role="search">
             <div className="form-group">
               <input type="text"
                      className="form-control"
-                     placeholder="Search"
+                     placeholder="Search events"
                      onChange={this.handleChange}
                      value={this.state.searchString}>
                    </input>

@@ -12,21 +12,7 @@ var EventIndex = require('./components/eventIndex.jsx');
 var EventForm = require('./components/eventForm.jsx');
 var EventItem = require('./components/eventItem.jsx');
 var ShowEvent = require('./components/showEvent.jsx');
-
-var App = React.createClass({
-  render: function () {
-    return(
-      <div className="navbar" role="navigation">
-        <nav className="nav navbar-default">
-            <a href="/#"><h1>Entente</h1></a>
-            <a href="#groups/new"
-              className="glyphicon glyphicon-plus" />
-        </nav>
-        {this.props.children}
-      </div>
-    );
-  }
-});
+var App = require('./components/app.jsx');
 
 var routes = (
   <Route path="/" component={App}>

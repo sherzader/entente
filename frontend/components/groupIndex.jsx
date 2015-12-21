@@ -30,6 +30,7 @@ var GroupIndex = React.createClass({
     });
     return(
       <div className="group-index">
+        <h3>Groups</h3>
         {groupElements}
       </div>
     );

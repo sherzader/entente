@@ -1,18 +1,6 @@
 var React = require('react');
 var ApiUtil = require('../util/apiUtil');
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
-var Modal = require('react-modal');
-
-const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
-  }
-};
 
 var EventForm = React.createClass({
   mixins: [LinkedStateMixin],
@@ -24,17 +12,8 @@ var EventForm = React.createClass({
     date: ''
   },
 
-
   getInitialState: function () {
     return (this.blankAttrs, {modalIsOpen: false}) ;
-  },
-
-  openModal: function() {
-   this.setState({modalIsOpen: true});
-  },
-
-  closeModal: function() {
-   this.setState({modalIsOpen: false});
   },
 
   handleChange: function (e) {
@@ -55,15 +34,6 @@ var EventForm = React.createClass({
   render: function () {
     return(
       <div>
-        <button onClick={this.openModal}>Open Modal</button>
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onRequestClose={this.closeModal}
-          style={customStyles} >
-
-          <h2>Hello</h2>
-          <button onClick={this.closeModal}>close</button>
-          <div>I am a modal</div>
             <form className='new-event' onSubmit={this._createEvent}>
               <table>
                 <tr>
@@ -122,7 +92,6 @@ var EventForm = React.createClass({
               </table>
               <br />
             </form>
-        </Modal>
       </div>
     );
   }
