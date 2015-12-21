@@ -21,13 +21,14 @@ var removeEvent = function (event) {
 };
 
 EventStore.findEventById = function (id) {
-
   var res;
+
   this.all().forEach(function (group_event) {
     if (id == group_event.id) {
       res = group_event;
     }
   }.bind(this));
+  
   return res;
 };
 

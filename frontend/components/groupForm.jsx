@@ -23,6 +23,7 @@ var GroupForm = React.createClass({
     ApiUtil.createGroup(group, function () {
       this.props.history.push("/");
     }.bind(this));
+    
     this.setState(this.blankAttrs);
   },
 
