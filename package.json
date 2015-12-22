@@ -26,8 +26,9 @@
     "babel-core": "^6.3.17",
     "babel-loader": "^6.2.0",
     "babel-preset-react": "^6.3.13",
+    "express": "4.13.3",
     "flux": "^2.1.1",
-    "history": "^1.16.0",
+    "history": "1.13.x",
     "react": "^0.14.3",
     "react-addons-linked-state-mixin": "^0.14.3",
     "react-bootstrap": "^0.28.1",
@@ -38,7 +39,7 @@
     "webpack": "^1.12.9"
   },
   "engines": {
-  "node": "4.1.1",
-  "npm": "2.1.x"
+    "node": "4.1.1",
+    "npm": "2.1.x"
   }
 }
