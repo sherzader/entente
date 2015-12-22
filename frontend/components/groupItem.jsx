@@ -26,14 +26,15 @@ var GroupItem = React.createClass({
   },
   _toggleGroup: function (e) {
     e.stopPropagation();
+    var node = ReactDOM.findDOMNode(this.refs.toggle);
 
-    if (!e.currentTarget.checked){
+    if (!e.currentTarget.checked || e.currentTarget.checked === undefined){
       ApiUtil.destroyUserGroup(this.state.user_group, function () {
-        e.currentTarget.checked = false
+        node.checked = false;
       });
     } else {
       ApiUtil.createUserGroup(this.props.group, function () {
-        e.currentTarget.checked = true;
+        node.checked = true;
       });
     }
   },
@@ -47,7 +48,7 @@ var GroupItem = React.createClass({
           Where: <br />{this.props.group.location}
           <br />
           About Us: <br />{this.props.group.body}<br />
-        <input type="checkbox" ref="toggle" name="my-checkbox" onClick={this._toggleGroup}/>
+        <input type="checkbox" ref="toggle" name="checkbox" onClick={this._toggleGroup}/>
         </div>
       </div>
     );

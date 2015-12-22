@@ -5,7 +5,7 @@ var ApiUtil = {
     $.ajax({
       url: "api/users_groups",
       method: "POST",
-      data: {users_group: group.id},
+      data: {users_group: {group_id: group.id}},
       success: function (query) {
         // ApiActions.receiveUserGroup(query);
         callback();

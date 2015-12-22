@@ -1,12 +1,14 @@
 class Api::UsersGroupsController < ApplicationController
   def create
-    @user_group = UsersGroup.new(group_id: users_groups_params)
+    @user_group = UsersGroup.new(users_groups_params)
     @user_group.user_id = current_user.id
 
     if @user_group.save
       flash[:success] = "Group Joined!"
+      render json: @user_group
     else
       flash[:error] = "Unable to join!"
+      render json: @user_group.errors.full_messages
     end
   end
 
@@ -15,8 +17,15 @@ class Api::UsersGroupsController < ApplicationController
   end
 
   def destroy
-    @user_group = current_user.users_groups
-    flash[:success] = "Left Group!"
+    @user_group = UsersGroup.find(params[:id])
+
+    if current_user.id == @user_group.user_id
+      flash[:success] = "Left Group!"
+      render json: @user_group
+    else
+      flash[:error] = "Unable to leave group!"
+      render json: @user_group.errors.full_messages
+    end
   end
 
   private
