@@ -13,12 +13,36 @@ var resetGroups = function (groups) {
   });
 };
 
+var resetUsersGroup = function (users_group) {
+  _selectedGroups = {};
+  users_groups.forEach(function () {
+    _selectedGroups[users_group.id] = users_group;
+  });
+};
+
+var addUsersGroup = function (users_group) {
+
+  _selectedGroups[users_group.id] = users_group;
+};
+
+var removeUsersGroup = function (users_group) {
+  delete _selectedGroups[users_group.id];
+};
+
 var addGroup = function (group) {
   _groups[group.id] = group;
 };
 
 var removeGroup = function (group) {
   delete _groups[group.id];
+};
+
+GroupStore.allUsersGroups = function () {
+  var selectedGroups = [];
+  for (var id in _selectedGroups){
+    selectedGroups.push(_selectedGroups[id]);
+  }
+  return selectedGroups;
 };
 
 GroupStore.all = function () {
@@ -51,6 +75,14 @@ GroupStore.__onDispatch = function (payload) {
       break;
     case GroupConstants.GROUP_REMOVE:
       removeGroup(payload.group);
+      this.__emitChange();
+      break;
+    case GroupConstants.USERS_GROUP_RECEIVED:
+      addUsersGroup(payload.users_group);
+      this.__emitChange();
+      break;
+    case GroupConstants.USERS_GROUP_REMOVE:
+      removeUsersGroup(payload.users_group);
       this.__emitChange();
       break;
   }

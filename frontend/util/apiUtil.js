@@ -1,23 +1,23 @@
 var ApiActions = require('../actions/apiAction');
 
 var ApiUtil = {
-  createUserGroup: function (group, callback) {
+  createUsersGroup: function (group, callback) {
     $.ajax({
       url: "api/users_groups",
       method: "POST",
       data: {users_group: {group_id: group.id}},
       success: function (query) {
-        // ApiActions.receiveUserGroup(query);
+        ApiActions.receiveUsersGroup(query);
         callback();
       }
     });
   },
-  destroyUserGroup: function (user_group, callback) {
+  destroyUsersGroup: function (user_group, callback) {
     $.ajax({
       url: "api/users_groups/" + user_group.id,
       method: "DELETE",
       success: function (query) {
-        // ApiActions.removeUserGroup(query);
+        ApiActions.removeUsersGroup(query);
         callback();
       }
     });
@@ -37,6 +37,14 @@ var ApiUtil = {
       url: "api/groups",
       success: function (query) {
         ApiActions.receiveAllGroups(query);
+      }
+    });
+  },
+  fetchCurrentUser: function (id) {
+    $.ajax({
+      url: "users/" + id,
+      success: function (query) {
+        ApiActions.receiveCurrentUser(query);
       }
     });
   },

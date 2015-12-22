@@ -4,6 +4,18 @@ var EventConstants = require('../constants/eventConstants');
 var UserConstants = require('../constants/userConstants');
 
 var ApiActions = {
+  receiveUsersGroup: function (users_group) {
+    AppDispatcher.dispatch({
+      actionType: GroupConstants.USERS_GROUP_RECEIVED,
+      users_group: users_group
+    });
+  },
+  removeUsersGroup: function (users_group) {
+    AppDispatcher.dispatch({
+      actionType: GroupConstants.USERS_GROUP_REMOVE,
+      users_group: users_group
+    });
+  },
   receiveAllUsers: function (users) {
     AppDispatcher.dispatch({
       actionType: UserConstants.USERS_RECEIVED,
