@@ -18,7 +18,7 @@
   <%= render "layouts/errors" %>
   <% if current_user %>
     <script type="text/javascript">
-      window.CURRENT_USER = <%= "{id: #{current_user.id}, name: '#{current_user.name}', email: '#{current_user.email}'}".html_safe %>;
+      window.CURRENT_USER = <%= "{id: #{current_user.id}, name: '#{current_user.name}', email: '#{current_user.email}',  img_url: '#{current_user.img_url}'}".html_safe %>;
     </script>
   <% end %>
   <!-- // <script type="text/javascript"> -->

@@ -4,8 +4,8 @@ var ApiUtil = require('../util/apiUtil');
 
 var ShowUser = React.createClass({
   getInitialState: function () {
-    var u = UserStore.findUserById(window.CURRENT_USER.id)
-    || ApiUtil.fetchCurrentUser() || {};
+    var u = UserStore.findUserById(window.CURRENT_USER.id) ||
+            ApiUtil.fetchCurrentUser() || {};
     return ({user: u});
   },
   componentDidMount: function () {
@@ -21,7 +21,8 @@ var ShowUser = React.createClass({
     return(
       <div className="container user-show">
         <h2>My Profile</h2><br /><br />
-          {window.CURRENT_USER.name}<br />
+          <img src={window.CURRENT_USER.img_url} alt="profile_pic" />
+          <br />{window.CURRENT_USER.name}<br />
           {window.CURRENT_USER.email}<br />
         <h3>My Groups</h3><br /><br />
       </div>

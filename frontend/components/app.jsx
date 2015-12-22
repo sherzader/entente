@@ -56,7 +56,7 @@ var App = React.createClass({
               </li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
-              <li><a href="#">Link</a></li>
+              <li><a href="#"></a></li>
               <li className="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                 <ul className="dropdown-menu">

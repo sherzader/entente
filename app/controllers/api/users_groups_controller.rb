@@ -1,9 +1,14 @@
 class Api::UsersGroupsController < ApplicationController
   def create
-    @user_group = current_user.users_groups
+    @user_group = current_user.users_groups.new(users_groups_params)
+  end
+
+  def index
+    @users_groups = current_user.users_groups
   end
 
   def destroy
+    @user_group = current_user.users_groups
   end
 
   private

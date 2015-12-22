@@ -1,6 +1,6 @@
 class Api::EventsController < ApplicationController
-  before_filter :require_login!
-
+  before_action :ensure_login
+  
   def index
     @events = Event.where(group_id: params[:group_id])
   end

@@ -1,4 +1,6 @@
 class Api::GroupsController < ApplicationController
+  before_action :ensure_login
+
   def index
     @groups = Group.all
   end
@@ -41,6 +43,6 @@ class Api::GroupsController < ApplicationController
   private
   def group_params
     params.require(:group).permit(:title, :body, :location,
-                                  :organizer_id, :event_id, :user_id)
+                                  :organizer_id, :event_id)
   end
 end
