@@ -37,6 +37,7 @@ class Api::GroupsController < ApplicationController
   end
 
   def show
+    @current_user = current_user
     @group = Group.find(params[:id])
   end
 

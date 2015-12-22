@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <script src="//js.pusher.com/2.2/pusher.min.js"></script>
   <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+  <!-- <link href="bootstrap-switch.css" rel="stylesheet"> -->
+  <!-- <script src="bootstrap-switch.js"></script> -->
   <script type="text/javascript">
     window.CLOUDINARY_OPTIONS = {
       cloud_name: "<%=ENV['CLOUD_NAME']%>",
@@ -15,10 +17,11 @@
   </script>
 </head>
 <body>
+  <div class="flash-success"><%= flash[:success] %></div>
   <%= render "layouts/errors" %>
   <% if current_user %>
     <script type="text/javascript">
-      window.CURRENT_USER = <%= "{id: #{current_user.id}, name: '#{current_user.name}', email: '#{current_user.email}',  img_url: '#{current_user.img_url}'}".html_safe %>;
+      window.CURRENT_USER = <%= "{id: #{current_user.id}}".html_safe %>;
     </script>
   <% end %>
   <!-- // <script type="text/javascript"> -->

@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
 
     if user
       log_in!(user)
+      flash[:sucess] = "Successful Login!"
       redirect_to :root
     else
       flash.now[:errors] = ["Invalid credentials"]

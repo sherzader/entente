@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates :email, :name, :session_token, uniqueness: true
 
   has_many :users_groups
+  has_many :groups, through: :users_groups
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

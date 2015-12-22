@@ -4,6 +4,7 @@ var GroupStore = new Store(AppDispatcher);
 var GroupConstants = require('../constants/groupConstants');
 
 var _groups = {};
+var _selectedGroups = {};
 
 var resetGroups = function (groups) {
   _groups = {};

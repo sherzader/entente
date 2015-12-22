@@ -18,7 +18,9 @@ var App = React.createClass({
     this.refs.modal.hide();
   },
   _logout: function () {
-    ApiUtil.logout();
+    ApiUtil.logout(function () {
+      this.history.push('/');
+    }.bind(this));
   },
   render: function () {
     return(
@@ -45,7 +47,7 @@ var App = React.createClass({
               <li><a href="#"></a></li>
               <li data-toggle="modal" data-target="#new-group-modal"><a href="#">Start Group</a></li>
               <li className="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
+                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span className="caret"></span></a>
                 <ul className="dropdown-menu">
                   <li><Link to={'/profile'}>My Profile</Link></li>
                   <li><a href="#" onClick={this._logout}>Logout</a></li>
@@ -60,12 +62,12 @@ var App = React.createClass({
             <ul className="nav navbar-nav navbar-right">
               <li><a href="#"></a></li>
               <li className="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
                 <ul className="dropdown-menu">
                   <li><a href="#">Action</a></li>
                   <li><a href="#">Another action</a></li>
                   <li><a href="#">Something else here</a></li>
-                  <li role="separator" class="divider"></li>
+                  <li role="separator" className="divider"></li>
                   <li><a href="#">Separated link</a></li>
                 </ul>
               </li>
@@ -73,7 +75,7 @@ var App = React.createClass({
             </div>
           </div>
         </nav>
-        <div className="modal fade" id="new-group-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div className="modal fade" id="new-group-modal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">

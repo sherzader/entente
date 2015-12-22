@@ -21,6 +21,9 @@
 .welcome-modal {
   text-align: center;
   line-height: 30px;
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
 }
 
 a:hover {
@@ -60,13 +63,12 @@ h3 {
 }
 
 .navbar .navbar-default {
-  top: -20px;
-  margin: 0 auto;
+  display: block;
+  z-index: 999;
+  position: fixed;
+  margin: 0 auto 50px auto;
   border-radius: 0px 0px 10px 10px;
   width: 100%;
-  -webkit-box-shadow: 0 8px 6px -6px #999;
-  -moz-box-shadow: 0 8px 6px -6px #999;
-  box-shadow: 0 8px 6px -6px #999;
 }
 
 .search-groups {
@@ -99,6 +101,13 @@ h3 {
 //     max-width: 300px;
 //     max-height: 460px;
 // }
+//
+// .flash-success {
+//   background-color: black;
+//   z-index: 999;
+//   height: 50px;
+//   color: white;
+// }
 
 .event-item {
   text-align: center;
@@ -112,8 +121,7 @@ h3 {
 .group-item {
   width: 220px;
   height: 200px;
-  padding: 30px;
-  padding-top: 50px;
+  padding: 20px;
   text-align: center;
   border-style: outset;
   border-color: black;
@@ -125,6 +133,7 @@ h3 {
 
 .title {
   font-size: 14px;
+  font-weight: bold;
   text-align: center;
 }
 

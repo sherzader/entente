@@ -1,56 +1,66 @@
 var ApiActions = require('../actions/apiAction');
 
 var ApiUtil = {
-  fetchUsers: function (users) {
+  createUserGroup: function (group, callback) {
+    $.ajax({
+      url: "api/users_groups",
+      method: "POST",
+      data: {users_group: group.id},
+      success: function (query) {
+        // ApiActions.receiveUserGroup(query);
+        callback();
+      }
+    });
+  },
+  destroyUserGroup: function (user_group, callback) {
+    $.ajax({
+      url: "api/users_groups/" + user_group.id,
+      method: "DELETE",
+      success: function (query) {
+        // ApiActions.removeUserGroup(query);
+        callback();
+      }
+    });
+  },
+  fetchUsers: function () {
     $.ajax({
       url: "users",
       type: "GET",
       dataType: "json",
-      data: {users: users},
-      success: function (u) {
-        ApiActions.receiveAllUsers(u);
+      success: function (query) {
+        ApiActions.receiveAllUsers(query);
        }
      });
- },
- fetchCurrentUser: function () {
-   $.ajax({
-     url: "users/" + window.CURRENT_USER.id,
-     type: "GET",
-     dataType: "json",
-     success: function (user) {
-       ApiActions.receiveCurrentUser(user);
-     }
-   });
-  },
+   },
   fetchGroups: function (){
     $.ajax({
       url: "api/groups",
-      success: function (groups) {
-        ApiActions.receiveAllGroups(groups);
+      success: function (query) {
+        ApiActions.receiveAllGroups(query);
       }
     });
   },
   fetchEvents: function (groupId) {
     $.ajax({
       url: "api/groups/" + groupId + "/events",
-      success: function (events) {
-        ApiActions.receiveAllEvents(events);
+      success: function (query) {
+        ApiActions.receiveAllEvents(query);
       }
     });
   },
   fetchGroup: function (id) {
     $.ajax({
       url: "api/groups/" + id,
-      success: function (group) {
-        ApiActions.receiveGroup(group);
+      success: function (query) {
+        ApiActions.receiveGroup(query);
       }
     });
   },
   fetchEvent: function (id) {
     $.ajax({
       url: "api/events/" + id,
-      success: function (group_event) {
-        ApiActions.receiveEvent(group_event);
+      success: function (query) {
+        ApiActions.receiveEvent(query);
       }
     });
   },
@@ -59,8 +69,8 @@ var ApiUtil = {
       url: "api/events/" + group_event.id,
       method: "PATCH",
       data: { event: group_event},
-      success: function (e) {
-        ApiActions.receiveEvent(e);
+      success: function (query) {
+        ApiActions.receiveEvent(query);
         callback();
       }
     });
@@ -70,8 +80,8 @@ var ApiUtil = {
       url: "api/groups",
       method: "POST",
       data: {group: group},
-      success: function (g) {
-        ApiActions.receiveGroup(g);
+      success: function (query) {
+        ApiActions.receiveGroup(query);
         callback();
       }
     });
@@ -81,8 +91,8 @@ var ApiUtil = {
       url: "api/groups/" + groupId + "/events",
       method: "POST",
       data: {event: group_event},
-      success: function (e) {
-        ApiActions.receiveEvent(e);
+      success: function (query) {
+        ApiActions.receiveEvent(query);
         callback();
       }
     });
@@ -92,8 +102,8 @@ var ApiUtil = {
       url: "api/groups/" + group.id,
       method: "PATCH",
       data: {group: group},
-      success: function (g) {
-        ApiActions.receiveGroup(g);
+      success: function (query) {
+        ApiActions.receiveGroup(query);
         callback();
       }
     });
@@ -103,8 +113,8 @@ var ApiUtil = {
       url: "api/groups/" + group.id,
       method: "DELETE",
       data: {group: group},
-      success: function (g) {
-        ApiActions.removeGroup(g);
+      success: function (query) {
+        ApiActions.removeGroup(query);
         callback();
       }
     });
@@ -114,18 +124,18 @@ var ApiUtil = {
       url: "api/events/" + group_event.id,
       method: "DELETE",
       data: {event: group_event},
-      success: function (e) {
-        ApiActions.removeEvent(e);
+      success: function (query) {
+        ApiActions.removeEvent(query);
         callback();
       }
     });
   },
-  logout: function () {
+  logout: function (callback) {
       $.ajax({
-        url: "/logout",
+        url: "/logout/",
         method: "DELETE",
         success: function () {
-          window.location("/");
+          callback();
         }
       });
     }

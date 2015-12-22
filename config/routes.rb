@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :groups, except: [:new, :edit] do
       resources :events, only: [:create, :index]
     end
+    resources :users_groups, only: [:create, :destroy]
     resources :events, only: [:show, :destroy, :update]
   end
 
