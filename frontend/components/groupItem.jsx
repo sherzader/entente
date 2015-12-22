@@ -38,7 +38,6 @@ var GroupItem = React.createClass({
         node.checked = true;
       });
     } else {
-      debugger;
         ApiUtil.destroyUsersGroup(this.state.users_group, function () {
           node.checked = false;
         });
