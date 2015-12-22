@@ -55,6 +55,7 @@ var Show = React.createClass({
       <div className="container-fluid">
         <div className="group-show container-fluid"
           onClick={this.props.onClick}>
+           <h2>Group</h2>
             <br /><br />
             Name: {this.state.group.title}
             <br />

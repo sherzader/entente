@@ -24,8 +24,10 @@ var App = React.createClass({
     return(
       <div className="app">
         <Modal ref="modal" className="welcome-modal">
-          <h2>Welcome, {window.CURRENT_USER.name}</h2>
-          <button onClick={this.hideModal}>Close</button>
+          <h2>Welcome, {window.CURRENT_USER.name}</h2><br />
+          Entente is a place to find groups of individuals with similar interests.<br />
+          With these kindred clans, your aim is to coordinate rituals of your choosing. <br />
+        Have fun! <br />
         </Modal>
         <nav className="navbar navbar-default">
         <div className="container-fluid">
@@ -84,6 +86,7 @@ var App = React.createClass({
           </div>
         </div>
         {this.props.children}
+        <footer className='app-footer'></footer>
     </div>
     );
   }

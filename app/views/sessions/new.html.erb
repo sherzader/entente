@@ -19,6 +19,15 @@
   </div>
     <input type="submit" class="btn btn-success btn-lg" value="Submit">
 </form>
+<br />
+<form action="<%= login_url %>" method="post">
+  <%= auth_token %>
+  <input type="hidden" name="user[email]" value="sheri@gmail.com" >
+  <input type="hidden" name="user[password]" value="password">
+  <input type="submit" class="btn btn-primary" value="Guest">
+</form>
 <br>
-<p class="intro-text"><%= link_to "New user? Sign Up!", signup_url%></p>
+<p class="intro-text">
+  <%= link_to "New user? Sign Up!", signup_url%>
+</p>
 </div>
