@@ -46,7 +46,13 @@ h3 {
   box-sizing: border-box;
 }
 
-.nav .navbar-nav {
+.navbar-brand {
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 20px;
+}
+
+.navbar .navbar-default {
   top: -20px;
   margin: 0 auto;
   border-radius: 0px 0px 10px 10px;
@@ -59,8 +65,8 @@ h3 {
 .search-groups {
   position: relative;
   margin-top: 0px;
-  left: -35px;
-  top: -50px;
+  left: -450px;
+  top: -70px;
 }
 
 .search-events {

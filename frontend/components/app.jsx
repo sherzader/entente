@@ -36,17 +36,17 @@ var App = React.createClass({
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand" href="/#">Entente</a>
+            <a className="navbar-brand active" href="/#">Entente</a>
           </div>
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav">
-              <li className="active"><a href="#">Profile <span class="sr-only">(current)</span></a></li>
+              <li><a href="#"></a></li>
               <li data-toggle="modal" data-target="#new-group-modal"><a href="#">Start Group</a></li>
               <li className="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
                 <ul className="dropdown-menu">
                   <li><Link to={'/profile'}>My Profile</Link></li>
-                  <li onClick={this._logout}>Logout</li>
+                  <li><a href="#" onClick={this._logout}>Logout</a></li>
                   <li><a href="#">Something else here</a></li>
                   <li role="separator" className="divider"></li>
                   <li><a href="#">Separated link</a></li>
