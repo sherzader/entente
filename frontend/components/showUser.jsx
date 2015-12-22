@@ -24,6 +24,7 @@ var ShowUser = React.createClass({
           <img src={window.CURRENT_USER.img_url} alt="profile_pic" />
           <br />{window.CURRENT_USER.name}<br />
           {window.CURRENT_USER.email}<br />
+          {window.CURRENT_USER.created_at}<br />
         <h3>My Groups</h3><br /><br />
       </div>
     );

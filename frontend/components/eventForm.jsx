@@ -38,7 +38,7 @@ var EventForm = React.createClass({
                 id='event_title'
                 valueLink={this.linkState("title")}
               />
-            </div>
+          </div><br />
             <label htmlFor='event_body'>About Event</label>
               <textarea
                 className='form-control'
@@ -54,10 +54,10 @@ var EventForm = React.createClass({
             <br/>
             <label className="fa fa-calendar" htmlFor='event_date'></label>
               <input
-                type='date'
+                type='datetime-local'
                 id='event_date'
                 valueLink={this.linkState("date")}
-              />
+              /><br />
           <button className="btn btn-primary">Create Event</button>
         </form>
       </div>

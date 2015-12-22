@@ -12,7 +12,7 @@ var Show = React.createClass({
     var groupId = this.props.params.id;
     var group = GroupStore.findGroupById(groupId) ||
                  ApiUtil.fetchGroup(groupId) || {};
-    return { group: group, selectedForm: false };
+    return { group: group};
   },
   _deleteGroup: function () {
     var group = this.state.group;
@@ -48,9 +48,6 @@ var Show = React.createClass({
     this.groupListener.remove();
   },
   render: function () {
-    if (this.state.selectedForm) {
-      var selected = <EventForm />
-    }
     return(
       <div className="container-fluid">
         <div className="group-show container-fluid"
