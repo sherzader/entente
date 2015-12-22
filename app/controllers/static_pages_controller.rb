@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  before_filter :logged_in?
+  before_filter :ensure_login
   def root
   end
 end

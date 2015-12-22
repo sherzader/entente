@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-before_filter :require_login!, only: [:index, :show, :edit, :update]
+before_filter :ensure_login, only: [:index, :show, :edit, :update]
 
   def create
     @user = User.new(user_params)
