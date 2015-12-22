@@ -23,7 +23,7 @@ var App = React.createClass({
   render: function () {
     return(
       <div className="app">
-        <Modal ref="modal">
+        <Modal ref="modal" className="welcome-modal">
           <h2>Welcome, {window.CURRENT_USER.name}</h2>
           <button onClick={this.hideModal}>Close</button>
         </Modal>

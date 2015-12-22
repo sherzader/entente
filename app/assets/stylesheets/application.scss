@@ -5,6 +5,21 @@
   text-align: center;
 }
 
+.intro-text {
+  text-align: center;
+}
+
+.welcome-modal {
+  text-align: center;
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 body {
   padding-top: 0px;
   background-color: #e1eaea;
@@ -100,14 +115,6 @@ h3 {
   text-align: center;
 }
 
-a {
-  float: left;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
 .new-event {
   margin: 0 auto;
   font-size: 14px;
@@ -143,7 +150,7 @@ a:hover {
   box-shadow: 0 8px 6px -6px #999;
 }
 
-button {
+.btn .btn-primary {
   -webkit-box-shadow: 0 8px 6px -6px #999;
   -moz-box-shadow: 0 8px 6px -6px #999;
   box-shadow: 0 8px 6px -6px #999;

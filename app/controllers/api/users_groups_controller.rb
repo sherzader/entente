@@ -1,5 +1,6 @@
 class Api::UsersGroupsController < ApplicationController
   def create
+    @user_group = current_user.users_groups.
   end
 
   def destroy
