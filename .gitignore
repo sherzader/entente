@@ -12,7 +12,6 @@
 !/log/.keep
 /tmp
 node_modules
-bundle.js.map
 
 # Ignore application configuration
 /config/application.yml
