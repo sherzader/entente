@@ -1,9 +1,11 @@
-var DayPicker = require('react-day-picker');
 var React = require('react');
+var DayPicker = require('react-day-picker');
 
 var Calendar = React.createClass({
-  render: function () {
-    return (<DayPicker initialMonth={ new Date(2016, 1) } />);
+  render: function() {
+    return (
+      <DayPicker onDayClick={ (e, day) => alert(day)} />
+    );
   }
 });
 

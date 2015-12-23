@@ -34,6 +34,9 @@ var GroupIndex = React.createClass({
         <div className="container group-index">
           {groupElements}
         </div>
+        <div className='day-picker'>
+          <DayPicker />
+        </div>
       </div>
     );
   }

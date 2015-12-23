@@ -64,6 +64,16 @@ var App = React.createClass({
             <ul className="nav navbar-nav">
               <li className='nav-item'><Link to={'/myGroups'}><dt>My Groups</dt></Link></li>
             </ul>
+            <form className="navbar-form navbar-right" role="search">
+              <div className="form-group">
+                <input type="text"
+                       className="form-control"
+                       placeholder="Search groups"
+                       onChange={this.handleChange}
+                       value={this.state.searchString}>
+                     </input>
+              </div>
+            </form>
             <ul className="nav navbar-nav navbar-right">
               <li className='nav-item' data-toggle="modal" data-target="#new-group-modal"><a href="#"><dt>Start Group</dt></a></li>
               <li className="dropdown">
