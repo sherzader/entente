@@ -26,7 +26,6 @@ var ApiUtil = {
     $.ajax({
       url: "users",
       type: "GET",
-      dataType: "json",
       success: function (query) {
         ApiActions.receiveAllUsers(query);
        }

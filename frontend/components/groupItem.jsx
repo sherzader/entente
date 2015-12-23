@@ -40,22 +40,23 @@ var GroupItem = React.createClass({
     } else {
         ApiUtil.destroyUsersGroup(this.state.users_group, function () {
           node.checked = false;
-        });
+      });
     }
   },
   render: function () {
     return(
-      <div className="group-item container-fluid resizable" draggable="true"
-        key={this.props.group.id}
-        onClick={this.props.onClick}>
-        <div className="group-item-text">
-          <p className="title">{this.props.group.title}</p>
-          Where: <br />{this.props.group.location}
-          <br />
-          About Us: <br />{this.props.group.body}<br />
-        <input type="checkbox" ref="toggle" name="checkbox" onClick={this._toggleGroup} />
+    <div>
+        <div className="block"
+             key={this.props.group.id}
+             onClick={this.props.onClick}>
+             <h3>{this.props.group.title}</h3>
+             <dl>
+             <dt>Where: {this.props.group.location}</dt>
+             <dd>About Us: {this.props.group.body}</dd>
+            </dl>
+           <a href="#" ref="toggle" checked="false" onClick={this.toggle}>Join</a>
         </div>
-      </div>
+    </div>
     );
   }
 });

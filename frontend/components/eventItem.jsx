@@ -9,7 +9,7 @@ var EventItem = React.createClass({
   },
   render: function () {
     return(
-      <div className="event-item container-fluid"
+      <div className="block"
         key={this.props.groupEvent.id}
         onClick={this._showEvent}>
          <br /><br />

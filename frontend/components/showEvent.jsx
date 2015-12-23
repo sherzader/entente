@@ -40,7 +40,7 @@ var Show = React.createClass({
   },
   render: function () {
     return(
-      <div className="event-show container-fluid"
+      <div className="block"
         key={this.state.group_event.id}>
           <br /><br />
           <p className="title">Name: {this.state.group_event.title}</p>

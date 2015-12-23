@@ -50,7 +50,7 @@ var Show = React.createClass({
   render: function () {
     return(
       <div className="container-fluid">
-        <div className="group-show container-fluid"
+        <div className="block"
           onClick={this.props.onClick}>
            <h2>Group</h2>
             <br /><br />
@@ -70,7 +70,7 @@ var Show = React.createClass({
           </div>
         </div>
       <EventIndex group={this.state.group} history={this.history} />
-        <div className="modal fade" id="new-event-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div className="modal fade" id="new-event-modal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">

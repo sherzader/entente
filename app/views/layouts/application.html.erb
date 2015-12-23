@@ -15,9 +15,15 @@
       upload_preset: "<%= ENV['UPLOAD_PRESET'] %>"
     };
   </script>
+  <% content_for :head do %>
+    <script type="text/javascript">
+    $(document).ready(function() {
+      $('input:checkbox').bootstrapSwitch();
+    });
+    </script>
+  <% end %>
 </head>
 <body>
-  <div class="flash-success"><%= flash[:success] %></div>
   <%= render "layouts/errors" %>
   <% if current_user %>
     <script type="text/javascript">
