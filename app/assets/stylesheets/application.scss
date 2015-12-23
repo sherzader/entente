@@ -18,7 +18,7 @@
   width: 100%;
 }
 
-.welcome-modal {
+#welcome {
   text-align: center;
   line-height: 30px;
   -webkit-box-shadow: 0 8px 6px -6px #999;
@@ -26,8 +26,11 @@
   box-shadow: 0 8px 6px -6px #999;
 }
 
-.group-modal {
-  margin-top: 15px;
+.start-group {
+}
+
+.start-group:hover {
+  background: #ccc;
 }
 
 a:hover {
@@ -50,9 +53,6 @@ h3 {
   text-align: center;
 }
 
-.container .group-index{
-}
-
 .block {
   background: #eee;
   box-shadow: 0 1px 1px #ccc;
@@ -60,6 +60,10 @@ h3 {
   text-align: center;
   width: 300px;
   margin: 20px;
+}
+
+.block:hover{
+  background: #ccc;
 }
 
 article {
@@ -90,6 +94,10 @@ dd {
   font-size: 20px;
 }
 
+.navbar-brand:hover {
+  background: #ccc;
+}
+
 .navbar-default {
   display: block;
   z-index: 999;
@@ -101,9 +109,8 @@ dd {
 
 .search-groups {
   position: relative;
-  margin-top: 0px;
-  left: -450px;
-  top: -70px;
+  top: 100px;
+  left: -500px;
 }
 
 .search-events {
@@ -112,30 +119,6 @@ dd {
   margin-top: 0px;
   top: -325px;
 }
-//
-// .group-btns {
-//   float: left;
-//   font-size: 14px;
-//   margin-bottom: 10px;
-// }
-
-// [draggable=true] {
-//     cursor: move;
-// }
-//
-// .resizable {
-//     overflow: scroll;
-//     resize: both;
-//     max-width: 300px;
-//     max-height: 460px;
-// }
-//
-// .flash-success {
-//   background-color: black;
-//   z-index: 999;
-//   height: 50px;
-//   color: white;
-// }
 
 .event-item {
   text-align: center;
@@ -146,24 +129,6 @@ dd {
   background-color: white;
 }
 
-// .group-item {
-//   width: 220px;
-//   height: 200px;
-//   padding: 20px;
-//   text-align: center;
-//   border-style: outset;
-//   border-color: black;
-//   background-color: white;
-//   -webkit-box-shadow: 0 8px 6px -6px #999;
-//   -moz-box-shadow: 0 8px 6px -6px #999;
-//   box-shadow: 0 8px 6px -6px #999;
-// }
-
-.title {
-  font-size: 14px;
-  font-weight: bold;
-  text-align: center;
-}
 
 .new-event {
   margin: 0 auto;
