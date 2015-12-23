@@ -31,7 +31,7 @@ var EditEvent = React.createClass({
   },
   render: function () {
     return(
-      <div>
+      <div className='edit-event'>
         <form className='edit-event' onSubmit={this._updateEvent}>
           <table>
             <tr>

@@ -62,7 +62,7 @@ h3 {
   font-size: 20px;
 }
 
-.navbar .navbar-default {
+.navbar-default {
   display: block;
   z-index: 999;
   position: fixed;
@@ -143,6 +143,7 @@ h3 {
 }
 
 .new-group {
+  margin-top: 50px;
   margin: 0 auto;
   text-align: center;
   border-color: black;
@@ -158,6 +159,12 @@ h3 {
   width: 500px;
   height: 200px;
   text-align: center;
+}
+
+.edit-group {
+  position: relative;
+  top: 50px;
+  margin-left: 50px;
 }
 
 .event-show {

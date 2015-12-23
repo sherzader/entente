@@ -138,12 +138,12 @@ var ApiUtil = {
       }
     });
   },
-  logout: function (callback) {
+  logout: function () {
       $.ajax({
-        url: "/logout/",
+        url: "logout",
         method: "DELETE",
         success: function () {
-          callback();
+          window.location.href = '/login';
         }
       });
     }

@@ -29,6 +29,7 @@ var EditGroup = React.createClass({
   },
   render: function () {
     return(
+      <div className='edit-group'>
       <form className='edit-group' onSubmit={this._updateGroup}>
         <table>
           <tr>
@@ -74,6 +75,7 @@ var EditGroup = React.createClass({
         </table>
         <br />
       </form>
+    </div>
     );
   }
 });

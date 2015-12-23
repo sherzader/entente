@@ -20,6 +20,6 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out! #/session/:id destroy, log out page
-    redirect_to login_url
+    render json: {}
   end
 end

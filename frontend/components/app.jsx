@@ -18,9 +18,7 @@ var App = React.createClass({
     this.refs.modal.hide();
   },
   _logout: function () {
-    ApiUtil.logout(function () {
-      this.history.push('/');
-    }.bind(this));
+    ApiUtil.logout();
   },
   render: function () {
     return(
