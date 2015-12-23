@@ -8,7 +8,7 @@ class Api::UsersGroupsController < ApplicationController
       render json: @user_group
     else
       flash[:error] = "Unable to join!"
-      render json: @user_group.errors.full_messages
+      render json: @user_group.errors.full_messages, status: 400
     end
   end
 
@@ -20,11 +20,12 @@ class Api::UsersGroupsController < ApplicationController
     @user_group = UsersGroup.find(params[:id])
 
     if current_user.id == @user_group.user_id
+      @user_group.destroy
       flash[:success] = "Left Group!"
       render json: @user_group
     else
       flash[:error] = "Unable to leave group!"
-      render json: @user_group.errors.full_messages
+      render json: @user_group.errors.full_messages, status: 400
     end
   end
 

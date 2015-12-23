@@ -2,12 +2,14 @@ var React = require('react');
 var UserStore = require('../stores/user');
 var ApiUtil = require('../util/apiUtil');
 
-var ShowUser = React.createClass({
+var UsersGroups = React.createClass({
   getInitialState: function () {
     var u = UserStore.findUserById(window.CURRENT_USER.id) || {};
     return ({user: u});
   },
   componentDidMount: function () {
+    ApiUtil.fetchCurrentUser(window.CURRENT_USER.id);
+
     this.userListener = UserStore.addListener(this._onChange);
   },
   _onChange: function () {
@@ -17,15 +19,20 @@ var ShowUser = React.createClass({
     this.userListener.remove();
   },
   render: function () {
+    var users_groups;
+    if (this.state.user.groups !== undefined){
+      console.log(this.state.user.groups);
+      users_groups = this.state.user.groups.map(function (group) {
+        return(<li key={group.id}>{group.title}</li>)
+      });
+    }
     return(
       <div className="container user-show">
-        <h2>My Profile</h2><br /><br />
-          <img src={this.state.user.img_url} alt="profile_pic" />
-          <br />{this.state.name}<br />
-          {this.state.email}<br />
+        <h2>My Groups</h2><br /><br />
+        {users_groups}
       </div>
     );
   }
 });
 
-module.exports = ShowUser;
+module.exports = UsersGroups;

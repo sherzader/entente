@@ -7,24 +7,24 @@ var Search = require('./search.jsx');
 
 var GroupItem = React.createClass({
   getInitialState: function () {
-    return({users_group: UserStore.findUserById(window.CURRENT_USER.id)});
+    return({current_user: UserStore.findUserById(window.CURRENT_USER.id),
+            users_group: GroupStore.allUsersGroups()});
   },
   componentDidMount: function(){
-    this.groupListener = UserStore.addListener(this._onChange);
+    this.groupListener = GroupStore.addListener(this._onChange);
     ApiUtil.fetchCurrentUser(window.CURRENT_USER.id);
   },
   componentWillUnmount: function () {
     this.groupListener.remove();
   },
   _onChange: function () {
-    this.setState({users_group: UserStore.findUserById(window.CURRENT_USER.id)});
+    this.setState({users_group: GroupStore.allUsersGroups()});
 
-    if(this.state.users_group !== undefined){
-      this.state.users_group.groups.forEach(function (group) {
-
+    if(this.state.users_group.length !== 0){
+      this.state.users_group.forEach(function (group) {
         if (group.id === this.props.group.id){
           var node = ReactDOM.findDOMNode(this.refs.toggle);
-          node.checked = true;
+
         }
       }.bind(this))
     }
@@ -33,13 +33,13 @@ var GroupItem = React.createClass({
     e.stopPropagation();
     var node = ReactDOM.findDOMNode(this.refs.toggle);
 
-    if (e.currentTarget.checked){
+    if (e.currentTarget.innerHTML === "Join"){
       ApiUtil.createUsersGroup(this.props.group, function () {
-        node.checked = true;
+        node.innerHTML = "Leave";
       });
     } else {
-        ApiUtil.destroyUsersGroup(this.state.users_group, function () {
-          node.checked = false;
+        ApiUtil.destroyUsersGroup(this.state.users_group[0], function () {
+          node.innerHTML = "Join";
       });
     }
   },
@@ -54,7 +54,7 @@ var GroupItem = React.createClass({
              <dt>Where: {this.props.group.location}</dt>
              <dd>About Us: {this.props.group.body}</dd>
             </dl>
-           <a href="#" ref="toggle" checked="false" onClick={this.toggle}>Join</a>
+           <a href="#" ref="toggle" checked="false" onClick={this._toggleGroup}>Join</a>
         </div>
     </div>
     );

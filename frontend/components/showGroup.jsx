@@ -1,6 +1,7 @@
 var React = require('react');
 var GroupStore = require('../stores/group');
 var ApiUtil = require('../util/apiUtil');
+var UserStore = require('../stores/user');
 var GroupItem = require('./groupItem.jsx');
 var EventIndex = require('./eventIndex.jsx');
 var EventForm = require('./eventForm.jsx');
@@ -12,7 +13,7 @@ var Show = React.createClass({
     var groupId = this.props.params.id;
     var group = GroupStore.findGroupById(groupId) ||
                  ApiUtil.fetchGroup(groupId) || {};
-    return { group: group};
+    return { group: group, current_user: UserStore.findUserById(window.CURRENT_USER.id)};
   },
   _deleteGroup: function () {
     var group = this.state.group;
@@ -43,11 +44,20 @@ var Show = React.createClass({
   },
   componentDidMount: function () {
     this.groupListener = GroupStore.addListener(this._onChange);
+    ApiUtil.fetchCurrentUser(window.CURRENT_USER.id);
   },
   componentWillUnmount: function () {
     this.groupListener.remove();
   },
   render: function () {
+    var status = "";
+    if (this.state.group.length !== 0){
+      this.state.current_user.groups.forEach(function (group) {
+        if (this.state.group.id === group.id){
+          status = <dd>"Leave"</dd>
+        }
+      });
+    }
     return(
       <div className="container-fluid">
         <div className="block"

@@ -16,6 +16,11 @@ var resetUsers = function (users) {
   });
 };
 
+var addUser = function (user) {
+  _users[user.id] = user;
+};
+
+
 UserStore.all = function () {
   var users = [];
   for (var id in _users){
@@ -25,13 +30,7 @@ UserStore.all = function () {
 };
 
 UserStore.findUserById = function (id) {
-    var res;
-    this.all().forEach(function (user) {
-      if (id == user.id) {
-        res = user;
-      }
-    }.bind(this));
-    return res;
+  return (_users[id]);
 };
 
 UserStore.__onDispatch = function (payload) {
@@ -41,6 +40,7 @@ UserStore.__onDispatch = function (payload) {
       this.__emitChange();
       break;
     case UserConstants.USER_RECEIVED:
+      addUser(payload.user);
       this.findUserById(payload.user.id);
       this.__emitChange();
       break;

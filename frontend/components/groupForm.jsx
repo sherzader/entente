@@ -23,7 +23,7 @@ var GroupForm = React.createClass({
     ApiUtil.createGroup(group, function () {
       this.props.history.push("/");
     }.bind(this));
-    
+
     this.setState(this.blankAttrs);
   },
 
@@ -31,6 +31,7 @@ var GroupForm = React.createClass({
     return(
         <form className='new-group' onSubmit={this.createGroup}>
           <table>
+            <tbody>
             <tr>
               <td>
               <label htmlFor='group_title'>Name:</label>
@@ -72,6 +73,7 @@ var GroupForm = React.createClass({
                 <button className="btn btn-primary">Create Group</button>
               </td>
             </tr>
+            </tbody>
           </table>
           <br />
         </form>

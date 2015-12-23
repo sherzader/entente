@@ -13,6 +13,7 @@ var ApiUtil = {
     });
   },
   destroyUsersGroup: function (user_group, callback) {
+    debugger
     $.ajax({
       url: "api/users_groups/" + user_group.id,
       method: "DELETE",

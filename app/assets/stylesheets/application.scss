@@ -29,7 +29,7 @@
 .start-group {
 }
 
-.start-group:hover {
+.nav-item:hover {
   background: #ccc;
 }
 
@@ -111,6 +111,11 @@ dd {
   position: relative;
   top: 100px;
   left: -500px;
+}
+
+.filter-groups {
+  position: relative;
+
 }
 
 .search-events {

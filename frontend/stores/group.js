@@ -46,6 +46,7 @@ GroupStore.allUsersGroups = function () {
 };
 
 GroupStore.all = function () {
+
   var groups = [];
   for (var id in _groups){
     groups.push(_groups[id]);
@@ -54,13 +55,7 @@ GroupStore.all = function () {
 };
 
 GroupStore.findGroupById = function (id) {
-    var res;
-    this.all().forEach(function (group) {
-      if (id == group.id) {
-        res = group;
-      }
-    }.bind(this));
-    return res;
+    return (_groups[id]);
 };
 
 GroupStore.__onDispatch = function (payload) {
