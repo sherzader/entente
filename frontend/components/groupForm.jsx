@@ -29,27 +29,31 @@ var GroupForm = React.createClass({
 
   render: function () {
     return(
+      <div className="jumbotron">
+        <dl>
+        <dt><h3>Make a Group</h3></dt>
+        </dl>
         <form className='new-group' onSubmit={this.createGroup}>
           <table>
             <tbody>
+            <dl>
             <tr>
               <td>
-              <label htmlFor='group_title'>Name:</label>
+              <label htmlFor='group_title'><dt>Name &nbsp;</dt></label>
               </td>
               <td>
               <input
                 type='text'
                 id='group_title'
                 valueLink={this.linkState("title")} />
-              </td>
+            </td>
             </tr>
             <tr>
               <td>
-              <label htmlFor='group_body'>About Group:</label>
+              <label htmlFor='group_body'><dt>About &nbsp;</dt></label>
               </td>
               <td>
-              <input
-                type='text'
+              <textarea
                 id='group_body'
                 valueLink={this.linkState("body")}
               />
@@ -57,7 +61,7 @@ var GroupForm = React.createClass({
             </tr>
             <tr>
               <td>
-              <label htmlFor='group_location'>Location: </label>
+              <label htmlFor='group_location'><dt>Area &nbsp;</dt></label>
               </td>
               <td>
                 <input
@@ -70,13 +74,15 @@ var GroupForm = React.createClass({
             <tr>
               <td></td>
               <td>
-                <button className="btn btn-primary">Create Group</button>
+                <button className="btn btn-primary"><dt>Create</dt></button>
               </td>
             </tr>
+            </dl>
             </tbody>
           </table>
           <br />
         </form>
+      </div>
     );
   }
 });

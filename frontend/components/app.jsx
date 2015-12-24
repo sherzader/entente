@@ -1,7 +1,7 @@
 var React = require('react');
 var GroupForm = require('./groupForm.jsx');
 var Link = require('react-router').Link;
-var Modal = require('react-modal');
+var Modal = require('boron/DropModal');
 var History = require('react-router').History;
 var ApiUtil = require('../util/apiUtil');
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
@@ -24,15 +24,19 @@ var App = React.createClass({
   getInitialState: function() {
     return { modalIsOpen: false };
   },
-
   componentDidMount: function () {
     this.setState({modalIsOpen: true});
+    this.showModal();
   },
-
+  showModal: function () {
+    this.refs.modal.show();
+  },
+  hideModal: function () {
+    this.refs.modal.hide();
+  },
   openModal: function() {
     this.setState({modalIsOpen: true});
   },
-
   closeModal: function() {
     this.setState({modalIsOpen: false});
   },
@@ -42,17 +46,18 @@ var App = React.createClass({
   render: function () {
     return(
       <div className="app">
-          <Modal isOpen={this.state.modalIsOpen}
-            onRequestClose={this.closeModal}
+          <Modal ref="modal"
             style={customStyles} id="welcome">
             <dl>
-              <dt><h2>Welcome</h2><br /></dt>
+              <br />
+              <dt><h1> &nbsp;&nbsp;Welcome</h1></dt><br />
               <dd>
               Entente is a place to find groups of individuals with similar interests.<br />
-              With these kindred clans, your aim is to coordinate rituals of your choosing. <br />
+            With these kindred clans, your aim is to coordinate rituals of your choosing. <br /><br />
               Have fun! <br />
               </dd>
-            </dl>
+            </dl><br /><br />
+          <button className="glyphicon glyphicon-remove" onClick={this.hideModal} />
           </Modal>
         <nav className="navbar navbar-default">
         <div className="container-fluid">
@@ -63,11 +68,11 @@ var App = React.createClass({
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand active" href="/#">Entente</a>
+            <a className="navbar-brand active" href="/#"><dt>Entente</dt></a>
           </div>
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav">
-              <li className='nav-item'><Link to={'/myGroups'}><dt>My Groups</dt></Link></li>
+              <li className='nav-item' data-toggle="modal" data-target="#new-group-modal"><a href="#"><dt>Start Group</dt></a></li>
             </ul>
             <form className="navbar-form navbar-right" role="search">
               <div className="form-group">
@@ -80,7 +85,7 @@ var App = React.createClass({
               </div>
             </form>
             <ul className="nav navbar-nav navbar-right">
-              <li className='nav-item' data-toggle="modal" data-target="#new-group-modal"><a href="#"><dt>Start Group</dt></a></li>
+              <li className='nav-item'><Link to={'/myGroups'}><dt>My Groups</dt></Link></li>
               <li className="dropdown">
                 <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><dt>Profile</dt><span className="caret"></span></a>
                 <ul className="dropdown-menu">
@@ -100,7 +105,7 @@ var App = React.createClass({
               <div className="modal-header">
                 <GroupForm history={this.history} />
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button className="glyphicon glyphicon-remove" data-dismiss="modal" />
               </div>
               </div>
             </div>

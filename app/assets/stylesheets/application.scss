@@ -3,8 +3,6 @@
 
 .jumbotron {
   text-align: center;
-  background-repeat: no-repeat;
-  background-image: url("http://res.cloudinary.com/sherzader/image/upload/v1450982355/hi-yo_c3uksi.png");
 }
 
 .app-footer {
@@ -67,13 +65,23 @@ h3 {
 }
 
 .group-index {
+  width: 100%;
   text-align: center;
   overflow: scroll;
   height: 400px;
 }
 
 .user-show {
-  text-align: center;
+  margin: 0 auto;
+}
+
+.user-pic {
+  float: left
+}
+
+.user-show-info {
+  position: relative;
+  margin-top: 100px;
 }
 
 article {
@@ -100,7 +108,7 @@ dd {
 
 .navbar-brand {
   font-weight: bold;
-  font-family: monospace;
+  font-family: 'Arvo', serif;
   font-size: 20px;
 }
 
@@ -138,7 +146,6 @@ dd {
   border-radius: 1px;
   border-color: black;
   width: 500px;
-  height: 150px;
   background-color: white;
   margin-bottom: 10px;
 }
@@ -149,7 +156,8 @@ dd {
 }
 
 .new-group {
-  margin-top: 50px;
+  background-color: #ccc;
+  padding: 50px;
   margin: 0 auto;
   text-align: center;
   border-color: black;
@@ -161,7 +169,6 @@ dd {
 }
 
 .group-info {
-  position: fixed;
   top: 50px;
   width: 500px;
   height: 300px;
@@ -193,6 +200,15 @@ dd {
   -webkit-box-shadow: 0 8px 6px -6px #999;
   -moz-box-shadow: 0 8px 6px -6px #999;
   box-shadow: 0 8px 6px -6px #999;
+}
+
+input {
+  width: 350px;
+}
+
+textarea {
+  width: 350px;
+  height: 100px;
 }
 
 /* DatePicker styles */
