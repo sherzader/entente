@@ -12,15 +12,12 @@ var EventItem = React.createClass({
       <div className="block event-item"
         key={this.props.groupEvent.id}
         onClick={this._showEvent}>
-         <br /><br />
-          <p className="title">Name: {this.props.groupEvent.title}</p>
-          <br />
-          Where: {this.props.groupEvent.location}
-          <br />
-          When: {new Date(this.props.groupEvent.date).toDateString()}<br />{new Date(this.props.groupEvent.date).toLocaleTimeString()}
-          <br />
-          About Event: {this.props.groupEvent.body}
-          <br /><br />
+          <dl>
+          <dt>Name: {this.props.groupEvent.title}</dt>
+          <dt>Where: {this.props.groupEvent.location}</dt>
+          <dt>When: {new Date(this.props.groupEvent.date).toDateString()} {new Date(this.props.groupEvent.date).toLocaleTimeString()}</dt>
+          <dd>{this.props.groupEvent.body}</dd>
+        </dl>
       </div>
     );
   }
