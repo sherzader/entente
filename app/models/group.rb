@@ -7,4 +7,8 @@ class Group < ActiveRecord::Base
   has_many :users, through: :users_groups
 
   belongs_to :organizer
+
+  def event_dates
+    events.pluck(:date)
+  end
 end

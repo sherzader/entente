@@ -2,7 +2,7 @@ class Api::GroupsController < ApplicationController
   before_action :ensure_login
 
   def index
-    @groups = Group.all
+    @groups = Group.includes(:events)
   end
 
   def create

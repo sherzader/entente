@@ -8,7 +8,6 @@ var Search = require('./components/search.jsx');
 var GroupIndex = require('./components/groupIndex.jsx');
 var GroupForm = require('./components/groupForm.jsx');
 var ShowGroup = require('./components/showGroup.jsx');
-var EventIndex = require('./components/eventIndex.jsx');
 var EventForm = require('./components/eventForm.jsx');
 var EventItem = require('./components/eventItem.jsx');
 var ShowEvent = require('./components/showEvent.jsx');
@@ -16,11 +15,12 @@ var ShowUser = require('./components/showUser.jsx');
 var EditEvent = require('./components/editEvent.jsx');
 var EditGroup = require('./components/editGroup.jsx');
 var UsersGroups = require('./components/usersGroup.jsx');
+var Calendar = require('./components/calendar.jsx');
 var App = require('./components/app.jsx');
 
 var routes = (
   <Route path="/" component={App}>
-    <IndexRoute component={Search}></IndexRoute>
+    <IndexRoute component={Calendar}></IndexRoute>
     <Route path="profile" component={ShowUser} />
     <Route path="myGroups" component={UsersGroups} />
     <Route path="groups/new" component={GroupForm} />

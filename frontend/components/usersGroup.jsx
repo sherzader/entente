@@ -23,7 +23,13 @@ var UsersGroups = React.createClass({
     if (this.state.user.groups !== undefined){
       console.log(this.state.user.groups);
       users_groups = this.state.user.groups.map(function (group) {
-        return(<li key={group.id}>{group.title}</li>)
+        return(<div className="block"
+             key={group.id}>
+             <h3>{group.title}</h3>
+             <dl>
+             <dt>Where: {group.location}</dt>
+             <dd>About Us: {group.body}</dd>
+            </dl></div>);
       });
     }
     return(

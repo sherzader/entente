@@ -50,14 +50,6 @@ var Show = React.createClass({
     this.groupListener.remove();
   },
   render: function () {
-    var status = "";
-    if (this.state.group.length !== 0){
-      this.state.current_user.groups.forEach(function (group) {
-        if (this.state.group.id === group.id){
-          status = <dd>"Leave"</dd>
-        }
-      });
-    }
     return(
       <div className="container-fluid">
         <div className="block"

@@ -10,16 +10,6 @@ var Search = React.createClass({
   handleChange: function(e){
     this.setState({searchString: e.currentTarget.value});
   },
-  _onChange: function () {
-    this.setState( {groups: GroupStore.all()});
-  },
-  componentDidMount: function () {
-    this.groupListener = GroupStore.addListener(this._onChange);
-    ApiUtil.fetchGroups();
-  },
-  componentWillUnmount: function () {
-    this.groupListener.remove();
-  },
   filteredGroups: function(){
     if (this.state.searchString === ""){
       return this.state.groups;
@@ -33,20 +23,8 @@ var Search = React.createClass({
   render: function(){
     return(
       <div>
-        <div className="search-groups">
-          <form className="navbar-form navbar-right" role="search">
-            <div className="form-group">
-              <input type="text"
-                     className="form-control"
-                     placeholder="Search groups"
-                     onChange={this.handleChange}
-                     value={this.state.searchString}>
-                   </input>
-            </div>
-          </form>
-          </div>
         <div className="filter-groups">{
-            <GroupIndex groups={this.filteredGroups()} />
+          <GroupIndex groups={this.filteredGroups()} />
           }
         </div>
       </div>

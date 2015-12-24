@@ -3,7 +3,6 @@ var GroupStore = require('../stores/group');
 var ApiUtil = require('../util/apiUtil');
 var GroupItem = require('./groupItem.jsx');
 var History = require('react-router').History;
-var DayPicker = require('./dayPicker.jsx');
 
 var GroupIndex = React.createClass({
   mixins: [History],
@@ -33,9 +32,6 @@ var GroupIndex = React.createClass({
       <div>
         <div className="container group-index">
           {groupElements}
-        </div>
-        <div className='day-picker'>
-          <DayPicker />
         </div>
       </div>
     );

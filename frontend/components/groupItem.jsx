@@ -3,12 +3,13 @@ var ReactDOM = require('react-dom');
 var GroupStore = require('../stores/group');
 var UserStore = require('../stores/user');
 var ApiUtil = require('../util/apiUtil');
-var Search = require('./search.jsx');
 
 var GroupItem = React.createClass({
   getInitialState: function () {
     return({current_user: UserStore.findUserById(window.CURRENT_USER.id),
-            users_group: GroupStore.allUsersGroups()});
+            users_group: GroupStore.allUsersGroups(),
+            text: ""
+          });
   },
   componentDidMount: function(){
     this.groupListener = GroupStore.addListener(this._onChange);
@@ -35,11 +36,11 @@ var GroupItem = React.createClass({
 
     if (e.currentTarget.innerHTML === "Join"){
       ApiUtil.createUsersGroup(this.props.group, function () {
-        node.innerHTML = "Leave";
+        this.state.text = "Leave";
       });
     } else {
         ApiUtil.destroyUsersGroup(this.state.users_group[0], function () {
-          node.innerHTML = "Join";
+          this.state.text = "Join";
       });
     }
   },
@@ -54,7 +55,7 @@ var GroupItem = React.createClass({
              <dt>Where: {this.props.group.location}</dt>
              <dd>About Us: {this.props.group.body}</dd>
             </dl>
-           <a href="#" ref="toggle" checked="false" onClick={this._toggleGroup}>Join</a>
+           <a href="#" ref="toggle" onClick={this._toggleGroup}>{this.state.text}</a>
         </div>
     </div>
     );
