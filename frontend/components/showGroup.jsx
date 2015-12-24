@@ -52,6 +52,7 @@ var Show = React.createClass({
   render: function () {
     return(
       <div className="container-fluid">
+        <img src={this.state.group.img_url} alt="profile_pic" />
         <div className="block"
           onClick={this.props.onClick}>
            <h2>Group</h2>
