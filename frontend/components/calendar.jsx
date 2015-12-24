@@ -1,5 +1,4 @@
 var React = require('react');
-var DatePicker = require('react-datepicker');
 var DayPicker = require('react-day-picker');
 var DateUtils = require('react-day-picker').DateUtils;
 var moment = require('moment');
@@ -58,10 +57,12 @@ var Calendar = React.createClass({
       return this.state.groups;
     }
     var filteredGroups = this.state.groups.filter(function(group){
-      return (group.event_dates.filter(function(event_date){
-        return ( event_date.slice(0, 10) === that.state.date.slice(0, 10));
-      }) > 0);
+      var matches = group.event_dates.filter(function(event_date){
+        return (event_date.slice(0, 10) === that.state.date.slice(0, 10));
+      });
+      return (matches.length > 0);
     });
+
     return filteredGroups;
   },
   render: function() {
