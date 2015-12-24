@@ -3,6 +3,8 @@
 
 .jumbotron {
   text-align: center;
+  background-repeat: no-repeat;
+  background-image: url("http://res.cloudinary.com/sherzader/image/upload/v1450982355/hi-yo_c3uksi.png");
 }
 
 .intro-text {
@@ -26,8 +28,6 @@
   box-shadow: 0 8px 6px -6px #999;
 }
 
-.start-group {
-}
 
 .nav-item:hover {
   background: #ccc;
@@ -65,8 +65,8 @@ h3 {
   margin: 20px;
 }
 
-.block:hover{
-  background: #ccc;
+.block:not(:hover){
+  background: #ccc !important;
 }
 
 article {

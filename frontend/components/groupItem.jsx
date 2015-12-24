@@ -49,14 +49,14 @@ var GroupItem = React.createClass({
         var found = this.state.users_groups.find(function (users_group) {
           return (users_group.group_id === this.props.group.id);
         }.bind(this));
-        
+
         ApiUtil.destroyUsersGroup(found);
     }
   },
   render: function () {
     return(
     <div>
-        <div className="block"
+        <div className="block" style={{background: 'url(' + this.props.group.img_url + ')'}}
              key={this.props.group.id}
              onClick={this.props.onClick}>
              <h3>{this.props.group.title}</h3>
