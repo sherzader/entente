@@ -1,6 +1,15 @@
 var ApiActions = require('../actions/apiAction');
 
 var ApiUtil = {
+  fetchUsersGroups: function (users_group) {
+    $.ajax({
+      url: "api/users_groups",
+      type: "GET",
+      success: function (query) {
+        ApiActions.receiveAllUsersGroups(query);
+       }
+     });
+  },
   createUsersGroup: function (group, callback) {
     $.ajax({
       url: "api/users_groups",
@@ -8,18 +17,17 @@ var ApiUtil = {
       data: {users_group: {group_id: group.id}},
       success: function (query) {
         ApiActions.receiveUsersGroup(query);
-        callback();
+        callback && callback();
       }
     });
   },
   destroyUsersGroup: function (user_group, callback) {
-    debugger
     $.ajax({
       url: "api/users_groups/" + user_group.id,
       method: "DELETE",
       success: function (query) {
         ApiActions.removeUsersGroup(query);
-        callback();
+        callback && callback();
       }
     });
   },

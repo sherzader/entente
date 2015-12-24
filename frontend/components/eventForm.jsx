@@ -54,7 +54,7 @@ var EventForm = React.createClass({
             <br/>
             <label className="fa fa-calendar" htmlFor='event_date'></label>
               <input
-                type='datetime-local'
+                type='datetime'
                 id='event_date'
                 valueLink={this.linkState("date")}
               /><br />

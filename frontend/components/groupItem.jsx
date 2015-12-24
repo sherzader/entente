@@ -7,28 +7,36 @@ var ApiUtil = require('../util/apiUtil');
 var GroupItem = React.createClass({
   getInitialState: function () {
     return({current_user: UserStore.findUserById(window.CURRENT_USER.id),
-            users_group: GroupStore.allUsersGroups(),
+            users_groups: GroupStore.allUsersGroups(),
             join_text: "Join"
           });
   },
   componentDidMount: function(){
     this.groupListener = GroupStore.addListener(this._onChange);
     ApiUtil.fetchCurrentUser(window.CURRENT_USER.id);
+    ApiUtil.fetchUsersGroups();
   },
   componentWillUnmount: function () {
     this.groupListener.remove();
   },
   _onChange: function () {
-    this.setState({users_group: GroupStore.allUsersGroups()});
+    var newState = {};
+    newState.users_groups = GroupStore.allUsersGroups()
 
-    if(this.state.users_group.length !== 0){
-      this.state.users_group.forEach(function (group) {
-        if (group.id === this.props.group.id){
+    if(newState.users_groups !== undefined){
+      var mssgText = "Join";
+
+      newState.users_groups.forEach(function (user_group) {
+        if (user_group.group_id === this.props.group.id){
           var node = ReactDOM.findDOMNode(this.refs.toggle);
-
+          mssgText = "Leave";
         }
-      }.bind(this))
+      }.bind(this));
+
+      newState.join_text = mssgText;
     }
+
+    this.setState(newState);
   },
   _toggleGroup: function (e) {
     e.stopPropagation();
@@ -36,13 +44,13 @@ var GroupItem = React.createClass({
     var node = ReactDOM.findDOMNode(this.refs.toggle);
 
     if (e.currentTarget.innerHTML === "Join"){
-      ApiUtil.createUsersGroup(this.props.group, function () {
-        that.setState({join_text: "Leave"});
-      });
+      ApiUtil.createUsersGroup(this.props.group);
     } else {
-        ApiUtil.destroyUsersGroup(this.state.users_group[0], function () {
-          that.setState({join_text: "Join"});
-      });
+        var found = this.state.users_groups.find(function (users_group) {
+          return (users_group.group_id === this.props.group.id);
+        }.bind(this));
+        
+        ApiUtil.destroyUsersGroup(found);
     }
   },
   render: function () {

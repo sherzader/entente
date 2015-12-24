@@ -3,7 +3,7 @@ class Api::UsersGroupsController < ApplicationController
     @user_group = UsersGroup.new(users_groups_params)
     @user_group.user_id = current_user.id
 
-    if @user_group.save
+    if @user_group.save!
       render json: @user_group
     else
       render json: @user_group.errors.full_messages, status: 400
