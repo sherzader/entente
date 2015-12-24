@@ -51,28 +51,28 @@ var Show = React.createClass({
   },
   render: function () {
     return(
-      <div className="container-fluid">
-        <img src={this.state.group.img_url} alt="profile_pic" />
-        <div className="block"
-          onClick={this.props.onClick}>
-           <h2>Group</h2>
-            <br /><br />
-            Name: {this.state.group.title}
-            <br />
-            Where: {this.state.group.location}
-            <br />
-            About Us: {this.state.group.body}
-            <br /><br />
-          <div className="group-btns">
-            <button className="glyphicon glyphicon-remove"
-                    onClick={this._deleteGroup}></button>
-            <button className="glyphicon glyphicon-pencil"
-                    onClick={this._editGroup}></button>
-                  <br />
-            <button data-toggle="modal" data-target="#new-event-modal">Create Event</button>
+      <div className="container">
+        <div className="container group-info">
+          <div className="group-image"><img src={this.state.group.img_url} alt="profile_pic" /></div>
+          <div className="block show-group" onClick={this.props.onClick}>
+            <dl>
+              <dt>Name: {this.state.group.title}</dt>
+              <br />
+              <dd>Where: {this.state.group.location}</dd>
+              <br />
+              <dd>About Us: {this.state.group.body}</dd>
+            </dl>
+            <div className="group-btns">
+              <button className="glyphicon glyphicon-remove"
+                      onClick={this._deleteGroup}></button>
+              <button className="glyphicon glyphicon-pencil"
+                      onClick={this._editGroup}></button>
+                    <br />
+              <button data-toggle="modal" data-target="#new-event-modal">Create Event</button>
+            </div>
           </div>
-        </div>
-      <EventIndex group={this.state.group} history={this.history} />
+          </div>
+        <EventIndex group={this.state.group} history={this.history} />
         <div className="modal fade" id="new-event-modal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div className="modal-dialog" role="document">
             <div className="modal-content">

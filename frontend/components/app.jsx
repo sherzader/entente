@@ -45,10 +45,14 @@ var App = React.createClass({
           <Modal isOpen={this.state.modalIsOpen}
             onRequestClose={this.closeModal}
             style={customStyles} id="welcome">
-              <h2>Welcome, {window.CURRENT_USER.name}</h2><br />
+            <dl>
+              <dt><h2>Welcome</h2><br /></dt>
+              <dd>
               Entente is a place to find groups of individuals with similar interests.<br />
               With these kindred clans, your aim is to coordinate rituals of your choosing. <br />
               Have fun! <br />
+              </dd>
+            </dl>
           </Modal>
         <nav className="navbar navbar-default">
         <div className="container-fluid">

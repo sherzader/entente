@@ -7,10 +7,6 @@
   background-image: url("http://res.cloudinary.com/sherzader/image/upload/v1450982355/hi-yo_c3uksi.png");
 }
 
-.intro-text {
-  text-align: center;
-}
-
 .app-footer {
   bottom: -50px;
   position: fixed;
@@ -67,6 +63,17 @@ h3 {
 
 .block:not(:hover){
   background: #ccc !important;
+  color: black !important;
+}
+
+.group-index {
+  text-align: center;
+  overflow: scroll;
+  height: 400px;
+}
+
+.user-show {
+  text-align: center;
 }
 
 article {
@@ -122,9 +129,7 @@ dd {
 
 .search-events {
   position: relative;
-  left: -17px;
   margin-top: 0px;
-  top: -325px;
 }
 
 .event-item {
@@ -153,11 +158,15 @@ dd {
   margin-top: 10px;
 }
 
-.group-show {
-  font-size: 18px;
+.group-info {
+  position: fixed;
+  top: 50px;
   width: 500px;
-  height: 200px;
-  text-align: center;
+  height: 300px;
+}
+
+.block .show-group {
+  float: left;
 }
 
 .edit-group {
@@ -633,5 +642,4 @@ dd {
   position: relative;
   top: -150px;
   width: 300px;
-  margin-left: 30px;
 }

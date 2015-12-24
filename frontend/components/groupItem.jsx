@@ -56,7 +56,7 @@ var GroupItem = React.createClass({
   render: function () {
     return(
     <div>
-        <div className="block" style={{background: 'url(' + this.props.group.img_url + ')'}}
+        <div className="block" style={{background: 'url(' + this.props.group.img_url + ')', color: 'white'}}
              key={this.props.group.id}
              onClick={this.props.onClick}>
              <h3>{this.props.group.title}</h3>
