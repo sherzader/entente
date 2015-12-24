@@ -5,6 +5,7 @@ var Modal = require('react-modal');
 var History = require('react-router').History;
 var ApiUtil = require('../util/apiUtil');
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
+var Search = require('./search.jsx');
 
 const customStyles = {
   content : {

@@ -8,7 +8,7 @@ var GroupItem = React.createClass({
   getInitialState: function () {
     return({current_user: UserStore.findUserById(window.CURRENT_USER.id),
             users_group: GroupStore.allUsersGroups(),
-            text: ""
+            join_text: "Join"
           });
   },
   componentDidMount: function(){
@@ -32,15 +32,16 @@ var GroupItem = React.createClass({
   },
   _toggleGroup: function (e) {
     e.stopPropagation();
+    var that = this;
     var node = ReactDOM.findDOMNode(this.refs.toggle);
 
     if (e.currentTarget.innerHTML === "Join"){
       ApiUtil.createUsersGroup(this.props.group, function () {
-        this.state.text = "Leave";
+        that.setState({join_text: "Leave"});
       });
     } else {
         ApiUtil.destroyUsersGroup(this.state.users_group[0], function () {
-          this.state.text = "Join";
+          that.setState({join_text: "Join"});
       });
     }
   },
@@ -53,9 +54,9 @@ var GroupItem = React.createClass({
              <h3>{this.props.group.title}</h3>
              <dl>
              <dt>Where: {this.props.group.location}</dt>
-             <dd>About Us: {this.props.group.body}</dd>
+             <dt>About Us:<br />{this.props.group.body}</dt>
             </dl>
-           <a href="#" ref="toggle" onClick={this._toggleGroup}>{this.state.text}</a>
+           <a href="#" ref="toggle" onClick={this._toggleGroup}>{this.state.join_text}</a>
         </div>
     </div>
     );
