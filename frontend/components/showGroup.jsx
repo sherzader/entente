@@ -39,6 +39,11 @@ var Show = React.createClass({
   _joinGroup: function () {
     ApiUtil.joinGroup();
   },
+  _goBack: function (e) {
+    e.preventDefault();
+
+    this.history.push("/");
+  },
   handleItemClick: function () {
     this.history.pushState(null, "/groups/" + this.state.group.id + "/events/new" );
   },
@@ -53,6 +58,7 @@ var Show = React.createClass({
     return(
       <div className="container">
         <div className="container group-info">
+          <button className="glyphicon glyphicon-menu-left" onClick={this._goBack}></button>
           <div className="group-image"><img src={this.state.group.img_url} alt="profile_pic" /></div>
           <div className="block show-group" onClick={this.props.onClick}>
             <dl>
@@ -79,7 +85,7 @@ var Show = React.createClass({
               <div className="modal-header">
                 <EventForm history={this.history} group={this.state.group} />
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" className="btn btn-secondary" data-dismiss="modal"><dt>Cancel</dt></button>
               </div>
               </div>
             </div>

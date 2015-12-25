@@ -34,52 +34,25 @@ var GroupForm = React.createClass({
         <dt><h3>Make a Group</h3></dt>
         </dl>
         <form className='new-group' onSubmit={this.createGroup}>
-          <table>
-            <tbody>
             <dl>
-            <tr>
-              <td>
-              <label htmlFor='group_title'><dt>Name &nbsp;</dt></label>
-              </td>
-              <td>
+              <label htmlFor='group_title'><dt>Group Name &nbsp;</dt></label>
               <input
                 type='text'
                 id='group_title'
                 valueLink={this.linkState("title")} />
-            </td>
-            </tr>
-            <tr>
-              <td>
               <label htmlFor='group_body'><dt>About &nbsp;</dt></label>
-              </td>
-              <td>
               <textarea
                 id='group_body'
                 valueLink={this.linkState("body")}
               />
-            </td>
-            </tr>
-            <tr>
-              <td>
               <label htmlFor='group_location'><dt>Area &nbsp;</dt></label>
-              </td>
-              <td>
                 <input
                   type='text'
                   id='group_location'
                   valueLink={this.linkState("location")}
                 />
-              </td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>
                 <button className="btn btn-primary"><dt>Create</dt></button>
-              </td>
-            </tr>
             </dl>
-            </tbody>
-          </table>
           <br />
         </form>
       </div>

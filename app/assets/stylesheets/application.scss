@@ -202,6 +202,14 @@ dd {
   box-shadow: 0 8px 6px -6px #999;
 }
 
+.glyphicon-menu-left {
+  font-size: 50px;
+  color: black;
+  position: relative;
+  float: left;
+  z-index: 999;
+}
+
 input {
   width: 350px;
 }

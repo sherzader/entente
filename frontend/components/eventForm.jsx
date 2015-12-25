@@ -32,7 +32,7 @@ var EventForm = React.createClass({
       <div>
         <form className='new-event' onSubmit={this.createEvent}>
             <div className='col-md-offset-3 col-md-6'>
-              <label htmlFor='event_title'>Event Name</label>
+              <label htmlFor='event_title'>Event Name &nbsp;</label>
               <input
                 type='text'
                 id='event_title'
@@ -45,14 +45,16 @@ var EventForm = React.createClass({
                 id='event_body'
                 valueLink={this.linkState("body")}
               />
-            <label htmlFor='event_location'>Location</label>
+            <label className="glyphicon glyphicon-map-marker" htmlFor='event_location'>
+              Where &nbsp;
+            </label>
               <input
                 type='text'
                 id='event_location'
                 valueLink={this.linkState("location")}
               />
             <br/>
-            <label className="fa fa-calendar" htmlFor='event_date'></label>
+            <label className="fa fa-calendar" htmlFor='event_date'>When &nbsp;</label>
               <input
                 type='datetime'
                 id='event_date'
