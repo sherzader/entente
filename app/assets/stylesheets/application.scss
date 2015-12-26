@@ -112,9 +112,11 @@ dd {
 }
 
 .navbar-brand {
+  position: relative;
+  top: -6px;
   font-weight: bold;
-  font-family: 'Arvo', serif;
-  font-size: 20px;
+  font-family: 'Lato', serif;
+  font-size: 28px;
 }
 
 .navbar-brand:hover {
