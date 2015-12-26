@@ -47,15 +47,14 @@ var App = React.createClass({
     return(
       <div className="app">
           <Modal ref="modal"
-            style={customStyles} id="welcome">
+            style={customStyles} className="welcome">
             <dl>
-              <br />
-              <dt><h1> &nbsp;&nbsp;Welcome</h1></dt><br />
-              <dd>
-              Entente is a place to find groups of individuals with similar interests.<br />
+            <br /><dt><h1>Welcome</h1></dt><br />
+            <dd>
+            Entente | \änˈtänt\ &nbsp;is a place to find groups of individuals with similar interests.<br />
             With these kindred clans, your aim is to coordinate rituals of your choosing. <br /><br />
-              Have fun! <br />
-              </dd>
+            Have fun! <br />
+            </dd>
             </dl><br /><br />
           <button className="glyphicon glyphicon-remove" onClick={this.hideModal} />
           </Modal>
@@ -75,13 +74,16 @@ var App = React.createClass({
               <li className='nav-item' data-toggle="modal" data-target="#new-group-modal"><a href="#"><dt>Start Group</dt></a></li>
             </ul>
             <form className="navbar-form navbar-right" role="search">
-              <div className="form-group">
+              <div className="input-group">
                 <input type="text"
                        className="form-control"
-                       placeholder="Search groups"
+                       placeholder="Search groups..."
                        onChange={this.handleChange}
                        value={this.state.searchString}>
                      </input>
+                <div className="input-group-btn">
+                  <button className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
+                </div>
               </div>
             </form>
             <ul className="nav navbar-nav navbar-right">

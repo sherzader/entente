@@ -29,7 +29,7 @@ var EventForm = React.createClass({
 
   render: function () {
     return(
-      <div>
+      <div className="jumbotron">
         <form className='new-event' onSubmit={this.createEvent}>
             <div className='col-md-offset-3 col-md-6'>
               <label htmlFor='event_title'>Event Name &nbsp;</label>
@@ -54,7 +54,7 @@ var EventForm = React.createClass({
                 valueLink={this.linkState("location")}
               />
             <br/>
-            <label className="fa fa-calendar" htmlFor='event_date'>When &nbsp;</label>
+            <label className="glyphicon glyphicon-calendar" htmlFor='event_date'>When &nbsp;</label>
               <input
                 type='datetime'
                 id='event_date'

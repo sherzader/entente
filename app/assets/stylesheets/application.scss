@@ -14,9 +14,13 @@
   width: 100%;
 }
 
-#welcome {
-  text-align: center;
-  line-height: 30px;
+.welcome {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  margin: 0 auto;
+  padding-left: 10px;
+  padding-right: 40px;
   -webkit-box-shadow: 0 8px 6px -6px #999;
   -moz-box-shadow: 0 8px 6px -6px #999;
   box-shadow: 0 8px 6px -6px #999;
@@ -56,6 +60,7 @@ h3 {
   padding: 30px;
   text-align: center;
   width: 300px;
+  height: 250px;
   margin: 20px;
 }
 
@@ -137,6 +142,9 @@ dd {
 
 .search-events {
   position: relative;
+  left: -150px;
+  top: -250px;
+  width: 700px;
   margin-top: 0px;
 }
 
@@ -175,7 +183,11 @@ dd {
 }
 
 .block .show-group {
-  float: left;
+  float: right;
+  position: relative;
+  top: -320px;
+  right: -350px;
+  height: inherit;
 }
 
 .edit-group {
@@ -197,26 +209,51 @@ dd {
 }
 
 .btn .btn-primary {
+  border: none;
   -webkit-box-shadow: 0 8px 6px -6px #999;
   -moz-box-shadow: 0 8px 6px -6px #999;
   box-shadow: 0 8px 6px -6px #999;
 }
 
 .glyphicon-menu-left {
-  font-size: 50px;
+  border: none;
+  top: 100px;
+  font-size: 30px;
   color: black;
   position: relative;
   float: left;
   z-index: 999;
 }
 
+.glyphicon-pencil {
+  margin: 0px;
+  border: none;
+  font-size: 18px;
+}
+
+.glyphicon-remove {
+  margin: 0px;
+  border: none;
+  font-size: 18px;
+}
+
+::-webkit-input-placeholder {
+  font-family: monospace;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  font-family: monospace;
+}
+
 input {
   width: 350px;
+  border: none;
 }
 
 textarea {
   width: 350px;
   height: 100px;
+  border: none;
 }
 
 /* DatePicker styles */
