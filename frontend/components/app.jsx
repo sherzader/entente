@@ -1,12 +1,10 @@
 var React = require('react');
 var GroupForm = require('./groupForm.jsx');
-var GroupStore = require('../stores/group');
+var SearchGroups = require('./searchGroups.jsx');
 var Link = require('react-router').Link;
 var Modal = require('boron/DropModal');
 var History = require('react-router').History;
 var ApiUtil = require('../util/apiUtil');
-var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
-var Search = require('./search.jsx');
 
 const customStyles = {
   content : {
@@ -23,20 +21,7 @@ var App = React.createClass({
   mixins: [History],
 
   getInitialState: function() {
-    return { modalIsOpen: false, searchString: "", groups: GroupStore.all() };
-  },
-  handleChange: function(e){
-    this.setState({searchString: e.currentTarget.value});
-  },
-  filteredGroups: function(){
-    if (this.state.searchString === ""){
-      return this.state.groups;
-    }else {
-      var regex = new RegExp(this.state.searchString);
-      return this.state.groups.filter(function(group){
-        return (group.title.search(regex) > -1);
-      });
-    }
+    return { modalIsOpen: false };
   },
   componentDidMount: function () {
     this.setState({modalIsOpen: true});
@@ -88,17 +73,7 @@ var App = React.createClass({
               <li className='nav-item' data-toggle="modal" data-target="#new-group-modal"><a href="#"><dt>Start Group</dt></a></li>
             </ul>
             <form className="navbar-form navbar-right" role="search">
-              <div className="input-group">
-                <input type="text"
-                       className="form-control"
-                       placeholder="Search groups..."
-                       onChange={this.handleChange}
-                       value={this.state.searchString}>
-                     </input>
-                <div className="input-group-btn">
-                  <button className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
-                </div>
-              </div>
+              <SearchGroups />
             </form>
             <ul className="nav navbar-nav navbar-right">
               <li className='nav-item'><Link to={'/myGroups'}><dt>My Groups</dt></Link></li>

@@ -21,7 +21,6 @@ var UsersGroups = React.createClass({
   render: function () {
     var users_groups;
     if (this.state.user.groups !== undefined){
-      console.log(this.state.user.groups);
       users_groups = this.state.user.groups.map(function (group) {
         return(<div className="block"
              key={group.id}>
