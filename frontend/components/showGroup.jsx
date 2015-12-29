@@ -74,7 +74,7 @@ var Show = React.createClass({
               <button className="glyphicon glyphicon-pencil"
                       onClick={this._editGroup}></button>
                     <br />
-              <button className='btn btn-primary'data-toggle="modal" data-target="#new-event-modal">Create Event</button>
+              <button className='btn btn-primary' data-toggle="modal" data-target="#new-event-modal">Create Event</button>
             </div>
           </div>
         </div>

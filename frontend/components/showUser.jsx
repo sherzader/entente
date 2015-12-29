@@ -19,12 +19,13 @@ var ShowUser = React.createClass({
     this.userListener.remove();
   },
   render: function () {
+    var path = "http://res.cloudinary.com/sherzader/image/upload/h_150,w_150,g_face,c_fill,r_max/" + this.state.user.img_url;
     return(
       <div className="container user-show">
         <div className="user-pic">
           <dl>
             <dt><h2>My Profile</h2></dt><br /><br />
-              <img src={this.state.user.img_url} alt="profile_pic" /><br />
+              <img src={path} alt="profile_pic" /><br />
           </dl>
         </div>
         <div className="user-show-info">
