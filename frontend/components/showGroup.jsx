@@ -64,6 +64,8 @@ var Show = React.createClass({
             <dl>
               <dt>Group:</dt> <dd>{this.state.group.title}</dd>
               <hr />
+              <dt>Organized by:</dt> <dd>{this.state.group.name}</dd>
+              <hr />
               <dt>Where:</dt> <dd>{this.state.group.location}</dd>
               <hr />
               <dt>About Us:</dt> <dd>{this.state.group.body}</dd><hr />

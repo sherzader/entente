@@ -19,20 +19,20 @@ var SearchGroups = React.createClass({
   },
   handleChange: function(e) {
     this.setState({ searchString: e.currentTarget.value });
-    var search = ReactDOM.findDOMNode(this.refs.searchResults);
-    var groups = this.filteredGroups();
+    this.filteredGroups = this.filterGroups();
   },
-  filteredGroups: function(){
-    if (this.state.searchString === ""){
-      return this.state.groups;
-    }else {
-      var regex = new RegExp(this.state.searchString);
-      return this.state.groups.filter(function(group){
-        return (group.title.search(regex) > -1);
-      });
-    }
+  filterGroups: function(){
+    var regex = new RegExp(this.state.searchString);
+    return this.state.groups.filter(function(group){
+      return (group.title.search(regex) > -1);
+    });
   },
   render: function(){
+    if (this.filteredGroups !== undefined){
+      var groupList = this.filteredGroups.map(function (group) {
+        return (<li key={group.id}>{group.title}</li>);
+      });
+    }
     return(
       <div className="input-group">
         <input type="text"
@@ -41,7 +41,7 @@ var SearchGroups = React.createClass({
                onChange={this.handleChange}
                value={this.state.searchString}>
              </input>
-        <ul ref="searchResults"></ul>
+        <ul ref="searchResults">{groupList}</ul>
         <div className="input-group-btn">
           <button className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
         </div>

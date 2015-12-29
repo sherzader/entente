@@ -1,6 +1,7 @@
 class Api::OrganizersController < ApplicationController
   def show
-    @organizer = Group.find_by(user_id: current_user.id).user_id
+    @group = Group.find(params[:id])
+    @organizer = User.find_by(id: @group.organizer_id)
   end
 
   private
