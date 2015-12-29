@@ -54,7 +54,7 @@ var EventIndex = React.createClass({
             </div>
           </form>
         </div><br /><div className="show-group-headers"><dl><dt>Events</dt></dl></div>
-        <div className="container">
+      <div className="event-items">
           {eventElements}
         </div>
     </div>

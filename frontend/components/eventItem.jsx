@@ -9,15 +9,15 @@ var EventItem = React.createClass({
   },
   render: function () {
     return(
-      <div className="block event-item"
+      <div className="event-item"
         key={this.props.groupEvent.id}
         onClick={this._showEvent}>
           <dl>
-          <dt>Name: {this.props.groupEvent.title}</dt>
-          <dt>Where: {this.props.groupEvent.location}</dt>
-          <dt>When: {new Date(this.props.groupEvent.date).toDateString()} {new Date(this.props.groupEvent.date).toLocaleTimeString()}</dt>
-          <dd>{this.props.groupEvent.body}</dd>
+          <dt>{this.props.groupEvent.title}</dt>
+          <dt>{this.props.groupEvent.location}</dt>
+          <dt>{new Date(this.props.groupEvent.date).toDateString()} {new Date(this.props.groupEvent.date).toLocaleTimeString()}</dt>
         </dl>
+        {this.props.groupEvent.body}
       </div>
     );
   }

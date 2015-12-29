@@ -26,9 +26,8 @@
   box-shadow: 0 8px 6px -6px #999;
 }
 
-
 .nav-item:hover {
-  background: #ccc;
+  background: #d9d9d9;
 }
 
 a:hover {
@@ -111,6 +110,16 @@ dd {
   -webkit-margin-start: 40px;
 }
 
+hr {
+  display: block;
+  height: 1px;
+  width: 350px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
 .navbar-brand {
   position: relative;
   top: -6px;
@@ -120,7 +129,7 @@ dd {
 }
 
 .navbar-brand:hover {
-  background: #ccc;
+  background: #d9d9d9;
 }
 
 .navbar-default {
@@ -130,6 +139,7 @@ dd {
   margin: 0 auto 50px auto;
   border-radius: 0px 0px 10px 10px;
   width: 100%;
+  box-shadow: 0 1px 1px #ccc;
 }
 
 .search-groups {
@@ -155,20 +165,31 @@ dd {
   top: 100px;
 }
 
+.event-items {
+  position: relative;
+  top: 75px;
+  left: 20px;
+  overflow: scroll;
+}
+
 .show-group-headers {
-  position: fixed;
-  top: 150px;
+  position: relative;
+  top: 50px;
+  left: 20px;
   text-align: center;
 }
 
 .event-item {
   text-align: center;
-  border-style: ridge;
-  border-radius: 1px;
-  border-color: black;
-  width: 500px;
-  background-color: white;
+  background-color: #e6e6e6;
   margin-bottom: 10px;
+  padding: 20px;
+  box-shadow: 0 1px 1px #ccc;
+}
+
+.event-item:hover {
+  background-color: #d9d9d9;
+  box-shadow: 0 1px 1px #b3b3b3;
 }
 
 .new-event {
@@ -192,8 +213,10 @@ dd {
 .figure {
     display: table;
     top: 50px;
-    background-color: #ccc;
+    background-color: #e6e6e6;
+    border-radius: 0px 0px 10px 10px;
     padding-bottom: 15px;
+    box-shadow: 0 1px 1px #ccc;
 }
 .figure img {
     width: 100%;

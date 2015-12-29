@@ -63,10 +63,10 @@ var Show = React.createClass({
           <div className="caption" onClick={this.props.onClick}>
             <dl>
               <dt>Group:</dt> <dd>{this.state.group.title}</dd>
-              <br />
+              <hr />
               <dt>Where:</dt> <dd>{this.state.group.location}</dd>
-              <br />
-              <dt>About Us:</dt> <dd>{this.state.group.body}</dd>
+              <hr />
+              <dt>About Us:</dt> <dd>{this.state.group.body}</dd><hr />
             </dl>
             <div className="group-btns">
               <button className="glyphicon glyphicon-remove"
