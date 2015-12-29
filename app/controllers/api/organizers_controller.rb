@@ -1,10 +1,6 @@
 class Api::OrganizersController < ApplicationController
-  def create
-     
-  end
-
   def show
-    @organizer = Group.find_by(:organizer_id)
+    @organizer = Group.find_by(user_id: current_user.id).user_id
   end
 
   private

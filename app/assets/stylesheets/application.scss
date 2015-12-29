@@ -142,12 +142,23 @@ dd {
   position: relative;
 }
 
-.search-events {
+.event-index {
   position: relative;
-  left: -150px;
-  top: -250px;
-  width: 700px;
-  margin-top: 0px;
+  top: 50px;
+}
+
+.search-events {
+  position: fixed;
+  z-index: 999;
+  width: 350px;
+  right: 500px;
+  top: 100px;
+}
+
+.show-group-headers {
+  position: fixed;
+  top: 150px;
+  text-align: center;
 }
 
 .event-item {
@@ -178,19 +189,39 @@ dd {
   margin-top: 10px;
 }
 
-.group-info {
-  top: 50px;
-  width: 500px;
-  height: 300px;
+.figure {
+    display: table;
 }
-
-.block .show-group {
-  float: right;
-  position: relative;
-  top: -320px;
-  right: -350px;
-  height: inherit;
+.figure img {
+    width: 100%;
+    height: auto;
 }
+.figure .caption {
+    display: table-caption;
+    caption-side: bottom;
+}
+// .group-info {
+//   top: 50px;
+//   width: 500px;
+//   height: 300px;
+// }
+//
+// .group-image {
+//   position: relative;
+//   left: -50px;
+// }
+//
+// .show-group {
+//   position: relative;
+//   top: -321px;
+//   right: -255px;
+//   width: 250px;
+//   height: inherit;
+//   border-top: 7px;
+//   border-top-style: solid;
+//   border-bottom: 7px;
+//   border-bottom-style: solid;
+// }
 
 .edit-group {
   position: relative;
@@ -218,13 +249,14 @@ dd {
 }
 
 .glyphicon-menu-left {
+  z-index: 999;
+  position: relative;
   border: none;
   top: 100px;
+  left: -50px;
   font-size: 30px;
   color: black;
-  position: relative;
   float: left;
-  z-index: 999;
 }
 
 .glyphicon-pencil {

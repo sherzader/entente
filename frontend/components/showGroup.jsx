@@ -57,16 +57,16 @@ var Show = React.createClass({
   render: function () {
     return(
       <div className="container">
-        <div className="container group-info">
+        <div className="figure col-md-4">
           <button className="glyphicon glyphicon-menu-left" onClick={this._goBack}></button>
-          <div className="group-image"><img src={this.state.group.img_url} alt="profile_pic" /></div>
-          <div className="block show-group" onClick={this.props.onClick}>
+          <img src={this.state.group.img_url} alt="group_pic" />
+          <div className="caption" onClick={this.props.onClick}>
             <dl>
-              <dt>Name: {this.state.group.title}</dt>
+              <dt>Group:</dt> <dd>{this.state.group.title}</dd>
               <br />
-              <dd>Where: {this.state.group.location}</dd>
+              <dt>Where:</dt> <dd>{this.state.group.location}</dd>
               <br />
-              <dd>About Us: {this.state.group.body}</dd>
+              <dt>About Us:</dt> <dd>{this.state.group.body}</dd>
             </dl>
             <div className="group-btns">
               <button className="glyphicon glyphicon-remove"
@@ -74,11 +74,12 @@ var Show = React.createClass({
               <button className="glyphicon glyphicon-pencil"
                       onClick={this._editGroup}></button>
                     <br />
-              <button data-toggle="modal" data-target="#new-event-modal">Create Event</button>
+              <button className='btn btn-primary'data-toggle="modal" data-target="#new-event-modal">Create Event</button>
             </div>
           </div>
-          </div>
-        <EventIndex group={this.state.group} history={this.history} />
+        </div>
+        <div className="col-md-4 event-index"><EventIndex group={this.state.group} history={this.history} /></div>
+        <div className="col-md-4">Members</div>
         <div className="modal fade" id="new-event-modal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div className="modal-dialog" role="document">
             <div className="modal-content">

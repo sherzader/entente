@@ -40,10 +40,9 @@ var EventIndex = React.createClass({
     }, this);
     return(
       <div>
-        <h3>Events</h3>
         <div className="form-group has-feedback">
           <form className="navbar-form navbar-right" role="search">
-            <div className="input-group search-events ">
+            <div className="input-group search-events">
               <input type="text"
                      className="form-control"
                      placeholder="Search events..."
@@ -54,8 +53,8 @@ var EventIndex = React.createClass({
               </div>
             </div>
           </form>
-        </div>
-        <div className="container event-index">
+        </div><br /><div className="show-group-headers"><dl><dt>Events</dt></dl></div>
+        <div className="container">
           {eventElements}
         </div>
     </div>

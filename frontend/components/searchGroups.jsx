@@ -21,10 +21,6 @@ var SearchGroups = React.createClass({
     this.setState({ searchString: e.currentTarget.value });
     var search = ReactDOM.findDOMNode(this.refs.searchResults);
     var groups = this.filteredGroups();
-    groups.forEach(function (group) {
-      var link = "groups/" + group.id;
-      search.appendChild(<li key={group.id}><a href={link}>{group.title}</a></li>);
-    });
   },
   filteredGroups: function(){
     if (this.state.searchString === ""){
