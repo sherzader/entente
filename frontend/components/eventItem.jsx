@@ -15,7 +15,7 @@ var EventItem = React.createClass({
           <dl>
           <dt>{this.props.groupEvent.title}</dt>
           <dt>{this.props.groupEvent.location}</dt>
-          <dt>{new Date(this.props.groupEvent.date).toDateString()} {new Date(this.props.groupEvent.date).toLocaleTimeString()}</dt>
+          <span className="date">{new Date(this.props.groupEvent.date).toDateString()} {new Date(this.props.groupEvent.date).toLocaleTimeString()}</span>
         </dl>
         {this.props.groupEvent.body}
       </div>

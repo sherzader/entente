@@ -154,6 +154,10 @@ hr {
   left: -500px;
 }
 
+.form-control .group-search {
+  position: fixed;
+}
+
 .groupSearchList {
   position: relative;
   left: -1px;
@@ -174,17 +178,22 @@ hr {
   top: 50px;
 }
 
-.search-events {
+.form-control .search-events {
   position: fixed;
   z-index: 999;
-  width: 350px;
-  right: 200px;
   top: 100px;
+  right: -75px;
+  width: 200px;
 }
 
 .btn .btn-primary .createEvent {
   position: relative;
-  top: -150px;
+  top: 100px;
+  right: -261px;
+}
+
+button:hover {
+  background-color: #fff;
 }
 
 .members {
@@ -194,6 +203,7 @@ hr {
   font-family: 'Lato', sans-serif;
   margin-top: 80px;
   padding: 30px;
+  box-shadow: 0 1px 1px #ccc;
 }
 
 .event-items {
@@ -205,6 +215,7 @@ hr {
 
 .show-group-headers {
   position: relative;
+  font-family: 'Lato', sans-serif;
   top: 50px;
   left: 20px;
   text-align: center;
@@ -216,6 +227,17 @@ hr {
   margin-bottom: 10px;
   padding: 20px;
   box-shadow: 0 1px 1px #ccc;
+}
+
+.date {
+  color: #ec1c2b;
+  font-size: 12px;
+  line-height: 12px;
+  padding-top: 8px;
+  font-family: Helvetica;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .event-item:hover {

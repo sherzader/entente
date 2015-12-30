@@ -48,7 +48,7 @@ var ApiUtil = {
       }
     });
   },
-  fetchCurrentUser: function (id) {
+  fetchUser: function (id) {
     $.ajax({
       url: "users/" + id,
       success: function (query) {

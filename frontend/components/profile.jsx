@@ -4,16 +4,16 @@ var ApiUtil = require('../util/apiUtil');
 
 var Profile = React.createClass({
   getInitialState: function () {
-    var u = UserStore.findUserById(this.props.params.id) ||
-            ApiUtil.fetchUser(this.props.params.id) || {};
+    var u = UserStore.findUserById(window.CURRENT_USER.id) ||
+            ApiUtil.fetchUser(window.CURRENT_USER.id) || {};
     return ({user: u});
   },
   componentDidMount: function () {
-    ApiUtil.fetchUser(this.props.params.id);
+    ApiUtil.fetchUser(window.CURRENT_USER.id);
     this.userListener = UserStore.addListener(this._onChange);
   },
   _onChange: function () {
-    this.setState({user: UserStore.findUserById(this.props.params.id)});
+    this.setState({user: UserStore.findUserById(window.CURRENT_USER.id)});
   },
   componentWillUnmount: function () {
     this.userListener.remove();
@@ -24,7 +24,7 @@ var Profile = React.createClass({
       <div className="container user-show">
         <div className="user-pic">
           <dl>
-            <dt><h2>Profile</h2></dt><br /><br />
+            <dt><h2>My Profile</h2></dt><br /><br />
               <img src={path} alt="profile_pic" /><br />
           </dl>
         </div>

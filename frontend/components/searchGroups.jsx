@@ -36,9 +36,9 @@ var SearchGroups = React.createClass({
       });
     }
     return(
-      <div className="input-group group-search">
+      <div className="input-group">
         <input type="text"
-               className="form-control"
+               className="form-control group-search"
                placeholder="Search groups..."
                onChange={this.handleChange}
                value={this.state.searchString}>

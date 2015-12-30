@@ -57,9 +57,11 @@ var Show = React.createClass({
   render: function () {
     var name = "";
     var created_at = "";
+    var organizer_path = "";
     if (this.state.group.organizer){
       name = this.state.group.organizer.name;
       created_at = this.state.group.created_at;
+      organizer_path = "/users/" + this.state.group.organizer.id;
     }
     var members = this.state.group.users.map(function (member) {
       var img_path = "http://res.cloudinary.com/sherzader/image/upload/c_fill,g_face,r_max,w_50/" + member.img_url;
@@ -80,7 +82,7 @@ var Show = React.createClass({
             <dl>
               <dt>Group:</dt> <dd>{this.state.group.title}</dd>
               <hr />
-              <dt>Organized by:</dt> <dd>{name}</dd>
+              <dt>Organized by:</dt> <dd><Link to={organizer_path}>{name}</Link></dd>
               <hr />
               <dt>Created:</dt> <dd>{created_at}</dd>
               <hr />

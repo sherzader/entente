@@ -11,6 +11,7 @@ var ShowGroup = require('./components/showGroup.jsx');
 var EventForm = require('./components/eventForm.jsx');
 var EventItem = require('./components/eventItem.jsx');
 var ShowEvent = require('./components/showEvent.jsx');
+var Profile = require('./components/profile.jsx');
 var ShowUser = require('./components/showUser.jsx');
 var EditEvent = require('./components/editEvent.jsx');
 var EditGroup = require('./components/editGroup.jsx');
@@ -21,7 +22,8 @@ var App = require('./components/app.jsx');
 var routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Calendar}></IndexRoute>
-    <Route path="profile" component={ShowUser} />
+    <Route path="profile" component={Profile} />
+    <Route path="users/:id" component={ShowUser} />
     <Route path="myGroups" component={UsersGroups} />
     <Route path="groups/new" component={GroupForm} />
     <Route path="groups/:id" component={ShowGroup}></Route>
