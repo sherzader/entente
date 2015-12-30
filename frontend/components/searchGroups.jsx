@@ -1,7 +1,7 @@
 var React = require('react');
 var GroupStore = require('../stores/group');
 var ApiUtil = require('../util/apiUtil');
-var ReactDOM = require('react-dom');
+var Link = require('react-router').Link
 
 var SearchGroups = React.createClass({
   getInitialState: function(){
@@ -28,20 +28,22 @@ var SearchGroups = React.createClass({
     });
   },
   render: function(){
+    var path = "";
     if (this.filteredGroups !== undefined){
       var groupList = this.filteredGroups.map(function (group) {
-        return (<li key={group.id}>{group.title}</li>);
+        path = "/groups/" + group.id;
+        return (<li key={group.id}><Link to={path}>{group.title}</Link></li>);
       });
     }
     return(
-      <div className="input-group">
+      <div className="input-group group-search">
         <input type="text"
                className="form-control"
                placeholder="Search groups..."
                onChange={this.handleChange}
                value={this.state.searchString}>
+               <ul className="groupSearchList">{groupList}</ul>
              </input>
-        <ul ref="searchResults">{groupList}</ul>
         <div className="input-group-btn">
           <button className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
         </div>

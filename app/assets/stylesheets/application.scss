@@ -34,6 +34,11 @@ a:hover {
   text-decoration: none;
 }
 
+li {
+  list-style: none;
+  display: block;
+}
+
 body {
   padding-top: 0px;
   background-color: #e1eaea;
@@ -143,13 +148,33 @@ hr {
 }
 
 .search-groups {
+  overflow: hidden;
   position: relative;
   top: 100px;
   left: -500px;
 }
 
-.filter-groups {
+// .filter-groups {
+//   position: relative;
+// }
+
+li:hover {
+  background: #eee;
+}
+
+.groupSearchList {
   position: relative;
+  left: -1px;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  white-space: nowrap;
+  background: #fff;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
 }
 
 .event-index {
