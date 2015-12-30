@@ -154,14 +154,6 @@ hr {
   left: -500px;
 }
 
-// .filter-groups {
-//   position: relative;
-// }
-
-li:hover {
-  background: #eee;
-}
-
 .groupSearchList {
   position: relative;
   left: -1px;
@@ -186,8 +178,22 @@ li:hover {
   position: fixed;
   z-index: 999;
   width: 350px;
-  right: 500px;
+  right: 200px;
   top: 100px;
+}
+
+.btn .btn-primary .createEvent {
+  position: relative;
+  top: -150px;
+}
+
+.members {
+  position: relative;
+  left: -60px;
+  background-color: white;
+  font-family: 'Lato', sans-serif;
+  margin-top: 80px;
+  padding: 30px;
 }
 
 .event-items {

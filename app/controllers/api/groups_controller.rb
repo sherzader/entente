@@ -39,7 +39,6 @@ class Api::GroupsController < ApplicationController
   def show
     @current_user = current_user
     @group = Group.find(params[:id])
-    @organizer = User.find_by(id: @group.organizer_id)
   end
 
   private

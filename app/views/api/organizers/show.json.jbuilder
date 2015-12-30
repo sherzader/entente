@@ -1,1 +1,1 @@
-json.extract! @organizer, :name, :img_url
+json.extract! @organizer, :id, :name, :email, :img_url

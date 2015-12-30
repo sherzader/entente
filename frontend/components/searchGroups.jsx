@@ -42,8 +42,10 @@ var SearchGroups = React.createClass({
                placeholder="Search groups..."
                onChange={this.handleChange}
                value={this.state.searchString}>
-               <ul className="groupSearchList">{groupList}</ul>
              </input>
+             <ul className="groupSearchList">
+               {groupList}
+             </ul>
         <div className="input-group-btn">
           <button className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
         </div>

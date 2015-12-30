@@ -103,7 +103,6 @@ var App = React.createClass({
           </div>
         </div>
         {this.props.children}
-        <footer className='app-footer'></footer>
     </div>
     );
   }
