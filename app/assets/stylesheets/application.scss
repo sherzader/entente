@@ -80,6 +80,24 @@ h3 {
   height: 400px;
 }
 
+.group-item {
+  position: relative;
+  width: 100%;
+  float: right;
+}
+
+h2 {
+  position: absolute;
+  left: 0px;
+  color: white;
+  font: bold 14px Helvetica, Sans-Serif;
+  letter-spacing: -1px;
+  background: rgb(0, 0, 0); /* fallback color */
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+}
+
+
 .user-show {
   margin: 0 auto;
 }
@@ -123,6 +141,11 @@ hr {
   border-top: 1px solid #ccc;
   margin: 1em 0;
   padding: 0;
+}
+
+textarea .form-control {
+  width: 250px;
+  height: 100px;
 }
 
 .navbar-brand {
@@ -248,6 +271,7 @@ button:hover {
 .new-event {
   margin: 0 auto;
   font-size: 14px;
+  height: 300px;
 }
 
 .new-group {

@@ -30,36 +30,42 @@ var EventForm = React.createClass({
   render: function () {
     return(
       <div className="jumbotron">
-        <form className='new-event' onSubmit={this.createEvent}>
-            <div className='col-md-offset-3 col-md-6'>
-              <label htmlFor='event_title'>Event Name &nbsp;</label>
+        <form className='new-event' onSubmit={this.createEvent} role='form'>
+            <div className='col-md-3'>
+              <label htmlFor='event_title'>Event Name</label><br /><br />
+              <div class="form-group has-feedback">
+                <label className='control-label' htmlFor='event_location'>Location</label><br /><br />
+                <i class="glyphicon glyphicon-map-marker form-control-feedback"></i>
+              </div>
+              <label htmlFor='event_date'>Date/Time</label><br /><br />
+              <label htmlFor='event_body'>Description</label><br />
+            </div>
+            <div className='col-md-6'>
               <input
                 type='text'
                 id='event_title'
+                placeholder='Add a clear, succinct title'
                 valueLink={this.linkState("title")}
-              />
-          </div><br />
-            <label htmlFor='event_body'>About Event</label>
-              <textarea
-                className='form-control'
-                id='event_body'
-                valueLink={this.linkState("body")}
-              />
-            <label className="glyphicon glyphicon-map-marker" htmlFor='event_location'>
-              Where &nbsp;
-            </label>
+              /><br /><br />
               <input
                 type='text'
                 id='event_location'
+                placeholder="glyphicon glyphicon-map-marker"
                 valueLink={this.linkState("location")}
-              />
-            <br/>
-            <label className="glyphicon glyphicon-calendar" htmlFor='event_date'>When &nbsp;</label>
+              /><br/><br />
               <input
                 type='datetime'
                 id='event_date'
+                placeholder="glyphicon glyphicon-calendar"
                 valueLink={this.linkState("date")}
-              /><br />
+              /><br /><br />
+            <textarea
+              className='form-control'
+              id='event_body'
+              placeholder='Elaborate on this fantastic event you have planned.'
+              valueLink={this.linkState("body")}
+              /><hr />
+            </div>
           <button className="btn btn-primary">Create Event</button>
         </form>
       </div>

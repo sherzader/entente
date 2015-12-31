@@ -56,13 +56,13 @@ var GroupItem = React.createClass({
   render: function () {
     return(
     <div>
-        <div className="block" style={{background: 'url(' + this.props.group.img_url + ')', color: 'white'}}
+        <div className="group-item" style={{background: 'url(' + this.props.group.img_url + ')', color: 'white'}}
              key={this.props.group.id}
              onClick={this.props.onClick}>
-             <h3>{this.props.group.title}</h3>
+             <img src={this.props.group.img_url} alt='' />
+             <h2>{this.props.group.title}</h2>
              <dl>
-             <dt>Where: {this.props.group.location}</dt>
-             <dt>About Us:<br />{this.props.group.body}</dt>
+             <dt>{this.props.group.users.length + 1} members</dt>
             </dl>
            <a href="#" ref="toggle" onClick={this._toggleGroup}>{this.state.join_text}</a>
         </div>
