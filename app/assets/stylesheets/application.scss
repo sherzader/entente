@@ -187,13 +187,21 @@ textarea .form-control {
   left: -500px;
 }
 
+.group-search-result:hover {
+  color: #d9d9d9;
+}
+
 .form-control .group-search {
   position: fixed;
 }
 
-.groupSearchList {
-  position: relative;
-  left: -1px;
+.group-search-list {
+  z-index: 1;
+  position: absolute;
+  margin-top: 34px;
+  padding-left: 0px;
+  text-align: center;
+  width: 172px;
   font-family: 'Lato', sans-serif;
   font-size: 14px;
   white-space: nowrap;

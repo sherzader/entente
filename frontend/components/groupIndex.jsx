@@ -29,10 +29,8 @@ var GroupIndex = React.createClass({
       return (<GroupItem key={group.id} onClick={boundClick} group={group} />)
     });
     return(
-      <div>
-        <div className="col-md-8 group-index">
-          {groupElements}
-        </div>
+      <div className="col-md-8 group-index">
+        {groupElements}
       </div>
     );
   }

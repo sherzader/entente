@@ -1,7 +1,6 @@
 var React = require('react');
 var GroupStore = require('../stores/group');
 var ApiUtil = require('../util/apiUtil');
-var Link = require('react-router').Link
 
 var SearchGroups = React.createClass({
   getInitialState: function(){
@@ -27,13 +26,16 @@ var SearchGroups = React.createClass({
       return (group.title.search(regex) > -1);
     });
   },
+  _showGroup: function () {
+    path = "groups/" + this.props.groupId;
+    this.props.history.push(path);
+  },
   render: function(){
     var path = "";
     if (this.filteredGroups !== undefined){
       var groupList = this.filteredGroups.map(function (group) {
-        path = "/groups/" + group.id;
-        return (<li key={group.id}><Link to={path}>{group.title}</Link></li>);
-      });
+        return (<li key={group.id} className='group-search-result' groupId={group.id} onClick={this._showGroup}>{group.title}</li>);
+      }.bind(this));
     }
     return(
       <div className="input-group">
@@ -43,7 +45,7 @@ var SearchGroups = React.createClass({
                onChange={this.handleChange}
                value={this.state.searchString}>
              </input>
-             <ul className="groupSearchList">
+             <ul className="group-search-list">
                {groupList}
              </ul>
       </div>

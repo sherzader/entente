@@ -73,7 +73,7 @@ var App = React.createClass({
               <li className='nav-item' data-toggle="modal" data-target="#new-group-modal"><a href="#"><dt>Start Group</dt></a></li>
             </ul>
             <form className="navbar-form navbar-right" role="search">
-              <SearchGroups />
+              <SearchGroups history={this.history} />
             </form>
             <ul className="nav navbar-nav navbar-right">
               <li className='nav-item'><Link to={'/myGroups'}><dt>My Groups</dt></Link></li>

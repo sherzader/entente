@@ -8,7 +8,7 @@ var UsersGroups = React.createClass({
     return ({user: u});
   },
   componentDidMount: function () {
-    ApiUtil.fetchCurrentUser(window.CURRENT_USER.id);
+    ApiUtil.fetchUser(window.CURRENT_USER.id);
 
     this.userListener = UserStore.addListener(this._onChange);
   },
@@ -22,13 +22,12 @@ var UsersGroups = React.createClass({
     var users_groups;
     if (this.state.user.groups !== undefined){
       users_groups = this.state.user.groups.map(function (group) {
-        return(<div className="block"
+        return(<div className="group-item"
              key={group.id}>
-             <h3>{group.title}</h3>
-             <dl>
-             <dt>Where: {group.location}</dt>
-             <dd>About Us: {group.body}</dd>
-            </dl></div>);
+             <img className="group-item-img" src={this.props.group.img_url} alt='' />
+             <div className="group-caption" onClick={this.props.onClick}><h3>{this.props.group.title}</h3>
+             <dl><dt>{this.props.group.users.length + 1} members</dt></dl>
+             </div></div>);
       });
     }
     return(

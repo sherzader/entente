@@ -58,7 +58,7 @@ var GroupItem = React.createClass({
     return(
     <div className="group-item"
          key={this.props.group.id}>
-         <img className='group-item-img' src={this.props.group.img_url} alt='' />
+         <img className="group-item-img" src={this.props.group.img_url} alt='' />
          <div className="group-caption" onClick={this.props.onClick}><h3>{this.props.group.title}</h3>
           <dl><dt>{this.props.group.users.length + 1} members</dt></dl>
          <h4><a href="#" ref="toggle" onClick={this._toggleGroup}>{this.state.join_text}</a></h4>
