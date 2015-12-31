@@ -48,9 +48,6 @@ var EventIndex = React.createClass({
                      placeholder="Search events..."
                      onChange={this.handleChange}
                      value={this.state.searchString} />
-              <div className="input-group-btn">
-                <button className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
-              </div>
             </div>
           </form>
         </div><br /><div className="show-group-headers"><dl><dt>Events</dt></dl><hr /></div>

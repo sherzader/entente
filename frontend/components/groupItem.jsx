@@ -39,6 +39,7 @@ var GroupItem = React.createClass({
     this.setState(newState);
   },
   _toggleGroup: function (e) {
+    e.preventDefault();
     e.stopPropagation();
     var that = this;
     var node = ReactDOM.findDOMNode(this.refs.toggle);
@@ -55,17 +56,13 @@ var GroupItem = React.createClass({
   },
   render: function () {
     return(
-    <div>
-        <div className="group-item" style={{background: 'url(' + this.props.group.img_url + ')', color: 'white'}}
-             key={this.props.group.id}
-             onClick={this.props.onClick}>
-             <img src={this.props.group.img_url} alt='' />
-             <h2>{this.props.group.title}</h2>
-             <dl>
-             <dt>{this.props.group.users.length + 1} members</dt>
-            </dl>
-           <a href="#" ref="toggle" onClick={this._toggleGroup}>{this.state.join_text}</a>
-        </div>
+    <div className="group-item"
+         key={this.props.group.id}>
+         <img className='group-item-img' src={this.props.group.img_url} alt='' />
+         <div className="group-caption" onClick={this.props.onClick}><h3>{this.props.group.title}</h3>
+          <dl><dt>{this.props.group.users.length + 1} members</dt></dl>
+         <h4><a href="#" ref="toggle" onClick={this._toggleGroup}>{this.state.join_text}</a></h4>
+       </div>
     </div>
     );
   }

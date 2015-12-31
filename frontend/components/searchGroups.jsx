@@ -46,9 +46,6 @@ var SearchGroups = React.createClass({
              <ul className="groupSearchList">
                {groupList}
              </ul>
-        <div className="input-group-btn">
-          <button className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
-        </div>
       </div>
     );
   }

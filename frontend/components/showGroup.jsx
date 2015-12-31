@@ -49,7 +49,7 @@ var Show = React.createClass({
   },
   componentDidMount: function () {
     this.groupListener = GroupStore.addListener(this._onChange);
-    ApiUtil.fetchCurrentUser(window.CURRENT_USER.id);
+    ApiUtil.fetchUser(window.CURRENT_USER.id);
   },
   componentWillUnmount: function () {
     this.groupListener.remove();
