@@ -31,29 +31,33 @@ var GroupForm = React.createClass({
     return(
       <div className="jumbotron">
         <dl>
-        <dt><h3>Make a Group</h3></dt>
+        <div className="form-header"><dt>Make a Group</dt></div>
         </dl>
         <form className='new-group' onSubmit={this.createGroup}>
+          <div className="col-md-3">
             <dl>
-              <label htmlFor='group_title'><dt>Group Name &nbsp;</dt></label>
-              <input
-                type='text'
-                id='group_title'
-                valueLink={this.linkState("title")} />
-              <label htmlFor='group_body'><dt>About &nbsp;</dt></label>
-              <textarea
-                id='group_body'
-                valueLink={this.linkState("body")}
-              />
-              <label htmlFor='group_location'><dt>Area &nbsp;</dt></label>
-                <input
-                  type='text'
-                  id='group_location'
-                  valueLink={this.linkState("location")}
-                />
-                <button className="btn btn-primary"><dt>Create</dt></button>
+              <label htmlFor='group_title'><dt>Group Name</dt></label><br /><br />
+              <label htmlFor='group_location'><dt>General Location</dt></label><br /><br />
+              <label htmlFor='group_body'><dt>About</dt></label><br />
             </dl>
-          <br />
+          </div>
+          <div className="col-md-8">
+            <br />
+            <input
+              type='text'
+              id='group_title'
+              valueLink={this.linkState("title")} /><br /><br /><br />
+            <input
+              type='text'
+              id='group_location'
+              valueLink={this.linkState("location")}
+              /><br /><br /><br />
+            <textarea
+              id='group_body'
+              valueLink={this.linkState("body")}
+              /><hr />
+              <button className="btn btn-primary"><dt>Create</dt></button>
+          </div>
         </form>
       </div>
     );
