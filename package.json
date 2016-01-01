@@ -32,7 +32,7 @@
     "history": "1.13.x",
     "moment": "^2.10.6",
     "react": "^0.14.3",
-    "react-addons-css-transition-group": "^0.14.3",
+    "react-addons-css-transition-group": "^0.14.5",
     "react-addons-linked-state-mixin": "^0.14.3",
     "react-bootstrap": "^0.28.1",
     "react-bootstrap-modal": "^2.0.0",
