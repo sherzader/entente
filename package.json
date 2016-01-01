@@ -29,7 +29,7 @@
     "css-loader": "^0.23.1",
     "express": "4.13.3",
     "flux": "^2.1.1",
-    "history": "^1.17.0",
+    "history": "^1.13.*",
     "moment": "^2.10.6",
     "react": "^0.14.3",
     "react-addons-css-transition-group": "^0.14.5",
@@ -40,7 +40,7 @@
     "react-day-picker": "^1.2.0",
     "react-dom": "^0.14.3",
     "react-modal": "^0.6.1",
-    "react-router": "^1.0.2",
+    "react-router": "^1.0.*",
     "webpack": "^1.12.9"
   },
   "engines": {
