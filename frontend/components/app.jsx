@@ -2,7 +2,6 @@ var React = require('react');
 var GroupForm = require('./groupForm.jsx');
 var SearchGroups = require('./searchGroups.jsx');
 var Link = require('react-router').Link;
-var Modal = require('boron/DropModal');
 var History = require('react-router').History;
 var ApiUtil = require('../util/apiUtil');
 
@@ -45,18 +44,6 @@ var App = React.createClass({
   render: function () {
     return(
       <div className="app">
-          <Modal ref="modal"
-            style={customStyles} className="welcome">
-            <dl>
-            <br /><dt><h1>Welcome</h1></dt><br />
-            <dd>
-            Entente | \änˈtänt\ &nbsp;is a place to find groups of individuals with similar interests.<br />
-            With these kindred clans, your aim is to coordinate rituals of your choosing. <br /><br />
-            Have fun! <br />
-            </dd>
-            </dl><br /><br />
-          <button className="glyphicon glyphicon-remove" onClick={this.hideModal} />
-          </Modal>
         <nav className="navbar navbar-default">
         <div className="container-fluid">
           <div className="navbar-header">
