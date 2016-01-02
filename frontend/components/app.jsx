@@ -5,17 +5,6 @@ var Link = require('react-router').Link;
 var History = require('react-router').History;
 var ApiUtil = require('../util/apiUtil');
 
-const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
-  }
-};
-
 var App = React.createClass({
   mixins: [History],
 
