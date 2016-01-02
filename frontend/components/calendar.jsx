@@ -5,8 +5,10 @@ var moment = require('moment');
 var GroupStore = require('../stores/group');
 var GroupIndex = require('./groupIndex.jsx');
 var ApiUtil = require('../util/apiUtil');
+var History = require('react-router').History;
 
 var Calendar = React.createClass({
+  mixins: [History],
   getInitialState: function () {
     return ({value: moment().format("L"), month: new Date(), date: "", groups: GroupStore.all()});
   },
@@ -65,12 +67,16 @@ var Calendar = React.createClass({
 
     return filteredGroups;
   },
+  _refresh: function () {
+    this.setState({value: moment().format("L"), month: new Date(), date: ""});
+    this.showCurrentDate();
+  },
   render: function() {
     var selectedDay = moment(this.state.value).toDate();
     return (
       <div>
         <div className="Calendar">
-          <div className="calendar-caption"><h3>Find Groups<br />with<br />Upcoming Events</h3></div>
+          <div className="calendar-caption-top"><h3>Find Groups<br />with<br />Upcoming Events</h3></div>
           <input
             ref="input"
             type="text"
@@ -87,6 +93,7 @@ var Calendar = React.createClass({
                 }}
                 onDayClick={ this.handleDayClick }
               />
+            <div className="calendar-caption-bottom" onClick={this._refresh}>Refresh Search</div>
         <GroupIndex groups={this.filterGroups()} />
       </div>
     );
