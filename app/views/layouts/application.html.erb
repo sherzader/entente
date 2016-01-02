@@ -23,17 +23,6 @@
       window.CURRENT_USER = <%= "{id: #{current_user.id}}".html_safe %>;
     </script>
   <% end %>
-  <!-- // <script type="text/javascript"> -->
-  <!-- //   var randNum = Math.floor(Math.random() * 10) + 1;
-  //   var images = [];
-  //   images[1] = "<%= image_path('franklin_trees_01.jpg') %>";
-  //   var setBackground = function () {
-  //     document.body.style.backgroundImage = "url(" + images[1] + ")";
-  //   }
-  //   window.setInterval(setBackground, 10000);
-  //   setBackground();
-  //   // document.write('<div class="bgImage" style="background-image: url(' + image + ');">')
-  // </script> -->
   <%= yield %>
   <%= javascript_include_tag 'application' %>
 </body>
