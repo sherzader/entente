@@ -17,6 +17,5 @@
 class Event < ActiveRecord::Base
   validates :title, :body, :date, :location, :organizer_id, :group_id, presence: true
   belongs_to :group
-  belongs_to :organizer
-
+  belongs_to :organizer, class_name: 'User', foreign_key: 'organizer_id'
 end

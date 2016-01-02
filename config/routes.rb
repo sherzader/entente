@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :groups, except: [:new, :edit] do
       resources :events, only: [:create, :index]
-      resources :organizers, only: [:show]
     end
     resources :users_groups, only: [:create, :destroy, :index]
     resources :events, only: [:show, :destroy, :update]
