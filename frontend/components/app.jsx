@@ -24,13 +24,6 @@ var App = React.createClass({
   },
   componentDidMount: function () {
     this.setState({modalIsOpen: true});
-    this.showModal();
-  },
-  showModal: function () {
-    this.refs.modal.show();
-  },
-  hideModal: function () {
-    this.refs.modal.hide();
   },
   openModal: function() {
     this.setState({modalIsOpen: true});
