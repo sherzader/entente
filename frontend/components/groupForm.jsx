@@ -31,7 +31,7 @@ var GroupForm = React.createClass({
     return(
       <div className="jumbotron">
         <dl>
-        <div className="form-header"><dt>Make a Group</dt></div>
+        <div className="form-create-header"><dt>Make a Group</dt></div>
         </dl>
         <form className='new-group' onSubmit={this.createGroup}>
           <div className="col-md-3">

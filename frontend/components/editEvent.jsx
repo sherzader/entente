@@ -31,9 +31,13 @@ var EditEvent = React.createClass({
   },
   render: function () {
     return(
-      <div className='edit-event'>
+      <div className='jumbotron'>
         <form className='edit-event' onSubmit={this._updateEvent}>
+          <dl>
+            <div className='form-header'><dt>Edit the Event</dt></div>
+          </dl>
           <table>
+            <tbody>
             <tr>
               <td>
               <label htmlFor='event_title'>Name:</label>
@@ -76,7 +80,7 @@ var EditEvent = React.createClass({
               </td>
               <td>
                 <input
-                  type='date'
+                  type='datetime-local'
                   id='event_date'
                   valueLink={this.linkState("date")}
                   />
@@ -85,9 +89,10 @@ var EditEvent = React.createClass({
             <tr>
               <td></td>
               <td>
-                <button className="btn btn-primary">Update Event</button>
+                <button className="btn btn-primary">Update</button>
               </td>
             </tr>
+          </tbody>
           </table>
           <br />
         </form>

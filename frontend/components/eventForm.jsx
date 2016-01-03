@@ -31,7 +31,7 @@ var EventForm = React.createClass({
     return(
       <div className="jumbotron">
         <dl>
-        <div className='form-header'><dt>Make an Event</dt></div>
+        <div className='form-create-header'><dt>Make an Event</dt></div>
         </dl>
         <form className='new-event' onSubmit={this.createEvent} role='form'>
             <div className='col-md-3 event-form-labels'>

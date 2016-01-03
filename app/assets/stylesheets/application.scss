@@ -75,6 +75,8 @@ h3 {
 }
 
 .group-item {
+  cursor: pointer;
+  cursor: hand;
   position: relative;
   display: inline-block;
   max-width: 400px;
@@ -130,6 +132,11 @@ h3 {
   margin-top: 100px;
 }
 
+li {
+  cursor: pointer;
+  cursor: hand;
+}
+
 article {
   display: block;
 }
@@ -168,6 +175,7 @@ textarea .form-control {
 }
 
 .navbar-brand {
+  text-shadow: 0 -1px rgba(127, 127, 127, .5);
   position: relative;
   top: -6px;
   font-weight: bold;
@@ -180,6 +188,7 @@ textarea .form-control {
 }
 
 .navbar-default {
+  text-shadow: 0 -0.5px rgba(127, 127, 127, .5);
   display: block;
   z-index: 999;
   position: fixed;
@@ -247,14 +256,14 @@ textarea .form-control {
 }
 
 button:hover {
-  background-color: #fff;
+  background-color: #ccc;
 }
 
 .members {
   position: relative;
   left: -60px;
   background-color: white;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Helvetica', sans-serif;
   margin-top: 80px;
   padding: 30px;
   box-shadow: 0 1px 1px #ccc;
@@ -269,13 +278,15 @@ button:hover {
 
 .show-group-headers {
   position: relative;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Helvetica', sans-serif;
   top: 50px;
   left: 20px;
   text-align: center;
 }
 
 .event-item {
+  cursor: pointer;
+  cursor: hand;
   text-align: center;
   background-color: #e6e6e6;
   margin-bottom: 10px;
@@ -309,12 +320,25 @@ button:hover {
   font-size: 14px;
 }
 
+.edit-event {
+  position: relative;
+  top: 60px;
+  left: 350px;
+}
+
 .event-form-labels {
   float: left;
 }
 
 .form-header {
   font-size: 24px;
+  position: relative;
+  left: -375px;
+}
+
+.form-create-header {
+  font-size: 24px;
+  position: relative;
 }
 
 .new-group {
@@ -348,33 +372,11 @@ button:hover {
     display: table-caption;
     caption-side: bottom;
 }
-// .group-info {
-//   top: 50px;
-//   width: 500px;
-//   height: 300px;
-// }
-//
-// .group-image {
-//   position: relative;
-//   left: -50px;
-// }
-//
-// .show-group {
-//   position: relative;
-//   top: -321px;
-//   right: -255px;
-//   width: 250px;
-//   height: inherit;
-//   border-top: 7px;
-//   border-top-style: solid;
-//   border-bottom: 7px;
-//   border-bottom-style: solid;
-// }
 
 .edit-group {
   position: relative;
-  top: 50px;
-  margin-left: 50px;
+  top: 60px;
+  left: 350px;
 }
 
 .event-show {
@@ -396,6 +398,10 @@ button:hover {
   box-shadow: 0 8px 6px -6px #999;
 }
 
+.group-buttons {
+  width: 40px
+}
+
 .glyphicon-menu-left {
   z-index: 999;
   position: relative;
@@ -408,15 +414,25 @@ button:hover {
 }
 
 .glyphicon-pencil {
-  margin: 0px;
+  z-index: 999;
+  position: relative;
   border: none;
-  font-size: 18px;
+  top: 100px;
+  left: -70px;
+  font-size: 30px;
+  color: black;
+  float: left;
 }
 
 .glyphicon-remove {
-  margin: 0px;
+  z-index: 999;
+  position: relative;
   border: none;
-  font-size: 18px;
+  top: 100px;
+  left: -70px;
+  font-size: 30px;
+  color: black;
+  float: left;
 }
 
 ::-webkit-input-placeholder {

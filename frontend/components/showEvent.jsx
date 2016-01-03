@@ -1,6 +1,7 @@
 var React = require('react');
 var EventStore = require('../stores/event');
 var ApiUtil = require('../util/apiUtil');
+var EditEvent = require('./editEvent.jsx');
 var History = require('react-router').History;
 
 var Show = React.createClass({
@@ -39,6 +40,7 @@ var Show = React.createClass({
     this.history.push("/groups/" + this.state.group_event.group_id);
   },
   render: function () {
+    var pst_date = new Date(Date.parse(this.state.group_event.date) - 8) + "";
     return(
       <div className="block"
         key={this.state.group_event.id}>
@@ -47,7 +49,7 @@ var Show = React.createClass({
           <br />
           Where: {this.state.group_event.location}
           <br />
-          When: {this.state.group_event.date}
+          When: {pst_date}
           <br />
           About Event: {this.state.group_event.body}
           <br /><br />

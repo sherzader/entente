@@ -93,7 +93,7 @@ var Calendar = React.createClass({
                 }}
                 onDayClick={ this.handleDayClick }
               />
-            <div className="calendar-caption-bottom" onClick={this._refresh}>Refresh Search</div>
+            <li className="calendar-caption-bottom" onClick={this._refresh}>Refresh Search</li>
         <GroupIndex groups={this.filterGroups()} />
       </div>
     );

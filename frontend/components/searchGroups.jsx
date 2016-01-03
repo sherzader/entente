@@ -22,6 +22,9 @@ var SearchGroups = React.createClass({
     this.filteredGroups = this.filterGroups();
   },
   filterGroups: function(){
+    if (this.state.searchString === ""){
+      return;
+    }
     var regex = new RegExp(this.state.searchString);
     return this.state.groups.filter(function(group){
       return (group.title.search(regex) > -1);
@@ -29,6 +32,7 @@ var SearchGroups = React.createClass({
   },
   render: function(){
     var path = "";
+    
     if (this.filteredGroups !== undefined){
       var groupList = this.filteredGroups.map(function (group) {
         var group_path = "/groups/" + group.id;

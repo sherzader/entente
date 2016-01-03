@@ -8,6 +8,10 @@ var EventItem = React.createClass({
     this.props.history.push("/events/" + this.props.groupEvent.id);
   },
   render: function () {
+    var pst_date = "";
+    if (this.props.groupEvent){
+      pst_date = new Date(this.props.groupEvent.date).toLocaleTimeString();
+    }
     return(
       <div className="event-item"
         key={this.props.groupEvent.id}
@@ -15,7 +19,7 @@ var EventItem = React.createClass({
           <dl>
           <dt>{this.props.groupEvent.title}</dt>
           <dt>{this.props.groupEvent.location}</dt>
-          <span className="date">{new Date(this.props.groupEvent.date).toDateString()} {new Date(this.props.groupEvent.date).toLocaleTimeString()}</span>
+          <span className="date">{new Date(this.props.groupEvent.date).toDateString()} {pst_date} UTC</span>
         </dl>
         {this.props.groupEvent.body}
       </div>

@@ -29,9 +29,13 @@ var EditGroup = React.createClass({
   },
   render: function () {
     return(
-      <div className='edit-group'>
+      <div className='jumbotron'>
       <form className='edit-group' onSubmit={this._updateGroup}>
+        <dl>
+          <div className='form-header'><dt>Edit the Group</dt></div>
+        </dl>
         <table>
+          <tbody>
           <tr>
             <td>
             <label htmlFor='group_title'>Name:</label>
@@ -69,9 +73,10 @@ var EditGroup = React.createClass({
           <tr>
             <td></td>
             <td>
-              <button className="btn btn-primary">Update Group</button>
+              <button className="btn btn-primary">Update</button>
             </td>
           </tr>
+          </tbody>
         </table>
         <br />
       </form>
