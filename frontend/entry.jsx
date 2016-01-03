@@ -4,7 +4,6 @@ var ReactDOM = require('react-dom');
 var Router = require('react-router').Router;
 var Route = require('react-router').Route;
 var IndexRoute = require('react-router').IndexRoute;
-var Search = require('./components/search.jsx');
 var GroupIndex = require('./components/groupIndex.jsx');
 var GroupForm = require('./components/groupForm.jsx');
 var ShowGroup = require('./components/showGroup.jsx');

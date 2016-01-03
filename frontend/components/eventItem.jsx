@@ -18,7 +18,7 @@ var EventItem = React.createClass({
               <dt>{this.props.groupEvent.location}</dt>
             </dl>
           </div><br /><br />
-          <span className="date">{new Date(this.props.groupEvent.date).toDateString()}</span><br />
+        <span className="date">{this.props.groupEvent.date}<br />{this.props.groupEvent.time}</span><br />
       </div>
     );
   }

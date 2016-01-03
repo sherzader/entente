@@ -18,6 +18,7 @@ var Show = React.createClass({
     this.setState({ group_event: group_event });
   },
   componentDidMount: function () {
+    ApiUtil.fetchEvent(this.props.params.id);
     this.eventListener = EventStore.addListener(this._onChange);
   },
   componentWillUnmount: function () {
@@ -40,29 +41,22 @@ var Show = React.createClass({
     this.history.push("/groups/" + this.state.group_event.group_id);
   },
   render: function () {
-    var pst_date = "";
-    if (this.props.groupEvent){
-      pst_date = new Date(this.props.groupEvent.date).toLocaleTimeString();
-    }
-    pst_date = new Date(Date.parse(this.state.group_event.date) - 8) + "";
     return(
-      <div className="block"
-        key={this.state.group_event.id}>
-          <br /><br />
+      <div className="show-event-block">
+        <div className='group-buttons'>
+          <button className="glyphicon glyphicon-menu-left" title="Back to Group" onClick={this._goBack}></button>
+          <button className="glyphicon glyphicon-pencil" title="Edit Group" onClick={this._editEvent}></button>
+          <button className="glyphicon glyphicon-trash" title="Delete Group" onClick={this._deleteEvent}></button>
+        </div>
+        <div className="show-event">
+          <img className="event-img" src={this.state.group_event.img_url} alt="event-img"></img>
           <p className="title">Name: {this.state.group_event.title}</p>
-          <br />
           Where: {this.state.group_event.location}
           <br />
-          When: {pst_date}
-          <br />
+          When: {this.state.group_event.date}
+          <br />{this.state.group_event.time}<br />
           About Event: {this.state.group_event.body}
-          <br /><br />
-          <button className="glyphicon glyphicon-pencil"
-                  onClick={this._editEvent}></button>
-                <button className="fa fa-bomb"
-                  onClick={this._deleteEvent}></button>
-                <button className="fa fa-arrow-circle-left"
-                  onClick={this._goBack}></button>
+        </div>
       </div>
     );
   }

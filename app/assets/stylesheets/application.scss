@@ -352,6 +352,17 @@ button:hover {
   box-shadow: 0 1px 1px #b3b3b3;
 }
 
+.show-event-block {
+  padding-top: 100px;
+  background: white;
+  height: 500px;
+  width: 800px;
+  margin: 0 auto;
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
+}
+
 .new-event {
   height: 300px;
   padding: 30px;
