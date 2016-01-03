@@ -89,7 +89,6 @@ var Show = React.createClass({
           {memberCount}
           </dl>
           <hr />
-          {organizer_member}
           {members}
         </div>
         <div className="figure col-md-4">
