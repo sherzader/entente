@@ -93,9 +93,9 @@ var Show = React.createClass({
         </div>
         <div className="figure col-md-4">
           <div className='group-buttons'>
-            <button className="glyphicon glyphicon-menu-left" onClick={this._goBack}></button>
-            <button className="glyphicon glyphicon-remove" onClick={this._deleteGroup}></button>
-            <button className="glyphicon glyphicon-pencil" onClick={this._editGroup}></button>
+            <button className="glyphicon glyphicon-menu-left" title="Back Home" onClick={this._goBack}></button>
+            <button className="glyphicon glyphicon-pencil" title="Edit Group" onClick={this._editGroup}></button>
+            <button className="glyphicon glyphicon-trash" title="Delete Group" onClick={this._deleteGroup}></button>
           </div>
           <img src={this.state.group.img_url} alt="group_pic" />
           <div className="caption" onClick={this.props.onClick}>
@@ -113,7 +113,7 @@ var Show = React.createClass({
           </div>
         </div>
         <div className="col-md-4 event-index">
-          <button className='btn btn-primary createEvent' data-toggle="modal" data-target="#new-event-modal">Create Event</button>
+          <button className='btn btn-create-form createEvent' data-toggle="modal" data-target="#new-event-modal"><dt>Create Event</dt></button>
           <EventIndex group={this.state.group} history={this.history} /></div>
         <div className="modal fade" id="new-event-modal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div className="modal-dialog" role="document">

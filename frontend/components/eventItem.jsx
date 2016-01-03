@@ -8,20 +8,17 @@ var EventItem = React.createClass({
     this.props.history.push("/events/" + this.props.groupEvent.id);
   },
   render: function () {
-    var pst_date = "";
-    if (this.props.groupEvent){
-      pst_date = new Date(this.props.groupEvent.date).toLocaleTimeString();
-    }
     return(
       <div className="event-item"
-        key={this.props.groupEvent.id}
-        onClick={this._showEvent}>
-          <dl>
-          <dt>{this.props.groupEvent.title}</dt>
-          <dt>{this.props.groupEvent.location}</dt>
-          <span className="date">{new Date(this.props.groupEvent.date).toDateString()} {pst_date} UTC</span>
-        </dl>
-        {this.props.groupEvent.body}
+        key={this.props.groupEvent.id}>
+          <div className="event-item-header">
+            <button className="glyphicon glyphicon-menu-right" title="See More Info" onClick={this._showEvent}></button>
+            <dl>
+              <dt>{this.props.groupEvent.title}</dt>
+              <dt>{this.props.groupEvent.location}</dt>
+            </dl>
+          </div><br /><br />
+          <span className="date">{new Date(this.props.groupEvent.date).toDateString()}</span><br />
       </div>
     );
   }

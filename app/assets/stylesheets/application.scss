@@ -1,14 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.jumbotron {
-  text-align: center;
-}
-
-.welcome {
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
-  letter-spacing: 0.04em;
+#welcome-modal {
+  font-family: 'Helvetica', sans-serif;
+  letter-spacing: -0.5px;
   margin: 0 auto;
   padding-left: 10px;
   padding-right: 40px;
@@ -16,6 +11,37 @@
   -moz-box-shadow: 0 8px 6px -6px #999;
   box-shadow: 0 8px 6px -6px #999;
 }
+
+#welcome-modal-title {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-family: 'Lato', serif;
+  font-size: 28px;
+  text-shadow: 0 -1px rgba(0, 0, 0, .5);
+}
+
+#welcome-info {
+  line-height: 10px;
+}
+
+#welcome-list {
+  margin-left: 40px;
+  text-align: justify;
+  line-height: 5px;
+}
+
+li {
+  list-style: none;
+  display: block;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.jumbotron {
+  text-align: center;
+}
+
 
 .nav-item:hover {
   background: #d9d9d9;
@@ -25,10 +51,12 @@ a:hover {
   text-decoration: none;
 }
 
-li {
-  list-style: none;
-  display: block;
+hr {
+  margin: 0 auto;
+  text-align: center;
+  width: 80px;
 }
+
 
 body {
   padding-top: 0px;
@@ -48,6 +76,10 @@ h1 {
 }
 
 h3 {
+  text-align: center;
+}
+
+h4 {
   text-align: center;
 }
 
@@ -85,6 +117,12 @@ h3 {
 
 .group-item-img {
   width: 300px;
+}
+
+.group-item-join {
+  color: blue;
+  letter-spacing: 1px;
+  text-shadow: 0 -1px rgba(0, 0, 0, .5);
 }
 
 .group-caption {
@@ -132,11 +170,6 @@ h3 {
   margin-top: 100px;
 }
 
-li {
-  cursor: pointer;
-  cursor: hand;
-}
-
 article {
   display: block;
 }
@@ -161,8 +194,9 @@ dd {
 
 hr {
   display: block;
+  width: 300px;
+  text-align: center;
   height: 1px;
-  width: 350px;
   border: 0;
   border-top: 1px solid #ccc;
   margin: 1em 0;
@@ -177,7 +211,7 @@ textarea .form-control {
 .navbar-brand {
   text-shadow: 0 -1px rgba(127, 127, 127, .5);
   position: relative;
-  top: -6px;
+  top: -10px;
   font-weight: bold;
   font-family: 'Lato', serif;
   font-size: 28px;
@@ -245,10 +279,6 @@ textarea .form-control {
   width: 200px;
 }
 
-.glyphicon .glyphicon-search{
-  position: absolute;
-}
-
 .createEvent {
   position: relative;
   top: 25px;
@@ -257,11 +287,12 @@ textarea .form-control {
 
 button:hover {
   background-color: #ccc;
+  border-color: #ccc;
 }
 
 .members {
   position: relative;
-  left: -60px;
+  left: -90px;
   background-color: white;
   font-family: 'Helvetica', sans-serif;
   margin-top: 80px;
@@ -284,7 +315,17 @@ button:hover {
   text-align: center;
 }
 
+.event-item-header {
+  float: left;
+  width: 150px;
+  height: 50px;
+  margin-bottom: 20px
+}
+
 .event-item {
+  float: left;
+  margin-left: 40px;
+  width: 230px;
   cursor: pointer;
   cursor: hand;
   text-align: center;
@@ -296,6 +337,7 @@ button:hover {
 
 .date {
   color: #ec1c2b;
+  letter-spacing: 0.5px;
   font-size: 12px;
   line-height: 12px;
   padding-top: 8px;
@@ -350,8 +392,11 @@ button:hover {
   font-size: 14px;
 }
 
-.btn-primary {
+.btn-create-form {
   margin-top: 10px;
+  background-color: cornflowerblue;
+  border-color: cornflowerblue;
+  border-radius: 15px;
 }
 
 .figure {
@@ -402,15 +447,34 @@ button:hover {
   width: 40px
 }
 
+.glyphicon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+.glyphicon-menu-right {
+  float: left;
+  border-color: yellow;
+  font-size: 20px;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  border-style: none;
+  background: yellow;
+}
+
 .glyphicon-menu-left {
   z-index: 999;
   position: relative;
   border: none;
   top: 100px;
-  left: -65px;
+  left: -70px;
   font-size: 30px;
   color: black;
   float: left;
+  background-color: dodgerblue;
 }
 
 .glyphicon-pencil {
@@ -418,21 +482,25 @@ button:hover {
   position: relative;
   border: none;
   top: 100px;
-  left: -65px;
+  left: -70px;
   font-size: 30px;
   color: black;
   float: left;
+  margin-top: 3px;
+  background-color: chartreuse;
 }
 
-.glyphicon-remove {
+.glyphicon-trash {
   z-index: 999;
   position: relative;
   border: none;
   top: 100px;
-  left: -65px;
+  left: -70px;
   font-size: 30px;
   color: black;
   float: left;
+  margin-top: 3px;
+  background-color: crimson;
 }
 
 ::-webkit-input-placeholder {

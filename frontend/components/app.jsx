@@ -35,7 +35,7 @@ var App = React.createClass({
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand active" href="/#"><dt>Entente</dt></a>
+            <div className='navbar-brand' data-toggle="modal" data-target="#welcome-modal"><a className="navbar-brand active" href="#"><dt>Entente</dt></a></div>
           </div>
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav">
@@ -66,6 +66,28 @@ var App = React.createClass({
                 <GroupForm history={this.history} />
               <div className="modal-footer">
                 <button className="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="modal fade" id="welcome-modal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <div id="welcome-modal-title"><dt>Entente</dt></div><h4>/änˈtänt/</h4>
+                <div className="modal-footer">
+                  <h4 id="welcome-info">Find groups and events that match your interests.</h4>
+                  <h4 id="welcome-info">You will see all available groups to join on this page.</h4>
+                </div>
+                <div className="modal-footer" id="welcome-list">
+                  <p>&#x25BA; Join groups to save them to My Groups.</p>
+                  <p>&#x25BA; Use the calendar to filter for groups with events on that day.</p>
+                  <p>&#x25BA; Search for groups by title.</p>
+                  <p>&#x25BA; Click on a group to see more information, its members, and its events.</p>
+                </div>
+              <div className="modal-footer">
+                <button className="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
               </div>
             </div>

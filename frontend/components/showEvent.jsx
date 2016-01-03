@@ -40,7 +40,11 @@ var Show = React.createClass({
     this.history.push("/groups/" + this.state.group_event.group_id);
   },
   render: function () {
-    var pst_date = new Date(Date.parse(this.state.group_event.date) - 8) + "";
+    var pst_date = "";
+    if (this.props.groupEvent){
+      pst_date = new Date(this.props.groupEvent.date).toLocaleTimeString();
+    }
+    pst_date = new Date(Date.parse(this.state.group_event.date) - 8) + "";
     return(
       <div className="block"
         key={this.state.group_event.id}>
