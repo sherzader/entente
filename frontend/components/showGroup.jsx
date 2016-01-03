@@ -55,24 +55,42 @@ var Show = React.createClass({
     this.groupListener.remove();
   },
   render: function () {
-    var name = "";
+    var organizer = {};
     var created_at = "";
     var organizer_path = "";
+    var memberCount = "";
+    var members = "";
+    var organizer_member = "";
     if (this.state.group.organizer){
-      name = this.state.group.organizer.name;
+      organizer = this.state.group.organizer;
       created_at = this.state.group.created_at;
-      organizer_path = "/users/" + this.state.group.organizer.id;
+      organizer_path = "/users/" + organizer.id;
+      organizer_member = <li key={organizer.id}><img src={"http://res.cloudinary.com/sherzader/image/upload/c_fill,g_face,r_max,w_50/" + organizer.img_url} alt="user_pic" /><Link to={organizer_path}>{organizer.name}</Link></li>
     }
-    var members = this.state.group.users.map(function (member) {
-      var img_path = "http://res.cloudinary.com/sherzader/image/upload/c_fill,g_face,r_max,w_50/" + member.img_url;
-      var user_path = "/users/" + member.id;
-      return (<li key={member.id}><img src={img_path} alt="user_pic" /><Link to={user_path}>{member.name}</Link></li>)
-    });
+    if (this.state.group.users){
+      debugger;
+      members = this.state.group.users.map(function (member) {
+        var img_path = "http://res.cloudinary.com/sherzader/image/upload/c_fill,g_face,r_max,w_50/" + member.img_url;
+        var user_path = "/users/" + member.id;
+        return (<li key={member.id}><img src={img_path} alt="user_pic" /><Link to={user_path}>{member.name}</Link></li>)
+      });
+    }
+    if (this.state.group.users){
+      if (this.state.group.users.length <= 1){
+        memberCount = <dl><dt>1 member</dt></dl>;
+      } else{
+        memberCount = <dl><dt>{this.state.group.users.length} members</dt></dl>;
+      }
+    }
     return(
       <div className="container">
         <div className="col-md-4 members">
-          <dl><dt>Members</dt></dl>
+          <dl><dt>Members</dt>
           <hr />
+          {memberCount}
+          </dl>
+          <hr />
+          {organizer_member}
           {members}
         </div>
         <div className="figure col-md-4">
@@ -82,7 +100,7 @@ var Show = React.createClass({
             <dl>
               <dt>Group:</dt> <dd>{this.state.group.title}</dd>
               <hr />
-              <dt>Organized by:</dt> <dd><Link to={organizer_path}>{name}</Link></dd>
+              <dt>Organized by:</dt> <dd><Link to={organizer_path}>{organizer.name}</Link></dd>
               <hr />
               <dt>Created:</dt> <dd>{created_at}</dd>
               <hr />

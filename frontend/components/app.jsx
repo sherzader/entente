@@ -65,7 +65,7 @@ var App = React.createClass({
               <div className="modal-header">
                 <GroupForm history={this.history} />
               <div className="modal-footer">
-                <button className="glyphicon glyphicon-remove" data-dismiss="modal" />
+                <button className="btn btn-secondary" data-dismiss="modal">Cancel</button>
               </div>
               </div>
             </div>

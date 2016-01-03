@@ -55,12 +55,20 @@ var GroupItem = React.createClass({
     }
   },
   render: function () {
+    var memberCount = "";
+    if (this.props.group.users){
+      if (this.props.group.users.length <= 1){
+        memberCount = <dl><dt>1 member</dt></dl>;
+      } else{
+        memberCount = <dl><dt>{this.props.group.users.length} members</dt></dl>;
+      }
+    }
     return(
     <div className="group-item"
          key={this.props.group.id}>
          <img className="group-item-img" src={this.props.group.img_url} alt='' />
          <div className="group-caption" onClick={this.props.onClick}><h3>{this.props.group.title}</h3>
-          <dl><dt>{this.props.group.users.length + 1} members</dt></dl>
+         {memberCount}
          <h4><a href="#" ref="toggle" onClick={this._toggleGroup}>{this.state.join_text}</a></h4>
        </div>
     </div>

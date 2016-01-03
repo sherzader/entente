@@ -56,7 +56,7 @@ var GroupForm = React.createClass({
               id='group_body'
               valueLink={this.linkState("body")}
               /><hr />
-              <button className="btn btn-primary"><dt>Create</dt></button>
+            <button className="btn btn-primary"><dt>Create</dt></button>
           </div>
         </form>
       </div>
