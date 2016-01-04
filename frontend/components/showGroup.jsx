@@ -55,6 +55,7 @@ var Show = React.createClass({
     this.groupListener.remove();
   },
   render: function () {
+    var group_img = "http://res.cloudinary.com/sherzader/image/upload/" + this.state.group.img_url;
     var organizer = {};
     var created_at = "";
     var organizer_path = "";
@@ -69,9 +70,9 @@ var Show = React.createClass({
     }
     if (this.state.group.users){
       members = this.state.group.users.map(function (member) {
-        var img_path = "http://res.cloudinary.com/sherzader/image/upload/c_fill,g_face,r_max,w_50/" + member.img_url;
+        var img_path = "http://res.cloudinary.com/sherzader/image/upload/c_fill,g_face,w_50,h_50/" + member.img_url;
         var user_path = "/users/" + member.id;
-        return (<li key={member.id}><img src={img_path} alt="user_pic" /><Link to={user_path}>{member.name}</Link></li>)
+        return (<li key={member.id}><img src={img_path} alt="user_pic" /><Link to={user_path}> &nbsp;{member.name}</Link></li>)
       });
     }
     if (this.state.group.users){
@@ -84,8 +85,7 @@ var Show = React.createClass({
     return(
       <div className="container">
         <div className="col-md-4 members">
-          <dl><dt>Members</dt>
-          <hr />
+          <dl>
           {memberCount}
           </dl>
           <hr />
@@ -97,7 +97,7 @@ var Show = React.createClass({
             <button className="glyphicon glyphicon-pencil" title="Edit Group" onClick={this._editGroup}></button>
             <button className="glyphicon glyphicon-trash" title="Delete Group" onClick={this._deleteGroup}></button>
           </div>
-          <img src={this.state.group.img_url} alt="group_pic" />
+          <img src={group_img} alt="group_pic" />
           <div className="caption" onClick={this.props.onClick}>
             <dl>
               <dt>Group:</dt> <dd>{this.state.group.title}</dd>

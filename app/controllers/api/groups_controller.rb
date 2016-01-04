@@ -10,6 +10,9 @@ class Api::GroupsController < ApplicationController
     @group.organizer_id = current_user.id
 
     if @group.save
+      if @group.img_url.length == 0
+        @group.img_url = "251360_38fb7b5cc8_z_jfvdzo.jpg"
+      end
       render :show
     else
       render json: @group.errors.full_messages, status: 422

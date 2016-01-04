@@ -55,6 +55,7 @@ var GroupItem = React.createClass({
     }
   },
   render: function () {
+    var group_img = "http://res.cloudinary.com/sherzader/image/upload/c_scale,w_350/" + this.props.group.img_url;
     var memberCount = "";
     if (this.props.group.users){
       if (this.props.group.users.length <= 1){
@@ -66,7 +67,7 @@ var GroupItem = React.createClass({
     return(
     <div className="group-item"
          key={this.props.group.id}>
-         <img className="group-item-img" src={this.props.group.img_url} alt='' />
+         <img className="group-item-img" src={group_img} alt='' />
          <div className="group-caption" onClick={this.props.onClick}><h3>{this.props.group.title}</h3>
          {memberCount}
          <h4><a className="group-item-join" href="#" ref="toggle" onClick={this._toggleGroup}>{this.state.join_text}</a></h4>

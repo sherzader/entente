@@ -1,6 +1,6 @@
 class Api::EventsController < ApplicationController
   before_action :ensure_login
-  
+
   def index
     @events = Event.where(group_id: params[:group_id])
   end
@@ -12,6 +12,9 @@ class Api::EventsController < ApplicationController
     @event.organizer_id = current_user.id
 
     if @event.save
+      if @event.img_url.length == 0
+        @event.img_url = "2409498_39a4bda289_z_zi0gtl.jpg"
+      end
       render :show
     else
       render json: @event.errors.full_messages, status: 422

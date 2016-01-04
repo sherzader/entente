@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 #welcome-modal {
   font-family: 'Helvetica', sans-serif;
   letter-spacing: -0.5px;
@@ -103,7 +104,11 @@ h4 {
 
 .group-index {
   display: inline-block;
-  top: -55px;
+  position: fixed;
+  margin-top: 100px;
+  overflow: scroll;
+  height: 700px;
+  width: 80%;
 }
 
 .group-item {
@@ -111,12 +116,14 @@ h4 {
   cursor: hand;
   position: relative;
   display: inline-block;
-  max-width: 400px;
+  max-width: 300px;
   float: left;
+  margin: 20px;
 }
 
 .group-item-img {
-  width: 300px;
+  max-width: 100%;
+  height: auto;
 }
 
 .group-item-join {
@@ -146,6 +153,8 @@ h4 {
 .usersgroups-show {
   position: relative;
   top: 80px;
+  margin-left: 10%;
+  margin-right: 10%;
   padding-left: 40px;
   padding-top: 20px;
 }
@@ -159,6 +168,21 @@ h4 {
   margin-left: 400px;
   padding: 40px;
   top: 80px;
+}
+
+.user-groups {
+  position: fixed;
+  top: 450px;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 100%;
+  height: 300px;
+  overflow: scroll;
+}
+
+.user-groups-caption {
+  font-size: 22px;
+  font-family: 'Helvetica', sans-serif;
 }
 
 .user-pic {
@@ -316,10 +340,8 @@ button:hover {
 }
 
 .event-item-header {
-  float: left;
   width: 150px;
   height: 50px;
-  margin-bottom: 20px
 }
 
 .event-item {
@@ -333,6 +355,18 @@ button:hover {
   margin-bottom: 10px;
   padding: 20px;
   box-shadow: 0 1px 1px #ccc;
+}
+
+.glyphicon-menu-right {
+  float: left;
+  border-color: yellow;
+  font-size: 20px;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  border-style: none;
+  background: yellow;
 }
 
 .date {
@@ -350,6 +384,23 @@ button:hover {
 .event-item:hover {
   background-color: #d9d9d9;
   box-shadow: 0 1px 1px #b3b3b3;
+}
+
+.event-img {
+  max-width: 300px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.event-buttons {
+  width: 40px;
+  float: left;
+  margin: 40px;
+}
+
+.event-caption {
+  float: right;
+  margin-right: 40px;
 }
 
 .show-event-block {
@@ -413,6 +464,7 @@ button:hover {
 .figure {
     display: table;
     top: 50px;
+    margin-top: 35px;
     background-color: #e6e6e6;
     border-radius: 0px 0px 10px 10px;
     padding-bottom: 15px;
@@ -455,7 +507,11 @@ button:hover {
 }
 
 .group-buttons {
-  width: 40px
+  position: fixed;
+  top: 80px;
+  left: 450px;
+  width: 40px;
+  z-index: 999;
 }
 
 .glyphicon {
@@ -464,24 +520,10 @@ button:hover {
   border-radius: 50px;
 }
 
-.glyphicon-menu-right {
-  float: left;
-  border-color: yellow;
-  font-size: 20px;
-  text-align: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  border-style: none;
-  background: yellow;
-}
-
 .glyphicon-menu-left {
   z-index: 999;
   position: relative;
   border: none;
-  top: 100px;
-  left: -70px;
   font-size: 30px;
   color: black;
   float: left;
@@ -492,8 +534,6 @@ button:hover {
   z-index: 999;
   position: relative;
   border: none;
-  top: 100px;
-  left: -70px;
   font-size: 30px;
   color: black;
   float: left;
@@ -505,8 +545,6 @@ button:hover {
   z-index: 999;
   position: relative;
   border: none;
-  top: 100px;
-  left: -70px;
   font-size: 30px;
   color: black;
   float: left;

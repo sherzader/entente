@@ -1,6 +1,7 @@
 var React = require('react');
 var UserStore = require('../stores/user');
 var ApiUtil = require('../util/apiUtil');
+var Link = require('react-router').Link;
 
 var Profile = React.createClass({
   getInitialState: function () {
@@ -20,19 +21,36 @@ var Profile = React.createClass({
   },
   render: function () {
     var path = "http://res.cloudinary.com/sherzader/image/upload/h_150,w_150,g_face,c_fill,r_max/" + this.state.user.img_url;
+    var name = this.state.user.name + "'s";
+    if (this.state.user.groups !== undefined){
+      var groups = this.state.user.groups.map(function (group) {
+        var group_img = "http://res.cloudinary.com/sherzader/image/upload/c_scale,w_250/" + group.img_url;
+        var path = "groups/" + group.id;
+        return (<div className="group-item" title="Click group title for more info" key={group.id}>
+             <img className="group-item-img" src={group_img} alt='' />
+             <div className="group-caption"><Link to={path}><h3>{group.title}</h3></Link>
+             </div></div>)
+      });
+    }
     return(
-      <div className="user-show">
-        <div className="user-pic">
-          <dl>
-            <dt><h2>Profile</h2></dt><br /><br />
-              <img src={path} alt="profile_pic" /><br />
-          </dl>
+      <div>
+        <div className="user-show">
+          <div className="user-pic">
+            <dl>
+              <dt><h3>Profile</h3></dt><br /><br />
+                <img src={path} alt="profile_pic" /><br />
+            </dl>
+          </div>
+          <div className="user-show-info">
+            <dl>
+              <dt>{this.state.user.name}</dt><br />
+              <dt>{this.state.user.email}</dt><br />
+            </dl>
+          </div>
         </div>
-        <div className="user-show-info">
-          <dl>
-            <dt>{this.state.user.name}</dt><br />
-            <dt>{this.state.user.email}</dt><br />
-          </dl>
+        <div className="user-groups">
+          <dl><dt><div className="user-groups-caption">{name} Groups</div></dt></dl>
+          {groups}
         </div>
       </div>
     );

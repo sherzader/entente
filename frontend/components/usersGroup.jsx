@@ -26,15 +26,16 @@ var UsersGroups = React.createClass({
     if (this.state.user.groups !== undefined){
       users_groups = this.state.user.groups.map(function (group) {
         var path = "groups/" + group.id;
-        return(<div className="group-item" key={group.id}>
-             <img className="group-item-img" src={group.img_url} alt='' />
+        var group_img = "http://res.cloudinary.com/sherzader/image/upload/c_scale,w_250/" + group.img_url;
+        return(<div className="group-item" title="Click group title for more info" key={group.id}>
+             <img className="group-item-img" src={group_img} alt='' />
              <div className="group-caption"><Link to={path}><h3>{group.title}</h3></Link>
              </div></div>);
       });
     }
     return(
       <div className="usersgroups-show">
-        <h2>My Groups</h2><br /><br />
+        <dt><h3>My Groups</h3></dt><br /><br />
         {users_groups}
       </div>
     );
