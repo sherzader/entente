@@ -52,7 +52,6 @@ var App = React.createClass({
                   <li><Link to={'/profile'}>My Profile</Link></li>
                   <li role="separator" className="divider"></li>
                   <li><a href="#" onClick={this._logout}>Logout</a></li>
-                  <li role="separator" className="divider"></li>
                 </ul>
               </li>
             </ul>

@@ -1,5 +1,6 @@
-<div class="jumbotron">
-<h2>Log In</h2>
+<div class="login">
+<h2>Welcome Back to</h2><h2 style="font-weight: 600">Entente</h2>
+<h5 style="font-weight: 400"><i>A place to find groups of people and organize events together.</i></h5>
 <br>
 <form action="<%= login_url %>" method="post">
   <%= auth_token %>
@@ -17,7 +18,7 @@
     <br>
     <input type="password" name="user[password]" id="user_password">
   </div>
-    <input type="submit" class="btn btn-success btn-lg" value="Submit">
+    <input type="submit" class="btn btn-success btn-lg" value="Log In">
 </form>
 <br />
 <form action="<%= login_url %>" method="post">

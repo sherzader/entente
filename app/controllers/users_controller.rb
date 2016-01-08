@@ -5,7 +5,7 @@ before_filter :ensure_login, only: [:index, :show, :edit, :update]
     @user = User.new(user_params)
 
     if @user.save
-      if @user.img_url.length == 0
+      if @user.img_url.nil?
         @user.img_url = "23947837641_e5456f1850_m_voo3vr.jpg"
       end
       log_in!(@user)
@@ -13,7 +13,7 @@ before_filter :ensure_login, only: [:index, :show, :edit, :update]
       redirect_to :root
     else
       flash.now[:errors] = @user.errors.full_messages
-      render :new
+      render json: @user.errors.full_messages, status: 422
     end
   end
 

@@ -12,7 +12,7 @@ class Api::EventsController < ApplicationController
     @event.organizer_id = current_user.id
 
     if @event.save
-      if @event.img_url.length == 0
+      if @event.img_url.nil?
         @event.img_url = "2409498_39a4bda289_z_zi0gtl.jpg"
       end
       render :show

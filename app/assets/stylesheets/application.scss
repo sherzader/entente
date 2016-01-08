@@ -1,9 +1,28 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  background-image:url(http://res.cloudinary.com/sherzader/image/upload/v1451896126/22120313006_03e4b138a3_o_fzbzd2.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+
+.login {
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Raleway', sans-serif;
+  float: center;
+  text-align: center;
+  clear: both;
+  background-color:rgba(184,184,184,0.7);
+  width: 500px;
+  padding: 30px;
+  border-radius:20px;
+}
 
 #welcome-modal {
-  font-family: 'Helvetica', sans-serif;
+  font-family: 'Raleway', sans-serif;
   letter-spacing: -0.5px;
   margin: 0 auto;
   padding-left: 10px;
@@ -16,8 +35,8 @@
 #welcome-modal-title {
   margin-top: 20px;
   text-align: center;
-  font-weight: bold;
-  font-family: 'Lato', serif;
+  font-weight: 900;
+  font-family: 'Raleway', sans-serif;
   font-size: 28px;
   text-shadow: 0 -1px rgba(0, 0, 0, .5);
 }
@@ -30,6 +49,10 @@
   margin-left: 40px;
   text-align: justify;
   line-height: 5px;
+}
+
+.dropdown-menu {
+  font-family: "Raleway", sans-serif;
 }
 
 li {
@@ -97,18 +120,13 @@ h4 {
   margin: 20px;
 }
 
-.block:not(:hover){
-  background: #ccc !important;
-  color: black !important;
-}
-
 .group-index {
   display: inline-block;
   position: fixed;
   margin-top: 100px;
   overflow: scroll;
   height: 700px;
-  width: 80%;
+  width: 70%;
 }
 
 .group-item {
@@ -116,14 +134,13 @@ h4 {
   cursor: hand;
   position: relative;
   display: inline-block;
-  max-width: 300px;
-  float: left;
-  margin: 20px;
+  max-width: 200px;
+  margin: 10px;
 }
 
 .group-item-img {
   max-width: 100%;
-  height: auto;
+  height: 200px;
 }
 
 .group-item-join {
@@ -134,20 +151,22 @@ h4 {
 
 .group-caption {
   position: absolute;
+  height: 200px;
   z-index: 999;
   top: 0px;
   left: 0px;
-  color: white;
-  font: bold 14px Helvetica, Sans-Serif;
+  color: black;
+  font-weight: 600;
+  font-family: 'Raleway', sans-serif;
   letter-spacing: -1px;
-  background: rgb(0, 0, 0); /* fallback color */
-  background: rgba(0, 0, 0, 0.7);
+  background: rgb(255, 255, 255); /* fallback color */
+  background: rgba(255, 255, 255, 0.7);
   padding: 10px;
 }
 
 .group-caption:hover {
-  background: rgba(255, 255, 255, 0.7);
-  color: black;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
 }
 
 .usersgroups-show {
@@ -182,7 +201,7 @@ h4 {
 
 .user-groups-caption {
   font-size: 22px;
-  font-family: 'Helvetica', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 .user-pic {
@@ -237,7 +256,7 @@ textarea .form-control {
   position: relative;
   top: -10px;
   font-weight: bold;
-  font-family: 'Lato', serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 28px;
 }
 
@@ -278,7 +297,7 @@ textarea .form-control {
   padding-left: 0px;
   text-align: center;
   width: 172px;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 14px;
   white-space: nowrap;
   background: #fff;
@@ -318,7 +337,7 @@ button:hover {
   position: relative;
   left: -90px;
   background-color: white;
-  font-family: 'Helvetica', sans-serif;
+  font-family: 'Raleway', sans-serif;
   margin-top: 80px;
   padding: 30px;
   box-shadow: 0 1px 1px #ccc;
@@ -333,7 +352,7 @@ button:hover {
 
 .show-group-headers {
   position: relative;
-  font-family: 'Helvetica', sans-serif;
+  font-family: 'Raleway', sans-serif;
   top: 50px;
   left: 20px;
   text-align: center;
@@ -342,6 +361,7 @@ button:hover {
 .event-item-header {
   width: 150px;
   height: 50px;
+  font-family: "Raleway", sans-serif;
 }
 
 .event-item {
@@ -375,7 +395,7 @@ button:hover {
   font-size: 12px;
   line-height: 12px;
   padding-top: 8px;
-  font-family: Helvetica;
+  font-family: 'Raleway', sans-serif;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -401,6 +421,7 @@ button:hover {
 .event-caption {
   float: right;
   margin-right: 40px;
+  font-family: "Raleway", sans-serif;
 }
 
 .show-event-block {
@@ -553,11 +574,11 @@ button:hover {
 }
 
 ::-webkit-input-placeholder {
-  font-family: Helvetica, Sans-Serif;;
+  font-family: 'Raleway', sans-serif;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-  font-family: Helvetica, Sans-Serif;;
+  font-family: 'Raleway', sans-serif;
 }
 
 input {
@@ -618,7 +639,7 @@ textarea {
 }
 
 .datepicker {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 11px;
   background-color: #fff;
   color: #000;
@@ -901,6 +922,9 @@ textarea {
 }
 
 .DayPicker-Month {
+  font-size: 16px;
+  font-family: 'Raleway', sans-serif;
+  color: blue;
   display: table;
   border-collapse: collapse;
   border-spacing: 0;
@@ -940,6 +964,7 @@ textarea {
 
 
   .DayPicker-Caption {
+    font-weight: 900;
     display: table-caption;
     height: 1.5rem;
     text-align: center;
@@ -958,11 +983,12 @@ textarea {
         padding: .5rem;
         font-size: .875em;
         text-align: center;
-        color: #8b9898;
+        color: white;
       }
 
   .DayPicker-Body {
     display: table-row-group;
+    background-color:rgba(184,184,184,0.7);
   }
 
     .DayPicker-Week {
@@ -1023,7 +1049,8 @@ textarea {
 }
 
 .calendar-caption-top {
-  font: bold 14px Helvetica, Sans-Serif;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
   letter-spacing: -1px;
   padding: 10px;
   position: relative;
@@ -1033,14 +1060,16 @@ textarea {
 }
 
 .calendar-caption-bottom {
-  color: blue;
+  color: red;
   position: relative;
-  font: bold 14px Helvetica, Sans-Serif;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
   letter-spacing: -1px;
   padding: 10px;
   float: right;
-  top: 500px;
-  right: -400px;
+  top: 550px;
+  right: -410px;
 }
 
 .calendar-caption-bottom:hover {
