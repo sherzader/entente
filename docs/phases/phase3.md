@@ -1,10 +1,8 @@
-# Phase 3: Events and Tags Model/CRUD/JSON API (2 days)
+# Phase 3: Events Model/CRUD/JSON API (2 days)
 
 ## Rails
 ### Models
 * Event
-* Tag
-* Tagging
 
 ### Controllers
 * Api::EventsController (create, destroy, index, show, update)
@@ -12,9 +10,6 @@
 ### Views
 * events/index.json.jbuilder
 * events/show.json.jbuilder
-* users/index.json.jbuilder
-* users/show.json.jbuilder
-* tags/show.json.jbuilder
 
 ## Flux
 ### Views (React Components)
@@ -29,11 +24,11 @@
 * ApiActions.receiveAllEvents -> triggered by ApiUtil
 * ApiActions.receiveSingleEvent
 * ApiActions.deleteEvent
-* EventActions.fetchAllEvents -> triggers ApiUtil
-* EventActions.fetchSingleEvent
-* EventActions.createEvent
-* EventActions.editEvent
-* EventActions.destroyEvent
+* ApiActions.fetchAllEvents -> triggers ApiUtil
+* ApiActions.fetchSingleEvent
+* ApiActions.createEvent
+* ApiActions.editEvent
+* ApiActions.destroyEvent
 
 ### ApiUtil
 * ApiUtil.fetchAllEvents

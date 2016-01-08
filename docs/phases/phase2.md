@@ -5,6 +5,7 @@
 ### Controllers
 ### Views
 ## Flux
+
 ### Views (React Components)
 * GroupsIndex
   - GroupsIndexItem

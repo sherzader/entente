@@ -1,31 +1,19 @@
-# Phase 4: Comments (1 day)
+# Phase 4: Search and Navigation bar with Welcome Modal (1 day)
 
 ## Rails
 ### Models
-* Comment
-
 ### Controllers
-* Api::CommentsController (create, destroy, index)
-
 ### Views
-* comments/index.json.jbuilder
-* comments/show.json.jbuilder
-
 ## Flux
 ### Views (React Components)
-* CommentsIndex
-  - CommentIndexItem
-* CommentForm
-
 ### Stores
-* Comment
 
 ### Actions
 * ApiActions.receiveAllComments -> triggered by ApiUtil
 * ApiActions.deleteComment
-* EventActions.fetchAllComments -> triggers ApiUtil
-* EventActions.createComment
-* EventActions.destroyComment
+* ApiActions.fetchAllComments -> triggers ApiUtil
+* ApiActions.createComment
+* ApiActions.destroyComment
 
 ### ApiUtil
 * ApiUtil.fetchAllComment
@@ -33,3 +21,6 @@
 * ApiUtil.destroyComment
 
 ## Gems/Libraries
+* Bootstrap, HTML, CSS
+* React-Modal
+* React-Day-Picker

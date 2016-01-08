@@ -6,12 +6,12 @@
 
 ## Minimum Viable Product
 
-Entente is a web application inspired by Meetup, built using Ruby on Rails, React.js/Flux. Entente allows users to:
+Entente is a social media web application inspired by Meetup, built using Ruby on Rails, React.js/Flux. Entente allows users to:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
 - [x] Create an account
-- [x] Log in / Log out
+- [x] Log in / Log out via User Authentication
 - [x] CRUD functionality for groups
 - [x] Join/leave groups
 - [x] CRUD functionality for groups events
@@ -70,9 +70,10 @@ Entente is a web application inspired by Meetup, built using Ruby on Rails, Reac
 
 [Details][phase-five]
 
-### Phase 6: Notifications and Seeding (1 day)
-* Notify user on upcoming events.
-* Notify user after joining group/event.
+### Phase 6: Seeding (1 day)
+* Create users, groups, events data
+* Use Cloudinary for image upload
+* Create user-group joins
 
 ### Bonus Features (TBD)
 - [x] Pop-out modal forms

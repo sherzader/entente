@@ -24,6 +24,7 @@
 ### Actions
 
 ### ApiUtil
+* ApiUtil.fetchUser
 
 ## Gems/Libraries
 * BCrypt (Gem)
