@@ -6,18 +6,19 @@
 
 ## Minimum Viable Product
 
-Hangout is a web application inspired by Meetup built using Ruby on Rails
-and React.js. Hangout allows users to:
+Entente is a web application inspired by Meetup, built using Ruby on Rails, React.js/Flux. Entente allows users to:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [ ] Create an account
-- [ ] Log in / Log out
-- [ ] Create, read, edit, and delete groups
-- [ ] Join groups
-- [ ] Organize events within Groups
-- [ ] Tag groups with multiple tags and search groups by tag
-- [ ] Receive notifications on upcoming events
+- [x] Create an account
+- [x] Log in / Log out
+- [x] CRUD functionality for groups
+- [x] Join/leave groups
+- [x] CRUD functionality for groups events
+- [x] Organize events within Groups
+- [x] Search groups via React Day Picker interface
+- [x] Search groups by group name
+- [x] Search events by event name
 
 ## Design Docs
 * [View Wireframes][view]
@@ -36,14 +37,14 @@ and React.js. Hangout allows users to:
 
 [Details][phase-one]
 
-### Phase 2: Flux Architecture, Group CRUD & JSON API (1 day)
+### Phase 2: Flux Architecture, Group CRUD & JSON API (2 day)
 * Implement Flux, React Router, React views for groups.
 * CRUD functionality for Group.
 * Group searching.
 
 [Details][phase-two]
 
-### Phase 3: Events and Tags Model, CRUD, & JSON API (2 days)
+### Phase 3: Events Model, CRUD, & JSON API (2 days)
 * Groups contain Events. This day will focus on Event CRUD and views.
 * The following day is spent building Event React component and including it in the Flux architecture.
 * Incorporate tagging for Groups.
@@ -51,19 +52,21 @@ and React.js. Hangout allows users to:
 
 [Details][phase-three]
 
-### Phase 4: Comments (1 day)
-* Complete Hangouts features with Comments.
-* Comments have create and destroy actions, only.
-* Comments take place under an event.
-* Build React component for Comments and incorporate into Flux.
+### Phase 4: Search and Navigation bar with Welcome Modal (1 day)
+* Use React Day Picker to filter groups for events on the given day.
+* Nav bar displays Entente logo. Logo on click displays Welcome modal describing site features.
+* Nav bar contains links to current user's profile and their groups page.
+* Nav bar links to Start Group component, a form to create a new group.
 
 [Details][phase-four]
 
-### Phase 5: In-depth styling & Clarify Route Paths (2 days)
+### Phase 5: In-depth styling & Clarify Route Paths (3 days)
 * Build out '/signup' and '/login' pages.
 * Add navigation bar to all pages.
 * Google fonts.
 * Alias necessary routes, such as '/signup', '/login', '/logout'.
+* Arrange group/event figures and their figure captions.
+* On mouse hover, title descriptions for underlying functionality.
 
 [Details][phase-five]
 
@@ -72,9 +75,10 @@ and React.js. Hangout allows users to:
 * Notify user after joining group/event.
 
 ### Bonus Features (TBD)
+- [x] Pop-out modal forms
 - [ ] WebGL/Three.js for signup/login pages
-- [ ] Pop-out forms.
-- [ ] Pagination / infinite scroll for Groups/Events Index
+- [ ] Notifications for upcoming events
+- [ ] Welcome email to new users
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
