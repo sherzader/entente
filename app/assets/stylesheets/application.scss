@@ -142,15 +142,13 @@ h4 {
   cursor: hand;
   position: relative;
   display: inline-block;
-  max-width: 200px;
+  max-width: 300px;
   margin: 10px;
-  border-radius: 10px;
-  box-shadow: 0 0 5px 0px #000;
+  box-shadow: 0 0 5px 0px #ccc;
 }
 
 .group-item-img {
   max-width: 100%;
-  border-radius: 10px;
   height: 200px;
 }
 
@@ -164,7 +162,6 @@ h4 {
   position: absolute;
   height: 200px;
   z-index: 999;
-  border-radius: 10px;
   top: 0px;
   left: 0px;
   color: black;
@@ -504,12 +501,17 @@ button:hover {
   box-shadow: 0 1px 1px #ccc;
 }
 .figure img {
+  margin-top: 20px;
+  margin-bottom: 20px;
   width: 100%;
   height: auto;
+  box-shadow: 0 2px 0px #ccc;
 }
 .figure .caption {
+  background-color: #e6e6e6;
+  font-family: 'Raleway', sans-serif;
+  padding: 20px;
   position: relative;
-  left: 15px;
   display: table-caption;
   caption-side: bottom;
 }
@@ -540,11 +542,12 @@ button:hover {
 }
 
 .group-buttons {
-  position: relative;
-  padding: 10px;
-  height: 60px;
+  position: absolute;
+  margin-left: 20%;
+  margin-top: 10px;
   margin-bottom: 10px;
-  z-index: 999;
+  height: 60px;
+  top: -30px;
 }
 
 .glyphicon {

@@ -92,13 +92,13 @@ var Show = React.createClass({
           {members}
         </div>
         <div className="figure col-md-4">
-          <div className='group-buttons'>
-            <button className="glyphicon glyphicon-menu-left" title="Back Home" onClick={this._goBack}></button>
-            <button className="glyphicon glyphicon-pencil" title="Edit Group" onClick={this._editGroup}></button>
-            <button className="glyphicon glyphicon-trash" title="Delete Group" onClick={this._deleteGroup}></button>
-          </div>
           <img src={group_img} alt="group_pic" />
           <div className="caption" onClick={this.props.onClick}>
+            <div className='group-buttons'>
+              <button className="glyphicon glyphicon-menu-left" title="Back Home" onClick={this._goBack}></button>
+              <button className="glyphicon glyphicon-pencil" title="Edit Group" onClick={this._editGroup}></button>
+              <button className="glyphicon glyphicon-trash" title="Delete Group" onClick={this._deleteGroup}></button>
+            </div>
             <dl>
               <dt>Group:</dt> <dd>{this.state.group.title}</dd>
               <hr />
