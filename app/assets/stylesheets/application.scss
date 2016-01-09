@@ -11,14 +11,19 @@ body {
 .login {
   margin-left: auto;
   margin-right: auto;
+  color: #fff;
   font-family: 'Raleway', sans-serif;
   float: center;
   text-align: center;
   clear: both;
-  background-color:rgba(184,184,184,0.7);
+  background: rgb(20, 20, 20);
+  background: rgba(20, 20, 20, 0.7);
   width: 500px;
   padding: 30px;
   border-radius:20px;
+  webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
 
 #welcome-modal {
@@ -51,11 +56,6 @@ body {
   line-height: 5px;
 }
 
-.navbar-default {
-  color: black;
-  background-color: #eee;
-}
-
 .dropdown-menu {
   font-family: "Raleway", sans-serif;
 }
@@ -75,6 +75,12 @@ li {
   text-align: center;
 }
 
+.nav-item-divider{
+  border-left: 1px solid #d9d9d9;
+  height: 40px;
+  top: 10px;
+}
+
 .nav-item:hover {
   background: #d9d9d9;
 }
@@ -86,7 +92,9 @@ a:hover {
 hr {
   margin: 0 auto;
   text-align: center;
-  width: 80px;
+  padding-left: 5%;
+  padding-right: 5%;
+  max-width: 250px;
 }
 
 
@@ -105,6 +113,10 @@ h1 {
   margin-bottom: 0px;
   margin-top: 0px;
   margin-left: 10px;
+}
+
+.navbar dt {
+  color: black;
 }
 
 h3 {
@@ -144,7 +156,9 @@ h4 {
   display: inline-block;
   max-width: 300px;
   margin: 10px;
-  box-shadow: 0 0 5px 0px #ccc;
+  webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
 
 .group-item-img {
@@ -171,36 +185,51 @@ h4 {
   background: rgb(255, 255, 255); /* fallback color */
   background: rgba(255, 255, 255, 0.7);
   padding: 10px;
-}
-
-.group-caption:hover {
   background: rgba(0, 0, 0, 0.7);
   color: white;
 }
 
+.group-caption:hover {
+  background: rgb(127, 127, 127);
+  background: rgba(127, 127, 127, 0.7);
+}
+
 .usersgroups-show {
   position: relative;
+  margin-top: 0px;
   top: 80px;
-  margin-left: 10%;
-  margin-right: 10%;
-  padding-left: 40px;
-  padding-top: 20px;
+}
+
+.usersgroup-caption {
+  font-size: 22px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  background-color: #000;
+  color: #fff;
+  width: 207px;
+  padding: 2%;
+  margin-left: 10px;
 }
 
 .user-show {
   margin: 0 auto;
   width: 500px;
+  height: 350px;
   background: white;
   border-radius: 10px;
   position: fixed;
   margin-left: 400px;
-  padding: 40px;
+  padding: 30px;
   top: 80px;
+  font-family: 'Raleway', sans-serif;
+  webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
 
 .user-groups {
   position: fixed;
-  top: 450px;
+  top: 350px;
   margin-left: 5%;
   margin-right: 5%;
   width: 100%;
@@ -211,15 +240,23 @@ h4 {
 .user-groups-caption {
   font-size: 22px;
   font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  background-color: #000;
+  color: #fff;
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 300px;
 }
 
 .user-pic {
-  float: left
+  float: left;
+  margin: 30px;
 }
 
 .user-show-info {
   position: relative;
   margin-top: 100px;
+  font-family: 'Raleway', sans-serif;
 }
 
 article {
@@ -260,6 +297,18 @@ textarea .form-control {
   height: 100px;
 }
 
+.headerDivider {
+   border-left:1px solid #38546d;
+   border-right:1px solid #16222c;
+   height: 20px;
+   position: relative;
+   top:10px;
+}
+
+.navbar-brand .active {
+  color: black;
+}
+
 .navbar-brand {
   margin-top: 3px;
   text-shadow: 0 -1px rgba(127, 127, 127, .5);
@@ -274,6 +323,8 @@ textarea .form-control {
 }
 
 .navbar-default {
+  color: #000;
+  background-color: #eee;
   text-shadow: 0 -0.5px rgba(127, 127, 127, .5);
   display: block;
   height: 60px;
@@ -281,12 +332,16 @@ textarea .form-control {
   position: fixed;
   margin: 0 auto 50px auto;
   width: 100%;
-  box-shadow: 0 0 5px 0px #000;
+  webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
+
 
 .search-groups {
   overflow: hidden;
   position: relative;
+  width: 300px;
   top: 100px;
   left: -500px;
 }
@@ -319,6 +374,7 @@ textarea .form-control {
 }
 
 .event-index {
+  margin-left: 50px;
   position: relative;
   top: 50px;
 }
@@ -327,13 +383,15 @@ textarea .form-control {
   position: fixed;
   z-index: 999;
   top: -32px;
-  right: -25px;
-  width: 200px;
+  left: 70px;
+  width: 300px;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
-.createEvent {
+.create-event {
   position: relative;
-  top: 25px;
+  top: 70px;
   left: 20px
 }
 
@@ -347,10 +405,12 @@ button:hover {
   left: -90px;
   background-color: #eee;
   font-family: 'Raleway', sans-serif;
-  margin-top: 80px;
+  top: 85px;
   max-width: 300px;
   padding: 30px;
-  box-shadow: 0 1px 1px #ccc;
+  webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
 
 .event-items {
@@ -381,10 +441,12 @@ button:hover {
   cursor: pointer;
   cursor: hand;
   text-align: center;
-  background-color: #e6e6e6;
+  background-color: #eee;
   margin-bottom: 10px;
   padding: 20px;
-  box-shadow: 0 1px 1px #ccc;
+  webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
 
 .glyphicon-menu-right {
@@ -420,6 +482,9 @@ button:hover {
   max-width: 300px;
   height: auto;
   margin: 0 auto;
+  webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
 
 .event-buttons {
@@ -440,9 +505,9 @@ button:hover {
   height: 500px;
   width: 800px;
   margin: 0 auto;
-  -webkit-box-shadow: 0 8px 6px -6px #999;
-  -moz-box-shadow: 0 8px 6px -6px #999;
-  box-shadow: 0 8px 6px -6px #999;
+  webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
 
 .new-event {
@@ -499,13 +564,19 @@ button:hover {
   background-color: #e6e6e6;
   padding-bottom: 15px;
   box-shadow: 0 1px 1px #ccc;
+  webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
 .figure img {
   margin-top: 20px;
   margin-bottom: 20px;
+  background-color: #e6e6e6;
   width: 100%;
   height: auto;
-  box-shadow: 0 2px 0px #ccc;
+  webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
 .figure .caption {
   background-color: #e6e6e6;

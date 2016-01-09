@@ -33,13 +33,17 @@ var App = React.createClass({
           </div>
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav">
+              <li className="nav-item-divider"></li>
               <li className='nav-item' data-toggle="modal" data-target="#new-group-modal"><a href="#"><dt>Start Group</dt></a></li>
+              <li className="nav-item-divider"></li>
             </ul>
             <form className="navbar-form navbar-right" role="search">
               <SearchGroups history={this.history} />
             </form>
             <ul className="nav navbar-nav navbar-right">
+              <li className="nav-item-divider"></li>
               <li className='nav-item'><Link to={'/myGroups'}><dt>My Groups</dt></Link></li>
+              <li className="nav-item-divider"></li>
               <li className="dropdown">
                 <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><dt>Profile</dt><span className="caret"></span></a>
                 <ul className="dropdown-menu">

@@ -29,13 +29,13 @@ var UsersGroups = React.createClass({
         var group_img = "http://res.cloudinary.com/sherzader/image/upload/c_scale,w_250/" + group.img_url;
         return(<div className="group-item" title="Click group title for more info" key={group.id}>
              <img className="group-item-img" src={group_img} alt='' />
-             <div className="group-caption"><Link to={path}><h3>{group.title}</h3></Link>
-             </div></div>);
+             <Link to={path}><div className="group-caption"><h3>{group.title}</h3></div></Link>
+             </div>);
       });
     }
     return(
       <div className="usersgroups-show">
-        <dt><h3>My Groups</h3></dt><br /><br />
+        <div className="usersgroup-caption"><dt><h3>My Groups</h3></dt><br /><br /></div>
         {users_groups}
       </div>
     );

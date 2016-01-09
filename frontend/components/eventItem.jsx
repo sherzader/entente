@@ -13,12 +13,14 @@ var EventItem = React.createClass({
         key={this.props.groupEvent.id}>
           <div className="event-item-header">
             <button className="glyphicon glyphicon-menu-right" title="See More Info" onClick={this._showEvent}></button>
-            <div className="event-header-caption">
-              <dl>
-                <dt>{this.props.groupEvent.title}</dt>
-                <dd>{this.props.groupEvent.location}</dd>
-              </dl>
-            </div>
+            <article className="event-header-caption">
+              <section>
+                <dl>
+                  <dt>{this.props.groupEvent.title}</dt>
+                  <dd>{this.props.groupEvent.location}</dd>
+                </dl>
+              </section>
+            </article>
           </div><br /><br />
         <div className="date">{this.props.groupEvent.date}<br />{this.props.groupEvent.time}</div><br />
       </div>

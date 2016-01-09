@@ -28,8 +28,8 @@ var Profile = React.createClass({
         var path = "groups/" + group.id;
         return (<div className="group-item" title="Click group title for more info" key={group.id}>
              <img className="group-item-img" src={group_img} alt='' />
-             <div className="group-caption"><Link to={path}><h3>{group.title}</h3></Link>
-             </div></div>)
+             <Link to={path}><div className="group-caption"><h3>{group.title}</h3></div></Link>
+             </div>)
       });
     }
     return(

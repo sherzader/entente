@@ -84,14 +84,14 @@ var Show = React.createClass({
     }
     return(
       <div className="container">
-        <div className="col-md-4 members">
+        <div className="col-md-4 members container">
           <dl>
           {memberCount}
-          </dl>
           <hr />
+          </dl>
           {members}
         </div>
-        <div className="figure col-md-4">
+        <div className="figure col-md-4 container">
           <img src={group_img} alt="group_pic" />
           <div className="caption" onClick={this.props.onClick}>
             <div className='group-buttons'>
@@ -102,18 +102,18 @@ var Show = React.createClass({
             <dl>
               <dt>Group:</dt> <dd>{this.state.group.title}</dd>
               <hr />
+              <dt>About Us:</dt> <dd>{this.state.group.body}</dd><hr />
+              <dt>Where:</dt> <dd>{this.state.group.location}</dd>
+              <hr />
               <dt>Organized by:</dt> <dd><Link to={organizer_path}>{organizer.name}</Link></dd>
               <hr />
               <dt>Created:</dt> <dd>{created_at}</dd>
               <hr />
-              <dt>Where:</dt> <dd>{this.state.group.location}</dd>
-              <hr />
-              <dt>About Us:</dt> <dd>{this.state.group.body}</dd><hr />
             </dl>
           </div>
         </div>
-        <div className="col-md-4 event-index">
-          <button className='btn btn-create-form createEvent' data-toggle="modal" data-target="#new-event-modal"><dt>Create Event</dt></button>
+        <div className="col-md-4 event-index container">
+          <button className='btn btn-create-form create-event' data-toggle="modal" data-target="#new-event-modal"><dt>Create Event</dt></button>
           <EventIndex group={this.state.group} history={this.history} /></div>
         <div className="modal fade" id="new-event-modal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div className="modal-dialog" role="document">
