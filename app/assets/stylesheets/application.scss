@@ -51,8 +51,17 @@ body {
   line-height: 5px;
 }
 
+.navbar-default {
+  color: black;
+  background-color: #eee;
+}
+
 .dropdown-menu {
   font-family: "Raleway", sans-serif;
+}
+
+.dropdown-toggle {
+  height: 59px;
 }
 
 li {
@@ -65,7 +74,6 @@ li {
 .jumbotron {
   text-align: center;
 }
-
 
 .nav-item:hover {
   background: #d9d9d9;
@@ -136,10 +144,13 @@ h4 {
   display: inline-block;
   max-width: 200px;
   margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 0px #000;
 }
 
 .group-item-img {
   max-width: 100%;
+  border-radius: 10px;
   height: 200px;
 }
 
@@ -153,6 +164,7 @@ h4 {
   position: absolute;
   height: 200px;
   z-index: 999;
+  border-radius: 10px;
   top: 0px;
   left: 0px;
   color: black;
@@ -252,12 +264,12 @@ textarea .form-control {
 }
 
 .navbar-brand {
+  margin-top: 3px;
   text-shadow: 0 -1px rgba(127, 127, 127, .5);
   position: relative;
   top: -10px;
-  font-weight: bold;
   font-family: 'Raleway', sans-serif;
-  font-size: 28px;
+  font-size: 26px;
 }
 
 .navbar-brand:hover {
@@ -267,12 +279,12 @@ textarea .form-control {
 .navbar-default {
   text-shadow: 0 -0.5px rgba(127, 127, 127, .5);
   display: block;
+  height: 60px;
   z-index: 999;
   position: fixed;
   margin: 0 auto 50px auto;
-  border-radius: 0px 0px 10px 10px;
   width: 100%;
-  box-shadow: 0 1px 1px #ccc;
+  box-shadow: 0 0 5px 0px #000;
 }
 
 .search-groups {
@@ -336,9 +348,10 @@ button:hover {
 .members {
   position: relative;
   left: -90px;
-  background-color: white;
+  background-color: #eee;
   font-family: 'Raleway', sans-serif;
   margin-top: 80px;
+  max-width: 300px;
   padding: 30px;
   box-shadow: 0 1px 1px #ccc;
 }
@@ -483,23 +496,22 @@ button:hover {
 }
 
 .figure {
-    display: table;
-    top: 50px;
-    margin-top: 35px;
-    background-color: #e6e6e6;
-    border-radius: 0px 0px 10px 10px;
-    padding-bottom: 15px;
-    box-shadow: 0 1px 1px #ccc;
+  display: table;
+  top: 50px;
+  margin-top: 35px;
+  background-color: #e6e6e6;
+  padding-bottom: 15px;
+  box-shadow: 0 1px 1px #ccc;
 }
 .figure img {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 .figure .caption {
-    position: relative;
-    left: 15px;
-    display: table-caption;
-    caption-side: bottom;
+  position: relative;
+  left: 15px;
+  display: table-caption;
+  caption-side: bottom;
 }
 
 .edit-group {
@@ -528,14 +540,15 @@ button:hover {
 }
 
 .group-buttons {
-  position: fixed;
-  top: 80px;
-  left: 450px;
-  width: 40px;
+  position: relative;
+  padding: 10px;
+  height: 60px;
+  margin-bottom: 10px;
   z-index: 999;
 }
 
 .glyphicon {
+  margin: 5px;
   width: 50px;
   height: 50px;
   border-radius: 50px;
@@ -558,7 +571,6 @@ button:hover {
   font-size: 30px;
   color: black;
   float: left;
-  margin-top: 3px;
   background-color: chartreuse;
 }
 
@@ -569,7 +581,6 @@ button:hover {
   font-size: 30px;
   color: black;
   float: left;
-  margin-top: 3px;
   background-color: crimson;
 }
 
@@ -1060,7 +1071,7 @@ textarea {
 }
 
 .calendar-caption-bottom {
-  color: red;
+  color: yellow;
   position: relative;
   font-family: 'Raleway', sans-serif;
   font-size: 16px;

@@ -29,13 +29,7 @@ var App = React.createClass({
         <nav className="navbar navbar-default">
         <div className="container-fluid">
           <div className="navbar-header">
-            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span className="sr-only">Toggle navigation</span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-            </button>
-            <div className='navbar-brand' data-toggle="modal" data-target="#welcome-modal"><a className="navbar-brand active" href="#" title="Click!"><dt>Entente</dt></a></div>
+            <div className='navbar-brand' data-toggle="modal" data-target="#welcome-modal"><a className="navbar-brand active" href="#" title="Click!">Entente</a></div>
           </div>
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav">
@@ -49,7 +43,7 @@ var App = React.createClass({
               <li className="dropdown">
                 <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><dt>Profile</dt><span className="caret"></span></a>
                 <ul className="dropdown-menu">
-                  <li><Link to={'/profile'}>My Profile</Link></li>
+                  <li className="my-profile"><Link to={'/profile'}>My Profile</Link></li>
                   <li role="separator" className="divider"></li>
                   <li><a href="#" onClick={this._logout}>Logout</a></li>
                 </ul>
@@ -74,7 +68,7 @@ var App = React.createClass({
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">
-                <div id="welcome-modal-title"><dt>Entente</dt></div><h4>/änˈtänt/</h4>
+                <div id="welcome-modal-title"><h3>Entente</h3></div><h4>/änˈtänt/</h4>
                 <div className="modal-footer">
                   <h4 id="welcome-info">Find groups and events that match your interests.</h4>
                   <h4 id="welcome-info">You will see all available groups to join on this page.</h4>
