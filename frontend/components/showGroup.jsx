@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 var GroupStore = require('../stores/group');
 var ApiUtil = require('../util/apiUtil');
 var UserStore = require('../stores/user');
@@ -13,7 +14,9 @@ var Show = React.createClass({
   getInitialState: function () {
     var groupId = this.props.params.id;
     var group = ApiUtil.fetchGroup(groupId) || GroupStore.findGroupById(groupId) || {};
-    return { group: group, current_user: UserStore.findUserById(window.CURRENT_USER.id)};
+    return { group: group, current_user: UserStore.findUserById(window.CURRENT_USER.id),
+             users_groups: GroupStore.allUsersGroups(),
+             join_text: "Join"};
   },
   _deleteGroup: function () {
     var group = this.state.group;
@@ -32,9 +35,42 @@ var Show = React.createClass({
     }.bind(this));
   },
   _onChange: function () {
+    var newState = {};
     var groupId = this.props.params.id;
     var group = GroupStore.findGroupById(groupId);
     this.setState({ group: group });
+
+    newState.users_groups = GroupStore.allUsersGroups();
+    if (newState.users_groups !== undefined){
+      var mssgText = "Join";
+
+      newState.users_groups.forEach(function (user_group) {
+        if (user_group.group_id === this.state.group.id){
+          var node = ReactDOM.findDOMNode(this.refs.toggle);
+          mssgText = "Leave";
+        }
+      }.bind(this));
+
+      newState.join_text = mssgText;
+    }
+
+    this.setState(newState);
+  },
+  _toggleGroup: function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var that = this;
+    var node = ReactDOM.findDOMNode(this.refs.toggle);
+
+    if (e.currentTarget.innerHTML === "Join"){
+      ApiUtil.createUsersGroup(this.state.group);
+    } else {
+        var found = this.state.users_groups.find(function (users_group) {
+          return (users_group.group_id === this.state.group.id);
+        }.bind(this));
+
+        ApiUtil.destroyUsersGroup(found);
+    }
   },
   _joinGroup: function () {
     ApiUtil.joinGroup();
@@ -50,6 +86,7 @@ var Show = React.createClass({
   componentDidMount: function () {
     this.groupListener = GroupStore.addListener(this._onChange);
     ApiUtil.fetchGroup(this.props.params.id);
+    ApiUtil.fetchUsersGroups();
     ApiUtil.fetchEvents(this.props.params.id);
     ApiUtil.fetchUser(window.CURRENT_USER.id);
   },
@@ -95,6 +132,8 @@ var Show = React.createClass({
         </div>
         <div className="figure col-md-4 container">
           <img src={group_img} alt="group_pic" />
+            <h4><a className="group-item-join" href="#" ref="toggle" onClick={this._toggleGroup}>{this.state.join_text}</a></h4>
+
           <div className="caption" onClick={this.props.onClick}>
             <div className='group-buttons'>
               <button className="glyphicon glyphicon-menu-left" title="Back Home" onClick={this._goBack}></button>
