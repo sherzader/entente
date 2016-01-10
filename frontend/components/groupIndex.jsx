@@ -2,10 +2,8 @@ var React = require('react');
 var GroupStore = require('../stores/group');
 var ApiUtil = require('../util/apiUtil');
 var GroupItem = require('./groupItem.jsx');
-var History = require('react-router').History;
 
 var GroupIndex = React.createClass({
-  mixins: [History],
   getInitialState: function(){
     return { searchString: "", groups: GroupStore.all() };
   },
@@ -20,7 +18,7 @@ var GroupIndex = React.createClass({
     this.groupListener.remove();
   },
   handleItemClick: function (group) {
-    this.history.pushState(null, "groups/" + group.id, {} );
+    this.props.history.push("groups/" + group.id);
   },
   handleChange: function(e) {
     this.setState({ searchString: e.currentTarget.value });
@@ -38,18 +36,20 @@ var GroupIndex = React.createClass({
   render: function () {
     if (this.state.searchString === ""){
       var groupList = this.props.groups.map(function (group) {
+        var boundClick = this.handleItemClick.bind(null, group);
         return (<GroupItem
                 key={group.id}
-                onClick={this.handleItemClick}
+                onClick={boundClick}
                 group={group}
                 history={this.props.history}
                 />)
       }.bind(this));
     } else {
       var groupList = this.filterGroups().map(function (group) {
+        var boundClick = this.handleItemClick.bind(null, group);
         return (<GroupItem
                 key={group.id}
-                onClick={this.handleItemClick}
+                onClick={boundClick}
                 group={group}
                 history={this.props.history}
                 />)

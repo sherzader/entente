@@ -1,6 +1,5 @@
 var React = require('react');
 var GroupForm = require('./groupForm.jsx');
-var SearchGroups = require('./searchGroups.jsx');
 var Link = require('react-router').Link;
 var History = require('react-router').History;
 var ApiUtil = require('../util/apiUtil');
