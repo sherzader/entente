@@ -29,47 +29,68 @@ var EventForm = React.createClass({
 
   render: function () {
     return(
-      <div className="jumbotron">
+      <div className='event-form'>
         <dl>
         <div className='form-create-header'><dt>Make an Event</dt></div>
         </dl>
         <form className='new-event' onSubmit={this.createEvent} role='form'>
-            <div className='col-md-3 event-form-labels'>
+            <div className='col-md-9'>
               <dl>
-              <label htmlFor='event_title'><dt>Event Name</dt></label><br /><br />
-              <label className='control-label' htmlFor='event_location'><dt>Location</dt></label><br /><br />
-              <label htmlFor='event_date'><dt>Date/Time</dt></label><br /><br />
-              <label htmlFor='event_body'><dt>Description</dt></label><br />
-              </dl>
+              <div className="row">
+                <div className="col-md-4">
+                  <label htmlFor='event_title'><dt>Event Name</dt></label><br /><br />
+                </div>
+              <div className="col-md-5">
+                <input
+                  type='text'
+                  id='event_title'
+                  placeholder='Add a clear title'
+                  valueLink={this.linkState("title")}
+                />
+              </div><br />
             </div>
-            <div className='col-md-8'>
-              <br />
-              <input
-                type='text'
-                id='event_title'
-                placeholder='Add a clear, succinct title'
-                valueLink={this.linkState("title")}
-              /><br /><br /><br />
-              <input
-                type='text'
-                id='event_location'
-                placeholder="Provide a street/landmark"
-                valueLink={this.linkState("location")}
-              /><br/><br />
-              <input
-                type='datetime-local'
-                id='event_date'
-                placeholder="glyphicon glyphicon-calendar"
-                valueLink={this.linkState("date")}
-              /><br /><br />
-            <textarea
-              className='form-control'
-              id='event_body'
-              placeholder='Elaborate on this fantastic event you have planned.'
-              valueLink={this.linkState("body")}
-              /><hr />
+            <div className="row">
+              <div className="col-md-4">
+                <label htmlFor='event_location'><dt>Location</dt></label><br /><br />
+              </div>
+              <div className="col-md-5">
+                <input
+                  type='text'
+                  id='event_location'
+                  placeholder='Provide a street/landmark'
+                  valueLink={this.linkState("location")}
+                />
+              </div><br />
             </div>
-          <button className="btn btn-primary">Create</button>
+            <div className="row">
+              <div className="col-md-4">
+                <label htmlFor='event_date'><dt>Date/Time</dt></label><br /><br />
+              </div>
+              <div className="col-md-5">
+                <input
+                  type='datetime-local'
+                  id='event_date'
+                  valueLink={this.linkState("date")}
+                />
+              </div><br />
+            </div>
+            <div className="row">
+              <div className="col-md-4">
+                <label htmlFor='event_body'><dt>Description</dt></label><br />
+              </div>
+              <div className="col-md-5">
+                <textarea
+                  className='form-control'
+                  id='event_body'
+                  placeholder='Elaborate on what you have planned'
+                  valueLink={this.linkState("body")}
+                  />
+              </div><br />
+            </div>
+          </dl>
+          <hr />
+            <button className="btn btn-primary">Create</button>
+          </div>
         </form>
       </div>
     );

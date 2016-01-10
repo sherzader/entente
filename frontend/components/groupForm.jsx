@@ -29,34 +29,53 @@ var GroupForm = React.createClass({
 
   render: function () {
     return(
-      <div className="jumbotron">
+      <div className='group-form'>
         <dl>
         <div className="form-create-header"><dt>Make a Group</dt></div>
         </dl>
-        <form className='new-group' onSubmit={this.createGroup}>
-          <div className="col-md-3">
-            <dl>
-              <label htmlFor='group_title'><dt>Group Name</dt></label><br /><br />
-              <label htmlFor='group_location'><dt>General Location</dt></label><br /><br />
-              <label htmlFor='group_body'><dt>About</dt></label><br />
-            </dl>
+        <form className='new-group' onSubmit={this.createGroup} role='form'>
+          <div className="col-md-9">
+          <dl>
+          <div className="row">
+            <div className="col-md-4">
+                <label htmlFor='group_title'><dt>Name</dt></label>
+            </div>
+            <div className="col-md-5">
+              <input
+                type='text'
+                id='group_title'
+                placeholder='Provide a clear group name'
+                valueLink={this.linkState("title")} />
+            </div><br />
           </div>
-          <div className="col-md-8">
-            <br />
-            <input
-              type='text'
-              id='group_title'
-              valueLink={this.linkState("title")} /><br /><br /><br />
-            <input
-              type='text'
-              id='group_location'
-              valueLink={this.linkState("location")}
-              /><br /><br /><br />
-            <textarea
-              id='group_body'
-              valueLink={this.linkState("body")}
-              /><hr />
-            <button className="btn btn-primary"><dt>Create</dt></button>
+          <div className="row">
+            <div className="col-md-4">
+              <label htmlFor='group_location'><dt>Location</dt></label>
+            </div>
+            <div className="col-md-5">
+              <input
+                type='text'
+                id='group_location'
+                placeholder='The general area where events are held'
+                valueLink={this.linkState("location")}
+                />
+            </div><br />
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+                <label htmlFor='group_body'><dt>About</dt></label>
+            </div>
+            <div className="col-md-5">
+              <textarea
+                id='group_body'
+                placeholder='Elaborate on what defines your group'
+                valueLink={this.linkState("body")}
+                />
+            </div>
+          </div>
+        </dl>
+          <hr />
+            <button className="btn btn-primary">Create</button>
           </div>
         </form>
       </div>

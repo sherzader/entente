@@ -75,6 +75,7 @@ li {
 
 .jumbotron {
   text-align: center;
+  font-family: "Raleway", sans-serif;
 }
 
 .nav-item {
@@ -362,31 +363,13 @@ textarea .form-control {
   left: -500px;
 }
 
-.group-search-result:hover {
-  color: #ccc;
+
+.group-index div.input-group {
+  width: 500px;
 }
 
-.form-control .group-search {
-  position: fixed;
-}
-
-.group-search-list {
-  z-index: 1;
-  position: absolute;
-  margin-top: 34px;
-  padding-left: 0px;
-  text-align: center;
-  width: 172px;
-  font-family: 'Raleway', sans-serif;
-  font-size: 14px;
-  white-space: nowrap;
-  background: #fff;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  overflow: hidden;
+.group-index div.input-group input.form-control {
+  border-radius: 20px;
 }
 
 .event-index {
@@ -395,17 +378,19 @@ textarea .form-control {
   top: 50px;
 }
 
-.search-events {
-  z-index: 999;
-  top: -32px;
-  left: -70px;
-  width: 500px;
-  padding-right: 10%;
+.search-events div.input-group {
+  width: 300px;
+  top: -10px;
+  left: -30px;
+}
+
+.search-events div.input-group input.form-control {
+  border-radius: 20px;
 }
 
 .create-event {
   position: relative;
-  top: 70px;
+  top: 90px;
   left: 110px;
 }
 
@@ -437,9 +422,8 @@ button:hover {
 .show-group-headers {
   position: relative;
   font-family: 'Raleway', sans-serif;
-  top: 50px;
-  left: 20px;
-  text-align: center;
+  top: 75px;
+  left: 60px;
 }
 
 .event-item-header {
@@ -555,13 +539,42 @@ button:hover {
   position: relative;
 }
 
-.new-group {
-  height: 300px;
+form.new-group input {
+  max-width: 300px;
+}
+
+form.new-group textarea {
+  max-width: 300px;
+}
+
+form.new-event input {
+  max-width: 300px;
+}
+
+form.new-event textarea {
+  max-width: 300px;
+}
+
+.modal-header {
+  width: auto;
+  height: auto;
+  font-family: 'Raleway', sans-serif;
+}
+
+.group-form {
+  background-color: #eee;
+  height: 400px;
+  width: 500px;
   padding: 30px;
-  padding-top: 0px;
   margin: 0 auto;
-  border-color: black;
-  font-size: 14px;
+}
+
+.event-form {
+  background-color: #eee;
+  height: 400px;
+  width: 500px;
+  padding: 30px;
+  margin: 0 auto;
 }
 
 .btn-create-form {
