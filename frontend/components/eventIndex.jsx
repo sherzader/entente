@@ -37,7 +37,7 @@ var EventIndex = React.createClass({
               group={this.props.group}
               history={this.props.history}
               groupEvent={groupEvent} />)
-    }, this);
+    }.bind(this));
     return(
       <div>
         <div className="form-group has-feedback">

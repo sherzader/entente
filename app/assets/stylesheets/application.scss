@@ -396,19 +396,17 @@ textarea .form-control {
 }
 
 .search-events {
-  position: fixed;
   z-index: 999;
   top: -32px;
-  left: 70px;
-  width: 300px;
-  padding-left: 10%;
+  left: -70px;
+  width: 500px;
   padding-right: 10%;
 }
 
 .create-event {
   position: relative;
   top: 70px;
-  left: 20px
+  left: 110px;
 }
 
 button:hover {

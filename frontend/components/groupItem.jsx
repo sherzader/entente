@@ -23,7 +23,7 @@ var GroupItem = React.createClass({
     var newState = {};
     newState.users_groups = GroupStore.allUsersGroups()
 
-    if(newState.users_groups !== undefined){
+    if (newState.users_groups !== undefined){
       var mssgText = "Join";
 
       newState.users_groups.forEach(function (user_group) {
