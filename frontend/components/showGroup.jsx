@@ -49,6 +49,8 @@ var Show = React.createClass({
   },
   componentDidMount: function () {
     this.groupListener = GroupStore.addListener(this._onChange);
+    ApiUtil.fetchGroup(this.props.params.id);
+    ApiUtil.fetchEvents(this.props.params.id);
     ApiUtil.fetchUser(window.CURRENT_USER.id);
   },
   componentWillUnmount: function () {

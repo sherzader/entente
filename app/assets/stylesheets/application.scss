@@ -6,6 +6,8 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size:cover;
+  -webkit-font-smoothing: anitialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .login {
@@ -75,7 +77,25 @@ li {
   text-align: center;
 }
 
-.nav-item-divider{
+.nav-item {
+  text-transform: uppercase;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+}
+
+.dropdown-menu {
+  text-transform: uppercase;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+}
+
+.dropdown-toggle {
+  text-transform: uppercase;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+}
+
+.nav-item-divider {
   border-left: 1px solid #d9d9d9;
   height: 40px;
   top: 10px;
@@ -113,10 +133,6 @@ h1 {
   margin-bottom: 0px;
   margin-top: 0px;
   margin-left: 10px;
-}
-
-.navbar dt {
-  color: black;
 }
 
 h3 {

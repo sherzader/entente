@@ -34,7 +34,7 @@ var App = React.createClass({
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav">
               <li className="nav-item-divider"></li>
-              <li className='nav-item' data-toggle="modal" data-target="#new-group-modal"><a href="#"><dt>Start Group</dt></a></li>
+              <li className='nav-item' data-toggle="modal" data-target="#new-group-modal"><a href="#">Start Group</a></li>
               <li className="nav-item-divider"></li>
             </ul>
             <form className="navbar-form navbar-right" role="search">
@@ -42,12 +42,12 @@ var App = React.createClass({
             </form>
             <ul className="nav navbar-nav navbar-right">
               <li className="nav-item-divider"></li>
-              <li className='nav-item'><Link to={'/myGroups'}><dt>My Groups</dt></Link></li>
+              <li className='nav-item'><Link to={'/myGroups'}>My Groups</Link></li>
               <li className="nav-item-divider"></li>
               <li className="dropdown">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><dt>Profile</dt><span className="caret"></span></a>
+                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile<span className="caret"></span></a>
                 <ul className="dropdown-menu">
-                  <li className="my-profile"><Link to={'/profile'}>My Profile</Link></li>
+                  <li className="nav-item"><Link to={'/profile'}>My Profile</Link></li>
                   <li role="separator" className="divider"></li>
                   <li><a href="#" onClick={this._logout}>Logout</a></li>
                 </ul>
