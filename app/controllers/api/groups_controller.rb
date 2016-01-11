@@ -22,10 +22,8 @@ class Api::GroupsController < ApplicationController
   def destroy
     @group = Group.find(params[:id])
 
-    if @group.organizer_id == current_user.id
-      if @group.destroy
-        render :index
-      end
+    if @group.destroy
+      render :index
     else
       render json: @group.errors.full_messages, status: 422
     end

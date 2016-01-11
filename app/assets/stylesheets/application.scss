@@ -160,7 +160,8 @@ h4 {
 .group-index {
   display: inline-block;
   position: fixed;
-  margin-top: 100px;
+  margin-top: 75px;
+  padding-bottom: 75px;
   overflow: scroll;
   height: 700px;
   width: 70%;
@@ -366,6 +367,8 @@ textarea .form-control {
 
 .group-index div.input-group {
   width: 500px;
+  margin-left: 10px;
+  margin-bottom: 20px;
 }
 
 .group-index div.input-group input.form-control {
@@ -1189,10 +1192,11 @@ textarea {
 }
 
 .app-footer {
+  z-index: 999;
   bottom: -50px;
   position: fixed;
   background-color: black;
   margin: 0 auto 50px auto;
-  height: 50px;
+  height: 40px;
   width: 100%;
 }
