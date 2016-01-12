@@ -61,7 +61,7 @@ var GroupItem = React.createClass({
       if (this.props.group.users.length <= 1){
         memberCount = <dl><dt>1 member</dt></dl>;
       } else{
-        memberCount = <dl><dt>{this.props.group.users.length} members</dt></dl>;
+        memberCount = <h4>{this.props.group.users.length} members</h4>;
       }
     }
     return(

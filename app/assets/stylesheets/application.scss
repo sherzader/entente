@@ -169,8 +169,6 @@ h4 {
 }
 
 .group-item {
-  cursor: pointer;
-  cursor: hand;
   position: relative;
   display: inline-block;
   max-width: 300px;
@@ -189,6 +187,9 @@ h4 {
   color: #66ff66;
   letter-spacing: 1px;
   text-shadow: 0 -1px rgba(0, 0, 0, .5);
+  webkit-box-shadow: 0 5px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  -moz-box-shadow: 0 5px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  box-shadow: 0 5px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
 
 .group-show-join {
@@ -198,7 +199,7 @@ h4 {
   padding-bottom: 10px;
   padding-left: 20px;
   padding-right: 20px;
-  background-color: #66ff66;
+  background-color: #ff9933;
   border-radius: 20px;
   letter-spacing: 1px;
   text-shadow: 0 -1px rgba(0, 0, 0, .5);
@@ -208,6 +209,8 @@ h4 {
 }
 
 .group-caption {
+  cursor: pointer;
+  cursor: hand;
   position: absolute;
   height: 200px;
   width: 200px;
@@ -470,6 +473,12 @@ button:hover {
   webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+}
+
+.glyphicon {
+  webkit-box-shadow: 0 5px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  -moz-box-shadow: 0 5px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  box-shadow: 0 5px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
 
 .glyphicon-menu-right {
@@ -1208,7 +1217,7 @@ textarea {
   padding: 10px;
   float: right;
   top: 600px;
-  left: 530px;
+  left: 490px;
 }
 
 .calendar-caption-bottom:hover {

@@ -26,7 +26,11 @@ var EventForm = React.createClass({
 
     this.setState(this.blankAttrs);
   },
-
+  closeModal: function () {
+    $('.new-event').on('submit', function() {
+      $('.modal').modal('hide');
+    });
+  },
   render: function () {
     return(
       <div className='event-form'>
@@ -89,7 +93,7 @@ var EventForm = React.createClass({
             </div>
           </dl>
           <hr />
-            <button className="btn btn-primary">Create</button>
+            <button className="btn btn-primary" onSubmit={this.closeModal()}>Create</button>
           </div>
         </form>
       </div>

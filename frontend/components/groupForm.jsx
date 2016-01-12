@@ -26,7 +26,11 @@ var GroupForm = React.createClass({
 
     this.setState(this.blankAttrs);
   },
-
+  closeModal: function () {
+    $('.new-group').on('submit', function() {
+      $('.modal').modal('hide');
+    });
+  },
   render: function () {
     return(
       <div className='group-form'>
@@ -75,7 +79,7 @@ var GroupForm = React.createClass({
           </div>
         </dl>
           <hr />
-            <button className="btn btn-primary">Create</button>
+            <button className="btn btn-primary" onSubmit={this.closeModal()}>Create</button>
           </div>
         </form>
       </div>
