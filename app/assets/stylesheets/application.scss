@@ -163,7 +163,7 @@ h4 {
   margin-top: 75px;
   padding-bottom: 75px;
   overflow: scroll;
-  height: 700px;
+  height: 90%;
   width: 70%;
 }
 
@@ -185,14 +185,31 @@ h4 {
 }
 
 .group-item-join {
-  color: blue;
+  color: #66ff66;
   letter-spacing: 1px;
   text-shadow: 0 -1px rgba(0, 0, 0, .5);
+}
+
+.group-show-join {
+  position: relative;
+  top: -10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #66ff66;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  text-shadow: 0 -1px rgba(0, 0, 0, .5);
+  webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
 
 .group-caption {
   position: absolute;
   height: 200px;
+  width: 200px;
   z-index: 999;
   top: 0px;
   left: 0px;
@@ -231,27 +248,42 @@ h4 {
 
 .user-show {
   margin: 0 auto;
-  width: 500px;
-  height: 350px;
-  background: white;
-  border-radius: 10px;
-  position: fixed;
-  margin-left: 400px;
-  padding: 30px;
-  top: 80px;
   font-family: 'Raleway', sans-serif;
   webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
 
+.user-show-info{
+  width: 40%;
+  background: white;
+  border-radius: 10px;
+  position: fixed;
+  margin-left: 400px;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 30%;
+  height: 40%;
+  top: 70px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.user-caption {
+  margin-top: 30%;
+}
+
+.user-pic {
+  float: left;
+  margin: 30px;
+}
+
 .user-groups {
   position: fixed;
-  top: 350px;
+  top: 55%;
   margin-left: 5%;
   margin-right: 5%;
   width: 100%;
-  height: 300px;
+  height: 30%;
   overflow: scroll;
 }
 
@@ -266,16 +298,7 @@ h4 {
   width: 300px;
 }
 
-.user-pic {
-  float: left;
-  margin: 30px;
-}
 
-.user-show-info {
-  position: relative;
-  margin-top: 100px;
-  font-family: 'Raleway', sans-serif;
-}
 
 article {
   display: block;

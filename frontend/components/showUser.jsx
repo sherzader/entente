@@ -33,15 +33,15 @@ var Profile = React.createClass({
       });
     }
     return(
-      <div>
-        <div className="user-show">
+      <div className="user-show">
+        <div className="user-show-info">
           <div className="user-pic">
             <dl>
               <dt><h3>Profile</h3></dt><br /><br />
                 <img src={path} alt="profile_pic" /><br />
             </dl>
           </div>
-          <div className="user-show-info">
+          <div className="user-caption">
             <dl>
               <dt>{this.state.user.name}</dt><br />
               <dt>{this.state.user.email}</dt><br />

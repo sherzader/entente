@@ -14,6 +14,7 @@ class Api::EventsController < ApplicationController
     if @event.save
       if @event.img_url.nil?
         @event.img_url = "2409498_39a4bda289_z_zi0gtl.jpg"
+        @event.save
       end
       render :show
     else

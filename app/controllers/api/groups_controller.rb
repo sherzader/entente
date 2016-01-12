@@ -12,6 +12,7 @@ class Api::GroupsController < ApplicationController
     if @group.save
       if @group.img_url.nil?
         @group.img_url = "251360_38fb7b5cc8_z_jfvdzo.jpg"
+        @group.save
       end
       render :show
     else

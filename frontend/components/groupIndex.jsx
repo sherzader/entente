@@ -29,7 +29,7 @@ var GroupIndex = React.createClass({
     } else {
         var regex = new RegExp(this.state.searchString);
         return this.state.groups.filter(function(group){
-          return (group.title.search(regex) > -1);
+          return (group.title.toLowerCase().trim().search(regex) > -1);
         });
     }
   },

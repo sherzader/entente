@@ -132,7 +132,7 @@ var Show = React.createClass({
         </div>
         <div className="figure col-md-4 container">
           <img src={group_img} alt="group_pic" />
-            <h4><a className="group-item-join" href="#" ref="toggle" onClick={this._toggleGroup}>{this.state.join_text}</a></h4>
+            <h4><a className="group-show-join" href="#" ref="toggle" onClick={this._toggleGroup}>{this.state.join_text}</a></h4>
 
           <div className="caption" onClick={this.props.onClick}>
             <div className='group-buttons'>
