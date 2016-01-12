@@ -21,14 +21,14 @@ var Profile = React.createClass({
   render: function () {
     var path = "http://res.cloudinary.com/sherzader/image/upload/h_150,w_150,g_face,c_fill,r_max/" + this.state.user.img_url;
     return(
-      <div className="container user-show">
-        <div className="user-pic">
+      <div className="profile">
+        <div className="profile-pic">
           <dl>
             <dt><h2>My Profile</h2></dt><br /><br />
               <img src={path} alt="profile_pic" /><br />
           </dl>
         </div>
-        <div className="user-show-info">
+        <div className="profile-caption">
           <dl>
             <dt>{this.state.user.name}</dt><br />
             <dt>{this.state.user.email}</dt><br />

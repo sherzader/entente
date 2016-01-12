@@ -250,6 +250,37 @@ h4 {
   margin-left: 10px;
 }
 
+.profile {
+  position: fixed;
+  width: 500px;
+  height: 300px;
+  background: white;
+  border-radius: 10px;
+  margin-top: 10%;
+  margin-left: 30%;
+  font-family: 'Raleway', sans-serif;
+  webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+}
+
+.profile-pic {
+  position: absolute;
+  margin-left: 5%;
+  float: left;
+  z-index: 999;
+}
+
+.profile-caption {
+  position: absolute;
+  margin-left: 50%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 30%;
+  top: 80px;
+  font-family: 'Raleway', sans-serif;
+}
+
 .user-show {
   margin: 0 auto;
   font-family: 'Raleway', sans-serif;
