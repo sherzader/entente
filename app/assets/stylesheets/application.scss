@@ -161,10 +161,11 @@ h4 {
   display: inline-block;
   position: fixed;
   margin-top: 75px;
+  margin-left: 100px;
   padding-bottom: 75px;
   overflow: scroll;
   height: 90%;
-  width: 70%;
+  width: 50%;
 }
 
 .group-item {
@@ -283,7 +284,7 @@ h4 {
   margin-left: 5%;
   margin-right: 5%;
   width: 100%;
-  height: 30%;
+  height: 40%;
   overflow: scroll;
 }
 
@@ -297,8 +298,6 @@ h4 {
   padding-right: 5%;
   width: 300px;
 }
-
-
 
 article {
   display: block;
@@ -1041,6 +1040,7 @@ textarea {
   float: right;
   right: 50px;
   margin-top: 250px;
+  margin-right: 100px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1060,7 +1060,7 @@ textarea {
 }
 
 .DayPicker-Month {
-  font-size: 16px;
+  font-size: 24px;
   font-family: 'Raleway', sans-serif;
   color: blue;
   display: table;
@@ -1184,30 +1184,31 @@ textarea {
 
 .Calendar {
   float: right;
+  margin-right: 100px;
 }
 
 .calendar-caption-top {
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
   letter-spacing: -1px;
-  padding: 10px;
+  padding: 5px;
   position: relative;
   top: 100px;
-  right: 100px;
+  right: 50px;
   float: right;
 }
 
 .calendar-caption-bottom {
-  color: yellow;
+  color: red;
   position: relative;
   font-family: 'Raleway', sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: -1px;
   padding: 10px;
   float: right;
-  top: 550px;
-  right: -410px;
+  top: 600px;
+  left: 530px;
 }
 
 .calendar-caption-bottom:hover {

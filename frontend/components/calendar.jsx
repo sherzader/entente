@@ -76,7 +76,7 @@ var Calendar = React.createClass({
     return (
       <div>
         <div className="Calendar">
-          <div className="calendar-caption-top"><h3>Find Groups<br />with<br />Upcoming Events</h3></div>
+          <div className="user-groups-caption calendar-caption-top"><h3>Find Groups<br />with<br />Upcoming Events</h3></div>
           <input
             ref="input"
             type="text"

@@ -10,6 +10,7 @@ var EventItem = React.createClass({
   render: function () {
     return(
       <div className="event-item"
+        onClick={this._showEvent}
         key={this.props.groupEvent.id}>
           <div className="event-item-header">
             <button className="glyphicon glyphicon-menu-right" title="See More Info" onClick={this._showEvent}></button>

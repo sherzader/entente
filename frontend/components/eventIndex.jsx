@@ -26,7 +26,7 @@ var EventIndex = React.createClass({
     }else {
       var regex = new RegExp(this.state.searchString);
       return this.state.events.filter(function(groupEvent){
-        return (groupEvent.title.search(regex) > -1);
+        return (groupEvent.title.toLowerCase().trim().search(regex) > -1);
       });
     }
   },
