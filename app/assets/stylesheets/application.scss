@@ -1,8 +1,21 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@media (min-width:320px) { /* smartphones, iPhone, portrait 480x320 phones */ }
+@media (min-width:481px) { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ }
+@media (min-width:641px) { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ }
+@media (min-width:961px) { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
+@media (min-width:1281px) { /* hi-res laptops and desktops */ }
+
 body {
-  background-image:url(http://res.cloudinary.com/sherzader/image/upload/v1451896126/22120313006_03e4b138a3_o_fzbzd2.jpg);
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), url(bg.png) repeat 0 0, url(http://res.cloudinary.com/sherzader/image/upload/v1451896126/22120313006_03e4b138a3_o_fzbzd2.jpg) repeat 0 0;
+  background: -moz-linear-gradient(top, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1451896126/22120313006_03e4b138a3_o_fzbzd2.jpg) repeat 0 0;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.3)), color-stop(100%,rgba(255,255,255,0.3))), url(http://res.cloudinary.com/sherzader/image/upload/v1451896126/22120313006_03e4b138a3_o_fzbzd2.jpg) repeat 0 0;
+  background: -webkit-linear-gradient(top, rgba(255,255,255,0.3) 0%,rgba(255,255,255,0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1451896126/22120313006_03e4b138a3_o_fzbzd2.jpg) repeat 0 0;
+  background: -o-linear-gradient(top, rgba(255,255,255,0.3) 0%,rgba(255,255,255,0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1451896126/22120313006_03e4b138a3_o_fzbzd2.jpg) repeat 0 0;
+  background: -ms-linear-gradient(top, rgba(255,255,255,0.3) 0%,rgba(255,255,255,0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1451896126/22120313006_03e4b138a3_o_fzbzd2.jpg) repeat 0 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.3) 0%,rgba(255,255,255,0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1451896126/22120313006_03e4b138a3_o_fzbzd2.jpg) repeat 0 0;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size:cover;
