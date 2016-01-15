@@ -26,7 +26,8 @@ body {
 .login {
   margin-left: auto;
   margin-right: auto;
-  color: #000;
+  margin-top: 30px;
+  color: #fff;
   font-family: 'Raleway', sans-serif;
   float: center;
   text-align: center;
@@ -34,7 +35,7 @@ body {
   background: rgb(20, 20, 20);
   background: rgba(20, 20, 20, 0.7);
   width: 500px;
-  padding: 30px;
+  padding: 20px;
   border-radius:20px;
   webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
@@ -772,6 +773,7 @@ form.new-event textarea {
 }
 
 input {
+  color: #000;
   width: 350px;
   border: none;
 }
@@ -1258,10 +1260,13 @@ textarea {
   font-size: 20px;
   font-weight: 600;
   letter-spacing: -1px;
-  padding: 10px;
+  // padding: 10px;
+  margin-left: 5%;
+  margin-right: 5%;
   float: right;
-  top: 600px;
-  left: 490px;
+  right: -600px;
+  top: 650px;
+  z-index: 999;
 }
 
 .calendar-caption-bottom:hover {
