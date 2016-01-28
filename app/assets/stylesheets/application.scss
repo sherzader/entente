@@ -1,13 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-@media (min-width:320px) { /* smartphones, iPhone, portrait 480x320 phones */ }
-@media (min-width:481px) { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ }
-@media (min-width:641px) { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ }
-@media (min-width:961px) { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
-@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
-@media (min-width:1281px) { /* hi-res laptops and desktops */ }
-
 body {
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), url(bg.png) repeat 0 0, url(http://res.cloudinary.com/sherzader/image/upload/v1451896126/22120313006_03e4b138a3_o_fzbzd2.jpg) repeat 0 0;
   background: -moz-linear-gradient(top, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1451896126/22120313006_03e4b138a3_o_fzbzd2.jpg) repeat 0 0;
@@ -177,9 +170,9 @@ h4 {
   margin-top: 75px;
   margin-left: 100px;
   padding-bottom: 75px;
-  overflow: scroll;
-  height: 90%;
+  height: 100%;
   width: 50%;
+  overflow: scroll;
 }
 
 .group-item {
@@ -201,9 +194,6 @@ h4 {
   color: #66ff66;
   letter-spacing: 1px;
   text-shadow: 0 -1px rgba(0, 0, 0, .5);
-  webkit-box-shadow: 0 5px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
-  -moz-box-shadow: 0 5px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
-  box-shadow: 0 5px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
 
 .group-show-join {
@@ -220,6 +210,11 @@ h4 {
   webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+}
+
+.group-show-join:hover {
+  background-color: #ccc;
+  border-color: #ccc;
 }
 
 .group-caption {
@@ -446,15 +441,16 @@ textarea .form-control {
 }
 
 .event-index {
-  margin-left: 50px;
+  margin-left: 3%;
   position: relative;
   top: 50px;
+  height: 100%;
 }
 
 .search-events div.input-group {
   width: 300px;
   top: -10px;
-  left: -30px;
+  left: 10%;
 }
 
 .search-events div.input-group input.form-control {
@@ -474,7 +470,8 @@ button:hover {
 
 .members {
   position: relative;
-  left: -90px;
+  margin-left: 3%;
+  margin-right: 3%;
   background-color: #eee;
   font-family: 'Raleway', sans-serif;
   top: 85px;
@@ -489,7 +486,6 @@ button:hover {
   position: relative;
   top: 75px;
   left: 20px;
-  overflow: scroll;
 }
 
 .show-group-headers {
@@ -524,6 +520,28 @@ button:hover {
   webkit-box-shadow: 0 5px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   -moz-box-shadow: 0 5px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   box-shadow: 0 5px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+}
+
+.glyphicon-plus {
+  color: #66ff66;
+  background-color: rgba(0,0,0,0.7);
+  border: none;
+}
+
+.glyphicon-minus {
+  color: #66ff66;
+  background-color: rgba(0,0,0,0.7);
+  border: none;
+}
+
+.glyphicon-plus:hover {
+  color: #66ff66;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.glyphicon-minus:hover {
+  color: #66ff66;
+  background-color: rgba(0,0,0,0.7);
 }
 
 .glyphicon-menu-right {
@@ -663,6 +681,10 @@ form.new-event textarea {
   border-radius: 15px;
 }
 
+.group-panel {
+  margin-bottom: 10%;
+}
+
 .figure {
   display: table;
   top: 50px;
@@ -720,7 +742,7 @@ form.new-event textarea {
 
 .group-buttons {
   position: absolute;
-  margin-left: 20%;
+  margin-left: 30%;
   margin-top: 10px;
   margin-bottom: 10px;
   height: 60px;

@@ -122,15 +122,15 @@ var Show = React.createClass({
       }
     }
     return(
-      <div className="container">
-        <div className="col-md-4 members container">
+      <div className="container-fluid">
+        <div className="col-3 col-md-3 members container">
           <dl>
           {memberCount}
           <hr />
           </dl>
           {members}
         </div>
-        <div className="figure col-md-4 container">
+        <div className="figure col-5 col-md-5 group-panel">
           <img src={group_img} alt="group_pic" />
             <h4><a className="group-show-join" href="#" ref="toggle" onClick={this._toggleGroup}>{this.state.join_text}</a></h4>
 
@@ -153,7 +153,7 @@ var Show = React.createClass({
             </dl>
           </div>
         </div>
-        <div className="col-md-4 event-index container">
+        <div className="col-3 col-md-3 event-index">
           <button className='btn btn-create-form create-event' data-toggle="modal" data-target="#new-event-modal"><dt>Create Event</dt></button>
           <EventIndex group={this.state.group} history={this.history} /></div>
         <div className="modal fade" id="new-event-modal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
