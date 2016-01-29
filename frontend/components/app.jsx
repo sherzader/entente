@@ -3,6 +3,7 @@ var GroupForm = require('./groupForm.jsx');
 var Link = require('react-router').Link;
 var History = require('react-router').History;
 var ApiUtil = require('../util/apiUtil');
+var Modal = require('boron/DropModal');
 
 var App = React.createClass({
   mixins: [History],
@@ -12,12 +13,19 @@ var App = React.createClass({
   },
   componentDidMount: function () {
     this.setState({modalIsOpen: true});
+    this.showModal();
   },
   openModal: function() {
     this.setState({modalIsOpen: true});
   },
   closeModal: function() {
     this.setState({modalIsOpen: false});
+  },
+  showModal: function(){
+    this.refs.modal.show();
+  },
+  hideModal: function(){
+    this.refs.modal.hide();
   },
   _logout: function () {
     ApiUtil.logout();
@@ -64,28 +72,25 @@ var App = React.createClass({
             </div>
           </div>
         </div>
-        <div className="modal fade" id="welcome-modal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div className="modal-dialog" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <div id="welcome-modal-title"><h3>Entente</h3></div><h4>/änˈtänt/</h4>
-                <div className="modal-footer">
-                  <h4 id="welcome-info">Find groups and events that match your interests.</h4>
-                  <h4 id="welcome-info">You will see all available groups to join on this page.</h4>
-                </div>
-                <div className="modal-footer" id="welcome-list">
-                  <p>&#x25BA; Join groups to save them to My Groups.</p>
-                  <p>&#x25BA; Use the calendar to filter for groups with events on that day.</p>
-                  <p>&#x25BA; Search for groups by title.</p>
-                  <p>&#x25BA; Click on a group to see more information, its members, and its events.</p>
-                </div>
-              <div className="modal-footer">
-                <button className="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-              </div>
+        <Modal ref="modal">
+          <div className="intro-modal">
+            <div id="welcome-modal-title"><h3>Entente</h3></div><h4>/änˈtänt/</h4>
+            <div className="modal-footer">
+              <h4 id="welcome-info">Find groups and events that match your interests.</h4>
+              <h4 id="welcome-info">You will see all available groups to join on this page.</h4>
+              <h4 id="welcome-info">Click Start Group to make your own and create events for members to attend!</h4>
+            </div>
+            <div className="modal-footer" id="welcome-list">
+              <p>&#x25BA; Click Join/Leave to update your groups under My Groups.</p>
+              <p>&#x25BA; Use the calendar to filter for groups with events on that day.</p>
+              <p>&#x25BA; Search for groups by title.</p>
+              <p>&#x25BA; Click on a group to see details, its members, and its events.</p>
+              <p>&#x25BA; Edit/delete outdated groups and events.</p>
+              <p>&#x25BA; Click Entente to return home.</p>
             </div>
           </div>
-        </div>
+          <button onClick={this.hideModal}>Close</button>
+        </Modal>
         <div className="app-footer"></div>
         {this.props.children}
     </div>

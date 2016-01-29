@@ -35,6 +35,12 @@ body {
   box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
 
+.intro-modal {
+  min-width: 400px;
+  min-height: 300px;
+  font-family: 'Raleway', sans-serif;
+}
+
 #welcome-modal {
   font-family: 'Raleway', sans-serif;
   letter-spacing: -0.5px;
@@ -56,13 +62,15 @@ body {
 }
 
 #welcome-info {
-  line-height: 10px;
+  line-height: 15px;
 }
 
 #welcome-list {
+  width: auto;
+  min-height: 100px;
   margin-left: 40px;
   text-align: justify;
-  line-height: 5px;
+  line-height: 10px;
 }
 
 .dropdown-menu {
@@ -172,7 +180,25 @@ h4 {
   padding-bottom: 75px;
   height: 100%;
   width: 50%;
-  overflow: scroll;
+  margin-bottom: 10%
+}
+
+.search-groups {
+  overflow: hidden;
+  position: relative;
+  width: 300px;
+  top: 100px;
+  left: -500px;
+}
+
+.group-index div.input-group {
+  width: 500px;
+  margin-left: 10px;
+  margin-bottom: 3%;
+}
+
+.group-index div.input-group input.form-control {
+  border-radius: 20px;
 }
 
 .group-item {
@@ -420,28 +446,8 @@ textarea .form-control {
   box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
 
-
-.search-groups {
-  overflow: hidden;
-  position: relative;
-  width: 300px;
-  top: 100px;
-  left: -500px;
-}
-
-
-.group-index div.input-group {
-  width: 500px;
-  margin-left: 10px;
-  margin-bottom: 20px;
-}
-
-.group-index div.input-group input.form-control {
-  border-radius: 20px;
-}
-
 .event-index {
-  margin-left: 3%;
+  margin-left: 1%;
   position: relative;
   top: 50px;
   height: 100%;
@@ -450,7 +456,7 @@ textarea .form-control {
 .search-events div.input-group {
   width: 300px;
   top: -10px;
-  left: 10%;
+  left: 15%;
 }
 
 .search-events div.input-group input.form-control {
@@ -485,14 +491,14 @@ button:hover {
 .event-items {
   position: relative;
   top: 75px;
-  left: 20px;
+  left: 30px;
 }
 
 .show-group-headers {
   position: relative;
   font-family: 'Raleway', sans-serif;
   top: 75px;
-  left: 60px;
+  left: 20%;
 }
 
 .event-item-header {
