@@ -91,6 +91,7 @@ var App = React.createClass({
           </div>
           <button onClick={this.hideModal}>Close</button>
         </Modal>
+        <div className="app-footer"></div>
         {this.props.children}
     </div>
     );
