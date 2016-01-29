@@ -84,6 +84,7 @@ var Calendar = React.createClass({
             placeholder="YYYY-MM-DD"
             onChange={ this.handleInputChange }
             onFocus={ this.showCurrentDate } />
+          <li className="calendar-caption-bottom" onClick={this._refresh}>Reset to Today</li>
         </div>
         <DayPicker
                 ref="daypicker"
@@ -93,7 +94,6 @@ var Calendar = React.createClass({
                 }}
                 onDayClick={ this.handleDayClick }
               />
-            <li className="calendar-caption-bottom" onClick={this._refresh}>Reset to Today</li>
         <GroupIndex history={this.history} groups={this.filterGroups()} />
       </div>
     );

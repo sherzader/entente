@@ -179,8 +179,8 @@ h4 {
   margin-left: 100px;
   padding-bottom: 75px;
   height: 100%;
-  width: 50%;
-  margin-bottom: 10%
+  margin-bottom: 10%;
+  overflow: scroll;
 }
 
 .search-groups {
@@ -361,7 +361,7 @@ h4 {
   font-size: 22px;
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
-  background-color: #000;
+  background: rgba(0, 0, 0, 0.7);
   color: #fff;
   padding-left: 5%;
   padding-right: 5%;
@@ -1145,7 +1145,7 @@ textarea {
 .DayPicker-Month {
   font-size: 24px;
   font-family: 'Raleway', sans-serif;
-  color: blue;
+  color: black;
   display: table;
   border-collapse: collapse;
   border-spacing: 0;
@@ -1185,7 +1185,9 @@ textarea {
 
 
   .DayPicker-Caption {
-    font-weight: 900;
+    font-weight: 600;
+    color: #66ff66;
+    margin-bottom: 10px;
     display: table-caption;
     height: 1.5rem;
     text-align: center;
@@ -1282,23 +1284,19 @@ textarea {
 }
 
 .calendar-caption-bottom {
-  color: red;
-  position: relative;
+  color: #999999;
+  position: absolute;
   font-family: 'Raleway', sans-serif;
   font-size: 20px;
   font-weight: 600;
   letter-spacing: -1px;
-  // padding: 10px;
-  margin-left: 5%;
-  margin-right: 5%;
-  float: right;
-  right: -600px;
+  right: 17%;
   top: 650px;
   z-index: 999;
 }
 
 .calendar-caption-bottom:hover {
-  color: black;
+  color: white;
 }
 
 .app-footer {
