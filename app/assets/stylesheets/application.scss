@@ -198,6 +198,7 @@ h4 {
   width: 500px;
   margin-left: 10px;
   margin-bottom: 3%;
+  margin-top: 3%;
 }
 
 .group-index div.input-group input.form-control {
@@ -292,6 +293,8 @@ h4 {
   position: fixed;
   width: 500px;
   height: 300px;
+  padding-top: 10px;
+  padding-left: 10px;
   background: white;
   border-radius: 10px;
   margin-top: 10%;
@@ -335,8 +338,6 @@ h4 {
   margin-left: 400px;
   padding-left: 5%;
   padding-right: 5%;
-  padding-bottom: 30%;
-  height: 40%;
   top: 70px;
   font-family: 'Raleway', sans-serif;
 }
@@ -352,11 +353,10 @@ h4 {
 
 .user-groups {
   position: fixed;
-  top: 55%;
+  top: 40%;
   margin-left: 5%;
   margin-right: 5%;
   width: 100%;
-  height: 40%;
   overflow: scroll;
 }
 
@@ -1287,13 +1287,13 @@ textarea {
 }
 
 .calendar-caption-bottom {
-  color: #999999;
+  color: #66ff66;
   position: absolute;
   font-family: 'Raleway', sans-serif;
   font-size: 20px;
   font-weight: 600;
   letter-spacing: -1px;
-  right: 17%;
+  right: 245px;
   top: 650px;
   z-index: 999;
 }
