@@ -180,6 +180,8 @@ h4 {
   padding-bottom: 10%;
   height: 100%;
   overflow: scroll;
+  min-width: 700px;
+  max-width: 900px;
 }
 
 ::-webkit-scrollbar {
@@ -331,7 +333,7 @@ h4 {
 }
 
 .user-show-info{
-  width: 40%;
+  width: 500px;
   background: white;
   border-radius: 10px;
   position: fixed;
@@ -353,7 +355,7 @@ h4 {
 
 .user-groups {
   position: fixed;
-  top: 40%;
+  top: 300px;
   margin-left: 5%;
   margin-right: 5%;
   width: 100%;
@@ -1270,6 +1272,8 @@ textarea {
 .Calendar {
   float: right;
   margin-right: 100px;
+  min-width: 300px;
+  max-width: 300px;
 }
 
 .calendar-caption-top {

@@ -22,21 +22,6 @@ var Calendar = React.createClass({
   componentWillUnmount: function () {
     this.groupListener.remove();
   },
-  handleInputChange: function(e) {
-    var value = e.target;
-
-    // Change the current month only if the value entered by the user is a valid
-    // date, according to the `L` format
-    if (moment(value, "L", true).isValid()) {
-      this.setState({
-        month: moment(value, "L").toDate(),
-        value
-      }, this.showCurrentDate);
-    }
-    else {
-      this.setState({ value }, this.showCurrentDate);
-    }
-  },
   handleDayClick: function(e, day) {
     this.setState({date: day.toISOString()});
     this.filterGroups();
@@ -75,25 +60,18 @@ var Calendar = React.createClass({
     var selectedDay = moment(this.state.value).toDate();
     return (
       <div>
-        <div className="Calendar">
+        <div className="Calendar col-4">
           <div className="user-groups-caption calendar-caption-top"><h3>Find Groups<br />with<br />Upcoming Events</h3></div>
-          <input
-            ref="input"
-            type="text"
-            value={ this.state.value }
-            placeholder="YYYY-MM-DD"
-            onChange={ this.handleInputChange }
-            onFocus={ this.showCurrentDate } />
           <li className="calendar-caption-bottom" onClick={this._refresh}>Reset to Today</li>
+          <DayPicker
+                  ref="daypicker"
+                  initialMonth={ this.state.month }
+                  modifiers={{
+                    selected: day => DateUtils.isSameDay(selectedDay, day)
+                  }}
+                  onDayClick={ this.handleDayClick }
+                />
         </div>
-        <DayPicker
-                ref="daypicker"
-                initialMonth={ this.state.month }
-                modifiers={{
-                  selected: day => DateUtils.isSameDay(selectedDay, day)
-                }}
-                onDayClick={ this.handleDayClick }
-              />
         <GroupIndex history={this.history} groups={this.filterGroups()} />
       </div>
     );
