@@ -176,7 +176,7 @@ h4 {
   display: inline-block;
   position: fixed;
   margin-top: 75px;
-  margin-left: 100px;
+  margin-right: 200px;
   padding-bottom: 10%;
   height: 100%;
   overflow: scroll;
@@ -334,18 +334,22 @@ h4 {
 
 .user-show-info{
   width: 500px;
+  height: 300px;
   background: white;
   border-radius: 10px;
   position: fixed;
   margin-left: 400px;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 10px;
+  padding-right: 10px;
   top: 70px;
   font-family: 'Raleway', sans-serif;
 }
 
 .user-caption {
-  margin-top: 30%;
+  float: right;
+  padding: 10px;
+  padding-right: 40px;
+  padding-top: 100px;
 }
 
 .user-pic {
@@ -355,10 +359,12 @@ h4 {
 
 .user-groups {
   position: fixed;
-  top: 300px;
+  margin: 0 auto;
   margin-left: 5%;
   margin-right: 5%;
-  width: 100%;
+  top: 400px;
+  width: 85%;
+  height: 500px;
   overflow: scroll;
 }
 
@@ -1270,20 +1276,21 @@ textarea {
 }
 
 .Calendar {
-  float: right;
-  margin-right: 100px;
-  min-width: 300px;
-  max-width: 300px;
+  // float: right;
+  margin-left: 150px;
+  // min-width: 300px;
+  // max-width: 300px;
 }
 
 .calendar-caption-top {
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
   letter-spacing: -1px;
-  padding: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
   position: relative;
   top: 100px;
-  right: 50px;
+  right: 135px;
   float: right;
 }
 
@@ -1296,7 +1303,6 @@ textarea {
   letter-spacing: -1px;
   right: 245px;
   top: 650px;
-  z-index: 999;
 }
 
 .calendar-caption-bottom:hover {
