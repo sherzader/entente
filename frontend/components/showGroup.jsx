@@ -136,7 +136,7 @@ var Show = React.createClass({
 
           <div className="caption" onClick={this.props.onClick}>
             <div className='group-buttons'>
-              <button className="glyphicon glyphicon-menu-left" title="Back Home" onClick={this._goBack}></button>
+              <button className="glyphicon glyphicon-th" title="Back Home" onClick={this._goBack}></button>
               <button className="glyphicon glyphicon-pencil" title="Edit Group" onClick={this._editGroup}></button>
               <button className="glyphicon glyphicon-trash" title="Delete Group" onClick={this._deleteGroup}></button>
             </div>

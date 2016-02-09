@@ -97,6 +97,7 @@ li {
   text-transform: uppercase;
   font-family: "Raleway", sans-serif;
   font-weight: 400;
+  height: 59px;
 }
 
 .dropdown-menu {
@@ -270,6 +271,7 @@ h4 {
 }
 
 .group-caption:hover {
+  transition: all 0.8s ease-in-out;
   background: rgb(127, 127, 127);
   background: rgba(127, 127, 127, 0.7);
 }
@@ -770,7 +772,7 @@ form.new-event textarea {
   border-radius: 50px;
 }
 
-.glyphicon-menu-left {
+.glyphicon-th {
   z-index: 999;
   position: relative;
   border: none;
@@ -1301,7 +1303,7 @@ textarea {
   font-size: 20px;
   font-weight: 600;
   letter-spacing: -1px;
-  right: 245px;
+  left: 80px;
   top: 650px;
 }
 

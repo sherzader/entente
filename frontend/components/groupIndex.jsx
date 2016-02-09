@@ -27,7 +27,7 @@ var GroupIndex = React.createClass({
     if (this.state.searchString === ""){
       return this.state.groups;
     } else {
-        var regex = new RegExp(this.state.searchString);
+        var regex = new RegExp(this.state.searchString.toLowerCase());
         return this.state.groups.filter(function(group){
           return (group.title.toLowerCase().trim().search(regex) > -1);
         });
