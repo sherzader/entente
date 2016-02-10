@@ -29,10 +29,26 @@ body {
   background: rgba(20, 20, 20, 0.7);
   width: 500px;
   padding: 20px;
-  border-radius:20px;
+  border-radius: 20px;
+  -webkit-animation-timing-function: ease;
+  animation-timing-function: ease;
+  -webkit-animation: mymove 5s; /* Chrome, Safari, Opera */
+  animation: mymove 5s;
   webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+    from {left: 0px;}
+    to {left: 300px;}
+}
+
+/* Standard syntax */
+@keyframes mymove {
+    from {left: 0px;}
+    to {left: 300px;}
 }
 
 .intro-modal {
@@ -1231,6 +1247,10 @@ textarea {
         font-size: .875em;
         text-align: center;
         color: white;
+      }
+
+      .DayPicker-Weekday abbr {
+        cursor: default;
       }
 
   .DayPicker-Body {

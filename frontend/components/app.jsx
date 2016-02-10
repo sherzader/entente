@@ -51,7 +51,7 @@ var App = React.createClass({
               <li className="dropdown">
                 <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile<span className="caret"></span></a>
                 <ul className="dropdown-menu">
-                  <li className="nav-item"><Link to={'/profile'}>My Profile</Link></li>
+                  <li><Link to={'/profile'}>My Profile</Link></li>
                   <li role="separator" className="divider"></li>
                   <li><a href="#" onClick={this._logout}>Logout</a></li>
                 </ul>

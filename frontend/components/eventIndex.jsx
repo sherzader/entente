@@ -41,13 +41,13 @@ var EventIndex = React.createClass({
     return(
       <div>
         <div className="search-events">
-            <div className="input-group">
-              <input type="text"
-                     className="form-control"
-                     placeholder="Search events..."
-                     onChange={this.handleChange}
-                     value={this.state.searchString} />
-            </div>
+          <div className="input-group">
+            <input type="text"
+                   className="form-control"
+                   placeholder="Search events..."
+                   onChange={this.handleChange}
+                   value={this.state.searchString} />
+          </div>
         </div><br /><div className="show-group-headers"><dl><dt>Events</dt></dl><hr /></div>
       <div className="event-items">
           {eventElements}
