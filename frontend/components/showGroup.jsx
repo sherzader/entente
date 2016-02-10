@@ -122,15 +122,14 @@ var Show = React.createClass({
       }
     }
     return(
-      <div className="container-fluid">
-        <div className="col-3 col-md-3 members container">
+      <div className="row">
+        <div className="col-2 col-md-2 members container">
           <dl>
           {memberCount}
-          <hr />
           </dl>
           {members}
         </div>
-        <div className="figure col-5 col-md-5 group-panel">
+        <div className="figure col-4 col-md-4 group-panel">
           <img src={group_img} alt="group_pic" />
             <h4><a className="group-show-join" href="#" ref="toggle" onClick={this._toggleGroup}>{this.state.join_text}</a></h4>
 

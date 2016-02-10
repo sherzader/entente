@@ -56,7 +56,7 @@ var GroupIndex = React.createClass({
         }.bind(this));
     }
     return(
-      <div className="col-md-5 group-index">
+      <div className="col-4 col-md-4 group-index">
         <div className="input-group">
           <input type="text"
                  className="form-control group-search"
