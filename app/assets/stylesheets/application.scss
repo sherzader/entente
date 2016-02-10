@@ -214,14 +214,16 @@ h4 {
 }
 
 .group-index div.input-group {
-  width: 500px;
+  width: 620px;
   margin-left: 10px;
   margin-bottom: 3%;
   margin-top: 3%;
 }
 
 .group-index div.input-group input.form-control {
-  border-radius: 20px;
+  background-color: #000;
+  background-color: rgba(0,0,0,0.3);
+  color: #fff;
 }
 
 .group-item {
@@ -1354,4 +1356,14 @@ textarea {
   margin: 0 auto 50px auto;
   height: 40px;
   width: 100%;
+}
+
+.footer-item {
+  text-transform: uppercase;
+  color: #fff;
+  font-family: "Raleway", sans-serif;
+  font-weight: 900;
+  height: 59px;
+  padding-top: 10px;
+  padding-left: 30px;
 }
