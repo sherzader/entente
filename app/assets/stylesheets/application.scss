@@ -260,6 +260,7 @@ h4 {
   border-radius: 20px;
   letter-spacing: 1px;
   text-shadow: 0 -1px rgba(0, 0, 0, .5);
+  transition: all 0.4s ease-in-out;
   webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
@@ -287,13 +288,13 @@ h4 {
   padding: 10px;
   background: rgba(0, 0, 0, 0.7);
   color: white;
-  transition: all 0.7s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .group-caption:hover {
-  color: #000;
+  color: #fff;
   background: rgb(127, 127, 127);
-  background: rgba(127, 127, 127, 0.7);
+  background: rgba(127, 127, 127, 0.4);
 }
 
 .usersgroups-show {
@@ -480,7 +481,8 @@ textarea .form-control {
 }
 
 .event-index {
-  margin-left: 1%;
+  margin-left: 50px;
+  margin-bottom: 100px;
   position: relative;
   top: 50px;
   height: 100%;
@@ -489,7 +491,6 @@ textarea .form-control {
 .search-events div.input-group {
   width: 300px;
   top: -10px;
-  left: 15%;
 }
 
 .search-events div.input-group input.form-control {
@@ -499,18 +500,20 @@ textarea .form-control {
 .create-event {
   position: relative;
   top: 90px;
-  left: 110px;
+  transition: all 0.5s ease-in-out;
 }
 
 button:hover {
-  background-color: #ccc;
-  border-color: #ccc;
+  -ms-transform: scale(1.25,1.25); /* IE 9 */
+  -webkit-transform: scale(1.25,1.25); /* Safari */
+  transform: scale(1.25,1.25);
 }
 
 .members {
   position: relative;
   margin-left: 3%;
   margin-right: 3%;
+  margin-bottom: 50px;
   background-color: #eee;
   font-family: 'Raleway', sans-serif;
   top: 85px;
@@ -524,14 +527,13 @@ button:hover {
 .event-items {
   position: relative;
   top: 75px;
-  left: 30px;
+  left: -40px;
 }
 
 .show-group-headers {
   position: relative;
   font-family: 'Raleway', sans-serif;
   top: 75px;
-  left: 20%;
 }
 
 .event-item-header {
@@ -555,33 +557,27 @@ button:hover {
   box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
 
-.glyphicon {
-  webkit-box-shadow: 0 5px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
-  -moz-box-shadow: 0 5px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
-  box-shadow: 0 5px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
-}
+// .glyphicon-plus {
+//   color: #66ff66;
+//   background-color: rgba(0,0,0,0.7);
+//   border: none;
+// }
+//
+// .glyphicon-minus {
+//   color: #66ff66;
+//   background-color: rgba(0,0,0,0.7);
+//   border: none;
+// }
 
-.glyphicon-plus {
-  color: #66ff66;
-  background-color: rgba(0,0,0,0.7);
-  border: none;
-}
-
-.glyphicon-minus {
-  color: #66ff66;
-  background-color: rgba(0,0,0,0.7);
-  border: none;
-}
-
-.glyphicon-plus:hover {
-  color: #66ff66;
-  background-color: rgba(0,0,0,0.7);
-}
-
-.glyphicon-minus:hover {
-  color: #66ff66;
-  background-color: rgba(0,0,0,0.7);
-}
+// .glyphicon-plus:hover {
+//   color: #66ff66;
+//   background-color: rgba(0,0,0,0.7);
+// }
+//
+// .glyphicon-minus:hover {
+//   color: #66ff66;
+//   background-color: rgba(0,0,0,0.7);
+// }
 
 .glyphicon-menu-right {
   float: left;
@@ -780,7 +776,7 @@ form.new-event textarea {
 }
 
 .group-buttons {
-  position: absolute;
+  position: relative;
   height: 60px;
   top: -30px;
 }
@@ -790,10 +786,13 @@ form.new-event textarea {
   width: 50px;
   height: 50px;
   border-radius: 50px;
+  transition: all 0.4s ease-in-out;
+  webkit-box-shadow: 0 5px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  -moz-box-shadow: 0 5px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  box-shadow: 0 5px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
 
 .glyphicon-th {
-  z-index: 999;
   position: relative;
   border: none;
   font-size: 30px;
@@ -803,7 +802,6 @@ form.new-event textarea {
 }
 
 .glyphicon-pencil {
-  z-index: 999;
   position: relative;
   border: none;
   font-size: 30px;
@@ -813,7 +811,6 @@ form.new-event textarea {
 }
 
 .glyphicon-trash {
-  z-index: 999;
   position: relative;
   border: none;
   font-size: 30px;
@@ -1148,12 +1145,9 @@ textarea {
 /* DayPicker styles */
 
 .DayPicker {
-  position: absolute;
+  position: fixed;
   width: 300px;
-  float: right;
-  right: 50px;
-  margin-top: 250px;
-  margin-right: 100px;
+  top: 250px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1298,10 +1292,8 @@ textarea {
 }
 
 .Calendar {
-  // float: right;
   margin-left: 150px;
-  // min-width: 300px;
-  // max-width: 300px;
+  height: 600px;
 }
 
 .calendar-caption-top {
@@ -1310,21 +1302,21 @@ textarea {
   letter-spacing: -1px;
   padding-left: 5px;
   padding-right: 5px;
-  position: relative;
+  position: fixed;
   top: 100px;
-  right: 135px;
-  float: right;
+  float: left;
 }
 
 .calendar-caption-bottom {
   color: #66ff66;
-  position: absolute;
+  position: fixed;
   font-family: 'Raleway', sans-serif;
   font-size: 20px;
   font-weight: 600;
   letter-spacing: -1px;
-  left: 80px;
-  top: 650px;
+  float: left;
+  top: 600px;
+  margin-left: 50px;
 }
 
 .calendar-caption-bottom:hover {

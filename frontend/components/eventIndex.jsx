@@ -24,7 +24,7 @@ var EventIndex = React.createClass({
     if (this.state.searchString === ""){
       return this.state.events;
     }else {
-      var regex = new RegExp(this.state.searchString);
+      var regex = new RegExp(this.state.searchString.toLowerCase());
       return this.state.events.filter(function(groupEvent){
         return (groupEvent.title.toLowerCase().trim().search(regex) > -1);
       });
@@ -41,7 +41,6 @@ var EventIndex = React.createClass({
     return(
       <div>
         <div className="search-events">
-          <form className="navbar-form navbar-right" role="search">
             <div className="input-group">
               <input type="text"
                      className="form-control"
@@ -49,7 +48,6 @@ var EventIndex = React.createClass({
                      onChange={this.handleChange}
                      value={this.state.searchString} />
             </div>
-          </form>
         </div><br /><div className="show-group-headers"><dl><dt>Events</dt></dl><hr /></div>
       <div className="event-items">
           {eventElements}

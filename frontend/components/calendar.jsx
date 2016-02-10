@@ -62,7 +62,7 @@ var Calendar = React.createClass({
       <div className="row">
         <div className="Calendar col-md-4 col-md-offset-1">
           <div className="user-groups-caption calendar-caption-top"><h3>Find Groups<br />with<br />Upcoming Events</h3></div>
-          <li className="calendar-caption-bottom" onClick={this._refresh}>Reset Group Filtering</li>
+          <div className="calendar-caption-bottom" onClick={this._refresh}>Reset Group Filtering</div>
           <DayPicker
                   ref="daypicker"
                   initialMonth={ this.state.month }
