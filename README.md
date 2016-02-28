@@ -1,24 +1,20 @@
 # Entente
 
-[Heroku link][heroku]
-
-[heroku]: entente.herokuapp.com
+[Live](entente.io)
 
 ## Minimum Viable Product
 
-Entente is a social media web application inspired by Meetup, built using Ruby on Rails, React.js/Flux. Entente allows users to:
+Entente is a social media web application inspired by Meetup, built using Ruby on Rails, React.js/Flux, HTML5, CSS3. Entente allows users to:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
 - [x] Create an account
 - [x] Log in / Log out via User Authentication
-- [x] CRUD functionality for groups
-- [x] Join/leave groups
-- [x] CRUD functionality for groups events
-- [x] Organize events within Groups
+- [x] Shepherd tour on homepage
+- [x] Create, update, read, delete groups and events
+- [x] Join/leave groups via join table
 - [x] Search groups via React Day Picker interface
-- [x] Search groups by group name
-- [x] Search events by event name
+- [x] Search groups and events
 
 ## Design Docs
 * [View Wireframes][view]
