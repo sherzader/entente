@@ -1,8 +1,8 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var GroupStore = require('../stores/group');
-var UserStore = require('../stores/user');
-var ApiUtil = require('../util/apiUtil');
+var GroupStore = require('../../stores/group');
+var UserStore = require('../../stores/user');
+var ApiUtil = require('../../util/apiUtil');
 
 var GroupItem = React.createClass({
   getInitialState: function () {

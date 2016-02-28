@@ -1,6 +1,6 @@
 var React = require('react');
-var GroupStore = require('../stores/group');
-var ApiUtil = require('../util/apiUtil');
+var GroupStore = require('../../stores/group');
+var ApiUtil = require('../../util/apiUtil');
 var GroupItem = require('./groupItem.jsx');
 
 var GroupIndex = React.createClass({

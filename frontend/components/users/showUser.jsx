@@ -1,6 +1,6 @@
 var React = require('react');
-var UserStore = require('../stores/user');
-var ApiUtil = require('../util/apiUtil');
+var UserStore = require('../../stores/user');
+var ApiUtil = require('../../util/apiUtil');
 var Link = require('react-router').Link;
 
 var Profile = React.createClass({

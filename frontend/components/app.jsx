@@ -1,9 +1,10 @@
 var React = require('react');
-var GroupForm = require('./groupForm.jsx');
+var GroupForm = require('./groups/groupForm.jsx');
 var Link = require('react-router').Link;
 var History = require('react-router').History;
 var ApiUtil = require('../util/apiUtil');
 var Modal = require('boron/DropModal');
+window.myTour = require('../util/tour');
 
 var App = React.createClass({
   mixins: [History],
@@ -37,6 +38,12 @@ var App = React.createClass({
         <div className="container-fluid">
           <div className="navbar-header">
             <div className='navbar-brand' data-toggle="modal" data-target="#welcome-modal"><a className="navbar-brand active" href="#" title="Click!">Entente</a></div>
+            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span className="sr-only">Toggle navigation</span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+            </button>
           </div>
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav">
@@ -49,7 +56,7 @@ var App = React.createClass({
               <li className='nav-item'><Link to={'/myGroups'}>My Groups</Link></li>
               <li className="nav-item-divider"></li>
               <li className="dropdown">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile<span className="caret"></span></a>
+                  <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile<span className="caret"></span></a>
                 <ul className="dropdown-menu">
                   <li><Link to={'/profile'}>My Profile</Link></li>
                   <li role="separator" className="divider"></li>
@@ -74,25 +81,16 @@ var App = React.createClass({
         </div>
         <Modal ref="modal">
           <div className="intro-modal">
-            <div id="welcome-modal-title"><h3>Entente</h3></div><h4>/änˈtänt/</h4>
+            <div id="welcome-modal-title"><h2>Welcome to Entente!</h2></div><h3>/änˈtänt/</h3>
             <div className="modal-footer">
-              <h4 id="welcome-info">Find groups and events that match your interests.</h4>
-              <h4 id="welcome-info">You will see all available groups to join on this page.</h4>
-              <h4 id="welcome-info">Click Start Group to make your own and create events for members to attend!</h4>
-            </div>
-            <div className="modal-footer" id="welcome-list">
-              <p>&#x25BA; Click Join/Leave to update your groups under My Groups.</p>
-              <p>&#x25BA; Use the calendar to filter for groups with events on that day.</p>
-              <p>&#x25BA; Search for groups by title.</p>
-              <p>&#x25BA; Click on a group to see details, its members, and its events.</p>
-              <p>&#x25BA; Edit/delete outdated groups and events.</p>
-              <p>&#x25BA; Click Entente to return home.</p>
+              <h4 id="welcome-info">Entente is a place to find or create groups and events that match your interests.</h4>
+              <h4 id="welcome-info">Follow the tour to see all the cool features.</h4>
             </div>
           </div>
-          <button onClick={this.hideModal}>Close</button>
+          <button onClick={this.hideModal}>X</button>
         </Modal>
         <div className="app-footer">
-          <div className="footer-item"><a href="http://github.com/sherzader/entente" target = "_blank">the code</a></div>
+          <div className="footer-item"><a href="http://github.com/sherzader/entente" target = "_blank">code</a></div>
         </div>
         {this.props.children}
     </div>

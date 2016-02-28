@@ -3,9 +3,10 @@ var DayPicker = require('react-day-picker');
 var DateUtils = require('react-day-picker').DateUtils;
 var moment = require('moment');
 var GroupStore = require('../stores/group');
-var GroupIndex = require('./groupIndex.jsx');
+var GroupIndex = require('./groups/groupIndex.jsx');
 var ApiUtil = require('../util/apiUtil');
 var History = require('react-router').History;
+window.myTour = require('../util/tour');
 
 var Calendar = React.createClass({
   mixins: [History],
@@ -18,9 +19,14 @@ var Calendar = React.createClass({
   componentDidMount: function () {
     this.groupListener = GroupStore.addListener(this._onChange);
     ApiUtil.fetchGroups();
+    if (!window.myTour.lifecyleComplete) {
+      myTour.lifecyleComplete = true;
+      myTour.start();
+    }
   },
   componentWillUnmount: function () {
     this.groupListener.remove();
+    myTour.complete();
   },
   handleDayClick: function(e, day) {
     this.setState({date: day.toISOString()});

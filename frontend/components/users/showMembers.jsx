@@ -1,5 +1,5 @@
 var React = require('react');
-var ApiUtil = require('../util/apiUtil');
+var ApiUtil = require('../../util/apiUtil');
 
 var Member = React.createClass({
   getInitialState: function () {

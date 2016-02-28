@@ -1,7 +1,7 @@
 var React = require('react');
-var ApiUtil = require('../util/apiUtil');
+var ApiUtil = require('../../util/apiUtil');
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
-var EventStore = require('../stores/event');
+var EventStore = require('../../stores/event');
 var History = require('react-router').History;
 
 var EditEvent = React.createClass({

@@ -1,11 +1,11 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var GroupStore = require('../stores/group');
-var ApiUtil = require('../util/apiUtil');
-var UserStore = require('../stores/user');
+var GroupStore = require('../../stores/group');
+var ApiUtil = require('../../util/apiUtil');
+var UserStore = require('../../stores/user');
 var GroupItem = require('./groupItem.jsx');
-var EventIndex = require('./eventIndex.jsx');
-var EventForm = require('./eventForm.jsx');
+var EventIndex = require('../events/eventIndex.jsx');
+var EventForm = require('../events/eventForm.jsx');
 var History = require('react-router').History;
 var Link = require('react-router').Link;
 

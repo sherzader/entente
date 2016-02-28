@@ -1,6 +1,6 @@
 var React = require('react');
-var EventStore = require('../stores/event');
-var ApiUtil = require('../util/apiUtil');
+var EventStore = require('../../stores/event');
+var ApiUtil = require('../../util/apiUtil');
 
 var EventItem = React.createClass({
   _showEvent: function (e) {

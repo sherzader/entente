@@ -1,7 +1,7 @@
 var React = require('react');
-var ApiUtil = require('../util/apiUtil');
+var ApiUtil = require('../../util/apiUtil');
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
-var GroupStore = require('../stores/group');
+var GroupStore = require('../../stores/group');
 var History = require('react-router').History;
 
 var EditGroup = React.createClass({
