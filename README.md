@@ -1,6 +1,6 @@
 # Entente
 
-[Live](entente.io)
+#[Live](http://entente.io)
 
 ## Minimum Viable Product
 
@@ -8,6 +8,7 @@ Entente is a social media web application inspired by Meetup, built using Ruby o
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
+- [x] Responsive UI design
 - [x] Create an account
 - [x] Log in / Log out via User Authentication
 - [x] Shepherd tour on homepage
