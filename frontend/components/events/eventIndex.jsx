@@ -48,7 +48,8 @@ var EventIndex = React.createClass({
                    onChange={this.handleChange}
                    value={this.state.searchString} />
           </div>
-        </div><br /><div className="show-group-headers"><dl><dt>Events</dt></dl><hr /></div>
+        </div><br /><div className="show-group-headers event-index-header">
+          <dl><dt>Events</dt></dl><hr className="e-header"/></div>
       <div className="event-items">
           {eventElements}
         </div>

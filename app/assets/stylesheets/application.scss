@@ -2,6 +2,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
 @media (max-width: 989px){
   .Calendar {
     display: none;
@@ -40,13 +41,13 @@
 }
 
 body {
-  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), url(bg.png) repeat 0 0, url(http://res.cloudinary.com/sherzader/image/upload/v1454101515/bonfire2_ofjro5.jpg) repeat 0 0;
-  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1454101515/bonfire2_ofjro5.jpg) repeat 0 0;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0, 0, 0, 0.3)), color-stop(100%,rgba(255,255,255,0.3))), url(http://res.cloudinary.com/sherzader/image/upload/v1454101515/bonfire2_ofjro5.jpg) repeat 0 0;
-  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1454101515/bonfire2_ofjro5.jpg) repeat 0 0;
-  background: -o-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1454101515/bonfire2_ofjro5.jpg) repeat 0 0;
-  background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1454101515/bonfire2_ofjro5.jpg) repeat 0 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1454101515/bonfire2_ofjro5.jpg) repeat 0 0;
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), url(bg.png) repeat 0 0, url(http://res.cloudinary.com/sherzader/image/upload/v1457055796/bonfire_y3tevu.jpg) repeat 0 0;
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1457055796/bonfire_y3tevu.jpg) repeat 0 0;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0, 0, 0, 0.3)), color-stop(100%,rgba(255,255,255,0.3))), url(http://res.cloudinary.com/sherzader/image/upload/v1457055796/bonfire_y3tevu.jpg) repeat 0 0;
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1457055796/bonfire_y3tevu.jpg) repeat 0 0;
+  background: -o-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1457055796/bonfire_y3tevu.jpg) repeat 0 0;
+  background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1457055796/bonfire_y3tevu.jpg) repeat 0 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1457055796/bonfire_y3tevu.jpg) repeat 0 0;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size:cover;
@@ -271,9 +272,6 @@ h4 {
 
 .group-item:hover {
   z-index: 999;
-  -ms-transform: scale(1.05,1.05); /* IE 9 */
-  -webkit-transform: scale(1.05,1.05); /* Safari */
-  transform: scale(1.05,1.05);
 }
 
 .group-item-img {
@@ -322,7 +320,6 @@ h4 {
 
 .group-caption {
   cursor: pointer;
-  cursor: hand;
   position: absolute;
   height: 200px;
   width: 200px;
@@ -332,10 +329,9 @@ h4 {
   font-weight: 600;
   font-family: 'Raleway', sans-serif;
   letter-spacing: -1px;
-  background: rgb(255, 255, 255); /* fallback color */
-  background: rgba(255, 255, 255, 0.7);
+  background: rgb(0, 0, 0); /* fallback color */
   padding: 10px;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.4);
   color: white;
   transition: all 0.5s ease-in-out;
 }
@@ -529,6 +525,14 @@ textarea .form-control {
   box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
 
+.event-index-header {
+  color: #000;
+}
+
+.e-header {
+  width: 230px;
+}
+
 .event-index {
   margin-left: 50px;
   margin-bottom: 100px;
@@ -540,12 +544,12 @@ textarea .form-control {
 }
 
 .search-events div.input-group {
-  width: 300px;
+  width: 230px;
   top: -10px;
 }
 
 .search-events div.input-group input.form-control {
-  border-radius: 20px;
+  border-radius: 15px;
 }
 
 .create-event {
@@ -740,6 +744,7 @@ form.new-event textarea {
 
 .btn-create-form {
   margin-top: 10px;
+  right: -40px;
   background-color: cornflowerblue;
   border-color: cornflowerblue;
   border-radius: 15px;
@@ -893,14 +898,15 @@ textarea {
 }
 
 .calendar-caption-top {
+  font-size: 25px;
   font-family: 'Raleway', sans-serif;
-  font-weight: 600;
-  letter-spacing: -1px;
-  padding-left: 5px;
-  padding-right: 5px;
+  text-align: center;
+  padding: 10px;
   position: fixed;
   top: 100px;
-  float: left;
+  color: #000;
+  border-radius: 5px;
+  background-color:rgba(184,184,184,0.3);
 }
 
 .calendar-caption-bottom {
@@ -909,10 +915,8 @@ textarea {
   cursor: pointer;
   font-family: 'Raleway', sans-serif;
   font-size: 20px;
-  font-weight: 600;
-  letter-spacing: -1px;
   float: left;
-  top: 600px;
+  top: 650px;
   margin-left: 50px;
 }
 

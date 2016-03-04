@@ -119,13 +119,14 @@
   padding: 1em; }
   .shepherd-element.shepherd-theme-arrows.shepherd-has-title .shepherd-content header a.shepherd-cancel-link {
     padding: 0;
-    margin-bottom: 0; }
+    margin-bottom: 10px;}
 
 .shepherd-element.shepherd-theme-arrows.shepherd-has-cancel-link .shepherd-content header h3 {
   float: left; }
 
 .shepherd-element.shepherd-theme-arrows .shepherd-content {
-  padding: 0; }
+  padding: 0;
+  min-width: 250px}
   .shepherd-element.shepherd-theme-arrows .shepherd-content * {
     font-size: inherit; }
   .shepherd-element.shepherd-theme-arrows .shepherd-content header {
@@ -154,7 +155,9 @@
       .shepherd-element.shepherd-theme-arrows .shepherd-content header a.shepherd-cancel-link:hover {
         opacity: 1; }
   .shepherd-element.shepherd-theme-arrows .shepherd-content .shepherd-text {
-    padding: 1em; }
+    text-align: center;
+    padding: 0px 20px 0px 20px;
+  }
     .shepherd-element.shepherd-theme-arrows .shepherd-content .shepherd-text p {
       margin: 0 0 0.5em 0;
       line-height: 1.3em; }
@@ -193,4 +196,5 @@
             background: #E8E8E8;
             color: #888; }
         .shepherd-element.shepherd-theme-arrows .shepherd-content footer .shepherd-buttons li:last-child .shepherd-button {
-          margin-right: 0; }
+          margin-right: 0;
+          margin-top: 20px; }

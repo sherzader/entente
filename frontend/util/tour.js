@@ -9,6 +9,22 @@ var myTour = new Shepherd.Tour({
 
 myTour.addStep('day-picker', {
   text: [
+    'Welcome to the Entente tour!',
+    'Click Begin to continue.',
+    'You can cancel the tour at anytime',
+    'by clicking the faint X in the top right of the box.'
+  ],
+  showCancelLink: true,
+  buttons: [
+    {
+      text: 'Begin',
+      action: myTour.next
+    }
+  ]
+});
+
+myTour.addStep('day-picker', {
+  text: [
     'To begin search, click a day.'
   ],
   showCancelLink: true,
