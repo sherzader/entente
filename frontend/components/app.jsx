@@ -73,7 +73,7 @@ var App = React.createClass({
               <div className="modal-header">
                 <GroupForm history={this.history} />
               <div className="modal-footer">
-                <button className="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button className="btn btn-secondary" data-dismiss="modal"><dt>Cancel</dt></button>
               </div>
               </div>
             </div>
@@ -87,7 +87,7 @@ var App = React.createClass({
               <h4 id="welcome-info">Follow the tour to see all the cool features.</h4>
             </div>
           </div>
-          <button onClick={this.hideModal}>X</button>
+          <button onClick={this.hideModal}><dt>Continue</dt></button>
         </Modal>
         <div className="app-footer">
           <div className="footer-item"><a href="http://github.com/sherzader/entente" target = "_blank">code</a></div>

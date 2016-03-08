@@ -6,12 +6,14 @@ var ApiUtil = require('../../util/apiUtil');
 
 var GroupItem = React.createClass({
   getInitialState: function () {
-    return({current_user: UserStore.findUserById(window.CURRENT_USER.id),
+    return({
+            current_user: UserStore.findUserById(window.CURRENT_USER.id),
             users_groups: GroupStore.allUsersGroups(),
-            join_text: "Join"
+            join_text: "Join",
+            hover: false
           });
   },
-  componentDidMount: function(){
+  componentDidMount: function (){
     this.groupListener = GroupStore.addListener(this._onChange);
     ApiUtil.fetchUser(window.CURRENT_USER.id);
     ApiUtil.fetchUsersGroups();
@@ -21,14 +23,16 @@ var GroupItem = React.createClass({
   },
   _onChange: function () {
     var newState = {};
-    newState.users_groups = GroupStore.allUsersGroups()
+    var mssgText;
+    var node;
+    newState.users_groups = GroupStore.allUsersGroups();
 
     if (newState.users_groups !== undefined){
-      var mssgText = "Join";
+      mssgText = "Join";
 
       newState.users_groups.forEach(function (user_group) {
-        if (user_group.group_id === this.props.group.id){
-          var node = ReactDOM.findDOMNode(this.refs.toggle);
+        if (user_group.group_id === this.props.group.id) {
+          node = ReactDOM.findDOMNode(this.refs.toggle);
           mssgText = "Leave";
         }
       }.bind(this));
@@ -43,16 +47,28 @@ var GroupItem = React.createClass({
     e.stopPropagation();
     var that = this;
     var node = ReactDOM.findDOMNode(this.refs.toggle);
+    var found;
 
     if (e.currentTarget.innerHTML === "Join"){
       ApiUtil.createUsersGroup(this.props.group);
     } else {
-        var found = this.state.users_groups.find(function (users_group) {
+        found = this.state.users_groups.find(function (users_group) {
           return (users_group.group_id === this.props.group.id);
         }.bind(this));
 
         ApiUtil.destroyUsersGroup(found);
     }
+  },
+  _showDetails: function () {
+    this.setState({ hover: true });
+  },
+  _hideDetails: function () {
+    this.setState({ hover: false });
+  },
+  _addClass: function () {
+    return (
+      this.state.hover ? "group-item-join" : "hidden"
+    );
   },
   render: function () {
     var group_img = "http://res.cloudinary.com/sherzader/image/upload/c_scale,w_350/" + this.props.group.img_url;
@@ -65,14 +81,21 @@ var GroupItem = React.createClass({
       }
     }
     return(
-    <div className="group-item"
-         key={this.props.group.id}>
+      <div className="group-item"
+         key={this.props.group.id}
+         onMouseEnter={this._showDetails}
+         onMouseLeave={this._hideDetails}>
          <img className="group-item-img" src={group_img} alt='' />
-         <div className="group-caption" onClick={this.props.onClick}><h3>{this.props.group.title}</h3>
-         {memberCount}
-         <h4><a className="group-item-join" href="#" ref="toggle" onClick={this._toggleGroup}>{this.state.join_text}</a></h4>
-       </div>
-    </div>
+         <div className="group-caption" onClick={this.props.onClick}>
+           <h3>{this.props.group.title}</h3>
+           {memberCount}
+           <h4>
+             <a className={this._addClass()} href="#" ref="toggle" onClick={this._toggleGroup}>
+               {this.state.join_text}
+             </a>
+           </h4>
+        </div>
+      </div>
     );
   }
 });

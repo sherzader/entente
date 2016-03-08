@@ -48,7 +48,7 @@ var GroupForm = React.createClass({
               <input
                 type='text'
                 id='group_title'
-                placeholder='Provide a clear group name'
+                placeholder='Provide a group name'
                 valueLink={this.linkState("title")} />
             </div><br />
           </div>
@@ -60,7 +60,7 @@ var GroupForm = React.createClass({
               <input
                 type='text'
                 id='group_location'
-                placeholder='The general area where events are held'
+                placeholder='General gathering spot'
                 valueLink={this.linkState("location")}
                 />
             </div><br />
@@ -72,14 +72,14 @@ var GroupForm = React.createClass({
             <div className="col-md-5">
               <textarea
                 id='group_body'
-                placeholder='Elaborate on what defines your group'
+                placeholder='What defines your group?'
                 valueLink={this.linkState("body")}
                 />
             </div>
           </div>
         </dl>
           <hr />
-            <button className="btn btn-primary" onSubmit={this.closeModal()}>Create</button>
+            <button className="btn btn-primary" onSubmit={this.closeModal()}><dt>Create</dt></button>
           </div>
         </form>
       </div>

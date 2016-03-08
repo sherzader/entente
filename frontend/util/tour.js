@@ -58,8 +58,9 @@ myTour.addStep('reset', {
 
 myTour.addStep('group-join', {
   text: [
-    'Toggle group membership.',
-    'Updates MY GROUPS on Navigation Bar.'
+    "Hover over the group to see if you're part of it.",
+    'Click the text to toggle your membership.',
+    'This updates My Groups on the Nav Bar up top.'
   ],
   showCancelLink: true,
   buttons: [
@@ -72,7 +73,7 @@ myTour.addStep('group-join', {
       action: myTour.next
     }
   ],
-  attachTo: '.group-item-join left'
+  attachTo: '.group-caption left'
 });
 
 myTour.addStep('search', {

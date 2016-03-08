@@ -84,16 +84,15 @@ var EventForm = React.createClass({
               </div>
               <div className="col-md-5">
                 <textarea
-                  className='form-control'
                   id='event_body'
-                  placeholder='Elaborate on what you have planned'
+                  placeholder="What's planned?"
                   valueLink={this.linkState("body")}
                   />
               </div><br />
             </div>
           </dl>
           <hr />
-            <button className="btn btn-primary" onSubmit={this.closeModal()}>Create</button>
+            <button className="btn btn-primary" onSubmit={this.closeModal()}><dt>Create</dt></button>
           </div>
         </form>
       </div>

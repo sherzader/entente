@@ -23,21 +23,23 @@ var EventIndex = React.createClass({
   filteredEvents: function(){
     if (this.state.searchString === ""){
       return this.state.events;
-    }else {
-      var regex = new RegExp(this.state.searchString.toLowerCase());
-      return this.state.events.filter(function(groupEvent){
-        return (groupEvent.title.toLowerCase().trim().search(regex) > -1);
-      });
+    } else {
+        var regex = new RegExp(this.state.searchString.toLowerCase());
+        return this.state.events.filter(function(groupEvent){
+          return (groupEvent.title.toLowerCase().trim().search(regex) > -1);
+        });
     }
   },
   render: function () {
     var eventElements = this.filteredEvents().map(function (groupEvent) {
       return (<EventItem
-              key={groupEvent.id}
-              group={this.props.group}
-              history={this.props.history}
-              groupEvent={groupEvent} />)
+                key={groupEvent.id}
+                group={this.props.group}
+                history={this.props.history}
+                groupEvent={groupEvent} />
+            );
     }.bind(this));
+
     return(
       <div>
         <div className="search-events">
@@ -48,12 +50,14 @@ var EventIndex = React.createClass({
                    onChange={this.handleChange}
                    value={this.state.searchString} />
           </div>
-        </div><br /><div className="show-group-headers event-index-header">
+        </div>
+        <br />
+        <div className="show-group-headers event-index-header">
           <dl><dt>Events</dt></dl><hr className="e-header"/></div>
-      <div className="event-items">
+        <div className="event-items">
           {eventElements}
         </div>
-    </div>
+      </div>
     );
   }
 });
