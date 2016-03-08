@@ -9,10 +9,7 @@ var myTour = new Shepherd.Tour({
 
 myTour.addStep('day-picker', {
   text: [
-    'Welcome to the Entente tour!',
-    'Click Begin to continue.',
-    'You can cancel the tour at anytime',
-    'by clicking the faint X in the top right of the box.'
+    'Welcome to the Entente tour!'
   ],
   showCancelLink: true,
   buttons: [
@@ -30,6 +27,10 @@ myTour.addStep('day-picker', {
   showCancelLink: true,
   buttons: [
     {
+      text: 'Back',
+      action: myTour.back
+    },
+    {
       text: 'Next',
       action: myTour.next
     }
@@ -43,6 +44,10 @@ myTour.addStep('reset', {
   ],
   showCancelLink: true,
   buttons: [
+    {
+      text: 'Back',
+      action: myTour.back
+    },
     {
       text: 'Next',
       action: myTour.next
@@ -59,6 +64,10 @@ myTour.addStep('group-join', {
   showCancelLink: true,
   buttons: [
     {
+      text: 'Back',
+      action: myTour.back
+    },
+    {
       text: 'Next',
       action: myTour.next
     }
@@ -74,6 +83,10 @@ myTour.addStep('search', {
   showCancelLink: true,
   buttons: [
     {
+      text: 'Back',
+      action: myTour.back
+    },
+    {
       text: 'Next',
       action: myTour.next
     }
@@ -88,6 +101,10 @@ myTour.addStep('start-group', {
   ],
   showCancelLink: true,
   buttons: [
+    {
+      text: 'Back',
+      action: myTour.back
+    },
     {
       text: 'Next',
       action: myTour.next
@@ -105,6 +122,10 @@ myTour.addStep('group-item', {
   showCancelLink: true,
   buttons: [
     {
+      text: 'Back',
+      action: myTour.back
+    },
+    {
       text: 'Next',
       action: myTour.next
     }
@@ -120,6 +141,10 @@ myTour.addStep('footer', {
   showCancelLink: true,
   buttons: [
     {
+      text: 'Back',
+      action: myTour.back
+    },
+    {
       text: 'Next',
       action: myTour.next
     }
@@ -133,6 +158,10 @@ myTour.addStep('finish', {
   ],
   showCancelLink: true,
   buttons: [
+    {
+      text: 'Back',
+      action: myTour.back
+    },
     {
       text: 'Finish',
       action: myTour.next

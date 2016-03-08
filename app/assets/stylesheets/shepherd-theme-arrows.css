@@ -14,7 +14,7 @@
   .shepherd-element.shepherd-theme-arrows .shepherd-content {
     border-radius: 5px;
     position: relative;
-    font-family: inherit;
+    font-family: 'Raleway', sans-serif;
     background: #fff;
     color: #444;
     padding: 1em;
@@ -128,7 +128,8 @@
   padding: 0;
   min-width: 250px}
   .shepherd-element.shepherd-theme-arrows .shepherd-content * {
-    font-size: inherit; }
+    font-size: 'Raleway', sans-serif;
+  }
   .shepherd-element.shepherd-theme-arrows .shepherd-content header {
     *zoom: 1;
     border-radius: 5px 5px 0 0; }
@@ -176,8 +177,6 @@
         margin: 0; }
         .shepherd-element.shepherd-theme-arrows .shepherd-content footer .shepherd-buttons li .shepherd-button {
           display: inline-block;
-          vertical-align: middle;
-          *vertical-align: auto;
           *zoom: 1;
           *display: inline;
           border-radius: 3px;
@@ -190,7 +189,7 @@
           font-size: .8em;
           line-height: 1em;
           padding: 0.75em 2em;
-          background: #3288e6;
+          background: #66ff66;
           color: #fff; }
           .shepherd-element.shepherd-theme-arrows .shepherd-content footer .shepherd-buttons li .shepherd-button.shepherd-button-secondary {
             background: #E8E8E8;
