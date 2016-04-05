@@ -40,6 +40,12 @@
   }
 }
 
+#root {
+  width: 100%;
+  background-color: lavender;
+  overflow: scroll;
+}
+
 body {
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), url(bg.png) repeat 0 0, url(http://res.cloudinary.com/sherzader/image/upload/v1454095793/fungi_wh0440.jpg) repeat 0 0;
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1454095793/fungi_wh0440.jpg) repeat 0 0;
@@ -56,26 +62,34 @@ body {
 }
 
 .login {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 30px;
-  color: #fff;
-  font-family: 'Raleway', sans-serif;
-  float: center;
+  margin: 7% auto;
+  color: greenyellow;
+  font-family: 'Pompiere', sans-serif;
   text-align: center;
-  clear: both;
   background: rgb(20, 20, 20);
-  background: rgba(20, 20, 20, 0.7);
+  background: rgba(0, 0, 0, 0.5);
   width: 500px;
   padding: 20px;
   border-radius: 20px;
-  -webkit-animation-timing-function: ease;
-  animation-timing-function: ease;
-  -webkit-animation: mymove 5s; /* Chrome, Safari, Opera */
-  animation: mymove 5s;
-  webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
-  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
-  box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  box-shadow: 0px 0px 20px 20px rgba(245,245,245,0.3);
+}
+.login h4 {
+  padding-top: 10px;
+}
+
+.login h5 {
+  color: #66ff66;
+  font-size: 28px;
+}
+
+.login label {
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.login a {
+  font-size: 24px;
+  color: #66ff66;
 }
 
 .intro-modal {
