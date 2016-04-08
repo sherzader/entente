@@ -67,8 +67,6 @@ var Calendar = React.createClass({
     return (
       <div className="row">
         <div className="Calendar col-md-4 col-md-offset-1">
-          <div className="user-groups-caption calendar-caption-top">Find Groups<br />with<br />Upcoming Events</div>
-          <div className="calendar-caption-bottom" onClick={this._refresh}>Reset Group Filtering</div>
           <DayPicker
                   ref="daypicker"
                   initialMonth={ this.state.month }
@@ -77,6 +75,10 @@ var Calendar = React.createClass({
                   }}
                   onDayClick={ this.handleDayClick }
                 />
+          <span className="cal-caption">
+            <span onClick={this._refresh}>Reset</span>
+            <span>Filter By^</span>
+          </span>
         </div>
           <GroupIndex history={this.history} groups={this.filterGroups()} />
       </div>

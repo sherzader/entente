@@ -89,10 +89,10 @@ var App = React.createClass({
           </div>
           <button onClick={this.hideModal}><dt>Continue</dt></button>
         </Modal>
+        {this.props.children}
         <div className="app-footer">
           <div className="footer-item"><a href="http://github.com/sherzader/entente" target = "_blank">code</a></div>
         </div>
-        {this.props.children}
     </div>
     );
   }
