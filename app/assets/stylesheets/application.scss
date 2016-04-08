@@ -3,12 +3,27 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@media (max-width: 865px) {
+  .group-item {
+    margin-left: 20%;
+    margin-bottom: 2%;
+  }
+}
+
+@media (max-width: 934px) {
+  .group-item {
+    margin-left: 25%;
+    margin-bottom: 2%;
+  }
+}
+
 @media (max-width: 989px){
   .Calendar {
     display: none;
   }
-  .group-index {
-    margin-left: 100px;
+  .group-item {
+    margin-left: 2%;
+    margin-bottom: 5%;
   }
 
   .shepherd-content {
@@ -16,6 +31,23 @@
   }
 
 }
+
+@media (max-width: 689px){
+  .Calendar {
+    display: none;
+  }
+
+  .group-item {
+    margin-left: 20%;
+    margin-bottom: 5%;
+  }
+
+  .shepherd-content {
+    display: none;
+  }
+
+}
+
 @media (max-width: 763px){
   li.nav-item-divider {
     display: none;
@@ -40,8 +72,49 @@
   }
 }
 
+@media (max-width: 898px) {
+  .group-item {
+    margin-left: 23%;
+    margin-bottom: 5%;
+  }
+}
+
+@media (min-width: 989px) {
+  .Calendar {
+    margin: 7% auto auto 32%;
+  }
+  .group-item {
+    margin-left: 5%;
+    margin-bottom: 2%;
+  }
+}
+
+@media (min-width: 1098px) {
+  .Calendar {
+    margin: 7% auto auto 32%;
+  }
+  .group-item {
+    margin-left: 8%;
+    margin-bottom: 5%;
+  }
+}
+
+@media (min-width: 1300px) {
+  .Calendar {
+    margin: 7% auto auto 36%;
+  }
+  .group-item {
+    margin-bottom: 2%;
+    margin-left: 2%;
+  }
+
+  .group-index {
+    width: 1000px !important;
+  }
+}
+
 #root {
-  background-color: plum;
+  background-color: #FFFDF5;
   width: 100%;
   overflow: scroll;
   font-family: 'Lustria', sans-serif;
@@ -65,7 +138,7 @@ body {
 .login {
   margin: 7% auto;
   color: greenyellow;
-  font-family: 'Cabin Sketch', sans-serif;
+  font-family: 'Gudea', sans-serif;
   text-align: center;
   background: rgb(20, 20, 20);
   background: rgba(0, 0, 0, 0.5);
@@ -82,6 +155,7 @@ body {
 .login h5 {
   color: #66ff66;
   font-size: 28px;
+  font-family: 'Lobster Two', sans-serif !important;
 }
 
 .login label {
@@ -116,7 +190,6 @@ body {
   text-align: center;
   font-weight: 900;
   font-size: 28px;
-  text-shadow: 0 -1px rgba(0, 0, 0, .5);
 }
 
 #welcome-info {
@@ -132,10 +205,12 @@ body {
 }
 
 .dropdown-menu {
+  font-size: 15px;
 }
 
 .dropdown-toggle {
-  height: 59px;
+  height: 50px;
+  text-transform: uppercase;
 }
 
 li {
@@ -149,31 +224,31 @@ li {
   text-align: center;
 }
 
-  * { font-family: "Raleway",sans-serif; }
+* { font-family: 'Proxima Nova', sans-serif; }
 
 .nav-item {
   text-transform: uppercase;
-  font-family: "Raleway",sans-serif;
   height: 50px;
-  font-size: 18px;
+  font-size: 15px;
 }
 
-.dropdown-menu {
-  font-size: 24px;
+.dropdown-menu li a:hover{
+  color: purple;
+  background-color: #fff;
 }
 
-.dropdown-toggle {
-  font-size: 24px;
-
+.navbar-default .glyphicon {
+  padding-left: 10px;
 }
 
 .nav-item-divider {
   border-left: 1px solid #d9d9d9;
   height: 40px;
-  top: 10px;
+  top: 5px;
 }
 
 .nav-item:hover {
+  color: #ddd !important;
   border-bottom-style: dotted;
 }
 
@@ -233,11 +308,33 @@ h4 {
 }
 
 .group-index {
-  padding-bottom: 10%;
-  height: 100%;
-  width: 80%;
+  padding-bottom: 50px;
+  min-height: 800px;
+  min-width: 600px;
+  width: 70%;
   position: relative;
-  margin: 0px auto auto 20%;
+  margin: 5% auto 5% 15%;
+  background-color: ghostwhite;
+  box-shadow: 3px 3px 7px 3px gray;
+  border-bottom: 3px solid rgba(7,7,7,0.1);
+}
+
+.group-index-caption {
+  font-size: 38px;
+  text-align: center;
+  padding-top: 40px;
+  letter-spacing: -1px;
+}
+
+.group-index-caption span {
+  font-size: 28px;
+  top: 8px;
+  left: -5px;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 ::-webkit-scrollbar {
@@ -254,24 +351,29 @@ h4 {
 
 
 .group-index div.input-group {
-  width: 666px;
+  width: 66%;
   position: relative;
   margin-right: 15%;
   margin-left: 15%;
   margin-bottom: 30px;
+  padding-top: 30px
 }
 
 .group-index div.input-group input.form-control {
+  background-color: #eee;
+  color: #777;
+}
+
+.group-index div.input-group input.form-control:focus {
   background-color: #fff;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: lavender;
+  color: #000;
+  border-radius: 15px;
 }
 
 .group-item {
   position: relative;
   display: inline-block;
   max-width: 300px;
-  margin: 10px;
   z-index: 1;
   border-radius: 10px;
   transition: all 0.5s ease-in-out;
@@ -298,7 +400,6 @@ h4 {
   top: 30px;
   color: #66ff66;
   letter-spacing: 1px;
-  text-shadow: 0 -1px rgba(0, 0, 0, .5);
   transition: all 0.5s ease-in-out;
   webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
@@ -319,7 +420,6 @@ h4 {
   background-color: #ff9933;
   border-radius: 20px;
   letter-spacing: 1px;
-  text-shadow: 0 -1px rgba(0, 0, 0, .5);
   transition: all 0.4s ease;
   webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
@@ -500,36 +600,42 @@ textarea .form-control {
    top:10px;
 }
 
-.navbar-brand .active {
-  color: black;
-}
 
 .navbar-brand {
-  font-family: 'Cabin Sketch', sans-serif;
-  margin-top: 3px;
-  text-shadow: 0 -1px rgba(127, 127, 127, .5);
+  font-size: 30px;
+  padding-left: 30px;
   position: relative;
   top: -10px;
   font-size: 26px;
+  letter-spacing: -3px;
 }
 
-.navbar-brand:hover {
-  background: #d9d9d9;
+.navbar-brand .glyphicon {
+  color: #66ff66;
+}
+
+.navbar-brand span:nth-child(1) {
+  font-family: 'Patrick Hand', sans-serif !important;
+  font-size: 32px;
 }
 
 .navbar-default {
-  color: #000;
-  background-color: #eee;
-  text-shadow: 0 -0.5px rgba(127, 127, 127, .5);
+  color: #000 !important;
   display: block;
   height: 50px;
   z-index: 999;
   position: fixed;
   margin: 0 auto;
   width: 100%;
+  border-bottom: 2px dotted #e7e7e7;
   webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  background: #eee; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #fff, #ddd); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #fff, #ddd); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #fff, #ddd); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #fff, #ddd); /* Standard syntax */
 }
 
 .event-index-header {
@@ -817,7 +923,7 @@ form.new-event textarea {
   top: -30px;
 }
 
-.glyphicon {
+button.glyphicon {
   margin: 5px;
   width: 50px;
   height: 50px;
@@ -894,26 +1000,36 @@ textarea {
 .Calendar {
   width: 400px;
   position: relative;
-  margin: 5% 15% 50px 40%;
+  font-family: 'Source Code Pro', sans-serif !important;
 }
 
 .cal-caption {
   color: black;
   position: relative;
-  font-size: 20px;
-  margin-left: 60px;
+  font-size: 14px;
+  position: absolute;
+  width: 300px;
+  margin-left: 50px;
   display: inline-block;
   text-transform: uppercase;
 }
 
 .cal-caption span {
   display: inline-block;
+}
+
+.cal-caption > span:nth-child(1) {
+  color: orangered;
+  cursor: pointer;
   padding-left: 20px;
 }
 
-.cal-caption span:nth-child(1) {
-  color: yellow;
-  cursor: pointer;
+.cal-caption > span:nth-child(2) {
+  padding-left: 130px;
+}
+
+.cal-caption .glyphicon {
+  font-size: 10px;
 }
 
 .app-footer {
@@ -922,6 +1038,7 @@ textarea {
   width: 100%;
   display: inline-flex;
   position: relative;
+  margin-top: 75px;
 }
 
 .footer-item {
@@ -932,6 +1049,8 @@ textarea {
   padding-top: 10px;
   padding-left: 30px;
   cursor: pointer;
+  margin: 0 auto;
+  font-size: 24px;
 }
 
 .footer-item > a {

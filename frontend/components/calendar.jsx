@@ -77,7 +77,7 @@ var Calendar = React.createClass({
                 />
           <span className="cal-caption">
             <span onClick={this._refresh}>Reset</span>
-            <span>Filter By^</span>
+            <span>Filter By<span className="glyphicon glyphicon-triangle-top" /></span>
           </span>
         </div>
           <GroupIndex history={this.history} groups={this.filterGroups()} />

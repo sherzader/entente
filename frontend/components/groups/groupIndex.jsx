@@ -57,6 +57,7 @@ var GroupIndex = React.createClass({
     }
     return(
       <div className="col-4 col-md-4 group-index">
+        <div className="group-index-caption">Find your Community<span className="glyphicon glyphicon-share-alt" /></div>
         <div className="input-group">
           <input type="text"
                  className="form-control group-search"

@@ -37,7 +37,7 @@ var App = React.createClass({
         <nav className="navbar navbar-default">
         <div className="container-fluid">
           <div className="navbar-header">
-            <div className='navbar-brand' data-toggle="modal" data-target="#welcome-modal"><a className="navbar-brand active" href="#" title="Click!">Entente</a></div>
+            <div className='navbar-brand' data-toggle="modal" data-target="#welcome-modal"><a className="navbar-brand active" href="#" title="Welcome!">Entente<span className="glyphicon glyphicon-pushpin" /></a></div>
             <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
               <span className="sr-only">Toggle navigation</span>
               <span className="icon-bar"></span>
@@ -48,15 +48,15 @@ var App = React.createClass({
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav">
               <li className="nav-item-divider"></li>
-              <li className='nav-item' data-toggle="modal" data-target="#new-group-modal"><a href="#">Start Group</a></li>
+              <li className='nav-item' data-toggle="modal" data-target="#new-group-modal"><a href="#">Start Group<span className="glyphicon glyphicon-plus" /></a></li>
               <li className="nav-item-divider"></li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li className="nav-item-divider"></li>
-              <li className='nav-item'><Link to={'/myGroups'}>My Groups</Link></li>
+              <li className='nav-item'><Link to={'/myGroups'}>My Groups<span className="glyphicon glyphicon-th-list" /></Link></li>
               <li className="nav-item-divider"></li>
               <li className="dropdown">
-                  <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile<span className="caret"></span></a>
+                  <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile<span className="glyphicon glyphicon-log-out" /></a>
                 <ul className="dropdown-menu">
                   <li><Link to={'/profile'}>My Profile</Link></li>
                   <li role="separator" className="divider"></li>
@@ -91,7 +91,7 @@ var App = React.createClass({
         </Modal>
         {this.props.children}
         <div className="app-footer">
-          <div className="footer-item"><a href="http://github.com/sherzader/entente" target = "_blank">code</a></div>
+          <div className="footer-item"><a href="http://github.com/sherzader/entente" target = "_blank">Github</a></div>
         </div>
     </div>
     );
