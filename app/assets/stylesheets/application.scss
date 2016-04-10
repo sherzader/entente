@@ -114,31 +114,25 @@
 }
 
 #root {
-  background-color: #ddd;
-  width: 100%;
   overflow: scroll;
-  font-family: 'Lustria', sans-serif;
-}
-
-body {
 }
 
 .login-page {
-  width: 100%;
-  height: 100%;
-  // background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), url(bg.png) repeat 0 0, url(http://res.cloudinary.com/sherzader/image/upload/v1454095793/fungi_wh0440.jpg) repeat 0 0;
-  // background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1454095793/fungi_wh0440.jpg) repeat 0 0;
-  // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0, 0, 0, 0.3)), color-stop(100%,rgba(255,255,255,0.3))), url(https://res.cloudinary.com/sherzader/image/upload/v1454095793/fungi_wh0440.jpg) repeat 0 0;
-  // background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1454095793/fungi_wh0440.jpg) repeat 0 0;
-  // background: -o-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1454095793/fungi_wh0440.jpg) repeat 0 0;
-  // background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1454095793/fungi_wh0440.jpg) repeat 0 0;
-  // background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1454095793/fungi_wh0440.jpg) repeat 0 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+  background: url("http://res.cloudinary.com/sherzader/image/upload/v1460326545/steamingcoffee_iu6bzg.gif");
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-size:cover;
-  -webkit-font-smoothing: anitialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
+}
+
+#credit {
+  position: fixed;
+  bottom: 0;
+  left:5px;
 }
 
 #hiddenlogin {
@@ -156,28 +150,39 @@ body {
   width: 190px;
 }
 
+.login-page input {
+  width: 190px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
 #returning {
-  background-color: rgba(255,255,255,0.5);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 #guest {
-  background-color: rgba(255,255,255,0.5);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 #user {
-  background-color: rgba(255,255,255,0.5);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
-#login-btn:hover {
-  background-color: rgba(0,0,0,0.5);
+#guest:hover {
+  background-color: #66ff66;
+}
+
+#user:hover {
+  background-color: #66ff66;
+}
+
+#returning:hover {
+  background-color: #66ff66;
 }
 
 .login {
-  margin: 7% auto;
-  color: ghostwhite;
+  margin: 3% auto;
+  color: #000;
   text-align: center;
-  background: rgb(20, 20, 20);
-  background: rgba(0, 0, 0, 0.5);
   width: 500px;
   padding: 20px;
   border-radius: 20px;
@@ -303,7 +308,6 @@ hr {
 
 body {
   padding-top: 0px;
-  background-color: #e1eaea;
 }
 
 textarea.form-control {
