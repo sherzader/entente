@@ -114,57 +114,93 @@
 }
 
 #root {
-  background-color: #FFFDF5;
+  background-color: #ddd;
   width: 100%;
   overflow: scroll;
   font-family: 'Lustria', sans-serif;
 }
 
 body {
-  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), url(bg.png) repeat 0 0, url(http://res.cloudinary.com/sherzader/image/upload/v1454095793/fungi_wh0440.jpg) repeat 0 0;
-  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1454095793/fungi_wh0440.jpg) repeat 0 0;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0, 0, 0, 0.3)), color-stop(100%,rgba(255,255,255,0.3))), url(https://res.cloudinary.com/sherzader/image/upload/v1454095793/fungi_wh0440.jpg) repeat 0 0;
-  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1454095793/fungi_wh0440.jpg) repeat 0 0;
-  background: -o-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1454095793/fungi_wh0440.jpg) repeat 0 0;
-  background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1454095793/fungi_wh0440.jpg) repeat 0 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1454095793/fungi_wh0440.jpg) repeat 0 0;
+}
+
+.login-page {
+  width: 100%;
+  height: 100%;
+  // background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), url(bg.png) repeat 0 0, url(http://res.cloudinary.com/sherzader/image/upload/v1454095793/fungi_wh0440.jpg) repeat 0 0;
+  // background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1454095793/fungi_wh0440.jpg) repeat 0 0;
+  // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0, 0, 0, 0.3)), color-stop(100%,rgba(255,255,255,0.3))), url(https://res.cloudinary.com/sherzader/image/upload/v1454095793/fungi_wh0440.jpg) repeat 0 0;
+  // background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1454095793/fungi_wh0440.jpg) repeat 0 0;
+  // background: -o-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1454095793/fungi_wh0440.jpg) repeat 0 0;
+  // background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1454095793/fungi_wh0440.jpg) repeat 0 0;
+  // background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%), url(http://res.cloudinary.com/sherzader/image/upload/v1454095793/fungi_wh0440.jpg) repeat 0 0;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size:cover;
   -webkit-font-smoothing: anitialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+#hiddenlogin {
+  display: none;
+  animation: fadein 2s;
+}
+
+.login-btn {
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border: 0px;
+  letter-spacing: 1px;
+  font-size: 18px;
+  animation: fadein 4s;
+  width: 190px;
+}
+
+#returning {
+  background-color: rgba(255,255,255,0.5);
+}
+
+#guest {
+  background-color: rgba(255,255,255,0.5);
+}
+
+#user {
+  background-color: rgba(255,255,255,0.5);
+}
+
+#login-btn:hover {
+  background-color: rgba(0,0,0,0.5);
 }
 
 .login {
   margin: 7% auto;
-  color: greenyellow;
-  font-family: 'Gudea', sans-serif;
+  color: ghostwhite;
   text-align: center;
   background: rgb(20, 20, 20);
   background: rgba(0, 0, 0, 0.5);
   width: 500px;
   padding: 20px;
   border-radius: 20px;
-  box-shadow: 0px 0px 20px 20px rgba(245,245,245,0.3);
+  animation: fadein 2s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.login h2:nth-child(1) {
+  font-size: 34px;
+  color: #66ff66;
+  font-family: 'Patrick Hand', sans-serif !important;
 }
 
 .login h4 {
   padding-top: 10px;
 }
 
-.login h5 {
-  color: #66ff66;
-  font-size: 28px;
-  font-family: 'Lobster Two', sans-serif !important;
-}
-
-.login label {
-  font-size: 24px;
-  font-weight: normal;
-}
-
 .login a {
-  font-size: 24px;
+  font-size: 16px;
   color: #66ff66;
 }
 
@@ -314,8 +350,8 @@ h4 {
   width: 70%;
   position: relative;
   margin: 5% auto 5% 15%;
-  background-color: ghostwhite;
-  box-shadow: 3px 3px 7px 3px gray;
+  background-color: #A86565;
+  box-shadow: 0px 0px 7px 1px #a6a6a6;
   border-bottom: 3px solid rgba(7,7,7,0.1);
 }
 
@@ -382,9 +418,6 @@ h4 {
   box-shadow: 0 5px 5px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
 
-.group-item:hover {
-}
-
 .hidden {
   display: none;
 }
@@ -395,18 +428,23 @@ h4 {
   border-radius: 10px;
 }
 
-.group-item-join {
+.hover-opts {
+  top: 50px;
+  display: inline-block;
+  width: inherit;
+  height: inherit;
   position: relative;
-  top: 30px;
-  color: #66ff66;
+  color: #fff;
   letter-spacing: 1px;
-  transition: all 0.5s ease-in-out;
-  webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
-  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
-  box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1
+  transition: all 0.4s ease-in;
 }
 
-.group-item-join:hover {
+.hover-opts .glyphicon {
+  color: #fff;
+  width: 32px;
+}
+
+.hover-opts .glyphicon:hover {
   color: #66ff66;
 }
 
@@ -427,11 +465,13 @@ h4 {
 }
 
 .group-show-join:hover {
+  transition: all 0.4s ease-in;
   background-color: #ccc;
   border-color: #ccc;
 }
 
 .group-caption {
+  transition: all 0.5s ease-in;
   cursor: pointer;
   position: absolute;
   height: 200px;
@@ -446,13 +486,12 @@ h4 {
   padding: 10px;
   background: rgba(0, 0, 0, 0.4);
   color: white;
-  transition: all 0.5s ease-in-out;
 }
 
 .group-caption:hover {
-  color: #fff;
-  background: rgb(127, 127, 127);
-  background: rgba(127, 127, 127, 0.2);
+  transition: all 0.4s ease-in;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .usersgroups-show {
@@ -467,12 +506,14 @@ h4 {
   background-color: #000;
   color: #fff;
   width: 207px;
-  padding: 2%;
-  margin-left: 10px;
+  margin: 0 auto;
+  top: 70px;
+  position: relative;
+  margin-bottom: 40px;
 }
 
 .profile {
-  position: fixed;
+  position: relative;
   width: 500px;
   height: 300px;
   padding-top: 10px;
@@ -514,10 +555,11 @@ h4 {
   height: 300px;
   background: white;
   border-radius: 10px;
-  position: fixed;
-  margin-left: 400px;
+  margin: 0 auto;
+  margin-bottom: 40px;
   padding-left: 10px;
   padding-right: 10px;
+  position: relative;
   top: 70px;
 }
 
@@ -534,14 +576,12 @@ h4 {
 }
 
 .user-groups {
-  position: fixed;
   margin: 0 auto;
   margin-left: 5%;
   margin-right: 5%;
   top: 400px;
   width: 85%;
-  height: 500px;
-  overflow: scroll;
+  margin-top: 50px;
 }
 
 .user-groups-caption {
@@ -552,6 +592,7 @@ h4 {
   padding-left: 5%;
   padding-right: 5%;
   width: 300px;
+  margin-left: 25px;
 }
 
 article {
@@ -602,6 +643,7 @@ textarea .form-control {
 
 
 .navbar-brand {
+  color: #575757 !important;
   font-size: 30px;
   padding-left: 30px;
   position: relative;
@@ -1004,7 +1046,7 @@ textarea {
 }
 
 .cal-caption {
-  color: black;
+  color: #575757 !important;
   position: relative;
   font-size: 14px;
   position: absolute;
@@ -1033,17 +1075,19 @@ textarea {
 }
 
 .app-footer {
-  background-color: #000;
   height: 100px;
   width: 100%;
   display: inline-flex;
   position: relative;
-  margin-top: 75px;
+  background: #424242; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #A8A8A8, #424242); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #A8A8A8, #424242); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #A8A8A8, #424242); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #A8A8A8, #424242); /* Standard syntax */
 }
 
 .footer-item {
-  text-transform: uppercase;
-  color: #ccc;
+  color: #424242;
   font-weight: 900;
   height: 59px;
   padding-top: 10px;
@@ -1051,6 +1095,10 @@ textarea {
   cursor: pointer;
   margin: 0 auto;
   font-size: 24px;
+}
+
+.footer-item:hover {
+  color: purple;
 }
 
 .footer-item > a {

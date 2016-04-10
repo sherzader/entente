@@ -34,9 +34,9 @@ var UsersGroups = React.createClass({
       });
     }
     return(
-      <div className="usersgroups-show">
-        <div className="usersgroup-caption"><dt><h3>My Groups</h3></dt><br /><br /></div>
-        {users_groups}
+      <div className="row">
+        <div className="usersgroup-caption"><dt><h3>My Groups</h3></dt></div>
+        <div className="user-groups">{users_groups}</div>
       </div>
     );
   }

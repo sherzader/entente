@@ -3,13 +3,14 @@ var ReactDOM = require('react-dom');
 var GroupStore = require('../../stores/group');
 var UserStore = require('../../stores/user');
 var ApiUtil = require('../../util/apiUtil');
+var Link = require('react-router').Link;
 
 var GroupItem = React.createClass({
   getInitialState: function () {
     return({
             current_user: UserStore.findUserById(window.CURRENT_USER.id),
             users_groups: GroupStore.allUsersGroups(),
-            join_text: "Join",
+            join: false,
             hover: false
           });
   },
@@ -28,16 +29,16 @@ var GroupItem = React.createClass({
     newState.users_groups = GroupStore.allUsersGroups();
 
     if (newState.users_groups !== undefined){
-      mssgText = "Join";
+      mssgText = true;
 
       newState.users_groups.forEach(function (user_group) {
         if (user_group.group_id === this.props.group.id) {
           node = ReactDOM.findDOMNode(this.refs.toggle);
-          mssgText = "Leave";
+          mssgText = false;
         }
       }.bind(this));
 
-      newState.join_text = mssgText;
+      newState.join = mssgText;
     }
 
     this.setState(newState);
@@ -49,7 +50,7 @@ var GroupItem = React.createClass({
     var node = ReactDOM.findDOMNode(this.refs.toggle);
     var found;
 
-    if (e.currentTarget.innerHTML === "Join"){
+    if (e.currentTarget.getAttribute('value') === 'Join'){
       ApiUtil.createUsersGroup(this.props.group);
     } else {
         found = this.state.users_groups.find(function (users_group) {
@@ -65,13 +66,29 @@ var GroupItem = React.createClass({
   _hideDetails: function () {
     this.setState({ hover: false });
   },
-  _addClass: function () {
+  _addHoverClass: function () {
     return (
-      this.state.hover ? "group-item-join" : "hidden"
+      this.state.hover ? "hover-opts" : "hidden"
     );
   },
+  _whichToggleClass: function () {
+    return (
+      this.state.join ? "glyphicon glyphicon-plus" : "glyphicon glyphicon-minus"
+    );
+  },
+  _addJoinValue: function () {
+    return (
+      this.state.join ? "join" : "leave"
+    );
+  },
+  _showGroupPage: function () {
+    this.history.pushState(null, "/groups/" + this.props.group.id);
+  },
   render: function () {
-    var group_img = "http://res.cloudinary.com/sherzader/image/upload/c_scale,w_350/" + this.props.group.img_url;
+    if (this.props.group) {
+      var url = "/groups/" + this.props.group.id;
+      var group_img = "http://res.cloudinary.com/sherzader/image/upload/c_scale,w_350/" + this.props.group.img_url;
+    }
     var memberCount = "";
     if (this.props.group.users){
       if (this.props.group.users.length <= 1){
@@ -86,13 +103,22 @@ var GroupItem = React.createClass({
          onMouseEnter={this._showDetails}
          onMouseLeave={this._hideDetails}>
          <img className="group-item-img" src={group_img} alt='' />
-         <div className="group-caption" onClick={this.props.onClick}>
+         <div className="group-caption">
            <h3>{this.props.group.title}</h3>
            {memberCount}
            <h4>
-             <a className={this._addClass()} href="#" ref="toggle" onClick={this._toggleGroup}>
-               {this.state.join_text}
+           <span className={this._addHoverClass()}>
+             <a href="#"
+               title="Join/Leave"
+               ref="toggle"
+               value={this._addJoinValue()}
+               onClick={this._toggleGroup}>
+               <span className={this._whichToggleClass()} />
              </a>
+             <Link to={url}>
+               <span className="glyphicon glyphicon-share-alt" />
+             </Link>
+          </span>
            </h4>
         </div>
       </div>

@@ -1,36 +1,38 @@
-<div class="login">
-<h2>Signup to Begin using</h2><h2>Entente</h2>
-<h4>/änˈtänt/</h4><br /><h5>Find groups and events that match your interests.</h5>
-<br>
-<form action="<%= users_url %>" method="post">
-  <%= auth_token %>
-  <div class="form-group">
-    <label for="user_name">Name</label>
-    <br>
-    <input
-      type="text"
-      name="user[name]"
-      value="<%= @user.name %>"
-      id="user_name">
+<div class="login-page">
+  <div class="login">
+  <h2>Signup to Begin using<br />Entente</h2>
+  <h4>/änˈtänt/</h4><br /><h4>Find groups and events that match your interests.</h4>
+  <br>
+  <form action="<%= users_url %>" method="post">
+    <%= auth_token %>
+    <div class="form-group">
+      <label for="user_name">Name</label>
+      <br>
+      <input
+        type="text"
+        name="user[name]"
+        value="<%= @user.name %>"
+        id="user_name">
+    </div>
+    <div class="form-group">
+      <label for="user_email">Email</label>
+      <br>
+      <input
+        type="text"
+        name="user[email]"
+        value="<%= @user.email %>"
+        id="user_email">
+    </div>
+    <div class="form-group">
+      <label for="user_password">Password</label>
+      <br>
+      <input type="password" name="user[password]" id="user_password">
+    </div>
+    <button type="submit" id="user" class="login-btn">Sign Up</button>
+  </form>
+  <br>
+  <p class="intro-text">
+    <%= link_to "Already have an account?  Log In!", login_url%>
+  </p>
   </div>
-  <div class="form-group">
-    <label for="user_email">Email</label>
-    <br>
-    <input
-      type="text"
-      name="user[email]"
-      value="<%= @user.email %>"
-      id="user_email">
-  </div>
-  <div class="form-group">
-    <label for="user_password">Password</label>
-    <br>
-    <input type="password" name="user[password]" id="user_password">
-  </div>
-    <input type="submit" class="btn btn-success btn-lg" value="Sign Up">
-</form>
-<br>
-<p class="intro-text">
-  <%= link_to "Already have an account?  Log In!", login_url%>
-</p>
 </div>

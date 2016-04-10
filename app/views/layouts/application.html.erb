@@ -16,8 +16,22 @@
     </script>
   <% end %>
   <%= yield %>
+  <script type="text/javascript">
+    document.getElementById('returning').addEventListener('click', function(){
+      document.getElementById('hiddenlogin').style.display = 'block';
+    });
+
+    window.onload = function() {
+    var i = 0;
+    var bgs = ['red', 'blue', 'green'];
+    setInterval(function() {
+        document.body.style.backgroundColor = bgs[i];
+        i = (i + 1) % bgs.length;
+    }, 2000);
+};
+
+  </script>
   <%= javascript_include_tag 'application' %>
-  <div class="navbar">
-  </div>
+
 </body>
 </html>

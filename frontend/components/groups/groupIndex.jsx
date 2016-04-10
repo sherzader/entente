@@ -17,9 +17,6 @@ var GroupIndex = React.createClass({
   componentWillUnmount: function () {
     this.groupListener.remove();
   },
-  handleItemClick: function (group) {
-    this.props.history.push("groups/" + group.id);
-  },
   handleChange: function(e) {
     this.setState({ searchString: e.currentTarget.value });
   },
@@ -36,22 +33,16 @@ var GroupIndex = React.createClass({
   render: function () {
     if (this.state.searchString === ""){
       var groupList = this.props.groups.map(function (group) {
-        var boundClick = this.handleItemClick.bind(null, group);
         return (<GroupItem
                 key={group.id}
-                onClick={boundClick}
                 group={group}
-                history={this.props.history}
                 />)
       }.bind(this));
     } else {
       var groupList = this.filterGroups().map(function (group) {
-        var boundClick = this.handleItemClick.bind(null, group);
         return (<GroupItem
-                key={group.id}
-                onClick={boundClick}
-                group={group}
-                history={this.props.history}
+                  key={group.id}
+                  group={group}
                 />)
         }.bind(this));
     }

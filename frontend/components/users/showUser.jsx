@@ -33,7 +33,7 @@ var Profile = React.createClass({
       });
     }
     return(
-      <div className="user-show">
+      <div className="row">
         <div className="user-show-info">
           <div className="user-pic">
             <dl>

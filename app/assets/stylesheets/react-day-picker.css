@@ -393,7 +393,7 @@
         padding: .5rem;
         font-size: .875em;
         text-align: center;
-        color: plum;
+        color: #A88787;
         cursor: default;
       }
 
@@ -420,7 +420,7 @@
       }
 
       .DayPicker-Day:hover {
-        background-color: #cfd4d4;
+        background-color: #A88787;
       }
 
   .DayPicker--interactionDisabled .DayPicker-Day {

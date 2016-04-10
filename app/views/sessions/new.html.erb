@@ -1,34 +1,39 @@
-<div class="login">
-<h2>Welcome Back to</h2><h2>Entente</h2>
-<h4>/änˈtänt/</h4><br /><h5>Find groups and events that match your interests.</h5>
-<br>
-<form action="<%= login_url %>" method="post">
-  <%= auth_token %>
-  <div class="form-group">
-    <label for="user_email">Email</label>
-    <br>
-    <input
-      type="text"
-      name="user[email]"
-      id="user_email"
-      value="">
+<div class="login-page">
+  <div class="login">
+  <h2>Entente</h2>
+  <h4>/änˈtänt/</h4><br /><h4>Find groups and events that match your interests.</h4>
+  <br>
+  <button id="returning" class="login-btn">Returning User</button>
+  <div id="hiddenlogin">
+    <form action="<%= login_url %>" method="post">
+      <%= auth_token %>
+      <div class="form-group">
+        <label for="user_email">Email</label>
+        <br>
+        <input
+          type="text"
+          name="user[email]"
+          id="user_email"
+          value="">
+      </div>
+      <div class="form-group">
+        <label for="user_password">Password</label>
+        <br>
+        <input type="password" name="user[password]" id="user_password">
+      </div>
+        <button type="submit" id="user" class="login-btn">Log In</button>
+    </form>
   </div>
-  <div class="form-group">
-    <label for="user_password">Password</label>
-    <br>
-    <input type="password" name="user[password]" id="user_password">
+  <br />
+  <form action="<%= login_url %>" method="post">
+    <%= auth_token %>
+    <input type="hidden" name="user[email]" value="guest@email.com" >
+    <input type="hidden" name="user[password]" value="password">
+    <button type="submit" id="user" class="login-btn">Guest</button>
+  </form>
+  <br>
+  <p class="intro-text">
+    <%= link_to "New user? Sign Up!", signup_url%>
+  </p>
   </div>
-    <input type="submit" class="btn btn-success btn-lg" value="Log In">
-</form>
-<br />
-<form action="<%= login_url %>" method="post">
-  <%= auth_token %>
-  <input type="hidden" name="user[email]" value="guest@email.com" >
-  <input type="hidden" name="user[password]" value="password">
-  <input type="submit" class="btn btn-primary" value="Guest">
-</form>
-<br>
-<p class="intro-text">
-  <%= link_to "New user? Sign Up!", signup_url%>
-</p>
 </div>

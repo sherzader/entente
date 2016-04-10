@@ -91,7 +91,7 @@ var App = React.createClass({
         </Modal>
         {this.props.children}
         <div className="app-footer">
-          <div className="footer-item"><a href="http://github.com/sherzader/entente" target = "_blank">Github</a></div>
+          <div className="footer-item"><a href="http://github.com/sherzader/entente" target = "_blank"><img src="http://res.cloudinary.com/sherzader/image/upload/v1460184917/octocat_vcuk8h.png" />Github</a></div>
         </div>
     </div>
     );

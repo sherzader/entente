@@ -80,9 +80,6 @@ var Show = React.createClass({
 
     this.history.push("/");
   },
-  handleItemClick: function () {
-    this.history.pushState(null, "/groups/" + this.state.group.id + "/events/new" );
-  },
   componentDidMount: function () {
     this.groupListener = GroupStore.addListener(this._onChange);
     ApiUtil.fetchGroup(this.props.params.id);
@@ -122,7 +119,7 @@ var Show = React.createClass({
       }
     }
     return(
-      <div className="row">
+      <div className="row" ref="row">
         <div className="col-2 col-md-2 members container">
           <dl>
           {memberCount}
