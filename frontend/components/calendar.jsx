@@ -66,15 +66,15 @@ var Calendar = React.createClass({
     var selectedDay = moment(this.state.value).toDate();
     return (
       <div className="row">
-        <div className="Calendar col-md-4 col-md-offset-1">
+        <div className="Calendar">
           <DayPicker
                   ref="daypicker"
                   initialMonth={ this.state.month }
                   modifiers={{
                     selected: day => DateUtils.isSameDay(selectedDay, day)
                   }}
-                  onDayClick={ this.handleDayClick }
-                />
+                  onDayClick={ this.handleDayClick }>
+          </DayPicker>
           <span className="cal-caption">
             <span onClick={this._refresh}>Reset</span>
             <span>Filter By<span className="glyphicon glyphicon-triangle-top" /></span>

@@ -53,16 +53,9 @@ var App = React.createClass({
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li className="nav-item-divider"></li>
-              <li className='nav-item'><Link to={'/myGroups'}>My Groups<span className="glyphicon glyphicon-th-list" /></Link></li>
+              <li className='nav-item'><Link to={'/profile'}>Profile<span className="glyphicon glyphicon-user" /></Link></li>
               <li className="nav-item-divider"></li>
-              <li className="dropdown">
-                  <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile<span className="glyphicon glyphicon-log-out" /></a>
-                <ul className="dropdown-menu">
-                  <li><Link to={'/profile'}>My Profile</Link></li>
-                  <li role="separator" className="divider"></li>
-                  <li><a href="#" onClick={this._logout}>Logout</a></li>
-                </ul>
-              </li>
+              <li className='nav-item'><a href="#" onClick={this._logout}>Logout<span className="glyphicon glyphicon-log-out" /></a></li>
             </ul>
             </div>
           </div>

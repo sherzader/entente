@@ -305,7 +305,7 @@
 
 .DayPicker {
   position: relative;
-  margin-left: 36px;
+  margin: 0px auto;
   width: 300px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -326,7 +326,7 @@
 }
 
 .DayPicker-Month {
-  font-size: 24px;
+  font-size: 18px;
   color: black;
   display: table;
   border-collapse: collapse;
@@ -345,6 +345,7 @@
     left: 0;
     right: 0;
     padding: 0 .5rem;
+
   }
 
   .DayPicker-NavButton {

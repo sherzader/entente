@@ -28,7 +28,7 @@ var Profile = React.createClass({
         var path = "groups/" + group.id;
         return (<div className="group-item" title="Click group title for more info" key={group.id}>
              <img className="group-item-img" src={group_img} alt='' />
-             <Link to={path}><div className="group-caption"><h3>{group.title}</h3></div></Link>
+             <Link to={path}><div className="group-caption"><dl><dt><h3>{group.title}</h3></dt></dl></div></Link>
              </div>)
       });
     }
@@ -48,8 +48,9 @@ var Profile = React.createClass({
             </dl>
           </div>
         </div>
+
         <div className="user-groups">
-          <dl><dt><div className="user-groups-caption">{name} Groups</div></dt></dl>
+          <dl><dt><span className="user-groups-caption">{name} Groups</span></dt></dl>
           {groups}
         </div>
       </div>

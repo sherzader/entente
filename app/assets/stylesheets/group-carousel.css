@@ -7,9 +7,8 @@ $growSize = 2
 $moveLeft = -( $tileWidth / $growSize)
 $moveRight = $tileWidth
 
-body {
+html, body {
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
   min-height: 100vh;
   display: -webkit-box;
   display: -webkit-flex;
@@ -26,51 +25,29 @@ body {
           align-items: center;
   width: 100%;
 }
+
 * {
   box-sizing: border-box;
 }
-/*h1,
-p {
-  text-align: center;
-}
-p {
-  width: 100%;
-  max-width: 500px;
-  margin: auto;
-}
-a:link,
-a:hover,
-a:active,
-a:visited {
-  -webkit-transition: color 150ms;
-  transition: color 150ms;
-  color: #95a5a6;
-  text-decoration: none;
-}
-a:hover {
-  color: #7f8c8d;
-  text-decoration: underline;
-}
-.contain {
-  width: 100%;
-}*/
+
 .group-row {
   overflow: scroll;
   width: 100%;
+  padding-left: 50px;
 }
 .group-index {
   -webkit-transition: 450ms transform;
   transition: 450ms transform;
   font-size: 0;
   white-space: nowrap;
-  margin: 70.3125px 0;
-  padding-bottom: 10px;
+  margin: 70px 0;
+  padding: 30px;
 }
 .group-item {
   position: relative;
   display: inline-block;
   width: 250px;
-  height: 140.625px;
+  height: 140px;
   margin-right: 10px;
   font-size: 20px;
   cursor: pointer;
@@ -78,10 +55,14 @@ a:hover {
   transition: 450ms all;
   -webkit-transform-origin: center left;
           transform-origin: center left;
+  webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
+  box-shadow: 0 5px 5px rgba(0,0,0,0.4);
 }
+
 .group-item-img {
   width: 250px;
-  height: 140.625px;
+  height: 140px;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -141,11 +122,11 @@ a:hover {
   opacity: 0.3;
 }
 .group-index:hover .group-item:hover {
-  -webkit-transform: scale(2);
-          transform: scale(2);
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
   opacity: 1;
 }
-.group-item:hover ~ .group-item {
-  -webkit-transform: translate3d(250px, 0, 0);
-          transform: translate3d(250px, 0, 0);
+.group-index .group-item:hover ~ .group-item {
+  -webkit-transform: translate3d(125px, 0, 0);
+          transform: translate3d(125px, 0, 0);
 }

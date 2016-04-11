@@ -105,7 +105,7 @@ var GroupItem = React.createClass({
          <img className="group-item-img" src={group_img} alt='' />
          <div className="group-caption">
            <h3>{this.props.group.title}</h3>
-           {memberCount}
+           <h2>{memberCount}</h2>
            <h4>
            <span className={this._addHoverClass()}>
              <a href="#"

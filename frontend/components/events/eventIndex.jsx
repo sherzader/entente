@@ -52,7 +52,7 @@ var EventIndex = React.createClass({
           </div>
         </div>
         <br />
-        <div className="show-group-headers event-index-header">
+        <div className="event-index-header">
           <dl><dt>Events</dt></dl><hr className="e-header"/></div>
         <div className="event-items">
           {eventElements}
