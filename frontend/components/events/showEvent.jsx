@@ -43,21 +43,23 @@ var Show = React.createClass({
   render: function () {
     var event_img = "http://res.cloudinary.com/sherzader/image/upload/" + this.state.group_event.img_url;
     return(
-      <div className="show-event-block">
-        <div className='event-buttons'>
-          <button className="glyphicon glyphicon-th" title="Back to Group" onClick={this._goBack}></button>
-          <button className="glyphicon glyphicon-pencil" title="Edit Group" onClick={this._editEvent}></button>
-          <button className="glyphicon glyphicon-trash" title="Delete Group" onClick={this._deleteEvent}></button>
-        </div>
-        <div className="show-event">
-          <img className="event-img" src={event_img} alt="event-img"></img>
-          <div className="event-caption">
-            <dt>{this.state.group_event.title}</dt>
-            Where: {this.state.group_event.location}
-            <br />
-            When: {this.state.group_event.date}
-            <br />@{this.state.group_event.time}<br />
-            About Event: {this.state.group_event.body}
+      <div className="row">
+        <div className="show-event-block">
+          <div className='event-buttons'>
+            <button className="glyphicon glyphicon-th" title="Back to Group" onClick={this._goBack}></button>
+            <button className="glyphicon glyphicon-pencil" title="Edit Group" onClick={this._editEvent}></button>
+            <button className="glyphicon glyphicon-trash" title="Delete Group" onClick={this._deleteEvent}></button>
+          </div>
+          <div className="show-event">
+            <img className="event-img" src={event_img} alt="event-img"></img>
+            <div className="event-caption">
+              <dt>{this.state.group_event.title}</dt>
+              Where: {this.state.group_event.location}
+              <br />
+              When: {this.state.group_event.date}
+              <br />@{this.state.group_event.time}<br />
+              About Event: {this.state.group_event.body}
+            </div>
           </div>
         </div>
       </div>

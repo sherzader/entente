@@ -76,17 +76,7 @@ var GroupItem = React.createClass({
       this.state.hover ? "hover-opts" : "hidden"
     );
   },
-  _whichToggleClass: function () {
-    return (
-      this.state.joined ? "glyphicon glyphicon-minus" : "glyphicon glyphicon-plus"
-    );
-  },
-  _addJoinValue: function () {
-    return (
-      this.state.joined ? "joined" : "left"
-    );
-  },
-  _showGroupPage: function () {
+  showGroupPage: function () {
     this.history.pushState(null, "/groups/" + this.props.group.id);
   },
   render: function () {
@@ -116,7 +106,6 @@ var GroupItem = React.createClass({
              <a href="#"
                title="Join/Leave"
                ref="toggle"
-               value={this._addJoinValue()}
                onClick={this._toggleGroup}>
                <span className={this.state.join_icon} />
              </a>

@@ -79,10 +79,8 @@ var EventForm = React.createClass({
               </div><br />
             </div>
             <div className="row">
-              <div className="col-md-4">
+              <div className="col-md-6">
                 <label htmlFor='event_body'><dt>Description</dt></label><br />
-              </div>
-              <div className="col-md-5">
                 <textarea
                   id='event_body'
                   placeholder="What's planned?"
@@ -91,7 +89,6 @@ var EventForm = React.createClass({
               </div><br />
             </div>
           </dl>
-          <hr />
             <button className="btn btn-primary" onSubmit={this.closeModal()}><dt>Create</dt></button>
           </div>
         </form>

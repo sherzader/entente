@@ -11,11 +11,9 @@ var GroupForm = React.createClass({
     body: '',
     organizer_id: ''
   },
-
   getInitialState: function () {
     return this.blankAttrs;
   },
-
   createGroup: function (e) {
     e.preventDefault();
     var group = this.state;
@@ -78,7 +76,6 @@ var GroupForm = React.createClass({
             </div>
           </div>
         </dl>
-          <hr />
             <button className="btn btn-primary" onSubmit={this.closeModal()}><dt>Create</dt></button>
           </div>
         </form>

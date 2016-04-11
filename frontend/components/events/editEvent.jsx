@@ -31,71 +31,72 @@ var EditEvent = React.createClass({
   },
   render: function () {
     return(
-      <div className='jumbotron'>
-        <form className='edit-event' onSubmit={this._updateEvent}>
-          <dl>
-            <div className='form-header'><dt>Edit the Event</dt></div>
-          </dl>
-          <table>
-            <tbody>
-            <tr>
-              <td>
-              <label htmlFor='event_title'>Name:</label>
-              </td>
-              <td>
-              <input
-                type='text'
-                id='event_title'
-                valueLink={this.linkState('title')}
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>
-              <label htmlFor='event_body'>About Event:</label>
-              </td>
-              <td>
-              <input
-                type='text'
-                id='event_body'
-                valueLink={this.linkState("body")}
-                />
-            </td>
-            </tr>
-            <tr>
-              <td>
-              <label htmlFor='event_location'>Location: </label>
-              </td>
-              <td>
+      <div className="event-page edit-event">
+        <div className='jumbotron'>
+          <form className='edit-event' onSubmit={this._updateEvent}>
+            <dl>
+              <div className='form-header'><dt>Edit the Event</dt></div>
+            </dl>
+            <table>
+              <tbody>
+              <tr>
+                <td>
+                <label htmlFor='event_title'>Name:</label>
+                </td>
+                <td>
                 <input
                   type='text'
-                  id='event_location'
-                  valueLink={this.linkState("location")}
+                  id='event_title'
+                  valueLink={this.linkState('title')}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                <label htmlFor='event_location'>Location: </label>
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    id='event_location'
+                    valueLink={this.linkState("location")}
+                    />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                <label className="fa fa-calendar" htmlFor='event_date'></label>
+                </td>
+                <td>
+                  <input
+                    type='datetime-local'
+                    id='event_date'
+                    valueLink={this.linkState("date")}
+                    />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                <label htmlFor='event_body'>About Event:</label>
+                </td>
+                <td>
+                <textarea
+                  id='event_body'
+                  valueLink={this.linkState("body")}
                   />
               </td>
-            </tr>
-            <tr>
-              <td>
-              <label className="fa fa-calendar" htmlFor='event_date'></label>
-              </td>
-              <td>
-                <input
-                  type='datetime-local'
-                  id='event_date'
-                  valueLink={this.linkState("date")}
-                  />
-              </td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>
-                <button className="btn btn-primary">Update</button>
-              </td>
-            </tr>
-          </tbody>
-          </table>
-          <br />
-        </form>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <button className="btn btn-primary">Update</button>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+            <br />
+          </form>
+        </div>
       </div>
     );
   }

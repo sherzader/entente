@@ -50,7 +50,6 @@ html, body {
   height: 140px;
   margin-right: 10px;
   font-size: 20px;
-  cursor: pointer;
   -webkit-transition: 450ms all;
   transition: 450ms all;
   -webkit-transform-origin: center left;

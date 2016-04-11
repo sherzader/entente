@@ -51,6 +51,9 @@
 
 #root {
   overflow: scroll;
+  margin: 0px;
+  min-height: 100vh;
+  width: 100%;
 }
 
 .login-page {
@@ -197,8 +200,20 @@ li {
   cursor: hand;
 }
 
-.jumbotron {
+.edit-event > .jumbotron {
   text-align: center;
+  height: 500px;
+  margin: 0px auto;
+  padding: 30px;
+  width: 500px;
+  display: inline-flex;
+  top: 15%;
+  position: absolute;
+  left: 25%;
+  webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
+  box-shadow: 0 5px 5px rgba(0,0,0,0.4);
+  border-radius: 10px;
 }
 
 * { font-family: 'Proxima Nova', sans-serif; }
@@ -239,11 +254,6 @@ hr {
   padding-left: 5%;
   padding-right: 5%;
   max-width: 250px;
-}
-
-textarea.form-control {
-  height: auto;
-  width: 350px;
 }
 
 h1 {
@@ -521,11 +531,6 @@ hr {
   padding: 0;
 }
 
-textarea .form-control {
-  width: 250px;
-  height: 100px;
-}
-
 .headerDivider {
    border-left:1px solid #38546d;
    border-right:1px solid #16222c;
@@ -679,12 +684,12 @@ textarea .form-control {
 }
 
 .event-img {
-  max-width: 300px;
+  max-width: 500px;
   height: auto;
   margin: 0 auto;
-  webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
-  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
-  box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
+  box-shadow: 0 5px 5px rgba(0,0,0,0.4);
 }
 
 .event-buttons {
@@ -694,14 +699,17 @@ textarea .form-control {
 }
 
 .event-caption {
-  float: right;
-  margin-right: 40px;
+  margin: 40px;
+  padding: 40px;
 }
 
 .show-event-block {
+  background-color: #ddd;
+  top: 50px;
+  position: relative;
   padding-top: 100px;
   background: white;
-  height: 500px;
+  height: auto;
   width: 800px;
   margin: 0 auto;
   webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
@@ -710,8 +718,7 @@ textarea .form-control {
 }
 
 .new-event {
-  height: 300px;
-  padding: 30px;
+  height: 600px;
   padding-top: 0px;
   margin: 0 auto;
   padding-right: 5px;
@@ -721,8 +728,6 @@ textarea .form-control {
 
 .edit-event {
   position: relative;
-  top: 60px;
-  left: 350px;
 }
 
 .event-form-labels {
@@ -732,7 +737,6 @@ textarea .form-control {
 .form-header {
   font-size: 24px;
   position: relative;
-  left: -375px;
 }
 
 .form-create-header {
@@ -740,20 +744,25 @@ textarea .form-control {
   position: relative;
 }
 
-form.new-group input {
+form input {
   max-width: 300px;
+  padding: 5px;
+  margin-bottom: 10px;
 }
 
-form.new-group textarea {
-  max-width: 300px;
+form textarea {
+  width: 300px;
+  padding: 5px;
+  border: none;
+  resize: none;
 }
 
-form.new-event input {
-  max-width: 300px;
+.edit-event textarea {
+  margin: 0px 10px 10px;
 }
 
-form.new-event textarea {
-  max-width: 300px;
+form.new-event label {
+  float: left;
 }
 
 .modal-header {
@@ -772,8 +781,7 @@ form.new-event textarea {
 
 .event-form {
   background-color: #eee;
-  height: 450px;
-  width: 500px;
+  height: 500px;
   padding: 30px;
   margin: 0 auto;
 }
@@ -788,9 +796,6 @@ form.new-event textarea {
 
 .group-panel {
   margin-bottom: 10%;
-  webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
-  -moz-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
-  box-shadow: 0 5px 5px rgba(0,0,0,0.4);
 }
 
 .figure {
@@ -820,6 +825,9 @@ form.new-event textarea {
   position: relative;
   display: table-caption;
   caption-side: bottom;
+  webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
+  box-shadow: 0 5px 5px rgba(0,0,0,0.4);
 }
 
 .edit-group {
@@ -921,11 +929,6 @@ input {
   border: none;
 }
 
-textarea {
-  width: 350px;
-  height: 100px;
-  border: none;
-}
 
 .Calendar {
   margin-top: 60px;
@@ -984,4 +987,16 @@ textarea {
 
 .footer-item > a {
   color: inherit;
+}
+
+.app {
+  margin: 0px;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.event-page {
+  margin: 0px;
+  min-height: 100vh;
+  width: 100%;
 }
