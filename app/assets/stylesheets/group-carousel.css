@@ -1,11 +1,11 @@
-$duration = 450ms
-$tileWidth = 250px
-$tileHeight = ($tileWidth / (16/9))
-$iconSize = 50px
-$growSize = 2
+$duration : 450ms;
+$tileWidth : 250px;
+$tileHeight : ($tileWidth / (16/9));
+$iconSize : 50px;
+$growSize : 2;
 
-$moveLeft = -( $tileWidth / $growSize)
-$moveRight = $tileWidth
+$moveLeft : -( $tileWidth / $growSize);
+$moveRight : $tileWidth;
 
 html, body {
   margin: 0;
