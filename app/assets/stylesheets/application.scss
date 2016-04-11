@@ -314,21 +314,16 @@ div.input-group input.form-control:focus {
   color: #66ff66;
 }
 
-
 .group-caption {
   transition: all 0.5s ease-in;
   letter-spacing: -1px;
-  background: rgb(0, 0, 0); /* fallback color */
   padding: 10px;
-  background: rgba(0, 0, 0, 0.4);
   color: white;
   text-transform: uppercase;
 }
 
 .group-caption:hover {
   transition: all 0.4s ease-in;
-  background: rgb(0, 0, 0);
-  background: rgba(0, 0, 0, 0.7);
 }
 
 .group-show-join {
@@ -618,9 +613,9 @@ textarea .form-control {
   top: 85px;
   max-width: 300px;
   padding: 30px;
-  webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
-  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
-  box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
+  box-shadow: 0 5px 5px rgba(0,0,0,0.4);
 }
 
 .event-items {
@@ -644,9 +639,9 @@ textarea .form-control {
   background-color: #eee;
   margin-bottom: 10px;
   padding: 20px;
-  webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
-  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
-  box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
+  box-shadow: 0 5px 5px rgba(0,0,0,0.4);
 }
 
 .glyphicon-menu-right {
@@ -793,6 +788,9 @@ form.new-event textarea {
 
 .group-panel {
   margin-bottom: 10%;
+  webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
+  box-shadow: 0 5px 5px rgba(0,0,0,0.4);
 }
 
 .figure {

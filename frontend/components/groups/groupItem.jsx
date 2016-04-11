@@ -10,8 +10,9 @@ var GroupItem = React.createClass({
     return({
             current_user: UserStore.findUserById(window.CURRENT_USER.id),
             users_groups: GroupStore.allUsersGroups(),
-            join: false,
-            hover: false
+            joined: false,
+            join_icon: "glyphicon glyphicon-plus",
+            hover: false,
           });
   },
   componentDidMount: function (){
@@ -29,28 +30,32 @@ var GroupItem = React.createClass({
     newState.users_groups = GroupStore.allUsersGroups();
 
     if (newState.users_groups !== undefined){
-      mssgText = true;
+      its_class= "glyphicon glyphicon-plus";
+      its_value = false;
 
       newState.users_groups.forEach(function (user_group) {
         if (user_group.group_id === this.props.group.id) {
           node = ReactDOM.findDOMNode(this.refs.toggle);
-          mssgText = false;
+          its_class = "glyphicon glyphicon-minus";
+          its_value = true;
         }
       }.bind(this));
 
-      newState.join = mssgText;
+      newState.joined = its_value;
+      newState.join_icon = its_class;
     }
 
     this.setState(newState);
   },
   _toggleGroup: function (e) {
+
     e.preventDefault();
     e.stopPropagation();
     var that = this;
     var node = ReactDOM.findDOMNode(this.refs.toggle);
     var found;
 
-    if (e.currentTarget.getAttribute('value') === 'Join'){
+    if (!this.state.joined){
       ApiUtil.createUsersGroup(this.props.group);
     } else {
         found = this.state.users_groups.find(function (users_group) {
@@ -73,12 +78,12 @@ var GroupItem = React.createClass({
   },
   _whichToggleClass: function () {
     return (
-      this.state.join ? "glyphicon glyphicon-plus" : "glyphicon glyphicon-minus"
+      this.state.joined ? "glyphicon glyphicon-minus" : "glyphicon glyphicon-plus"
     );
   },
   _addJoinValue: function () {
     return (
-      this.state.join ? "join" : "leave"
+      this.state.joined ? "joined" : "left"
     );
   },
   _showGroupPage: function () {
@@ -113,7 +118,7 @@ var GroupItem = React.createClass({
                ref="toggle"
                value={this._addJoinValue()}
                onClick={this._toggleGroup}>
-               <span className={this._whichToggleClass()} />
+               <span className={this.state.join_icon} />
              </a>
              <Link to={url}>
                <span title="See more" className="glyphicon glyphicon-share-alt" />

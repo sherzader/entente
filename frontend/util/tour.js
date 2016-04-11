@@ -22,7 +22,7 @@ myTour.addStep('day-picker', {
 
 myTour.addStep('day-picker', {
   text: [
-    'Click a day to search for a group with events on this day.'
+    'Click to search for groups with events that day.'
   ],
   showCancelLink: true,
   buttons: [
@@ -77,8 +77,8 @@ myTour.addStep('search', {
 
 myTour.addStep('start-group', {
   text: [
-    'Nothing comes up?',
-    'Start it!'
+    "Can't find what you're looking fore?",
+    'Start a new group!'
   ],
   showCancelLink: true,
   buttons: [
