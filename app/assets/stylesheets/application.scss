@@ -3,51 +3,51 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-@media (max-width: 865px) {
-  .group-item {
-    margin-left: 20%;
-    margin-bottom: 2%;
-  }
-}
-
-@media (max-width: 934px) {
-  .group-item {
-    margin-left: 25%;
-    margin-bottom: 2%;
-  }
-}
-
-@media (max-width: 989px){
-  .Calendar {
-    display: none;
-  }
-  .group-item {
-    margin-left: 2%;
-    margin-bottom: 5%;
-  }
-
-  .shepherd-content {
-    display: none;
-  }
-
-}
-
-@media (max-width: 689px){
-  .Calendar {
-    display: none;
-  }
-
-  .group-item {
-    margin-left: 20%;
-    margin-bottom: 5%;
-  }
-
-  .shepherd-content {
-    display: none;
-  }
-
-}
-
+// @media (max-width: 865px) {
+//   .group-item {
+//     margin-left: 20%;
+//     margin-bottom: 2%;
+//   }
+// }
+//
+// @media (max-width: 934px) {
+//   .group-item {
+//     margin-left: 25%;
+//     margin-bottom: 2%;
+//   }
+// }
+//
+// @media (max-width: 989px){
+//   .Calendar {
+//     display: none;
+//   }
+//   .group-item {
+//     margin-left: 2%;
+//     margin-bottom: 5%;
+//   }
+//
+//   .shepherd-content {
+//     display: none;
+//   }
+//
+// }
+//
+// @media (max-width: 689px){
+//   .Calendar {
+//     display: none;
+//   }
+//
+//   .group-item {
+//     margin-left: 20%;
+//     margin-bottom: 5%;
+//   }
+//
+//   .shepherd-content {
+//     display: none;
+//   }
+//
+// }
+//
 @media (max-width: 763px){
   li.nav-item-divider {
     display: none;
@@ -64,6 +64,10 @@
 }
 
 @media (max-width: 991px) {
+  .group-panel {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
   .members {
     display: none;
   }
@@ -72,46 +76,55 @@
   }
 }
 
-@media (max-width: 898px) {
-  .group-item {
-    margin-left: 23%;
-    margin-bottom: 5%;
+@media (min-width: 992px) {
+  .group-panel {
+    margin-left: 3%;
+    margin-right: 2%;
   }
 }
 
-@media (min-width: 989px) {
-  .Calendar {
-    margin: 7% auto auto 32%;
-  }
-  .group-item {
-    margin-left: 5%;
-    margin-bottom: 2%;
-  }
-}
 
-@media (min-width: 1098px) {
-  .Calendar {
-    margin: 7% auto auto 32%;
-  }
-  .group-item {
-    margin-left: 8%;
-    margin-bottom: 5%;
-  }
-}
-
-@media (min-width: 1300px) {
-  .Calendar {
-    margin: 7% auto auto 36%;
-  }
-  .group-item {
-    margin-bottom: 2%;
-    margin-left: 2%;
-  }
-
-  .group-index {
-    width: 1000px !important;
-  }
-}
+//
+// @media (max-width: 898px) {
+//   .group-item {
+//     margin-left: 23%;
+//     margin-bottom: 5%;
+//   }
+// }
+//
+// @media (min-width: 989px) {
+//   .Calendar {
+//     margin: 7% auto auto 32%;
+//   }
+//   .group-item {
+//     margin-left: 5%;
+//     margin-bottom: 2%;
+//   }
+// }
+//
+// @media (min-width: 1098px) {
+//   .Calendar {
+//     margin: 7% auto auto 32%;
+//   }
+//   .group-item {
+//     margin-left: 8%;
+//     margin-bottom: 5%;
+//   }
+// }
+//
+// @media (min-width: 1300px) {
+//   .Calendar {
+//     margin: 7% auto auto 36%;
+//   }
+//   .group-item {
+//     margin-bottom: 2%;
+//     margin-left: 2%;
+//   }
+//
+//   .group-index {
+//     width: 1000px !important;
+//   }
+// }
 
 #root {
   overflow: scroll;
@@ -305,11 +318,6 @@ hr {
   max-width: 250px;
 }
 
-
-body {
-  padding-top: 0px;
-}
-
 textarea.form-control {
   height: auto;
   width: 350px;
@@ -343,39 +351,24 @@ h4 {
   margin: 20px;
 }
 
-.row {
-  overflow-y: scroll;
-}
+// .group-index {
+//   padding-bottom: 50px;
+//   min-height: 800px;
+//   min-width: 600px;
+//   width: 70%;
+//   position: relative;
+//   margin: 5% auto 5% 15%;
+//   background-color: #A86565;
+//   box-shadow: 0px 0px 7px 1px #a6a6a6;
+//   border-bottom: 3px solid rgba(7,7,7,0.1);
+// }
 
-.group-index {
-  padding-bottom: 50px;
-  min-height: 800px;
-  min-width: 600px;
-  width: 70%;
-  position: relative;
-  margin: 5% auto 5% 15%;
-  background-color: #A86565;
-  box-shadow: 0px 0px 7px 1px #a6a6a6;
-  border-bottom: 3px solid rgba(7,7,7,0.1);
-}
-
-.group-index-caption {
-  font-size: 38px;
-  text-align: center;
-  padding-top: 40px;
-  letter-spacing: -1px;
-}
-
-.group-index-caption span {
-  font-size: 28px;
-  top: 8px;
-  left: -5px;
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
-}
+// .group-index-caption {
+//   font-size: 38px;
+//   text-align: center;
+//   padding-top: 40px;
+//   letter-spacing: -1px;
+// }
 
 ::-webkit-scrollbar {
     display: none;
@@ -390,58 +383,57 @@ h4 {
 }
 
 
-.group-index div.input-group {
-  width: 66%;
+div.input-group {
   position: relative;
-  margin-right: 15%;
-  margin-left: 15%;
+  width: 50%;
+  margin: 0 auto;
   margin-bottom: 30px;
   padding-top: 30px
 }
 
-.group-index div.input-group input.form-control {
+div.input-group input.form-control {
   background-color: #eee;
   color: #777;
 }
 
-.group-index div.input-group input.form-control:focus {
+div.input-group input.form-control:focus {
   background-color: #fff;
   color: #000;
   border-radius: 15px;
 }
 
-.group-item {
-  position: relative;
-  display: inline-block;
-  max-width: 300px;
-  z-index: 1;
-  border-radius: 10px;
-  transition: all 0.5s ease-in-out;
-  webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
-  -moz-box-shadow: 0 5px 5px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
-  box-shadow: 0 5px 5px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
-}
+// .group-item {
+//   position: relative;
+//   display: inline-block;
+//   max-width: 300px;
+//   z-index: 1;
+//   border-radius: 10px;
+//   transition: all 0.5s ease-in-out;
+//   webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+//   -moz-box-shadow: 0 5px 5px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+//   box-shadow: 0 5px 5px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+// }
 
 .hidden {
   display: none;
 }
 
-.group-item-img {
-  max-width: 100%;
-  height: 200px;
-  border-radius: 10px;
-}
+// .group-item-img {
+//   max-width: 100%;
+//   height: 200px;
+//   border-radius: 10px;
+// }
 
-.hover-opts {
-  top: 50px;
-  display: inline-block;
-  width: inherit;
-  height: inherit;
-  position: relative;
-  color: #fff;
-  letter-spacing: 1px;
-  transition: all 0.4s ease-in;
-}
+// .hover-opts {
+//   top: 50px;
+//   display: inline-block;
+//   width: inherit;
+//   height: inherit;
+//   position: relative;
+//   color: #fff;
+//   letter-spacing: 1px;
+//   transition: all 0.4s ease-in;
+// }
 
 .hover-opts .glyphicon {
   color: #fff;
@@ -450,6 +442,23 @@ h4 {
 
 .hover-opts .glyphicon:hover {
   color: #66ff66;
+}
+
+
+.group-caption {
+  transition: all 0.5s ease-in;
+  font-weight: 600;
+  letter-spacing: -1px;
+  background: rgb(0, 0, 0); /* fallback color */
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+}
+
+.group-caption:hover {
+  transition: all 0.4s ease-in;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .group-show-join {
@@ -472,30 +481,6 @@ h4 {
   transition: all 0.4s ease-in;
   background-color: #ccc;
   border-color: #ccc;
-}
-
-.group-caption {
-  transition: all 0.5s ease-in;
-  cursor: pointer;
-  position: absolute;
-  height: 200px;
-  width: 200px;
-  z-index: 999;
-  top: 0px;
-  left: 0px;
-  border-radius: 10px 0px 0px 10px;
-  font-weight: 600;
-  letter-spacing: -1px;
-  background: rgb(0, 0, 0); /* fallback color */
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.4);
-  color: white;
-}
-
-.group-caption:hover {
-  transition: all 0.4s ease-in;
-  background: rgb(0, 0, 0);
-  background: rgba(0, 0, 0, 0.7);
 }
 
 .usersgroups-show {
@@ -693,13 +678,11 @@ textarea .form-control {
 }
 
 .event-index {
-  margin-left: 50px;
   margin-bottom: 100px;
-  margin-right: 5%;
   position: relative;
   top: 50px;
   height: 100%;
-  float: right;
+  margin-right: 1%;
 }
 
 .search-events div.input-group {
@@ -720,7 +703,6 @@ textarea .form-control {
 .members {
   position: relative;
   margin-left: 5%;
-  margin-right: 3%;
   margin-bottom: 50px;
   background-color: #eee;
   top: 85px;
@@ -749,8 +731,8 @@ textarea .form-control {
 
 .event-item {
   float: left;
-  margin-left: 40px;
   width: 230px;
+  margin-left: 40px;
   cursor: pointer;
   cursor: hand;
   text-align: center;
@@ -906,7 +888,6 @@ form.new-event textarea {
 
 .group-panel {
   margin-bottom: 10%;
-  margin-left: 5%;
 }
 
 .figure {
@@ -1044,6 +1025,7 @@ textarea {
 }
 
 .Calendar {
+  margin: 7% auto auto 36%;
   width: 400px;
   position: relative;
   font-family: 'Source Code Pro', sans-serif !important;
@@ -1092,7 +1074,6 @@ textarea {
 
 .footer-item {
   color: #424242;
-  font-weight: 900;
   height: 59px;
   padding-top: 10px;
   padding-left: 30px;

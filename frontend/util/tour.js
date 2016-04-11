@@ -9,7 +9,7 @@ var myTour = new Shepherd.Tour({
 
 myTour.addStep('day-picker', {
   text: [
-    'Welcome to the Entente tour!'
+    "Let's check out the site's features!"
   ],
   showCancelLink: true,
   buttons: [
@@ -22,7 +22,7 @@ myTour.addStep('day-picker', {
 
 myTour.addStep('day-picker', {
   text: [
-    'To begin search, click a day.'
+    'Click a day to search for a group with events on this day.'
   ],
   showCancelLink: true,
   buttons: [
@@ -40,7 +40,7 @@ myTour.addStep('day-picker', {
 
 myTour.addStep('reset', {
   text: [
-    'Click to see all groups again.'
+    "Click 'RESET' to view all groups again."
   ],
   showCancelLink: true,
   buttons: [
@@ -53,27 +53,7 @@ myTour.addStep('reset', {
       action: myTour.next
     }
   ],
-  attachTo: '.calendar-caption-bottom left'
-});
-
-myTour.addStep('group-join', {
-  text: [
-    "Hover over the group to see if you're part of it.",
-    'Click the text to toggle your membership.',
-    'This updates My Groups on the Nav Bar up top.'
-  ],
-  showCancelLink: true,
-  buttons: [
-    {
-      text: 'Back',
-      action: myTour.back
-    },
-    {
-      text: 'Next',
-      action: myTour.next
-    }
-  ],
-  attachTo: '.group-caption left'
+  attachTo: '.cal-caption > span:nth-child(1) left'
 });
 
 myTour.addStep('search', {
@@ -132,25 +112,6 @@ myTour.addStep('group-item', {
     }
   ],
   attachTo: '.group-caption right'
-});
-
-myTour.addStep('footer', {
-  text: [
-    'Interested in the code behind the feature?',
-    'Click CODE below to checkout the Github repo!'
-  ],
-  showCancelLink: true,
-  buttons: [
-    {
-      text: 'Back',
-      action: myTour.back
-    },
-    {
-      text: 'Next',
-      action: myTour.next
-    }
-  ],
-  attachTo: '.footer-item > a top'
 });
 
 myTour.addStep('finish', {

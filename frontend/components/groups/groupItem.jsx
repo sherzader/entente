@@ -116,7 +116,7 @@ var GroupItem = React.createClass({
                <span className={this._whichToggleClass()} />
              </a>
              <Link to={url}>
-               <span className="glyphicon glyphicon-share-alt" />
+               <span title="See more" className="glyphicon glyphicon-share-alt" />
              </Link>
           </span>
            </h4>

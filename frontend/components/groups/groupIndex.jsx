@@ -47,17 +47,21 @@ var GroupIndex = React.createClass({
         }.bind(this));
     }
     return(
-      <div className="col-4 col-md-4 group-index">
-        <div className="group-index-caption">Find your Community<span className="glyphicon glyphicon-share-alt" /></div>
+      <div>
         <div className="input-group">
-          <input type="text"
-                 className="form-control group-search"
-                 placeholder="Search groups..."
-                 onChange={this.handleChange}
-                 value={this.state.searchString}>
-          </input>
+              <input type="text"
+                     className="form-control group-search"
+                     placeholder="Search groups..."
+                     onChange={this.handleChange}
+                     value={this.state.searchString}>
+              </input>
+            </div>
+        <div className="group-row">
+          <div className="col-4 col-md-4 group-index">
+            <div className="group-index-caption">Find your Community<span className="glyphicon glyphicon-share-alt" /></div>
+            {groupList}
+          </div>
         </div>
-        {groupList}
       </div>
     );
   }
