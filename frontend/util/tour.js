@@ -59,7 +59,7 @@ myTour.addStep('reset', {
 myTour.addStep('search', {
   text: [
     'Type in an interest and',
-    'see if there is an existing group'
+    'see if there is an existing group.'
   ],
   showCancelLink: true,
   buttons: [
@@ -77,7 +77,7 @@ myTour.addStep('search', {
 
 myTour.addStep('start-group', {
   text: [
-    "Can't find what you're looking fore?",
+    "Can't find what you're looking for?",
     'Start a new group!'
   ],
   showCancelLink: true,
