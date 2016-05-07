@@ -58,15 +58,16 @@
   width: 100%;
 }
 
-#login .alert-danger {
+.login-signup .alert-danger {
   z-index: 10 !important;
   position: fixed;
+  width: 100%;
+  text-align: center;
 }
 
 .show-group .alert {
   height: 50px;
   width: 100%;
-  z-index: 9999;
   position: fixed;
   top: 50px;
   right: 0;

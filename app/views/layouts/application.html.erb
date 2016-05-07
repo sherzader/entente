@@ -9,9 +9,11 @@
 </head>
 <body>
   <% if flash[:errors] %>
-    <div class="alert alert-danger">
-      <strong>Oh snap!</strong><br />
-      <%= render "layouts/errors" %>
+    <div class="login-signup">
+      <div class="alert alert-danger">
+        <strong>Oh snap!</strong><br />
+        <%= render "layouts/errors" %>
+      </div>
     </div>
   <% end %>
   <% if current_user %>
