@@ -226,6 +226,9 @@ li {
 }
 
 * { font-family: 'Proxima Nova', sans-serif; }
+*:focus {
+    outline: none;
+}
 
 .nav-item {
   text-transform: uppercase;
@@ -753,17 +756,21 @@ hr {
   position: relative;
 }
 
-form input {
-  max-width: 300px;
-  padding: 5px;
+.modal-content {
+  min-width: 464px;
+}
+
+.modal-content .btn-primary {
   margin-bottom: 10px;
 }
 
-form textarea {
-  width: 300px;
-  padding: 5px;
-  border: none;
-  resize: none;
+.modal-content .row {
+  margin-bottom: 25px;
+}
+
+form input {
+  max-width: 300px;
+  border-bottom: 4px aquamarine solid;
 }
 
 .edit-event textarea {
@@ -781,7 +788,6 @@ form.new-event label {
 }
 
 .group-form {
-  background-color: #eee;
   height: 400px;
   width: 500px;
   padding: 30px;

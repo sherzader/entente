@@ -8,25 +8,11 @@ window.myTour = require('../util/tour');
 
 var App = React.createClass({
   mixins: [History],
-
-  getInitialState: function() {
-    return { modalIsOpen: false };
-  },
   componentDidMount: function () {
-    this.setState({modalIsOpen: true});
     this.showModal();
-  },
-  openModal: function() {
-    this.setState({modalIsOpen: true});
-  },
-  closeModal: function() {
-    this.setState({modalIsOpen: false});
   },
   showModal: function(){
     this.refs.modal.show();
-  },
-  hideModal: function(){
-    this.refs.modal.hide();
   },
   _logout: function () {
     ApiUtil.logout();

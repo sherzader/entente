@@ -26,7 +26,7 @@ var GroupForm = React.createClass({
       this.setState({ messages: 'Oh snap! Fields cannot be blank.' });
     } else {
       ApiUtil.createGroup(group, function () {
-        this.props.history.pushState( { createdGroup: true }, "/");
+        this.props.history.pushState( { createdGroup: true }, this.props.location);
       }.bind(this));
 
       this.setState(this.blankAttrs);
@@ -41,7 +41,6 @@ var GroupForm = React.createClass({
     }
     return(
       <div className='group-form'>
-        {errorMessages}
         <dl>
         <div className="form-create-header"><dt>Make a Group</dt></div>
         </dl>
@@ -78,7 +77,8 @@ var GroupForm = React.createClass({
                 <label htmlFor='group_body'><dt>About</dt></label>
             </div>
             <div className="col-md-5">
-              <textarea
+              <input
+                type='text'
                 id='group_body'
                 placeholder='What defines your group?'
                 valueLink={this.linkState("body")}
@@ -87,6 +87,7 @@ var GroupForm = React.createClass({
           </div>
           </dl>
             <button className="btn btn-primary" onClick={this.tryToSave}>Create Group</button>
+              {errorMessages}
           </div>
         </form>
       </div>
