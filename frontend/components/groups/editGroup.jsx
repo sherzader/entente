@@ -29,7 +29,7 @@ var EditGroup = React.createClass({
   },
   render: function () {
     return(
-      <div className='jumbotron'>
+      <div className='event-page edit-event'>
       <form className='edit-group' onSubmit={this._updateGroup}>
         <dl>
           <div className='form-header'><dt>Edit the Group</dt></div>
@@ -52,7 +52,8 @@ var EditGroup = React.createClass({
             <label htmlFor='group_body'>About Group:</label>
             </td>
             <td>
-            <textarea
+            <input
+              type='text'
               id='group_body'
               valueLink={this.linkState("body")}
             />

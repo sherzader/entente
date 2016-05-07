@@ -9,22 +9,28 @@ var EventForm = React.createClass({
     title: '',
     location: '',
     body: '',
-    date: ''
+    date: '',
+    messages: ''
   },
 
   getInitialState: function () {
     return (this.blankAttrs) ;
   },
 
-  createEvent: function (e) {
+  tryToSave: function (e) {
     e.preventDefault();
 
     var group_event = this.state;
-    ApiUtil.createEvent(this.props.group.id, group_event, function () {
-      this.props.history.push("/groups/" + this.props.group.id);
-    }.bind(this));
+    if (group_event.title == '' || group_event.location == '' || group_event.body == '' ||      group_event.date) {
+      this.setState({ messages: 'Oh snap! Fields cannot be blank.' });
+    } else {
+      ApiUtil.createEvent(this.props.group.id, group_event, function () {
+        this.props.history.push("/groups/" + this.props.group.id);
+      }.bind(this));
+      this.setState(this.blankAttrs);
+      this.closeModal();
+    }
 
-    this.setState(this.blankAttrs);
   },
   closeModal: function () {
     $('.new-event').on('submit', function() {
@@ -32,12 +38,18 @@ var EventForm = React.createClass({
     });
   },
   render: function () {
+    var errorMessages;
+    if (this.state.messages.length > 0) {
+      errorMessages =
+      <div className="alert alert-danger">{this.state.messages}</div>;
+    }
     return(
-      <div className='event-form'>
+      <div className='form new-event'>
+        {errorMessages}
         <dl>
         <div className='form-create-header'><dt>Make an Event</dt></div>
         </dl>
-        <form className='new-event' onSubmit={this.createEvent} role='form'>
+        <form role='form'>
             <div className='col-md-9'>
               <dl>
               <div className="row">
@@ -79,9 +91,12 @@ var EventForm = React.createClass({
               </div><br />
             </div>
             <div className="row">
-              <div className="col-md-6">
+              <div className="col-md-4">
                 <label htmlFor='event_body'><dt>Description</dt></label><br />
-                <textarea
+              </div>
+              <div className="col-md-5">
+                <input
+                  type='text'
                   id='event_body'
                   placeholder="What's planned?"
                   valueLink={this.linkState("body")}
@@ -89,7 +104,7 @@ var EventForm = React.createClass({
               </div><br />
             </div>
           </dl>
-            <button className="btn btn-primary" onSubmit={this.closeModal()}><dt>Create</dt></button>
+            <button className="btn btn-primary" onClick={this.tryToSave}>Create</button>
           </div>
         </form>
       </div>

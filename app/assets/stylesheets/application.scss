@@ -58,9 +58,20 @@
   width: 100%;
 }
 
-.alert-danger {
+#login .alert-danger {
   z-index: 10 !important;
   position: fixed;
+}
+
+.show-group .alert {
+  height: 50px;
+  width: 100%;
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  text-align: center;
+  margin: 0;
+  font-size: 18px;
 }
 
 .login-page {
@@ -302,26 +313,26 @@ h4 {
 
 .group-search {
   margin-bottom: 50px;
-  padding-top: 50px;
-  width: 50%;
+  padding-top: 40px;
+  width: 30%;
 }
+
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
 
 div.input-group {
   position: relative;
   margin: 0 auto;
-}
-
-div.input-group input.form-control {
-  background-color: #eee;
-  color: #777;
-}
-
-div.input-group input.form-control:focus {
-  background-color: #fff;
+  border-bottom: 5px aquamarine solid;
+  font-size: 24px;
   color: #000;
-  border-radius: 15px;
 }
 
+div.input-group input {
+  padding: 7px;
+}
 
 .hidden {
   display: none;
@@ -606,14 +617,12 @@ hr {
   margin-right: 1%;
 }
 
-
 .search-events div.input-group {
-  width: 230px;
   margin-top: 60px;
 }
 
-.search-events div.input-group input.form-control {
-  border-radius: 15px;
+.search-events div.input-group input {
+  width: 230px;
 }
 
 .create-event {
@@ -729,15 +738,6 @@ hr {
   box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
 
-.new-event {
-  height: 600px;
-  padding-top: 0px;
-  margin: 0 auto;
-  padding-right: 5px;
-  border-color: black;
-  font-size: 14px;
-}
-
 .edit-event {
   position: relative;
 }
@@ -764,10 +764,6 @@ hr {
   margin-bottom: 10px;
 }
 
-.modal-content .row {
-  margin-bottom: 25px;
-}
-
 form input {
   max-width: 300px;
   border-bottom: 4px aquamarine solid;
@@ -777,28 +773,25 @@ form input {
   margin: 0px 10px 10px;
 }
 
-form.new-event label {
-  float: left;
-}
-
 .modal-header {
   width: auto;
   height: auto;
   padding-top: 40px;
 }
 
-.group-form {
-  height: 400px;
-  width: 500px;
-  padding: 30px;
-  margin: 0 auto;
+.new-group .row {
+  margin-bottom: 10px;
 }
 
-.event-form {
-  background-color: #eee;
-  height: 500px;
-  padding: 30px;
+.form {
+  max-width: 568px;
+  padding-left: 30px;
   margin: 0 auto;
+  min-height: 300px;
+}
+
+.form .new-event {
+  min-height: 350px;
 }
 
 .btn-create-form {

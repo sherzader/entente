@@ -14,25 +14,39 @@ var Show = React.createClass({
   getInitialState: function () {
     var groupId = this.props.params.id;
     var group = ApiUtil.fetchGroup(groupId) || GroupStore.findGroupById(groupId) || {};
-    return { group: group, current_user: UserStore.findUserById(window.CURRENT_USER.id),
+    return { group: group,
+             current_user: UserStore.findUserById(window.CURRENT_USER.id),
              users_groups: GroupStore.allUsersGroups(),
-             join_text: "Join"};
+             join_text: "Join",
+             errorMsg: '',
+             successMsg: ''
+           };
   },
   _deleteGroup: function () {
     var group = this.state.group;
 
-    ApiUtil.destroyGroup(group, function () {
-      this.history.push("/");
-    }.bind(this));
+    if (group.organizer.id !== window.CURRENT_USER.id) {
+      this.setState({ errorMsg: 'You do not have permission to do delete.' })
+      this.forceUpdate();
+    } else {
+      ApiUtil.destroyGroup(group, function () {
+        this.history.push("/");
+      }.bind(this));
+    }
   },
   _editGroup: function (e) {
     e.preventDefault();
 
     var group = this.state.group;
 
-    ApiUtil.editGroup(group, function () {
-      this.history.push("/groups/" + group.id + "/edit");
-    }.bind(this));
+    if (this.state.join_text === 'Join') {
+      this.setState({ errorMsg: 'You cannot edit a group you are not a member of.'})
+      this.forceUpdate();
+    } else {
+      ApiUtil.editGroup(group, function () {
+        this.history.push("/groups/" + group.id + "/edit");
+      }.bind(this));
+    }
   },
   _onChange: function () {
     var newState = {};
@@ -64,12 +78,14 @@ var Show = React.createClass({
 
     if (e.currentTarget.innerHTML === "Join"){
       ApiUtil.createUsersGroup(this.state.group);
+      this.setState({ successMsg: 'Congrats, you have successfully joined!'})
     } else {
         var found = this.state.users_groups.find(function (users_group) {
           return (users_group.group_id === this.state.group.id);
         }.bind(this));
 
         ApiUtil.destroyUsersGroup(found);
+        this.setState({ successMsg: 'You have left the group! Sad to see you go.'})
     }
   },
   _joinGroup: function () {
@@ -91,6 +107,15 @@ var Show = React.createClass({
     this.groupListener.remove();
   },
   render: function () {
+    var errorMessages,
+        successMessages;
+    if (this.state.errorMsg.length > 0) {
+      errorMessages =
+      <div className="alert alert-danger">{this.state.errorMsg}</div>;
+    } else if (this.state.successMsg.length > 0) {
+      successMessages =
+      <div className="alert alert-success">{this.state.successMsg}</div>;
+    }
     var group_img = "http://res.cloudinary.com/sherzader/image/upload/" + this.state.group.img_url;
     var organizer = {};
     var created_at = "";
@@ -119,7 +144,9 @@ var Show = React.createClass({
       }
     }
     return(
-      <div className="row" ref="row">
+      <div className="show-group row" ref="row">
+        {successMessages}<br/>
+        {errorMessages}
         <div className="col-2 col-md-2 members container">
           <dl>
           {memberCount}
@@ -158,7 +185,7 @@ var Show = React.createClass({
               <div className="modal-header">
                 <EventForm history={this.history} group={this.state.group} />
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" data-dismiss="modal"><dt>Cancel</dt></button>
+                <button type="button" className="btn btn-secondary" data-dismiss="modal">Just kidding.</button>
               </div>
               </div>
             </div>

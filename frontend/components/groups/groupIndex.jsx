@@ -50,7 +50,6 @@ var GroupIndex = React.createClass({
       <div>
         <div className="group-search input-group">
               <input type="text"
-                     className="form-control"
                      placeholder="Search groups..."
                      onChange={this.handleChange}
                      value={this.state.searchString}>

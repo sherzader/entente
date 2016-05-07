@@ -40,11 +40,12 @@ var GroupForm = React.createClass({
       <div className="alert alert-danger">{this.state.messages}</div>;
     }
     return(
-      <div className='group-form'>
+      <div className='form new-group'>
+        {errorMessages}
         <dl>
         <div className="form-create-header"><dt>Make a Group</dt></div>
         </dl>
-        <form className='new-group' role='form'>
+        <form role='form'>
           <div className="col-md-9">
           <dl>
           <div className="row">
@@ -87,7 +88,6 @@ var GroupForm = React.createClass({
           </div>
           </dl>
             <button className="btn btn-primary" onClick={this.tryToSave}>Create Group</button>
-              {errorMessages}
           </div>
         </form>
       </div>

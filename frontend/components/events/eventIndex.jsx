@@ -45,7 +45,6 @@ var EventIndex = React.createClass({
         <div className="search-events">
           <div className="input-group">
             <input type="text"
-                   className="form-control"
                    placeholder="Search events..."
                    onChange={this.handleChange}
                    value={this.state.searchString} />
