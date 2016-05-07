@@ -9,33 +9,43 @@ var GroupForm = React.createClass({
     title: '',
     location: '',
     body: '',
-    organizer_id: ''
+    organizer_id: '',
+    messages: ''
   },
   getInitialState: function () {
     return this.blankAttrs;
   },
-  createGroup: function (e) {
+  closeModal: function () {
+    $('.modal').modal('hide');
+  },
+  tryToSave: function (e) {
     e.preventDefault();
     var group = this.state;
 
-    ApiUtil.createGroup(group, function () {
-      this.props.history.push("/");
-    }.bind(this));
+    if (group.title == '' || group.location == '' || group.body == '') {
+      this.setState({ messages: 'Oh snap! Fields cannot be blank.' });
+    } else {
+      ApiUtil.createGroup(group, function () {
+        this.props.history.pushState( { createdGroup: true }, "/");
+      }.bind(this));
 
-    this.setState(this.blankAttrs);
-  },
-  closeModal: function () {
-    $('.new-group').on('submit', function() {
-      $('.modal').modal('hide');
-    });
+      this.setState(this.blankAttrs);
+      this.closeModal();
+    }
   },
   render: function () {
+    var errorMessages;
+    if (this.state.messages.length > 0) {
+      errorMessages =
+      <div className="alert alert-danger">{this.state.messages}</div>;
+    }
     return(
       <div className='group-form'>
+        {errorMessages}
         <dl>
         <div className="form-create-header"><dt>Make a Group</dt></div>
         </dl>
-        <form className='new-group' onSubmit={this.createGroup} role='form'>
+        <form className='new-group' role='form'>
           <div className="col-md-9">
           <dl>
           <div className="row">
@@ -75,8 +85,8 @@ var GroupForm = React.createClass({
                 />
             </div>
           </div>
-        </dl>
-            <button className="btn btn-primary" onSubmit={this.closeModal()}><dt>Create</dt></button>
+          </dl>
+            <button className="btn btn-primary" onClick={this.tryToSave}>Create Group</button>
           </div>
         </form>
       </div>

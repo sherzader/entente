@@ -100,8 +100,8 @@ var GroupItem = React.createClass({
          <img className="group-item-img" src={group_img} alt='' />
          <div className="group-caption">
            <h3>{this.props.group.title}</h3>
-           <h2>{memberCount}</h2>
-           <h4>
+           {memberCount}
+           <h3>
            <span className={this._addHoverClass()}>
              <a href="#"
                title="Join/Leave"
@@ -113,7 +113,7 @@ var GroupItem = React.createClass({
                <span title="See more" className="glyphicon glyphicon-share-alt" />
              </Link>
           </span>
-           </h4>
+          </h3>
         </div>
       </div>
     );

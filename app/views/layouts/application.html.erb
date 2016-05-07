@@ -8,7 +8,12 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 <body>
-  <%= render "layouts/errors" %>
+  <% if flash[:errors] %>
+    <div class="alert alert-danger">
+      <strong>Oh snap!</strong><br />
+      <%= render "layouts/errors" %>
+    </div>
+  <% end %>
   <% if current_user %>
     <script type="text/javascript">
       window.CURRENT_USER = <%= "{id: #{current_user.id}}".html_safe %>;
@@ -19,16 +24,6 @@
     document.getElementById('returning').addEventListener('click', function(){
       document.getElementById('hiddenlogin').style.display = 'block';
     });
-
-    // window.onload = function() {
-    //   var i = 0;
-    //   var bgs = ['red', 'blue', 'green'];
-    //   setInterval(function() {
-    //       document.body.style.backgroundColor = bgs[i];
-    //       i = (i + 1) % bgs.length;
-    //   }, 2000);
-    // };
-
   </script>
   <%= javascript_include_tag 'application' %>
 

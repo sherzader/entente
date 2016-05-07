@@ -16,7 +16,7 @@ class Api::GroupsController < ApplicationController
       end
       render :show
     else
-      render json: @group.errors.full_messages, status: 422
+      render json: @group.errors.full_messages
     end
   end
 
@@ -26,7 +26,7 @@ class Api::GroupsController < ApplicationController
     if @group.destroy
       render :index
     else
-      render json: @group.errors.full_messages, status: 422
+      render json: @group.errors.full_messages
     end
   end
 
@@ -36,7 +36,7 @@ class Api::GroupsController < ApplicationController
    if @group.update(group_params)
      render :show
    else
-     render json: @group.errors.full_messages, status: 422
+     render json: @group.errors.full_messages
    end
   end
 

@@ -32,6 +32,10 @@ var App = React.createClass({
     ApiUtil.logout();
   },
   render: function () {
+    var successMsg;
+    if (this.props.location.state.createdGroup == true) {
+      successMsg = <div class="alert alert-success" role="alert"><strong>Well done chap!</strong>You successfully created a group.</div>
+    }
     return(
       <div className="app">
         <nav className="navbar navbar-default">
@@ -66,7 +70,7 @@ var App = React.createClass({
               <div className="modal-header">
                 <GroupForm history={this.history} />
               <div className="modal-footer">
-                <button className="btn btn-secondary" data-dismiss="modal"><dt>Cancel</dt></button>
+                <button className="btn btn-secondary" data-dismiss="modal">Just kidding.</button>
               </div>
               </div>
             </div>
@@ -76,12 +80,13 @@ var App = React.createClass({
           <div className="intro-modal">
             <div id="welcome-modal-title"><h2>Welcome to Entente!</h2></div><h3>/änˈtänt/</h3>
             <div className="modal-footer">
-              <h4 id="welcome-info">Entente is a place to find or create groups and events that match your interests.</h4>
-              <h4 id="welcome-info">Follow the tour to see all the cool features.</h4>
+              <h4 id="welcome-info">Entente is a place to find or create groups and events that match your interests.
+              <br /><br />Follow the tour to see all the cool features.
+              <br /><br />Click anywhere outside this box to get started.</h4>
             </div>
           </div>
-          <button onClick={this.hideModal}><dt>Continue</dt></button>
         </Modal>
+        {successMsg}
         {this.props.children}
         <div className="app-footer">
           <div className="footer-item"><a href="http://github.com/sherzader/entente" target = "_blank"><img src="http://res.cloudinary.com/sherzader/image/upload/v1460184917/octocat_vcuk8h.png" />Github</a></div>
