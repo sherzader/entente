@@ -33,7 +33,7 @@ var App = React.createClass({
   },
   render: function () {
     var successMsg;
-    if (this.props.location.state.createdGroup == true) {
+    if (this.props.location.state && this.props.location.state.createdGroup == true) {
       successMsg = <div class="alert alert-success" role="alert"><strong>Well done chap!</strong>You successfully created a group.</div>
     }
     return(
