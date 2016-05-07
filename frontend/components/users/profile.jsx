@@ -9,7 +9,7 @@ var UsersGroups = React.createClass({
   getInitialState: function () {
     var u = UserStore.findUserById(window.CURRENT_USER.id) ||
             ApiUtil.fetchUser(window.CURRENT_USER.id) || {};
-    return ({user: u});
+    return ({ user: u});
   },
   componentDidMount: function () {
     ApiUtil.fetchUser(window.CURRENT_USER.id);

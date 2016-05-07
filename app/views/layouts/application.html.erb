@@ -21,9 +21,11 @@
   <% end %>
   <%= yield %>
   <script type="text/javascript">
-    document.getElementById('returning').addEventListener('click', function(){
-      document.getElementById('hiddenlogin').style.display = 'block';
-    });
+    if (document.getElementById('returning')) {
+      document.getElementById('returning').addEventListener('click', function(){
+        document.getElementById('hiddenlogin').style.display = 'block';
+      });
+    }
   </script>
   <%= javascript_include_tag 'application' %>
 

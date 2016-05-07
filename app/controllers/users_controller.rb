@@ -23,13 +23,12 @@ before_filter :ensure_login, only: [:index, :show]
 
   def show
     @user = User.find(params[:id])
-    @current_user = current_user
-    render json: :show
+    render :show
   end
 
   def index
     @users = User.all
-    render json: :index
+    render json: @users
   end
 
   private

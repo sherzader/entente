@@ -9,7 +9,8 @@ Rails.application.routes.draw do
     resources :events, only: [:show, :destroy, :update]
   end
 
-  resources :users, only: [:create, :show, :index, :new]
+  resources :users, only: [:create, :new]
+  resources :users, defaults: { format: :json }, only: [:show, :index]
 
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
