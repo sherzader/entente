@@ -26,7 +26,7 @@ var Show = React.createClass({
     var group = this.state.group;
 
     if (group.organizer.id !== window.CURRENT_USER.id) {
-      this.setState({ errorMsg: 'You do not have permission to do delete.' })
+      this.setState({ successMsg: '', errorMsg: 'You do not have permission to do delete.' })
       this.forceUpdate();
     } else {
       ApiUtil.destroyGroup(group, function () {
@@ -40,7 +40,7 @@ var Show = React.createClass({
     var group = this.state.group;
 
     if (this.state.join_text === 'Join') {
-      this.setState({ errorMsg: 'You cannot edit a group you are not a member of.'})
+      this.setState({ successMsg: '', errorMsg: 'You cannot edit a group you are not a member of.'})
       this.forceUpdate();
     } else {
       ApiUtil.editGroup(group, function () {
@@ -78,14 +78,14 @@ var Show = React.createClass({
 
     if (e.currentTarget.innerHTML === "Join"){
       ApiUtil.createUsersGroup(this.state.group);
-      this.setState({ successMsg: 'Congrats, you have successfully joined!'})
+      this.setState({ errorMsg: '', successMsg: 'Congrats, you have successfully joined!'})
     } else {
         var found = this.state.users_groups.find(function (users_group) {
           return (users_group.group_id === this.state.group.id);
         }.bind(this));
 
         ApiUtil.destroyUsersGroup(found);
-        this.setState({ successMsg: 'You have left the group! Sad to see you go.'})
+        this.setState({ errorMsg: '', successMsg: 'You have left the group! Sad to see you go.'})
     }
   },
   _joinGroup: function () {
