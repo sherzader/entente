@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   root to: "static_pages#root"
 
   namespace :api, defaults: { format: :json } do

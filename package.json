@@ -8,8 +8,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "./node_modules/.bin/webpack"
+    "postinstall": "./node_modules/.bin/webpack",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -28,13 +28,11 @@
     "babel-preset-react": "^6.3.13",
     "boron": "^0.2.3",
     "css-loader": "^0.23.1",
-    "express": "4.13.3",
     "flux": "^2.1.1",
     "history": "^1.13.x",
     "moment": "^2.10.6",
     "react": "^0.14.2",
     "react-addons-linked-state-mixin": "^0.14.2",
-    "react-bootstrap": "^0.28.5",
     "react-bootstrap-modal": "^2.0.0",
     "react-day-picker": "^1.2.0",
     "react-dom": "^0.14.2",
@@ -46,5 +44,8 @@
   "engines": {
     "node": "4.1.1",
     "npm": "2.1.x"
+  },
+  "devDependencies": {
+    "jest-cli": "^12.0.2"
   }
 }

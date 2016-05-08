@@ -44,6 +44,10 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'capybara'
+  gem 'rspec-rails'
+  gem 'launchy'
+  gem 'shoulda-matchers'
 end
 
 group :development do
