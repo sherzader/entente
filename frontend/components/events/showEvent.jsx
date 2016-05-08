@@ -46,9 +46,9 @@ var Show = React.createClass({
       <div className="row">
         <div className="show-event-block">
           <div className='event-buttons'>
-            <button className="glyphicon glyphicon-th" title="Back to Group" onClick={this._goBack}></button>
-            <button className="glyphicon glyphicon-pencil" title="Edit Group" onClick={this._editEvent}></button>
-            <button className="glyphicon glyphicon-trash" title="Delete Group" onClick={this._deleteEvent}></button>
+            <button className="glyphicon glyphicon-th" title="Back to Event" onClick={this._goBack}></button>
+            <button className="glyphicon glyphicon-pencil" title="Edit Event" onClick={this._editEvent}></button>
+            <button className="glyphicon glyphicon-trash" title="Delete Event" onClick={this._deleteEvent}></button>
           </div>
           <div className="show-event">
             <img className="event-img" src={event_img} alt="event-img"></img>

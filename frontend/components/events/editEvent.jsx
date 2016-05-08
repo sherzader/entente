@@ -7,15 +7,31 @@ var History = require('react-router').History;
 var EditEvent = React.createClass({
   mixins: [LinkedStateMixin, History],
 
-  getInitialState: function () {
-    return ({id: 0 , title: '', body: '', location: '', date: ''});
+  blankAttrs: {
+    title: '',
+    location: '',
+    body: '',
+    date: '',
+    messages: ''
   },
-  _updateEvent: function (e) {
+
+  getInitialState: function () {
+    return (this.blankAttrs);
+  },
+  tryToSave: function (e) {
     e.preventDefault();
 
-    ApiUtil.editEvent(this.state, function () {
-      this.history.push("/events/" + this.state.id);
-    }.bind(this));
+    var group_event = this.state;
+    if (group_event.title == '' || group_event.location == '' || group_event.body == '' ||      group_event.date) {
+      this.setState({ messages: 'Oh snap! Fields cannot be blank.' });
+    } else {
+      ApiUtil.editEvent(this.state, function () {
+        this.history.push("/events/" + this.state.id);
+      }.bind(this));
+    }
+  },
+  _goBack: function () {
+    this.history.push("/events/" + this.state.id);
   },
   _onChange: function () {
     var group_event = EventStore.findEventById(this.props.params.id) ||
@@ -30,72 +46,77 @@ var EditEvent = React.createClass({
     this.eventListener.remove();
   },
   render: function () {
+    var errorMessages;
+    if (this.state.messages.length > 0) {
+      errorMessages =
+      <div className="alert alert-danger">{this.state.messages}</div>;
+    }
     return(
-      <div className="event-page edit-event">
-          <form className='edit-event' onSubmit={this._updateEvent}>
-            <dl>
-              <div className='form-header'><dt>Edit the Event</dt></div>
-            </dl>
-            <table>
-              <tbody>
-              <tr>
-                <td>
-                <label htmlFor='event_title'>Name:</label>
-                </td>
-                <td>
+      <div className='edit-form'>
+        {errorMessages}
+        <div className='navbar-pushup'></div>
+        <dl>
+        <div className='form-create-header'><dt>Update an Event</dt></div>
+        </dl>
+        <form role='form'>
+            <div className='col-md-9'>
+              <dl>
+              <div className="row">
+                <div className="col-md-4">
+                  <label htmlFor='event_title'><dt>Event Name</dt></label><br /><br />
+                </div>
+              <div className="col-md-5">
                 <input
                   type='text'
                   id='event_title'
-                  valueLink={this.linkState('title')}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                <label htmlFor='event_location'>Location: </label>
-                </td>
-                <td>
-                  <input
-                    type='text'
-                    id='event_location'
-                    valueLink={this.linkState("location")}
-                    />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                <label className="fa fa-calendar" htmlFor='event_date'></label>
-                </td>
-                <td>
-                  <input
-                    type='datetime-local'
-                    id='event_date'
-                    valueLink={this.linkState("date")}
-                    />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                <label htmlFor='event_body'>About Event:</label>
-                </td>
-                <td>
+                  placeholder='Add a clear title'
+                  valueLink={this.linkState("title")}
+                />
+              </div><br />
+            </div>
+            <div className="row">
+              <div className="col-md-4">
+                <label htmlFor='event_location'><dt>Location</dt></label><br /><br />
+              </div>
+              <div className="col-md-5">
+                <input
+                  type='text'
+                  id='event_location'
+                  placeholder='Provide a street/landmark'
+                  valueLink={this.linkState("location")}
+                />
+              </div><br />
+            </div>
+            <div className="row">
+              <div className="col-md-4">
+                <label htmlFor='event_date'><dt>Date/Time</dt></label><br /><br />
+              </div>
+              <div className="col-md-5">
+                <input
+                  type='datetime-local'
+                  id='event_date'
+                  valueLink={this.linkState("date")}
+                />
+              </div><br />
+            </div>
+            <div className="row">
+              <div className="col-md-4">
+                <label htmlFor='event_body'><dt>Description</dt></label><br />
+              </div>
+              <div className="col-md-5">
                 <input
                   type='text'
                   id='event_body'
+                  placeholder="What's planned?"
                   valueLink={this.linkState("body")}
                   />
-              </td>
-              </tr>
-              <tr>
-                <td></td>
-                <td>
-                  <button className="btn btn-primary">Update</button>
-                </td>
-              </tr>
-            </tbody>
-            </table>
-            <br />
-          </form>
+              </div><br />
+            </div>
+          </dl>
+            <button className="btn btn-primary" onClick={this.tryToSave}>Update</button>
+            <button className="btn btn-warning" onClick={this._goBack}>Back to Event Page</button>
+          </div>
+        </form>
       </div>
     );
   }

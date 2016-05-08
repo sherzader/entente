@@ -26,7 +26,7 @@ var Show = React.createClass({
     var group = this.state.group;
 
     if (group.organizer.id !== window.CURRENT_USER.id) {
-      this.setState({ successMsg: '', errorMsg: 'You do not have permission to do delete.' })
+      this.setState({ successMsg: '', errorMsg: 'You do not have permission to delete.' })
       this.forceUpdate();
     } else {
       ApiUtil.destroyGroup(group, function () {

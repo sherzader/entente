@@ -15,6 +15,9 @@ var GroupForm = React.createClass({
   getInitialState: function () {
     return this.blankAttrs;
   },
+  componentWillUnmount: function () {
+    this.setState({ messages: '' });
+  },
   closeModal: function () {
     $('.modal').modal('hide');
   },

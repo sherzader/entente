@@ -7,13 +7,30 @@ var History = require('react-router').History;
 var EditGroup = React.createClass({
   mixins: [LinkedStateMixin, History],
 
-  getInitialState: function () {
-    return ({id: 0 , title: '', body: '', location: ''});
+  blankAttrs: {
+    title: '',
+    location: '',
+    body: '',
+    organizer_id: '',
+    messages: ''
   },
-  _updateGroup: function () {
-    ApiUtil.editGroup(this.state, function () {
-      this.history.push("/groups/" + this.props.params.id);
-    }.bind(this));
+  getInitialState: function () {
+    return this.blankAttrs;
+  },
+  tryToSave: function (e) {
+    e.preventDefault();
+    var group = this.state;
+
+    if (group.title == '' || group.location == '' || group.body == '') {
+      this.setState({ messages: 'Oh snap! Fields cannot be blank.' });
+    } else {
+      ApiUtil.editGroup(this.state, function () {
+        this.history.push("/groups/" + this.props.params.id);
+      }.bind(this));
+    }
+  },
+  _goBack: function () {
+    this.history.push("/groups/" + this.props.params.id);
   },
   _onChange: function () {
     var group = GroupStore.findGroupById(this.props.params.id) ||
@@ -28,60 +45,65 @@ var EditGroup = React.createClass({
     this.groupListener.remove();
   },
   render: function () {
+    var errorMessages;
+    if (this.state.messages.length > 0) {
+      errorMessages =
+      <div className="alert alert-danger">{this.state.messages}</div>;
+    }
     return(
-      <div className='event-page edit-event'>
-      <form className='edit-group' onSubmit={this._updateGroup}>
+      <div className='edit-form'>
+        {errorMessages}
+        <div className='navbar-pushup'></div>
         <dl>
-          <div className='form-header'><dt>Edit the Group</dt></div>
+        <div className="form-create-header"><dt>Update Group</dt></div>
         </dl>
-        <table>
-          <tbody>
-          <tr>
-            <td>
-            <label htmlFor='group_title'>Name:</label>
-            </td>
-            <td>
-            <input
-              type='text'
-              id='group_title'
-              valueLink={this.linkState("title")} />
-            </td>
-          </tr>
-          <tr>
-            <td>
-            <label htmlFor='group_body'>About Group:</label>
-            </td>
-            <td>
-            <input
-              type='text'
-              id='group_body'
-              valueLink={this.linkState("body")}
-            />
-          </td>
-          </tr>
-          <tr>
-            <td>
-            <label htmlFor='group_location'>Location: </label>
-            </td>
-            <td>
+        <form role='form'>
+          <div className="col-md-9">
+          <dl>
+          <div className="row">
+            <div className="col-md-4">
+                <label htmlFor='group_title'><dt>Name</dt></label>
+            </div>
+            <div className="col-md-5">
+              <input
+                type='text'
+                id='group_title'
+                placeholder='Provide a group name'
+                valueLink={this.linkState("title")} />
+            </div><br />
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+              <label htmlFor='group_location'><dt>Location</dt></label>
+            </div>
+            <div className="col-md-5">
               <input
                 type='text'
                 id='group_location'
+                placeholder='General gathering spot'
                 valueLink={this.linkState("location")}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <button className="btn btn-primary">Update</button>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-        <br />
-      </form>
-    </div>
+                />
+            </div><br />
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+                <label htmlFor='group_body'><dt>About</dt></label>
+            </div>
+            <div className="col-md-5">
+              <input
+                type='text'
+                id='group_body'
+                placeholder='What defines your group?'
+                valueLink={this.linkState("body")}
+                />
+            </div>
+          </div>
+          </dl>
+            <button className="btn btn-primary" onClick={this.tryToSave}>Update Group</button>
+            <button className="btn btn-warning" onClick={this._goBack}>Back to Group Page</button>
+          </div>
+        </form>
+      </div>
     );
   }
 });

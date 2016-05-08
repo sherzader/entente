@@ -66,7 +66,7 @@
   text-align: center;
 }
 
-.show-group .alert {
+.show-group > .alert {
   z-index: 999;
   height: 50px;
   width: 100%;
@@ -223,22 +223,6 @@ li {
   display: block;
   cursor: pointer;
   cursor: hand;
-}
-
-.edit-event > .jumbotron {
-  text-align: center;
-  height: 500px;
-  margin: 0px auto;
-  padding: 30px;
-  width: 500px;
-  display: inline-flex;
-  top: 15%;
-  position: absolute;
-  left: 25%;
-  webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
-  -moz-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
-  box-shadow: 0 5px 5px rgba(0,0,0,0.4);
-  border-radius: 10px;
 }
 
 * { font-family: 'Proxima Nova', sans-serif; }
@@ -743,8 +727,17 @@ hr {
   box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
 
-.edit-event {
+.navbar-pushup {
+  height: 20px;
+}
+
+
+.edit-form {
   position: relative;
+  margin: 0 auto;
+  width: 400px;
+  height: 600px;
+  top: 100px;
 }
 
 .event-form-labels {
@@ -772,10 +765,6 @@ hr {
 form input {
   max-width: 300px;
   border-bottom: 4px aquamarine solid;
-}
-
-.edit-event textarea {
-  margin: 0px 10px 10px;
 }
 
 .modal-header {
