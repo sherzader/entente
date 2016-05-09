@@ -227,7 +227,7 @@ li {
 
 * { font-family: 'Proxima Nova', sans-serif; }
 *:focus {
-    outline: none;
+  outline: none;
 }
 
 .nav-item {
@@ -359,7 +359,7 @@ div.input-group input {
   border-radius: 20px;
   letter-spacing: 1px;
   transition: all 0.4s ease;
-  webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
@@ -398,7 +398,7 @@ div.input-group input {
   border-radius: 10px;
   margin-top: 10%;
   margin-left: 30%;
-  webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
@@ -421,7 +421,7 @@ div.input-group input {
 
 .user-show {
   margin: 0 auto;
-  webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
@@ -463,7 +463,7 @@ div.input-group input {
    z-index: 1;
    border-radius: 10px;
    transition: all 0.5s ease-in-out;
-   webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+   -webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
    -moz-box-shadow: 0 5px 5px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
    box-shadow: 0 5px 5px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   }
@@ -580,7 +580,7 @@ hr {
   margin: 0 auto;
   width: 100%;
   border-bottom: 2px dotted #e7e7e7;
-  webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   background: #eee; /* For browsers that do not support gradients */
@@ -628,7 +628,7 @@ hr {
   top: 85px;
   max-width: 300px;
   padding: 30px;
-  webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
+  -webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
   -moz-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
   box-shadow: 0 5px 5px rgba(0,0,0,0.4);
 }
@@ -654,7 +654,7 @@ hr {
   background-color: #eee;
   margin-bottom: 10px;
   padding: 20px;
-  webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
+  -webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
   -moz-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
   box-shadow: 0 5px 5px rgba(0,0,0,0.4);
 }
@@ -697,7 +697,7 @@ hr {
   max-width: 500px;
   height: auto;
   margin: 0 auto;
-  webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
+  -webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
   -moz-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
   box-shadow: 0 5px 5px rgba(0,0,0,0.4);
 }
@@ -722,7 +722,7 @@ hr {
   height: auto;
   width: 800px;
   margin: 0 auto;
-  webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
@@ -807,7 +807,7 @@ form input {
   background-color: #e6e6e6;
   padding-bottom: 15px;
   box-shadow: 0 1px 1px #ccc;
-  webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
@@ -817,7 +817,7 @@ form input {
   background-color: #e6e6e6;
   width: 100%;
   height: auto;
-  webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   box-shadow: 0 1px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
@@ -827,7 +827,7 @@ form input {
   position: relative;
   display: table-caption;
   caption-side: bottom;
-  webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
+  -webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
   -moz-box-shadow: 0 5px 5px rgba(0,0,0,0.4);
   box-shadow: 0 5px 5px rgba(0,0,0,0.4);
 }
@@ -869,7 +869,7 @@ button.glyphicon {
   height: 50px;
   border-radius: 50px;
   transition: all 0.4s ease-in-out;
-  webkit-box-shadow: 0 5px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
+  -webkit-box-shadow: 0 5px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   -moz-box-shadow: 0 5px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
   box-shadow: 0 5px 1px rgba(0,0,0,0.15),-1px 0 0 rgba(0,0,0,0.03),1px 0 0 rgba(0,0,0,0.03),0 1px 0 rgba(0,0,0,0.12);
 }
