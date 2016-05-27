@@ -1,6 +1,6 @@
 # Entente
 
-Entente is a social media web application inspired by Meetup.
+Entente is a web application for creating communities and hosting events. It's inspired by Meetup.
 
 ##[Live](http://entente.io) ##
 
@@ -10,9 +10,11 @@ Entente is a social media web application inspired by Meetup.
 - React
 - Bootstrap / HTML / CSS
 - jQuery for AJAX requests
+- For Testing: RSpec and Capybara
 
 ## Minimum Viable Product ##
 
+- [x] RSpec unit tests and Capybara integration tests
 - [x] Create a new user account
 - [x] Log in / Log out via User Authentication
 - [x] Shepherd tour on homepage
